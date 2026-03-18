@@ -159,7 +159,7 @@ export function ChallengeDesktop() {
 
       {/* Offre vs Demande chart */}
       <div className="relative w-full" style={{ aspectRatio: "2838 / 1077" }}>
-        <img alt="Graphique offre vs demande" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgOffreDemande1} />
+        <img loading="lazy" alt="Graphique offre vs demande" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgOffreDemande1} />
       </div>
 
       {/* 3 columns */}
@@ -187,7 +187,7 @@ export function ChallengeDesktop() {
 
       {/* Consultation time chart */}
       <div className="relative w-full" style={{ aspectRatio: "3890 / 1016" }}>
-        <img alt="Average time in consultation" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgConsultationTimeDesktop1} />
+        <img loading="lazy" alt="Average time in consultation" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgConsultationTimeDesktop1} />
       </div>
     </div>
   );
@@ -248,7 +248,7 @@ export function MonRoleDesktop() {
             <div className="flex flex-row items-center justify-center overflow-clip rounded-[inherit] size-full">
               <div className="flex items-center justify-center relative size-full">
                 <div className="relative shrink-0 size-[70.875px]">
-                  <img alt="Léa" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgLea} />
+                  <img loading="lazy" alt="Léa" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgLea} />
                 </div>
               </div>
             </div>
@@ -265,7 +265,7 @@ export function MonRoleDesktop() {
             <div className="flex flex-row items-center justify-center overflow-clip rounded-[inherit] size-full">
               <div className="flex items-center justify-center relative size-full">
                 <div className="relative shrink-0 size-[71.633px]">
-                  <img alt="Titouan" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgTitouan} />
+                  <img loading="lazy" alt="Titouan" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgTitouan} />
                 </div>
               </div>
             </div>
@@ -299,7 +299,7 @@ export function DiscoveryDesktop() {
 
       {/* Discovery workflow image */}
       <div className="relative w-full" style={{ aspectRatio: "2424 / 768" }}>
-        <img alt="Discovery workflow" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiscoveryWorkflow} />
+        <img loading="lazy" alt="Discovery workflow" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgDiscoveryWorkflow} />
       </div>
 
       <div className="flex gap-[40px] items-start w-full">
@@ -384,7 +384,7 @@ export function DiscoveryDesktop() {
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
             <div className="absolute bg-[var(--color-qare-white)] inset-0 rounded-[30px]" />
             <div className="absolute inset-0 overflow-hidden rounded-[30px]">
-              <img alt="Arbre de décision sur la gêne urinaire" className="absolute left-0 max-w-none size-full top-0" src={imgImage24} />
+              <img loading="lazy" alt="Arbre de décision sur la gêne urinaire" className="absolute left-0 max-w-none size-full top-0" src={imgImage24} />
             </div>
           </div>
         </div>
@@ -433,7 +433,7 @@ export function ApprochDesignDesktop() {
         <div className="aspect-[4054/1876] relative rounded-[30px] shrink-0 w-full">
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
             <div className="absolute bg-[#f6fcf9] inset-0 rounded-[30px]" />
-            <img alt="Avant-après de l'interface de consultation" className="absolute max-w-none object-cover rounded-[30px] size-full" src={imgAvantApres1} />
+            <img loading="lazy" alt="Avant-après de l'interface de consultation" className="absolute max-w-none object-cover rounded-[30px] size-full" src={imgAvantApres1} />
           </div>
         </div>
       </div>
@@ -462,7 +462,7 @@ export function IterationDesktop() {
       
       {/* Layout iteration image */}
       <div className="aspect-[4096/1726] relative shrink-0 w-full">
-        <img alt="Évolution des 3 versions de layout" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full rounded-[30px]" src={imgLayoutIteration1} />
+        <img loading="lazy" alt="Évolution des 3 versions de layout" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full rounded-[30px]" src={imgLayoutIteration1} />
       </div>
       
       {/* Bold move block */}

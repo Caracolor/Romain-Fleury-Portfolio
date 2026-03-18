@@ -255,6 +255,7 @@ function MobileZoomableModal({
           {title}
         </p>
         <button
+          aria-label="Fermer"
           onClick={(e) => {
             e.stopPropagation();
             onClose();
@@ -329,9 +330,9 @@ export function DocumentsCles() {
     <div className="content-stretch flex flex-col gap-[32px] md:gap-[56px] items-start relative shrink-0 w-full">
       {/* Header */}
       <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 max-w-full md:w-[706px]">
-        <h4 className="font-['Aeonik:Regular',sans-serif] leading-[normal] relative shrink-0 text-[var(--color-qare-brand)] text-[18px] md:text-[24px] tracking-[4.8px] uppercase">
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] relative shrink-0 text-[var(--color-qare-brand)] text-[18px] md:text-[24px] tracking-[4.8px] uppercase">
           {docs.section_title}
-        </h4>
+        </p>
         <h2 className="font-['Aeonik:Bold',sans-serif] leading-[32px] md:leading-[45px] not-italic relative shrink-0 text-[var(--color-qare-ink)] text-[24px] md:text-[36px] max-w-full md:w-[539px]">
           {docs.headline}
         </h2>

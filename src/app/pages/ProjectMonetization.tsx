@@ -69,7 +69,7 @@ function TimelineEvent({
         </p>
         {image && (
           <div className="mt-[16px] rounded-[16px] overflow-hidden">
-            <img src={image} alt={event.title} className="w-full h-auto object-contain" />
+            <img loading="lazy" src={image} alt={event.title} className="w-full h-auto object-contain" />
           </div>
         )}
       </div>

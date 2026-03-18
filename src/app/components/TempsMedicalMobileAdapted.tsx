@@ -134,7 +134,7 @@ export function ChallengeMobileAdapted() {
 
       <div className="px-[20px]">
         <div className="relative w-full" style={{ aspectRatio: "2838 / 1077" }}>
-          <img alt="Graphique offre vs demande" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgOffreDemande1} />
+          <img loading="lazy" alt="Graphique offre vs demande" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgOffreDemande1} />
         </div>
       </div>
 
@@ -153,7 +153,7 @@ export function ChallengeMobileAdapted() {
       </div>
 
       <div className="px-[20px]">
-        <img alt="Average time in consultation" className="w-full pointer-events-none" src={image_25f97dea947a0e3a5412c371eacde1a450de3759} />
+        <img loading="lazy" alt="Average time in consultation" className="w-full pointer-events-none" src={image_25f97dea947a0e3a5412c371eacde1a450de3759} />
       </div>
     </div>
   );
@@ -209,7 +209,7 @@ export function MonRoleMobileAdapted() {
       <div className="flex flex-col gap-[20px] items-center px-[20px]">
         <div className="flex gap-[12px] items-center w-full">
           <div className="relative rounded-full shrink-0 size-[52px] overflow-hidden">
-            <img alt="Léa" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgLea} />
+            <img loading="lazy" alt="Léa" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgLea} />
             <div aria-hidden="true" className="absolute border-[2.5px] border-solid border-white inset-0 pointer-events-none rounded-full" />
           </div>
           <div className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#24466c] text-[15px]">
@@ -219,7 +219,7 @@ export function MonRoleMobileAdapted() {
         </div>
         <div className="flex gap-[12px] items-center w-full">
           <div className="relative rounded-full shrink-0 size-[52px] overflow-hidden">
-            <img alt="Titouan" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgTitouan} />
+            <img loading="lazy" alt="Titouan" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgTitouan} />
             <div aria-hidden="true" className="absolute border-[2.5px] border-solid border-white inset-0 pointer-events-none rounded-full" />
           </div>
           <div className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#24466c] text-[15px]">
@@ -320,7 +320,7 @@ export function DiscoveryMobileAdapted() {
       {/* Arbre de décision */}
       <div className="flex flex-col gap-[16px] items-center px-[20px]">
         <div className="relative rounded-[20px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.2),0px_0px_2px_0px_rgba(0,0,0,0.08),0px_2px_6px_0px_rgba(0,0,0,0.1)] w-full overflow-hidden" style={{ aspectRatio: "946 / 1737" }}>
-          <img alt="Arbre de décision sur la gène urinaire" className="absolute inset-0 max-w-none object-cover size-full" src={imgImage24} />
+          <img loading="lazy" alt="Arbre de décision sur la gène urinaire" className="absolute inset-0 max-w-none object-cover size-full" src={imgImage24} />
         </div>
         <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[13px] text-center w-full">
           Illustration : Arbre de décision sur la gène urinaire
@@ -357,7 +357,7 @@ export function ApprochDesignMobileAdapted() {
         ))}
       </div>
       <div className="rounded-[20px] w-full overflow-hidden">
-        <img alt="Avant-après de l'interface de consultation" className="w-full pointer-events-none" src={image_512ff59f04327aa92ced48924ddb5bdfd2d746ee} />
+        <img loading="lazy" alt="Avant-après de l'interface de consultation" className="w-full pointer-events-none" src={image_512ff59f04327aa92ced48924ddb5bdfd2d746ee} />
       </div>
     </div>
   );
@@ -379,7 +379,7 @@ export function IterationMobileAdapted() {
         <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px] mt-[4px]">{it.description}</p>
       </div>
       <div className="w-full">
-        <img alt="Évolution des 3 versions de layout" className="w-full pointer-events-none rounded-[30px]" src={image_9c21aee94ef64637cfbeed778dd9762776306afb} />
+        <img loading="lazy" alt="Évolution des 3 versions de layout" className="w-full pointer-events-none rounded-[30px]" src={image_9c21aee94ef64637cfbeed778dd9762776306afb} />
       </div>
       <div className="bg-[var(--color-qare-050)] flex gap-[16px] items-start p-[20px] relative rounded-[20px] w-full">
         <div aria-hidden="true" className="absolute border-[3px] border-[var(--color-qare-300)] border-solid inset-0 pointer-events-none rounded-[20px]" />

@@ -24,7 +24,7 @@ export function InterventionBubble({ text, className = "" }: InterventionBubbleP
         {/* Avatar */}
         <div className="relative rounded-full shrink-0 size-[49px] overflow-hidden">
           <img
-            alt=""
+            alt="Titouan"
             className="absolute inset-0 max-w-none object-cover pointer-events-none size-full"
             src={imgTitouan}
           />

@@ -47,10 +47,10 @@ export function HeroMobileChronic() {
         </div>
 
         <div className="absolute" style={{ width: "clamp(180px, 40vw, 260px)", left: "10%", top: 0, animation: "float-a 5s ease-in-out infinite" }}>
-          <img src={imgMind} alt="Mind program" className="w-full h-auto rounded-[16px]" />
+          <img loading="lazy" src={imgMind} alt="Mind program" className="w-full h-auto rounded-[16px]" />
         </div>
         <div className="absolute" style={{ width: "clamp(200px, 44vw, 300px)", right: "5%", top: "15%", animation: "float-b 6s ease-in-out infinite", animationDelay: "1.2s" }}>
-          <img src={imgShape1} alt="Shape program" className="w-full h-auto" />
+          <img loading="lazy" src={imgShape1} alt="Shape program" className="w-full h-auto" />
         </div>
 
         {/* Floating badges */}
@@ -150,7 +150,7 @@ export function MonRoleMobile() {
         <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px]">{role.description}</p>
       </div>
       <div className="w-full flex justify-center">
-        <img src={imgMonRole} alt="Shape mobile landing page" className="w-[75%] max-w-[320px] h-auto rounded-[16px]" />
+        <img loading="lazy" src={imgMonRole} alt="Shape mobile landing page" className="w-[75%] max-w-[320px] h-auto rounded-[16px]" />
       </div>
       <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[13px] text-center w-full">{role.illustration_caption}</p>
       <div className="flex flex-col gap-[16px] w-full">
@@ -253,7 +253,7 @@ export function VerbatimsMobile() {
         {/* Dots */}
         <div className="flex justify-center gap-[8px] mt-[16px]">
           {verbatims.map((_, i) => (
-            <button key={i} onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }} className={`rounded-full transition-all duration-300 ${i === current ? "w-[24px] h-[8px] bg-[var(--color-qare-brand)]" : "size-[8px] bg-[var(--color-qare-150)]"}`} />
+            <button key={i} aria-label={`Verbatim ${i + 1}`} onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }} className={`rounded-full transition-all duration-300 ${i === current ? "w-[24px] h-[8px] bg-[var(--color-qare-brand)]" : "size-[8px] bg-[var(--color-qare-150)]"}`} />
           ))}
         </div>
       </div>
@@ -319,7 +319,7 @@ export function ApprocheMobile() {
               </button>
               <div className="overflow-hidden transition-all duration-400" style={{ maxHeight: isOpen ? 500 : 0, opacity: isOpen ? 1 : 0 }}>
                 <div className="pt-[12px] flex flex-col gap-[8px] items-center">
-                  <img src={cardImages[i]} alt={card.text} className="w-full h-auto rounded-[12px]" />
+                  <img loading="lazy" src={cardImages[i]} alt={card.text} className="w-full h-auto rounded-[12px]" />
                   {i === 0 && (
                     <p className="font-['Aeonik:Regular',sans-serif] leading-[18px] not-italic text-[var(--color-qare-text)] text-[13px] text-center px-[8px]">
                       {da.navigation_text}

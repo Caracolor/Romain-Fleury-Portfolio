@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from "react";
 import translationsData from "../../imports/translations_Portfolio.json";
 
 export type Lang = "fr" | "en";
@@ -24,6 +24,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     } catch {}
     return "fr";
   });
+
+  // Sync <html lang="…"> with current language
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const setLang = useCallback((l: Lang) => {
     if (l === lang) return;

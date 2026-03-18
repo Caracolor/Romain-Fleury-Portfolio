@@ -173,7 +173,7 @@ export default function ProjectBrandedCall() {
             {/* Waiting room image */}
             <div className="flex flex-col gap-[12px] items-center w-full">
               <div className="relative w-full overflow-hidden rounded-[20px]" style={{ aspectRatio: "800/490.41" }}>
-                <img alt="" className="w-full h-full object-contain" src={image_2deade2a147c6a50b530c3268f88ff199de14276} />
+                <img loading="lazy" alt="" className="w-full h-full object-contain" src={image_2deade2a147c6a50b530c3268f88ff199de14276} />
               </div>
               <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[14px] text-center leading-[normal]">
                 {cs.insight.image_caption}
@@ -209,7 +209,7 @@ export default function ProjectBrandedCall() {
             {/* Waiting room image */}
             <div className="flex flex-col gap-[12px] items-center w-full">
               <div className="relative w-full overflow-hidden rounded-[20px]" style={{ aspectRatio: "800/490.41" }}>
-                <img alt="" className="w-full h-full object-contain" style={{ transform: "scale(1.07)" }} src={image_2deade2a147c6a50b530c3268f88ff199de14276} />
+                <img loading="lazy" alt="" className="w-full h-full object-contain" style={{ transform: "scale(1.07)" }} src={image_2deade2a147c6a50b530c3268f88ff199de14276} />
               </div>
               <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[14px] text-center leading-[normal]">
                 {cs.insight.image_caption}
@@ -224,7 +224,7 @@ export default function ProjectBrandedCall() {
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP * 0.6 }}>
           <div className="flex flex-col gap-[16px] items-center w-full">
             <div className="relative w-full overflow-hidden rounded-[16px]">
-              <img alt="" className="w-full h-auto object-cover" src={imgTriggerLogic} />
+              <img loading="lazy" alt="" className="w-full h-auto object-cover" src={imgTriggerLogic} />
             </div>
             <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[14px] text-center leading-[normal] w-full">
               {cs.design_approach.image_captions?.trigger_logic}
@@ -236,7 +236,7 @@ export default function ProjectBrandedCall() {
           <ScaledSection maxWidth={800} style={{ paddingTop: 0, paddingBottom: 0 }}>
             <div className="flex flex-col gap-[16px] items-center w-[800px]">
               <div className="relative w-[800px] overflow-hidden rounded-[16px]" style={{ aspectRatio: "800/1031" }}>
-                <img alt="" className="w-full h-full object-cover" src={imgTriggerLogic} />
+                <img loading="lazy" alt="" className="w-full h-full object-cover" src={imgTriggerLogic} />
               </div>
               <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[16px] text-center leading-[normal] w-[800px]">
                 {cs.design_approach.image_captions?.trigger_logic}
@@ -268,18 +268,18 @@ export default function ProjectBrandedCall() {
             {/* Role images - mobile */}
             <div className="flex flex-col gap-[12px] items-start w-full">
               <div className="relative w-full overflow-hidden rounded-[16px]" style={{ aspectRatio: "800/426" }}>
-                <img alt="" className="absolute w-full h-[140.79%] left-0 top-[-20.52%] object-cover" src={imgSketchBrandedCall} />
+                <img loading="lazy" alt="Storyboard esquissé : patient sur autre app, sonnerie, retour en consultation" className="absolute w-full h-[140.79%] left-0 top-[-20.52%] object-cover" src={imgSketchBrandedCall} />
                 <div className="absolute inset-0 bg-[rgba(163,144,214,0.2)] mix-blend-multiply rounded-[16px]" />
               </div>
               <div className="flex flex-col gap-[12px] w-full">
                 <div className="relative w-full rounded-[16px] overflow-hidden" style={{ aspectRatio: "392/185" }}>
-                  <img alt="" className="absolute inset-0 w-full h-full object-cover rounded-[16px]" src={imgRoleGrid1} />
+                  <img loading="lazy" alt="Comparatif iOS vs Android — 5 états de l'interface d'appel" className="absolute inset-0 w-full h-full object-cover rounded-[16px]" src={imgRoleGrid1} />
                 </div>
                 <div className="relative w-full rounded-[16px] overflow-hidden" style={{ aspectRatio: "392/185" }}>
-                  <img alt="" className="absolute inset-0 w-full h-full object-cover rounded-[16px]" src={imgRoleGrid2} />
+                  <img loading="lazy" alt="MVP iOS et Android — écrans d'appel entrant Branded Call" className="absolute inset-0 w-full h-full object-cover rounded-[16px]" src={imgRoleGrid2} />
                 </div>
                 <div className="relative w-full rounded-[16px] overflow-hidden" style={{ aspectRatio: "392/300" }}>
-                  <img alt="" className="absolute inset-0 w-full h-full object-cover rounded-[16px]" src={imgRoleGrid3} />
+                  <img loading="lazy" alt="Android Lot 1 — design libre avec photo praticien" className="absolute inset-0 w-full h-full object-cover rounded-[16px]" src={imgRoleGrid3} />
                 </div>
               </div>
             </div>
@@ -300,18 +300,18 @@ export default function ProjectBrandedCall() {
             {/* Role images */}
             <div className="flex flex-col gap-[16px] items-start w-full">
               <div className="relative w-[800px] overflow-hidden rounded-[20px]" style={{ aspectRatio: "800/426" }}>
-                <img alt="" className="absolute w-full h-[140.79%] left-0 top-[-20.52%] object-cover" src={imgSketchBrandedCall} />
+                <img loading="lazy" alt="Storyboard esquissé : patient sur autre app, sonnerie, retour en consultation" className="absolute w-full h-[140.79%] left-0 top-[-20.52%] object-cover" src={imgSketchBrandedCall} />
                 <div className="absolute inset-0 bg-[rgba(163,144,214,0.2)] mix-blend-multiply rounded-[20px]" />
               </div>
               <div className="grid grid-cols-2 gap-[16px] w-[800px]">
                 <div className="relative rounded-[20px] overflow-hidden" style={{ aspectRatio: "392/185" }}>
-                  <img alt="" className="absolute inset-0 w-full h-full object-cover rounded-[20px]" src={imgRoleGrid1} />
+                  <img loading="lazy" alt="Comparatif iOS vs Android — 5 états de l'interface d'appel" className="absolute inset-0 w-full h-full object-cover rounded-[20px]" src={imgRoleGrid1} />
                 </div>
                 <div className="relative rounded-[20px] overflow-hidden row-span-2" style={{ height: 385 }}>
-                  <img alt="" className="absolute inset-0 w-full h-full object-cover rounded-[20px]" src={imgRoleGrid3} />
+                  <img loading="lazy" alt="Android Lot 1 — design libre avec photo praticien" className="absolute inset-0 w-full h-full object-cover rounded-[20px]" src={imgRoleGrid3} />
                 </div>
                 <div className="relative rounded-[20px] overflow-hidden" style={{ aspectRatio: "392/185" }}>
-                  <img alt="" className="absolute inset-0 w-full h-full object-cover rounded-[20px]" src={imgRoleGrid2} />
+                  <img loading="lazy" alt="MVP iOS et Android — écrans d'appel entrant Branded Call" className="absolute inset-0 w-full h-full object-cover rounded-[20px]" src={imgRoleGrid2} />
                 </div>
               </div>
             </div>
@@ -329,7 +329,7 @@ export default function ProjectBrandedCall() {
             </p>
             {/* No-show logic diagram */}
             <div className="flex flex-col gap-[12px] items-center w-full">
-              <img alt="" className="w-full h-auto object-contain rounded-[12px]" src={imgNoShowLogic} />
+              <img loading="lazy" alt="" className="w-full h-auto object-contain rounded-[12px]" src={imgNoShowLogic} />
               <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[14px] text-center leading-[normal]">
                 {cs.design_approach.image_captions?.no_show_logic}
               </p>
@@ -363,7 +363,7 @@ export default function ProjectBrandedCall() {
                 {/* No-show logic diagram */}
                 <div className="flex flex-col gap-[16px] items-start">
                   <div className="relative w-[800px] overflow-hidden rounded-[16px]" style={{ aspectRatio: "800/508" }}>
-                    <img alt="" className="w-full h-full object-cover" src={imgNoShowLogic} />
+                    <img loading="lazy" alt="" className="w-full h-full object-cover" src={imgNoShowLogic} />
                   </div>
                   <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[16px] text-center leading-[normal] w-[800px]">
                     {cs.design_approach.image_captions?.no_show_logic}
