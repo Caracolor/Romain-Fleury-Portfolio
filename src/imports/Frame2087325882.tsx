@@ -2,8 +2,8 @@ import imgLogiqueAutourDuNoShowDoubleCalls1 from "@/assets/c1cc6a616be8de19fe5f8
 
 function Container() {
   return (
-    <div className="relative rounded-[16777200px] shrink-0 size-[13.608px]">
-      <div aria-hidden="true" className="absolute border-2 border-[#40295b] border-solid inset-0 pointer-events-none rounded-[16777200px]" />
+    <div className="relative rounded-full shrink-0 size-[13.608px]">
+      <div aria-hidden="true" className="absolute border-2 border-[#40295b] border-solid inset-0 pointer-events-none rounded-full" />
     </div>
   );
 }

@@ -98,7 +98,7 @@ export function HeroDesktopTempsMedical() {
         </div>
 
         {/* KPI card */}
-        <div className="bg-[var(--color-qare-white)] relative rounded-[30px] w-full" style={{ boxShadow: "26.83px 40.245px 53.66px 0px rgba(159,188,246,0.15)" }}>
+        <div className="bg-[var(--color-qare-white)] relative rounded-[30px] w-full" style={{ boxShadow: "26.83px 40.24px 53.66px 0px rgba(159,188,246,0.15)" }}>
           <div
             aria-hidden="true"
             className="absolute inset-0 pointer-events-none rounded-[30px]"

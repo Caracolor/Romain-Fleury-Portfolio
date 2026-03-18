@@ -108,8 +108,8 @@ type Container1Props = {
 
 function Container1({ additionalClassNames = "" }: Container1Props) {
   return (
-    <div className={clsx("relative rounded-[16777200px] shrink-0", additionalClassNames)}>
-      <div aria-hidden="true" className="absolute border-2 border-[#3c3162] border-solid inset-0 pointer-events-none rounded-[16777200px]" />
+    <div className={clsx("relative rounded-full shrink-0", additionalClassNames)}>
+      <div aria-hidden="true" className="absolute border-2 border-[#3c3162] border-solid inset-0 pointer-events-none rounded-full" />
     </div>
   );
 }
@@ -130,8 +130,8 @@ type ContainerProps = {
 
 function Container({ additionalClassNames = "" }: ContainerProps) {
   return (
-    <div className={clsx("relative rounded-[16777200px] shrink-0", additionalClassNames)}>
-      <div aria-hidden="true" className="absolute border-2 border-[#40295b] border-solid inset-0 pointer-events-none rounded-[16777200px]" />
+    <div className={clsx("relative rounded-full shrink-0", additionalClassNames)}>
+      <div aria-hidden="true" className="absolute border-2 border-[#40295b] border-solid inset-0 pointer-events-none rounded-full" />
     </div>
   );
 }

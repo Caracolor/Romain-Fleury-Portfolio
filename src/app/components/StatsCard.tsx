@@ -14,7 +14,7 @@ type StatsCardProps = {
 
 export function StatsCard({ items }: StatsCardProps) {
   return (
-    <div className="relative w-full rounded-[30px] bg-white" style={{ boxShadow: "26.83px 40.24px 53.66px 0px rgba(159,188,246,0.15)" }}>
+    <div className="relative w-full rounded-[30px] bg-[var(--color-qare-white)]" style={{ boxShadow: "26.83px 40.24px 53.66px 0px rgba(159,188,246,0.15)" }}>
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none rounded-[30px]"
