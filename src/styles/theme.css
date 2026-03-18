@@ -274,3 +274,20 @@ html.lang-fade-in a {
   opacity: 1;
   transition: opacity 150ms ease-in;
 }
+
+/* ── Deer flash animation ───────────────────── */
+@keyframes deer-flash {
+  /* hidden for most of the cycle */
+  0%,   97.2% { opacity: 0; }
+  /* flash 1 : 100 ms */
+  97.2%, 97.6% { opacity: 1; }
+  97.6%, 98.0% { opacity: 0; }
+  /* flash 2 : 100 ms */
+  98.0%, 98.4% { opacity: 1; }
+  98.4%, 100%  { opacity: 0; }
+}
+
+.deer-flash {
+  animation: deer-flash 25s ease-in-out infinite;
+  pointer-events: none;
+}
