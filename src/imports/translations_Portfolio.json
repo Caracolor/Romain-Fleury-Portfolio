@@ -1,0 +1,1327 @@
+{
+  "nav": {
+    "fr": {
+      "about": "À propos",
+      "projects": "Projets",
+      "experience": "Expérience",
+      "email": "r.s.fleury@gmail.com"
+    },
+    "en": {
+      "about": "About",
+      "projects": "Projects",
+      "experience": "Experience",
+      "email": "r.s.fleury@gmail.com"
+    }
+  },
+  "hero": {
+    "fr": {
+      "greeting": "Bonjour,\nje suis Romain",
+      "role_line1": "Head of product",
+      "role_line2": "design",
+      "role_line3": "chez Qare"
+    },
+    "en": {
+      "greeting": "Hello,\nI'm Romain",
+      "role_line1": "Head of product",
+      "role_line2": "design",
+      "role_line3": "at Qare"
+    }
+  },
+  "stats": {
+    "fr": [
+      { "value": "12+", "label": "Années d'expérience" },
+      { "value": "6+", "label": "Années de leadership" },
+      { "value": "7", "label": "Membres d'équipe" },
+      { "value": "72+", "label": "Features livrées" },
+      { "value": "B2B", "label": "Expertise" },
+      { "value": "B2C", "label": "Expertise" }
+    ],
+    "en": [
+      { "value": "12+", "label": "Years experience" },
+      { "value": "6+", "label": "Years leading" },
+      { "value": "7", "label": "Team members" },
+      { "value": "72+", "label": "Features shipped" },
+      { "value": "B2B", "label": "Expertise" },
+      { "value": "B2C", "label": "Expertise" }
+    ]
+  },
+  "intro": {
+    "fr": {
+      "text": "Chez Qare, j'allie culture du craft et résolution de problèmes stratégiques.\n\nJ'ai accompagné Qare dans la monétisation de son modèle économique, piloté la première solution pour les praticiens à base de LLM et co-structuré l'organisation en product triad."
+    },
+    "en": {
+      "text": "At Qare, I combine craft culture with strategic problem-solving.\n\nI helped Qare monetize its business model, led the first LLM-based solution for practitioners, and co-structured the organization into product triads."
+    }
+  },
+  "projects_section": {
+    "fr": {
+      "section_title": "Projets",
+      "coming_soon_label": "Arrive bientôt",
+      "items": [
+        {
+          "tag": "IC Design Lead",
+          "tag2": "Impact business",
+          "company": "Qare",
+          "title": "Programmes chroniques",
+          "description": "Transformer un service de téléconsultation ponctuelle en programmes d'abonnement pour des soins récurrents et/ou chroniques",
+          "result": "2 179 patients, 230% vs objectif, 18k€ MRR en 6 mois",
+          "team": "Design Lead · 2 Designers, 1 PM, 4 Devs"
+        },
+        {
+          "tag": "Design Lead",
+          "tag2": null,
+          "company": "Qare",
+          "title": "Optimiser le temps médical",
+          "description": "Passer d'une interface exhaustive à une interface contextuelle pour libérer du temps médical",
+          "result": "40% de temps administratif libéré",
+          "team": "2 Designers, 1 PM, 4 Devs"
+        },
+        {
+          "tag": "IC Design Lead",
+          "tag2": "Impact business",
+          "company": "Qare",
+          "title": "Monétisation dans la santé",
+          "description": "La sensibilité des patients aux prix",
+          "result": "36% des revenus de Qare provient des frais de service",
+          "team": null
+        },
+        {
+          "tag": "IC Design Lead",
+          "tag2": "Impact business",
+          "company": "Qare",
+          "title": "Branded Call",
+          "description": "Réduire les no-shows en appelant les patients comme un appel classique",
+          "result": "8,4M€ de revenus récupérés, -146K no-shows /an",
+          "team": "1 PM, 1 Lead Dev"
+        },
+        {
+          "tag": "Design Lead",
+          "tag2": null,
+          "company": "Qare",
+          "title": "Évolution d'un design system",
+          "description": "Un design system au cœur de notre équipe design chez Qare pour produire plus vite et avec plus de consistance",
+          "result": "72 composants, 81% d'adoption en production",
+          "team": null,
+          "coming_soon": true
+        }
+      ]
+    },
+    "en": {
+      "section_title": "Projects",
+      "coming_soon_label": "Coming soon",
+      "items": [
+        {
+          "tag": "IC Design Lead",
+          "tag2": "Business Impact",
+          "company": "Qare",
+          "title": "Chronic Care Programs",
+          "description": "Turning a one-off teleconsultation service into subscription-based programs for recurring and chronic care",
+          "result": "2,179 patients, 230% vs target, €18k MRR in 6 months",
+          "team": "Design Lead · 2 Designers, 1 PM, 4 Devs"
+        },
+        {
+          "tag": "Design Lead",
+          "tag2": null,
+          "company": "Qare",
+          "title": "Optimizing Medical Time",
+          "description": "Shifting from an exhaustive interface to a contextual one to free up medical time",
+          "result": "40% administrative time saved",
+          "team": "2 Designers, 1 PM, 4 Devs"
+        },
+        {
+          "tag": "IC Design Lead",
+          "tag2": "Business Impact",
+          "company": "Qare",
+          "title": "Healthcare Monetization",
+          "description": "Navigating patient price sensitivity",
+          "result": "36% of Qare's revenue comes from service fees",
+          "team": null
+        },
+        {
+          "tag": "IC Design Lead",
+          "tag2": "Business Impact",
+          "company": "Qare",
+          "title": "Branded Call",
+          "description": "Reducing no-shows by calling patients like a regular phone call",
+          "result": "8.4M€ recovered revenue, -146K no-shows /yr",
+          "team": "1 PM, 1 Lead Dev"
+        },
+        {
+          "tag": "Design Lead",
+          "tag2": null,
+          "company": "Qare",
+          "title": "Evolving a design system",
+          "description": "A design system at the heart of our design team at Qare to ship faster and with more consistency",
+          "result": "72 components, 81% adoption in production",
+          "team": null,
+          "coming_soon": true
+        }
+      ]
+    }
+  },
+  "experience": {
+    "fr": {
+      "section_title": "Expérience",
+      "items": [
+        {
+          "company": "Qare",
+          "role": "Head of Product Design",
+          "period": "2021 - Aujourd'hui",
+          "description": "Direction de l'équipe Product Design et pilotage de la stratégie design sur une plateforme de santé numérique en forte croissance. Supervision de la croissance de l'équipe, des processus design et de l'alignement cross-fonctionnel dans un environnement hautement réglementé.",
+          "highlights": [
+            "Ancré la discovery et les tests utilisateurs comme étape clé",
+            "Managé l'équipe design et contribué à la delivery produit",
+            "Monétisé une plateforme de santé en France",
+            "Lancé de nouveaux services médicaux et des outils basés sur l'IA",
+            "Accompagné la transition startup vers scale-up",
+            "De 4 à 8 designers",
+            "Déployé un design system multi-pays"
+          ]
+        },
+        {
+          "company": "Papernest",
+          "role": "Lead Product Designer",
+          "period": "2018 - 2021",
+          "description": "Travail transverse en product design, branding et motion design pour une startup en forte croissance spécialisée dans la gestion d'abonnements.",
+          "highlights": [
+            "Ancré la discovery et les tests utilisateurs comme étape clé",
+            "Consolidé le design system et créé un système de marque/illustration",
+            "Managé l'équipe design et contribué à la delivery produit",
+            "Conçu et optimisé des parcours de conversion à fort impact"
+          ]
+        },
+        {
+          "company": "Frog (ex-Backelite)",
+          "role": "Product Designer & Brand Designer",
+          "period": "2016 - 2018",
+          "description": "Collaboration avec de grandes marques françaises pour concevoir le futur des applications bancaires et de services. Pilotage d'initiatives UX/UI, amélioration des processus clients via des workshops UX et livraison de travaux de product design et motion à fort impact.",
+          "highlights": [
+            "Lead UI design pour les apps bancaires grand public de LCL",
+            "Conception et optimisation de parcours de conversion à fort impact pour EDF, Crédit Agricole et Meetic (UX/UI)",
+            "Motion design pour Société Générale et LCL"
+          ]
+        }
+      ],
+      "linkedin_cta": "Voir mon profil complet sur LinkedIn"
+    },
+    "en": {
+      "section_title": "Experience",
+      "items": [
+        {
+          "company": "Qare",
+          "role": "Head of Product Design",
+          "period": "2021 - Today",
+          "description": "Leading the Product Design team and driving design strategy across a fast-growing digital healthcare platform. I oversee team growth, design processes and cross-functional alignment in a highly regulated environment.",
+          "highlights": [
+            "Made user discovery and user testing a core step",
+            "Led the design team and contributed to product delivery",
+            "Monetize a health platform in France",
+            "Launching new medical services and AI-powered tools",
+            "From startup to scale-up",
+            "From 4 to 8 designers",
+            "Switch to a cross-country design system"
+          ]
+        },
+        {
+          "company": "Papernest",
+          "role": "Lead Product Designer",
+          "period": "2018 - 2021",
+          "description": "Worked across product design, branding and motion design for a fast-scaling subscription management tool startup.",
+          "highlights": [
+            "Made user discovery and user testing a core step",
+            "Consolidated the design system and built a brand/illustration system",
+            "Led the design team and contributed to product delivery",
+            "Designed and refined high-impact conversion flows"
+          ]
+        },
+        {
+          "company": "Frog (ex-Backelite)",
+          "role": "Product Designer & Brand Designer",
+          "period": "2016 - 2018",
+          "description": "Worked with major French brands to design the future of banking and service applications. Led UX and UI initiatives, improved client processes through UX workshops and delivered high-impact product design and motion work.",
+          "highlights": [
+            "Lead UI design for LCL's native consumer banking apps",
+            "Designed and refined high-impact conversion flows for EDF, Crédit Agricole and Meetic (UX/UI)",
+            "Motion design for Société Générale and LCL"
+          ]
+        }
+      ],
+      "linkedin_cta": "View my full profile on LinkedIn"
+    }
+  },
+  "education": {
+    "fr": {
+      "section_title": "Formation",
+      "items": [
+        {
+          "school": "IESA Multimédia Paris",
+          "period": "2010 - 2012",
+          "degree": "Master en Management de Projet Digital et Design"
+        },
+        {
+          "school": "ESMA Montpellier",
+          "period": "2008 - 2010",
+          "degree": "BTS en Design & Communication Visuelle"
+        }
+      ]
+    },
+    "en": {
+      "section_title": "Education",
+      "items": [
+        {
+          "school": "IESA Multimédia Paris",
+          "period": "2010 - 2012",
+          "degree": "Master-level program in Digital Project Management and Design"
+        },
+        {
+          "school": "ESMA Montpellier",
+          "period": "2008 - 2010",
+          "degree": "BTS in Design & Visual Communication"
+        }
+      ]
+    }
+  },
+  "languages_section": {
+    "fr": {
+      "section_title": "Langues",
+      "items": [
+        { "language": "Français", "level": "Natif" },
+        { "language": "Anglais", "level": "Courant" }
+      ]
+    },
+    "en": {
+      "section_title": "Languages",
+      "items": [
+        { "language": "French", "level": "Native" },
+        { "language": "English", "level": "Fluent" }
+      ]
+    }
+  },
+
+  "case_study_chronic_programs": {
+    "fr": {
+      "meta": {
+        "tag": "IC Design Lead",
+        "team": "1 PM, 3 Devs",
+        "duration": "3 mois"
+      },
+      "hero": {
+        "title": "Programmes chroniques",
+        "subtitle": "Transformer un modèle épisodique\nen revenus récurrents"
+      },
+      "hero_stats": [
+        { "value": "€18k", "label": "Revenus mensuels", "tooltip": "Revenus mensuels récurrents générés par les abonnements Shape et Mind, 6 mois après le lancement." },
+        { "value": "+56%", "label": "Croissance mensuelle", "tooltip": "Croissance mensuelle moyenne du nombre de patients inscrits aux programmes." },
+        { "value": "2 179", "label": "Patients actifs", "tooltip": "Patients actifs sur les programmes Shape et Mind combinés, soit 230% de l'objectif initial." }
+      ],
+      "programs": [
+        { "emoji": "🔥", "name": "Shape", "detail": "491 utilisateurs" },
+        { "emoji": "🔥🔥", "name": "Mind", "detail": "1 702 utilisateurs" }
+      ],
+      "challenge": {
+        "section_title": "Le challenge",
+        "headline": "Un modèle fragile, une opportunité claire",
+        "problem_title": "Le problème",
+        "problem_text": "L'offre épisodique de Qare perdait 50% de ses patients après une seule consultation. Ce modèle volatile, dépendant des conditions saisonnières et épidémiologiques, empêchait toute stabilité financière.",
+        "opportunities_title": "Les opportunités",
+        "opportunities": [
+          "La santé mentale concerne 1 Français sur 5 et 80% n'ont jamais consulté (déserts médicaux, prix, stigmatisation)",
+          "L'obésité touche 15% de la population française."
+        ],
+        "constraint_title": "La contrainte",
+        "constraint_text": "Lancer un minimum viable product d'un nouveau service en un temps record pour Qare (3.5 semaines) avec 3 développeurs et un Product manager, tout en validant un nouveau business model et une nouvelle offre."
+      },
+      "role": {
+        "section_title": "Mon rôle",
+        "headline": "De la recherche à l'exécution",
+        "description": "J'ai conduit la recherche utilisateur et assuré la conception de bout en bout du premier programme Shape, qui a défini la stratégie pour que d'autres product designers prennent la suite.",
+        "illustration_caption": "Illustration : Shape mobile landing page",
+        "pillars": [
+          {
+            "title": "Compréhension",
+            "text": "Récolter et comprendre les attentes des stakeholders et des utilisateurs, puis les traduire en une expérience adaptée à cette nouvelle offre de suivi chronique."
+          },
+          {
+            "title": "Fondations",
+            "text": "Poser les fondations du service et des patterns design réutilisables pour l'ensemble des futurs programmes. (Système de contenu modulaire et réorganisation de l'application Qare)"
+          },
+          {
+            "title": "Stratégie",
+            "text": "Inspirer la roadmap des lots futurs et aligner l'équipe sur la vision produit : transformer Qare de l'épisodique au chronic care."
+          }
+        ]
+      },
+      "insight": {
+        "section_title": "L'insight décisif",
+        "headline": "Les patients souhaitent un accompagnement continu d'une équipe pluridisciplinaire",
+        "description": "Les patients ne veulent pas une app digitale ou suivre un programme en autonomie, ils veulent échanger régulièrement avec des professionnels de santé.",
+        "quotes": [
+          {
+            "text": "Moi, je suis responsable de service avec beaucoup de responsabilité, donc j'ai besoin de parler, de vider mon sac",
+            "source": "Interview téléphonique - Mind"
+          },
+          {
+            "text": "Je veux une équipe qui me comprend et me suit sur le long terme, pas juste une consultation isolée",
+            "source": "Interview téléphonique - Shape"
+          }
+        ],
+        "pluridisciplinary_title": "Pourquoi pluridisciplinaire ?",
+        "pluridisciplinary_text": "25% des patients en situation d'obésité déclarent avoir des troubles alimentaires compulsifs et cherchent donc à améliorer leur santé physique ET mentale en parallèle. (Source : questionnaire quantitatif)"
+      },
+      "design_approach": {
+        "section_title": "L'approche design",
+        "headline": "L'interface n'est qu'un facilitateur",
+        "description": "Le cœur de notre service repose sur une prise en charge médicale de qualité, accessible rapidement et dans la durée.",
+        "pillars": [
+          { "emoji": "📱", "text": "Navigation de l'app Qare repensée pour faire de la place aux programmes" },
+          { "emoji": "🧩", "text": "Système de contenu modulaire sans automatisation ni personnalisation (MVP)" },
+          { "emoji": "🍾", "text": "Utiliser en priorité le produit comme principal source d'acquisition" }
+        ],
+        "navigation_title": "Navigation",
+        "navigation_text": "Simplification puis réorganisation de l'application puis ajout des éléments des programmes (en violet)",
+        "system_text": "Présentation du concept en module et de socle commun pour les contenus médicaux",
+        "acquisition_text": "Les touchpoints clés pour recruter des patients pour les programmes sur le produit"
+      },
+      "results": {
+        "section_title": "Résultats & Learnings",
+        "headline": "Des métriques qui confirment le modèle",
+        "stats": [
+          { "value": "+56%", "label": "Croissance moyenne" },
+          { "value": "€18k", "label": "Revenus mensuels" },
+          { "value": "2 179", "label": "Patients actifs" },
+          { "value": "75-85%", "label": "de rétention estimée" },
+          { "value": "80%", "label": "D'activation" }
+        ],
+        "worked_title": "Ce qui a fonctionné",
+        "worked": [
+          "Inscription en ligne → pic d'inscriptions + réduction du goulot opérationnel",
+          "Ciblage déserts médicaux + message tiers-payant = combo gagnant",
+          "Promesse autour de l'équipe pluridisciplinaire spécialisée",
+          "Accompagnement constant : améliore acquisition ET rétention",
+          "Volume consultations en croissance constante -- preuve d'engagement réel"
+        ],
+        "failed_title": "Ce qui n'a pas fonctionné",
+        "failed": [
+          "Mentionner les GLP-1 pour l'acquisition (sans impact)",
+          "Le contenu non personnalisé pour créer de la rétention",
+          "Le chat actuel, non adapté aux besoins produit sur la durée"
+        ]
+      },
+      "documents": {
+        "section_title": "Documents clés",
+        "headline": "Des livrables avancés pour un minimum \"likable\" product",
+        "items": [
+          "Starter kit for Shape patient",
+          "Benchmark concurrentiel",
+          "Landing page Shape",
+          "Tunnel de souscription et Onboarding"
+        ]
+      },
+      "contexte": {
+        "section_title": "Context",
+        "headline": "À propos de Qare ?",
+        "col1": "Qare est une plateforme française de téléconsultation médicale qui permet aux patients de consulter des médecins généralistes et spécialistes 24h/24 et 7j/7, depuis chez eux.",
+        "col2": "Avec plus de 2 500 médecins et 15 000 consultations quotidiennes, Qare est un acteur clé de la santé numérique en France."
+      },
+      "challenges": {
+        "section_title": "Ce qui a résisté",
+        "blocks": [
+          {
+            "title": "Délai inédit pour Qare",
+            "text": "3,5 semaines pour livrer un nouveau service avec un nouveau business model, sans précédent en interne. Chaque décision design devait être prise en sachant qu'on ne pourrait pas itérer avant le lancement."
+          },
+          {
+            "title": "Deux programmes, une seule architecture",
+            "text": "Shape et Mind partageaient la même base produit mais des parcours patients très différents. Poser des fondations réutilisables sans sur-généraliser a été le principal arbitrage design."
+          }
+        ]
+      },
+      "next_steps": {
+        "section_title": "Next steps",
+        "blocks": [
+          {
+            "title": "Consolider la rétention",
+            "text": "La priorité : personnaliser les contenus au profil patient (stade, comorbidités, objectifs) et remplacer le chat par un outil de suivi dédié à la relation continue patient-équipe médicale."
+          },
+          {
+            "title": "Élargir à de nouvelles pathologies",
+            "text": "Shape et Mind ont posé les fondations d'une plateforme réutilisable. Le next step : la ménopause en priorité, pour élargir la cible au-delà des 25-40 ans et ouvrir la santé de la femme comme axe stratégique. Puis d'autres programmes récurrents (santé sexuelle, etc.) sur la même base."
+          }
+        ]
+      },
+      "project_nav": {
+        "previous_label": "Projet précédent",
+        "previous_company": "Qare",
+        "previous_title": "Monétisation dans la santé",
+        "next_label": "Projet suivant",
+        "next_company": "Qare",
+        "next_title": "Optimiser le temps médical"
+      }
+    },
+    "en": {
+      "meta": {
+        "tag": "IC Design Lead",
+        "team": "1 PM, 3 Devs",
+        "duration": "3 months"
+      },
+      "hero": {
+        "title": "Chronic Care Programs",
+        "subtitle": "Turning an episodic model\ninto recurring revenue"
+      },
+      "hero_stats": [
+        { "value": "€18k", "label": "Monthly revenue", "tooltip": "Monthly recurring revenue generated by Shape and Mind subscriptions, 6 months after launch." },
+        { "value": "+56%", "label": "Monthly growth", "tooltip": "Average monthly growth rate of patients enrolled in programs." },
+        { "value": "2,179", "label": "Active patients", "tooltip": "Active patients across Shape and Mind combined, reaching 230% of the initial target." }
+      ],
+      "programs": [
+        { "emoji": "🔥", "name": "Shape", "detail": "491 users" },
+        { "emoji": "🔥🔥", "name": "Mind", "detail": "1,702 users" }
+      ],
+      "challenge": {
+        "section_title": "The challenge",
+        "headline": "A fragile model, a clear opportunity",
+        "problem_title": "The problem",
+        "problem_text": "Qare's episodic offering was losing 50% of patients after a single consultation. This volatile model, dependent on seasonal and epidemiological conditions, prevented any financial stability.",
+        "opportunities_title": "Opportunities",
+        "opportunities": [
+          "Mental health affects 1 in 5 French people, and 80% have never consulted (medical deserts, cost, stigma)",
+          "Obesity affects 15% of the French population."
+        ],
+        "constraint_title": "The constraint",
+        "constraint_text": "Launch an MVP of a new service in record time for Qare (3.5 weeks) with 3 developers and one Product Manager, while validating a new business model and a new offering."
+      },
+      "role": {
+        "section_title": "My role",
+        "headline": "From research to execution",
+        "description": "I led user research and handled the end-to-end design of the first Shape program, which set the strategy for other product designers to build upon.",
+        "illustration_caption": "Illustration: Shape mobile landing page",
+        "pillars": [
+          {
+            "title": "Understanding",
+            "text": "Gather and understand stakeholder and user expectations, then translate them into an experience tailored to this new chronic care offering."
+          },
+          {
+            "title": "Foundations",
+            "text": "Lay the foundations for the service and reusable design patterns for all future programs. (Modular content system and reorganization of the Qare app)"
+          },
+          {
+            "title": "Strategy",
+            "text": "Inspire the roadmap for future iterations and align the team on the product vision: transform Qare from episodic to chronic care."
+          }
+        ]
+      },
+      "insight": {
+        "section_title": "The decisive insight",
+        "headline": "Patients want continuous support from a multidisciplinary team",
+        "description": "Patients don't want a digital app or a self-guided program, they want regular exchanges with healthcare professionals.",
+        "quotes": [
+          {
+            "text": "I'm a service manager with a lot of responsibility, so I need to talk, to vent",
+            "source": "Phone interview - Mind"
+          },
+          {
+            "text": "I want a team that understands me and follows me long-term, not just a one-off consultation",
+            "source": "Phone interview - Shape"
+          }
+        ],
+        "pluridisciplinary_title": "Why multidisciplinary?",
+        "pluridisciplinary_text": "25% of patients with obesity report compulsive eating disorders and therefore seek to improve their physical AND mental health in parallel. (Source: quantitative survey)"
+      },
+      "design_approach": {
+        "section_title": "Design approach",
+        "headline": "The interface is just a facilitator",
+        "description": "The core of our service relies on quality medical care, accessible quickly and over the long term.",
+        "pillars": [
+          { "emoji": "📱", "text": "Qare app navigation redesigned to make room for programs" },
+          { "emoji": "🧩", "text": "Modular content system without automation or personalization (MVP)" },
+          { "emoji": "🍾", "text": "Use the product itself as the primary acquisition channel" }
+        ],
+        "navigation_title": "Navigation",
+        "navigation_text": "Simplification then reorganization of the app, then addition of program elements (in purple)",
+        "system_text": "Presentation of the modular concept and common foundation for medical content",
+        "acquisition_text": "Key touchpoints for recruiting patients for programs on the product"
+      },
+      "results": {
+        "section_title": "Results & Learnings",
+        "headline": "Metrics that validate the model",
+        "stats": [
+          { "value": "+56%", "label": "Average growth" },
+          { "value": "€18k", "label": "Monthly revenue" },
+          { "value": "2,179", "label": "Active patients" },
+          { "value": "75-85%", "label": "Estimated retention" },
+          { "value": "80%", "label": "Activation rate" }
+        ],
+        "worked_title": "What worked",
+        "worked": [
+          "Online sign-up → spike in enrollments + reduced operational bottleneck",
+          "Targeting medical deserts + insurance coverage messaging = winning combo",
+          "Promise of a specialized multidisciplinary team",
+          "Continuous support: improves both acquisition AND retention",
+          "Steadily growing consultation volume -- proof of real engagement"
+        ],
+        "failed_title": "What didn't work",
+        "failed": [
+          "Mentioning GLP-1s for acquisition (no impact)",
+          "Non-personalized content for retention",
+          "The current chat, not suited for long-term product needs"
+        ]
+      },
+      "documents": {
+        "section_title": "Key documents",
+        "headline": "Advanced deliverables for a minimum \"likable\" product",
+        "items": [
+          "Starter kit for Shape patient",
+          "Competitive benchmark",
+          "Shape landing page",
+          "Subscription funnel and Onboarding"
+        ]
+      },
+      "contexte": {
+        "section_title": "Context",
+        "headline": "About Qare?",
+        "col1": "Qare is a French telemedicine platform that allows patients to consult general practitioners and specialists 24/7, from home.",
+        "col2": "With over 2,500 doctors and 15,000 daily consultations, Qare is a key player in digital healthcare in France."
+      },
+      "challenges": {
+        "section_title": "What pushed back",
+        "blocks": [
+          {
+            "title": "An unprecedented timeline for Qare",
+            "text": "3.5 weeks to ship a new service with a new business model, a first internally. Every design decision had to be made knowing there would be no iteration before launch."
+          },
+          {
+            "title": "Two programs, one architecture",
+            "text": "Shape and Mind shared the same product foundation but had very different patient journeys. Building reusable foundations without over-generalizing was the main design tradeoff."
+          }
+        ]
+      },
+      "next_steps": {
+        "section_title": "Next steps",
+        "blocks": [
+          {
+            "title": "Strengthen retention",
+            "text": "The priority: personalize content based on patient profile (program stage, comorbidities, goals) and replace the chat with a dedicated follow-up tool for the ongoing patient-care team relationship."
+          },
+          {
+            "title": "Expand to new conditions",
+            "text": "Shape and Mind laid the foundations for a reusable platform. Next step: menopause first, to broaden the target beyond the 25-40 age range and open women's health as a strategic axis. Then other recurring programs (sexual health, etc.) on the same foundation."
+          }
+        ]
+      },
+      "project_nav": {
+        "previous_label": "Previous project",
+        "previous_company": "Qare",
+        "previous_title": "Healthcare Monetization",
+        "next_label": "Next project",
+        "next_company": "Qare",
+        "next_title": "Optimizing Medical Time"
+      }
+    }
+  },
+
+  "case_study_medical_time": {
+    "fr": {
+      "meta": {
+        "tag": "Design Lead",
+        "team": "1 PM, 4 Devs",
+        "duration": "En cours"
+      },
+      "hero": {
+        "title": "Optimiser le temps médical",
+        "subtitle": "Passer d'une interface exhaustive à une interface contextuelle pour libérer 40% de temps administratif"
+      },
+      "hero_stats": [
+        { "value": "-30s", "label": "par consultation", "tooltip": "Réduction moyenne du temps administratif par consultation grâce à l'interface contextuelle." },
+        { "value": "+13%", "label": "de temps libéré", "tooltip": "Temps médical restitué au praticien, réinvesti dans l'échange avec le patient." },
+        { "value": "43%", "label": "d'adoption", "tooltip": "Part des praticiens utilisant activement la nouvelle interface sur le cas de la gêne urinaire." }
+      ],
+      "challenge": {
+        "section_title": "Le challenge",
+        "headline": "Un plafond de croissance, un levier clair",
+        "intro": "La demande dépasse l'offre médicale. Le principal levier pour augmenter cette offre est la réduction du temps administratif.",
+        "problem_title": "Le problème",
+        "problem_text": "La demande patient dépasse l'offre médicale disponible, ce qui limite directement la croissance de Qare.\n\nLes optimisations incrémentales sur le produit existant n'ont eu qu'un impact trop marginal. L'approche devait être beaucoup plus ambitieuse.",
+        "opportunities_title": "Les opportunités",
+        "opportunities": [
+          "L'intégration d'automatisation (ex : LLM) permet de pré-remplir le contexte clinique, générer des propositions diagnostiques et des prescriptions avant l'échange vidéo.",
+          "Le cas de la gêne urinaire semble offrir un terrain idéal pour itérer."
+        ],
+        "constraint_title": "La contrainte",
+        "constraint_text": "Une interface legacy très fragmentée : seulement 4 onglets sur 10 utilisés quotidiennement.\n\nLe redesign ne peut pas être incrémental, il faut repenser le flux complet de la consultation, tout en intégrant des automatisations."
+      },
+      "role": {
+        "section_title": "Mon rôle",
+        "headline": "Encadrer, challenger, débloquer",
+        "description": "Mon rôle est de donner aux designers les moyens de réussir.",
+        "pillars": [
+          {
+            "title": "Cadrage de la discovery",
+            "text": "Poser les objectifs, le scope et accompagner sur méthode. Challenger la profondeur de recherche, l'ordre des étapes, le rapport effort attendu vs. valeur produite."
+          },
+          {
+            "title": "Challenge continu du design",
+            "text": "Questionner les décisions via des alternatives et des mises en situation. Promouvoir un concept design de layout \"Sans les mains\" pour pousser vers moins d'interaction et plus d'automatisation."
+          },
+          {
+            "title": "Connexion stratégique",
+            "text": "Relier chaque décision design aux objectifs business (+40% temps médical) et médicaux (qualité diagnostique). Présentation de l'avancement et alignement avec les stakeholders P&T."
+          }
+        ],
+        "team_members": [
+          { "name": "Léa", "role": "Product Designer assignée à l'équipe impact" },
+          { "name": "Titouan", "role": "Product Designer en charge du Design System" }
+        ]
+      },
+      "insight": {
+        "section_title": "L'insight décisif",
+        "headline": "Comprendre avant de redesigner",
+        "description": "Une discovery rigoureuse, menée par Léa et Titouan, que j'ai cadrée en amont et challengée (lorsque nécessaire) pour garantir la pertinence des insights.",
+        "discovery_steps": [
+          "Revue de la littérature médicale et recommandations HAS (Haute Autorité de Santé)",
+          "Session de travail avec l'équipe médicale (Dr. Melot)",
+          "Analyse data via Metabase & Contentsquare",
+          "5 fausses téléconsultations pour la gêne urinaire"
+        ],
+        "discovery_note": "Je les ai accompagnés dans la collecte de données Contentsquare et dans la mise en place de la méthodologie de tests utilisateurs qualitatifs avec des médecins.",
+        "key_findings_title": "Les enseignements clés",
+        "key_findings": [
+          "La gêne urinaire est facile à diagnostiquer, la cystite est la cause la plus fréquente (65% des femmes)",
+          "La consultation moyenne dure 8 minutes (5 min médecin généraliste, 2 min gynéco)",
+          "Seulement 4 questions clés à l'interrogatoire et 2 diagnostics différentiels",
+          "99% des téléconsultations aboutissent à une prescription, 6% ont des arrêts de travail"
+        ],
+        "decision_tree_caption": "Illustration : Arbre de décision sur la gêne urinaire"
+      },
+      "design_approach": {
+        "section_title": "L'approche design",
+        "headline": "D'une interface exhaustive à une interface contextuelle",
+        "pillars": [
+          {
+            "emoji": "🎯",
+            "title": "Contexte clinique immédiat",
+            "text": "Toutes les informations pertinentes disponibles immédiatement : dossier patient, résumé des symptômes pré-consultation, alertes médicales, visibles d'un coup d'œil."
+          },
+          {
+            "emoji": "📋",
+            "title": "Documents pré-générés",
+            "text": "Prescriptions et documents déjà disponibles selon le diagnostic sélectionné. Le choix d'hypothèse diagnostique influence directement les propositions de prescriptions."
+          },
+          {
+            "emoji": "⚡",
+            "title": "Flux inversé",
+            "text": "Inversion des boutons : 'Générer le compte-rendu' avant 'Raccrocher'. Tout se passe pendant la consultation, pas après."
+          }
+        ]
+      },
+      "iteration": {
+        "section_title": "Itération",
+        "headline": "Challenger pour converger",
+        "description": "Trois itérations de layout, chacune poussant vers la vision \"Consultation sans les mains\", moins d'interaction, plus d'automatisation.",
+        "bold_move_title": "Bold move",
+        "bold_move_text": "Inverser la séquence des boutons, 'Générer le compte-rendu' remplace 'Raccrocher' comme action principale. Aujourd'hui, le rapport n'est généré qu'au raccroché. Demain, tout se passe pendant la consultation."
+      },
+      "learnings": {
+        "section_title": "Learnings",
+        "headline": "Les leçons clés de ce projet",
+        "worked_title": "Ce qui a fonctionné",
+        "worked": [
+          "Le qualitatif a révélé des choses que la data seule ne montrait pas",
+          "Comprendre le workflow réel du praticien, pas celui que la data suggérait",
+          "Le concept d'interface contextuelle, qui recentre le praticien sur l'échange médical",
+          "Changer le workflow praticien avec une modification d'enchaînement de boutons"
+        ],
+        "failed_title": "Ce qui n'a pas fonctionné",
+        "failed": [
+          "Ne pas s'occuper de la dette de l'expérience design sur la partie praticien",
+          "Le LLM n'est pas toujours la bonne réponse, des automatisations classiques auraient suffi"
+        ]
+      },
+      "contexte": {
+        "section_title": "Context",
+        "headline": "À propos de Qare ?",
+        "col1": "Qare est une plateforme française de téléconsultation médicale qui permet aux patients de consulter des médecins généralistes et spécialistes 24h/24 et 7j/7, depuis chez eux.",
+        "col2": "Avec plus de 2 500 médecins et 15 000 consultations quotidiennes, Qare est un acteur clé de la santé numérique en France."
+      },
+      "challenges": {
+        "section_title": "Ce qui a résisté",
+        "blocks": [
+          {
+            "title": "Identifier les limites du LLM en production",
+            "text": "Au lancement, nous manquions de recul sur les capacités réelles des LLM en contexte médical. C'est maintenant, avec des features en production, qu'on découvre concrètement où le LLM apporte de la valeur et où une automatisation classique est plus fiable et moins coûteuse."
+          },
+          {
+            "title": "Changer un workflow ancré",
+            "text": "L'inversion des boutons (générer le CR avant raccrocher) remettait en question un geste réflexe quotidien pour 2 500 praticiens. Le risque de rejet était réel, d'où l'importance des tests utilisateurs qualitatifs avec des médecins en discovery pour valider le concept avant dev."
+          }
+        ]
+      },
+      "next_steps": {
+        "section_title": "Next steps",
+        "blocks": [
+          {
+            "title": "Généraliser au-delà de la gêne urinaire",
+            "text": "Le cas de la cystite a servi de terrain d'itération idéal (diagnostic simple, forte volumétrie). L'enjeu suivant : adapter l'interface contextuelle à des pathologies plus complexes avec des arbres de décision plus profonds."
+          },
+          {
+            "title": "Mesurer l'impact sur la qualité diagnostique",
+            "text": "Le gain de temps est prouvé. Reste à valider que la qualité des diagnostics et prescriptions n'est pas dégradée par l'automatisation, un sujet qui implique l'équipe médicale directement."
+          }
+        ]
+      },
+      "project_nav": {
+        "previous_label": "Projet précédent",
+        "previous_company": "Qare",
+        "previous_title": "Programmes chroniques",
+        "next_label": "Projet suivant",
+        "next_company": "Qare",
+        "next_title": "Monétisation dans la santé"
+      }
+    },
+    "en": {
+      "meta": {
+        "tag": "Design Lead",
+        "team": "1 PM, 4 Devs",
+        "duration": "Ongoing"
+      },
+      "hero": {
+        "title": "Optimizing Medical Time",
+        "subtitle": "Shifting from an exhaustive interface to a contextual one to free up 40% of administrative time"
+      },
+      "hero_stats": [
+        { "value": "-30s", "label": "per consultation", "tooltip": "Average reduction in administrative time per consultation thanks to the contextual interface." },
+        { "value": "+13%", "label": "time saved", "tooltip": "Medical time given back to the practitioner, reinvested in patient interaction." },
+        { "value": "43%", "label": "adoption rate", "tooltip": "Share of practitioners actively using the new interface on the urinary discomfort case." }
+      ],
+      "challenge": {
+        "section_title": "The challenge",
+        "headline": "A growth ceiling, a clear lever",
+        "intro": "Demand exceeds medical supply. The main lever to increase supply is reducing administrative time.",
+        "problem_title": "The problem",
+        "problem_text": "Patient demand exceeds available medical supply, directly limiting Qare's growth.\n\nIncremental optimizations on the existing product only had marginal impact. The approach needed to be far more ambitious.",
+        "opportunities_title": "Opportunities",
+        "opportunities": [
+          "Automation integration (e.g. LLM) can pre-fill clinical context, generate diagnostic suggestions and prescriptions before the video consultation.",
+          "Urinary discomfort appears to be an ideal case to iterate on."
+        ],
+        "constraint_title": "The constraint",
+        "constraint_text": "A highly fragmented legacy interface: only 4 out of 10 tabs used daily.\n\nThe redesign cannot be incremental, the entire consultation flow needs to be rethought while integrating automations."
+      },
+      "role": {
+        "section_title": "My role",
+        "headline": "Guide, challenge, unblock",
+        "description": "My role is to give designers the means to succeed.",
+        "pillars": [
+          {
+            "title": "Discovery framing",
+            "text": "Set objectives, scope, and support on methodology. Challenge research depth, step sequencing, and the expected effort vs. value ratio."
+          },
+          {
+            "title": "Continuous design challenge",
+            "text": "Question decisions through alternatives and scenario testing. Promote a \"Hands-free\" layout concept to push toward less interaction and more automation."
+          },
+          {
+            "title": "Strategic connection",
+            "text": "Link every design decision to business goals (+40% medical time) and medical goals (diagnostic quality). Progress presentations and alignment with P&T stakeholders."
+          }
+        ],
+        "team_members": [
+          { "name": "Léa", "role": "Product Designer assigned to the impact team" },
+          { "name": "Titouan", "role": "Product Designer in charge of the Design System" }
+        ]
+      },
+      "insight": {
+        "section_title": "The decisive insight",
+        "headline": "Understand before redesigning",
+        "description": "A rigorous discovery led by Léa and Titouan, which I framed upstream and challenged (when needed) to ensure insight relevance.",
+        "discovery_steps": [
+          "Review of medical literature and HAS (French National Authority for Health) guidelines",
+          "Working session with the medical team (Dr. Melot)",
+          "Data analysis via Metabase & Contentsquare",
+          "5 mock teleconsultations for urinary discomfort"
+        ],
+        "discovery_note": "I assisted them in collecting Contentsquare data and setting up the mock consultation methodology.",
+        "key_findings_title": "Key findings",
+        "key_findings": [
+          "Urinary discomfort is easy to diagnose, cystitis is the most common cause (65% of women)",
+          "The average consultation lasts 8 minutes (5 min GP, 2 min gynecologist)",
+          "Only 4 key questions in the interview and 2 differential diagnoses",
+          "99% of teleconsultations result in a prescription, 6% include sick leave"
+        ],
+        "decision_tree_caption": "Illustration: Decision tree for urinary discomfort"
+      },
+      "design_approach": {
+        "section_title": "Design approach",
+        "headline": "From an exhaustive interface to a contextual one",
+        "pillars": [
+          {
+            "emoji": "🎯",
+            "title": "Immediate clinical context",
+            "text": "All relevant information available immediately: patient record, pre-consultation symptom summary, medical alerts, visible at a glance."
+          },
+          {
+            "emoji": "📋",
+            "title": "Pre-generated documents",
+            "text": "Prescriptions and documents already available based on the selected diagnosis. The diagnostic hypothesis directly influences prescription suggestions."
+          },
+          {
+            "emoji": "⚡",
+            "title": "Reversed flow",
+            "text": "Button inversion: 'Generate report' before 'Hang up'. Everything happens during the consultation, not after."
+          }
+        ]
+      },
+      "iteration": {
+        "section_title": "Iteration",
+        "headline": "Challenge to converge",
+        "description": "Three layout iterations, each pushing toward the \"Hands-free consultation\" vision, less interaction, more automation.",
+        "bold_move_title": "Bold move",
+        "bold_move_text": "Reversing the button sequence, 'Generate report' replaces 'Hang up' as the primary action. Today, the report is only generated after hanging up. Tomorrow, everything happens during the consultation."
+      },
+      "learnings": {
+        "section_title": "Learnings",
+        "headline": "Key lessons from this project",
+        "worked_title": "What worked",
+        "worked": [
+          "Qualitative research revealed things data alone couldn't show",
+          "Understanding the practitioner's real workflow, not the one data suggested",
+          "The contextual interface concept, refocusing the practitioner on the medical exchange",
+          "Changing the practitioner workflow with a simple button sequence modification"
+        ],
+        "failed_title": "What didn't work",
+        "failed": [
+          "Not addressing the design experience debt on the practitioner side",
+          "LLM isn't always the right answer, standard automations would have been enough"
+        ]
+      },
+      "contexte": {
+        "section_title": "Context",
+        "headline": "About Qare?",
+        "col1": "Qare is a French telemedicine platform that allows patients to consult general practitioners and specialists 24/7, from home.",
+        "col2": "With over 2,500 doctors and 15,000 daily consultations, Qare is a key player in digital healthcare in France."
+      },
+      "challenges": {
+        "section_title": "What pushed back",
+        "blocks": [
+          {
+            "title": "Discovering LLM limits in production",
+            "text": "At launch, we lacked real-world perspective on LLM capabilities in a medical context. It is now, with features in production, that we are concretely learning where the LLM adds value and where classical automation is more reliable and cost-effective."
+          },
+          {
+            "title": "Changing an ingrained workflow",
+            "text": "Swapping the button order (generate the report before hanging up) challenged a daily reflex for 2,500 practitioners. The risk of rejection was real, which made the qualitative user test with doctors critical to validate the concept before development."
+          }
+        ]
+      },
+      "next_steps": {
+        "section_title": "Next steps",
+        "blocks": [
+          {
+            "title": "Generalize beyond urinary discomfort",
+            "text": "The cystitis case served as an ideal iteration ground (simple diagnosis, high volume). The next challenge: adapting the contextual interface to more complex conditions with deeper decision trees."
+          },
+          {
+            "title": "Measure the impact on diagnostic quality",
+            "text": "The time savings are proven. What remains is validating that the quality of diagnoses and prescriptions is not degraded by automation, a topic that directly involves the medical team."
+          }
+        ]
+      },
+      "project_nav": {
+        "previous_label": "Previous project",
+        "previous_company": "Qare",
+        "previous_title": "Chronic Care Programs",
+        "next_label": "Next project",
+        "next_company": "Qare",
+        "next_title": "Healthcare Monetization"
+      }
+    }
+  },
+
+  "case_study_monetisation": {
+    "fr": {
+      "meta": {
+        "tag1": "IC Design Lead",
+        "tag2": "Management",
+        "period": "2023-2026"
+      },
+      "hero": {
+        "title": "Monétisation dans la santé",
+        "subtitle": "3 ans d'itérations entre business,\ndesign et régulation",
+        "image_placeholder": "Illustration monétisation"
+      },
+      "hero_stats": [
+        { "value": "1/3", "label": "du revenu Qare issu des frais de service", "tooltip": "Part des revenus de Qare provenant des frais de service, un levier de monétisation construit sur 3 ans." },
+        { "value": "87%", "label": "d'acceptation des frais de service", "tooltip": "Taux d'acceptation des frais de service par les patients, validant l'approche de monétisation progressive." },
+        { "value": "5", "label": "pivots autour de la monétisation", "tooltip": "Nombre d'itérations stratégiques majeures sur le modèle de monétisation entre 2023 et 2026." }
+      ],
+      "contexte": {
+        "section_title": "Context",
+        "headline": "À propos de Qare ?",
+        "col1": "Qare est une plateforme française de téléconsultation médicale qui permet aux patients de consulter des médecins généralistes et spécialistes 24h/24 et 7j/7, depuis chez eux.",
+        "col2": "Avec plus de 2 500 médecins et 15 000 consultations quotidiennes, Qare est un acteur clé de la santé numérique en France."
+      },
+      "problematique": {
+        "headline": "La problématique",
+        "paragraphs": [
+          "La monétisation dans la santé digitale est un exercice d'équilibriste. D'un côté, un modèle économique à protéger (les frais de service représentent un tiers du chiffre d'affaires de Qare).",
+          "De l'autre, un régulateur qui remet en cause l'existence même de ces frais. Entre les deux, des patients qui ne sont pas sensibles au prix mais à la valeur perçue du service.",
+          "Pendant 3 ans, j'ai piloté la discovery et le design de chaque pivot de monétisation chez Qare, en utilisant des méthodes quantitatives (Van Westendorp, user tests asynchrones à grande échelle) pour transformer une contrainte réglementaire en opportunité produit.",
+          "Le constat : quand la discovery précède la décision, ça marche. Quand elle est absente, ça échoue.",
+          "C'est cette histoire que je vous propose de développer ici"
+        ]
+      },
+      "timeline": {
+        "section_title": "Historique",
+        "headline": "5 pivots en 3 ans",
+        "subtitle": "La monétisation chez Qare n'a jamais été un projet unique. C'est une série de pivots stratégiques, chacun porté par la discovery.",
+        "events": [
+          {
+            "date": "Janvier 2023",
+            "title": "Lancement des frais de service",
+            "description": "Qare facture 4€ de frais de service à chaque consultation. Je mène une première étude de sensibilité au prix (Van Westendorp) qui confirme que les patients ne sont pas sensibles à ce montant. Aucun impact sur la conversion.",
+            "type": "launch"
+          },
+          {
+            "date": "Février 2024",
+            "title": "Le décret change les règles",
+            "description": "Un décret impose que les frais de téléconsultation deviennent optionnels. Objectif : couvrir 80% des pertes. Je lance une discovery complète : questionnaires quanti (500-800 patients par service), Van Westendorp, analyse Contentsquare, benchmark hors santé, user tests asynchrones.",
+            "type": "alert"
+          },
+          {
+            "date": "Mai 2024",
+            "title": "Qare+ mis en pause",
+            "description": "Le projet d'abonnement premium est abandonné avant le lancement pour des raisons logistiques et financières. C'est le seul pivot où aucune discovery n'a été menée en amont, et c'est un échec.",
+            "type": "alert"
+          },
+          {
+            "date": "Août 2024",
+            "title": "Passage aux frais optionnels en bundle",
+            "description": "Les frais deviennent optionnels sous forme de bundle (consultation <3h + assurance annulation + tiers payant). 87% d'application, aucun impact sur la conversion. L'étude Van Westendorp initiale a directement alimenté le pricing du bundle.",
+            "type": "launch"
+          },
+          {
+            "date": "Juin 2025",
+            "title": "Lancement des programmes Shape & Mind",
+            "description": "Premier abonnement chez Qare. Les insights de la discovery sur la sensibilité au prix et la valeur perçue ont été réutilisés pour le pricing des programmes Chronic Care.",
+            "type": "launch"
+          },
+          {
+            "date": "Juillet 2025",
+            "title": "Le régulateur conteste",
+            "description": "Les régulateurs remettent en question le caractère optionnel des services payants.",
+            "type": "alert"
+          },
+          {
+            "date": "Août 2025",
+            "title": "Pivot coupe-fil",
+            "description": "Qare simplifie l'offre : un coupe-fil (<6h) affiché dès le début du parcours.",
+            "type": "launch"
+          },
+          {
+            "date": "Mars 2026",
+            "title": "Mise en demeure",
+            "description": "Les régulateurs exigent le retrait des frais coupe-fil.",
+            "type": "alert"
+          },
+          {
+            "date": "Août 2026",
+            "title": "Pivot assurance annulation",
+            "description": "Nouveau pivot vers l'assurance annulation. 50-60% d'application des frais, sans impact sur la conversion.",
+            "type": "launch"
+          }
+        ],
+        "placeholders": [
+          "Image : Graphique Van Westendorp (courbes prix optimal)",
+          "Image : Graphique barres taux d'acceptation bundle (90%)",
+          "Image : Captures interfaces programmes Shape & Mind",
+          "Image : Page recherche praticien avec indication coupe-fil"
+        ]
+      },
+      "insight": {
+        "quote": "Tout au long de notre logique de monétisation, les études que j'ai mises en place sur les frais de service initiaux ont servi de fondation. Pour le bundle, pour les programmes Chronic Care, pour chaque pivot. La seule fois où on n'a pas eu l'occasion d'en faire, pour Qare+, ça a été un échec. C'est la preuve que la discovery a sa place dans les sujets business, pas seulement dans le produit."
+      },
+      "methods": {
+        "section_title": "Méthodes",
+        "headline": "Les outils de discovery qui ont fait la différence",
+        "cards": [
+          {
+            "title": "Van Westendorp",
+            "text": "4 questions (trop cher, pas assez cher, cher, bonne affaire) pour déterminer la zone de prix optimale. Utilisé dès janvier 2023 sur les frais de service, puis réutilisé pour chaque nouveau modèle de pricing."
+          },
+          {
+            "title": "Effet Zeigarnik",
+            "text": "Ce biais cognitif nous a guidé pour placer le choix de pricing au bon moment du funnel : après la recherche et l'inscription, quand l'engagement est déjà fort."
+          },
+          {
+            "title": "User tests asynchrones",
+            "text": "~60 patients par option, testés en parallèle. Permet d'obtenir un volume statistique significatif rapidement, et de comparer objectivement les parcours."
+          }
+        ]
+      },
+      "learnings": {
+        "section_title": "Learnings",
+        "headline": "Les leçons clés de ce projet",
+        "worked_title": "Ce qui a fonctionné",
+        "worked": [
+          "La discovery a sa place dans les sujets business, chaque pivot réussi a été précédé d'une étude",
+          "La valeur perçue compte plus que le prix, le bundle à 90% coûte plus cher que le fee seul",
+          "Savoir pivoter vite quand le contexte réglementaire change",
+          "Travailler à la frontière design / business / légal dès le premier jour"
+        ],
+        "failed_title": "Ce qui n'a pas fonctionné",
+        "failed": [
+          "L'absence de discovery mène à l'échec, Qare+ en est la preuve",
+          "Le design seul ne suffit pas face à la régulation",
+          "La conformité réglementaire est une cible mouvante"
+        ]
+      },
+      "project_nav": {
+        "previous_label": "Projet précédent",
+        "previous_company": "Qare",
+        "previous_title": "Optimiser le temps médical",
+        "next_label": "Projet suivant",
+        "next_company": "Qare",
+        "next_title": "Programmes chroniques"
+      }
+    },
+    "en": {
+      "meta": {
+        "tag1": "IC Design Lead",
+        "tag2": "Management",
+        "period": "2023-2026"
+      },
+      "hero": {
+        "title": "Monetization in Healthcare",
+        "subtitle": "3 years of iterations between business,\ndesign, and regulation",
+        "image_placeholder": "Illustration monetization"
+      },
+      "hero_stats": [
+        { "value": "1/3", "label": "of Qare revenue from service fees", "tooltip": "Share of Qare's revenue coming from service fees, a monetization lever built over 3 years." },
+        { "value": "87%", "label": "Acceptance rate for service fees", "tooltip": "Patient acceptance rate for service fees, validating the progressive monetization approach." },
+        { "value": "5", "label": "pivots around monetization", "tooltip": "Number of major strategic iterations on the monetization model between 2023 and 2026." }
+      ],
+      "contexte": {
+        "section_title": "Context",
+        "headline": "About Qare?",
+        "col1": "Qare is a French telemedicine platform that allows patients to consult general practitioners and specialists 24/7, from home.",
+        "col2": "With over 2,500 doctors and 15,000 daily consultations, Qare is a key player in digital healthcare in France."
+      },
+      "problematique": {
+        "headline": "The challenge",
+        "paragraphs": [
+          "Monetization in digital healthcare is a balancing act. On one side, an economic model to protect (service fees represent a third of Qare's revenue).",
+          "On the other, a regulator questioning the very existence of these fees. In between, patients who are not sensitive to price but to the perceived value of the service.",
+          "Over 3 years, I led the discovery and design of each monetization pivot at Qare, using quantitative methods (Van Westendorp, large-scale asynchronous user tests) to transform a regulatory constraint into a product opportunity.",
+          "The takeaway: when discovery precedes the decision, it works. When it's absent, it fails.",
+          "This is the story I propose to develop here."
+        ]
+      },
+      "timeline": {
+        "section_title": "History",
+        "headline": "5 pivots in 3 years",
+        "subtitle": "Monetization at Qare was never a single project. It's a series of strategic pivots, each driven by discovery.",
+        "events": [
+          {
+            "date": "January 2023",
+            "title": "Service fee launch",
+            "description": "Qare charges €4 service fees per consultation. I conduct a first price sensitivity study (Van Westendorp) confirming patients are not sensitive to this amount. No impact on conversion.",
+            "type": "launch"
+          },
+          {
+            "date": "February 2024",
+            "title": "The decree changes the rules",
+            "description": "A decree mandates that teleconsultation fees become optional. Goal: cover 80% of losses. I launch a full discovery: quantitative surveys (500-800 patients per service), Van Westendorp, Contentsquare analysis, non-healthcare benchmarks, asynchronous user tests.",
+            "type": "alert"
+          },
+          {
+            "date": "May 2024",
+            "title": "Qare+ put on hold",
+            "description": "The premium subscription project is dropped before launch due to logistical and financial reasons. It's the only pivot where no discovery was conducted beforehand, and it's a failure.",
+            "type": "alert"
+          },
+          {
+            "date": "August 2024",
+            "title": "Switch to optional bundled fees",
+            "description": "Fees become optional as a bundle (consultation <3h + cancellation insurance + third-party payment). 87% application rate, no impact on conversion. The initial Van Westendorp study directly fed the bundle pricing.",
+            "type": "launch"
+          },
+          {
+            "date": "June 2025",
+            "title": "Shape & Mind programs launch",
+            "description": "First subscription at Qare. Discovery insights on price sensitivity and perceived value were reused for Chronic Care program pricing.",
+            "type": "launch"
+          },
+          {
+            "date": "July 2025",
+            "title": "The regulator pushes back",
+            "description": "Regulators question the optional nature of paid services.",
+            "type": "alert"
+          },
+          {
+            "date": "August 2025",
+            "title": "Fast-track pivot",
+            "description": "Qare simplifies the offer: a fast-track (<6h) displayed from the start of the journey.",
+            "type": "launch"
+          },
+          {
+            "date": "March 2026",
+            "title": "Formal notice",
+            "description": "Regulators demand the removal of fast-track fees.",
+            "type": "alert"
+          },
+          {
+            "date": "August 2026",
+            "title": "Cancellation insurance pivot",
+            "description": "New pivot toward cancellation insurance. 50-60% fee application rate, no impact on conversion.",
+            "type": "launch"
+          }
+        ],
+        "placeholders": [
+          "Image: Van Westendorp chart (optimal price curves)",
+          "Image: Bar chart bundle acceptance rate (90%)",
+          "Image: Shape & Mind program interface screenshots",
+          "Image: Practitioner search page with fast-track indicator"
+        ]
+      },
+      "insight": {
+        "quote": "Throughout our monetization logic, the studies I set up on the initial service fees served as the foundation. For the bundle, for the Chronic Care programs, for every pivot. The only time we didn't get to do one, for Qare+, it was a failure. That's proof that discovery belongs in business topics, not just in product."
+      },
+      "methods": {
+        "section_title": "Methods",
+        "headline": "The discovery tools that made the difference",
+        "cards": [
+          {
+            "title": "Van Westendorp",
+            "text": "4 questions (too expensive, not expensive enough, expensive, good deal) to determine the optimal price range. Used from January 2023 on service fees, then reused for every new pricing model."
+          },
+          {
+            "title": "Zeigarnik Effect",
+            "text": "This cognitive bias guided us in placing the pricing choice at the right moment in the funnel: after search and registration, when engagement is already strong."
+          },
+          {
+            "title": "Asynchronous user tests",
+            "text": "~60 patients per option, tested in parallel. Enables quickly obtaining statistically significant volume, and objectively comparing journeys."
+          }
+        ]
+      },
+      "learnings": {
+        "section_title": "Learnings",
+        "headline": "Key lessons from this project",
+        "worked_title": "What worked",
+        "worked": [
+          "Discovery belongs in business topics, every successful pivot was preceded by a study",
+          "Perceived value matters more than price, the 90% bundle costs more than the fee alone",
+          "Knowing how to pivot fast when the regulatory context changes",
+          "Working at the intersection of design / business / legal from day one"
+        ],
+        "failed_title": "What didn't work",
+        "failed": [
+          "The absence of discovery leads to failure, Qare+ is the proof",
+          "Design alone isn't enough against regulation",
+          "Regulatory compliance is a moving target"
+        ]
+      },
+      "project_nav": {
+        "previous_label": "Previous project",
+        "previous_company": "Qare",
+        "previous_title": "Optimizing Medical Time",
+        "next_label": "Next project",
+        "next_company": "Qare",
+        "next_title": "Chronic Care Programs"
+      }
+    }
+  },
+
+  "case_study_branded_call": {
+    "fr": {
+      "meta": { "tag1": "IC Design Lead", "tag2": "1 PM, 1 Lead Dev", "period": "2025-2026" },
+      "hero": { "title": "BRANDED CALL", "subtitle": "Réduire les no-shows en appelant les patients comme un appel classique" },
+      "hero_stats": [
+        { "value": "8,4M€", "label": "de revenus récupérés par an", "tooltip": "Estimation du manque à gagner annuel lié aux no-shows, récupérable grâce au branded call." },
+        { "value": "-146K", "label": "de no-shows patients par an", "tooltip": "Volume annuel de consultations perdues faute d'alerte efficace pour les patients en attente." },
+        { "value": "2 167h", "label": "de temps médical restitué par an", "tooltip": "Heures de temps praticien perdues chaque année en attente de patients qui ne se présentent pas." }
+      ],
+      "contexte": { "section_title": "CONTEXTE", "headline": "À propos de Qare ?", "col1": "Qare est une plateforme française de téléconsultation médicale qui permet aux patients de consulter des médecins généralistes et spécialistes 24h/24 et 7j/7, depuis chez eux.", "col2": "Avec plus de 2 500 médecins et 15 000 consultations quotidiennes, Qare est un acteur clé de la santé numérique en France." },
+      "challenge": { "section_title": "LE CHALLENGE", "headline": "Des patients disponibles mais pas alertés", "cards": [ { "title": "Le problème", "text": "Les patients en attente d'une téléconsultation ne sont pas alertés quand leur consultation démarre. Ils naviguent sur une autre app, s'éloignent de leur téléphone, ou laissent l'écran se mettre en veille. Résultat : 146K no-shows par an, 8,4M de manque à gagner, et une insatisfaction majeure chez les praticiens." }, { "title": "Les opportunités", "text": "Le branded call (appel de marque) est un pattern courant hors santé (livraison, transport, services). Seul Livi parmi nos concurrents le propose. L'appel téléphonique est la seule alerte impossible à ignorer pour un patient qui n'est plus sur l'app." }, { "title": "La contrainte", "text": "Les alternatives moins coûteuses (push notifications, SMS) ont déjà été explorées sans résultat suffisant. Le branded call nécessite un développement natif sur iOS et Android (pas de SDK Vonage React Native), avec des contraintes d'affichage différentes selon l'OS." } ] },
+      "role": { "section_title": "MON RÔLE", "headline": "De la discovery technique à la conception review", "description": "J'ai mené la recherche, structuré la conception et facilité les arbitrages pour livrer une solution en deux lots progressifs, en collaboration avec Tristan (PM) et Nicolas (Lead Dev).", "blocks": [ { "title": "Discovery et cadrage", "text": "Catégorisation continue des feedbacks utilisateurs (stores, Trustpilot) avec Eva pour alimenter le codir. Ce projet est issu de cette discovery au long cours. Investigation technique Vonage, benchmark Livi, Slack, WhatsApp, Signal." }, { "title": "Conception multi-plateforme", "text": "Cartographie des comportements iOS (CallKit) et Android (ConnectionService) selon 5 états du téléphone. Design des flows patient et praticien pour les deux lots, en tenant compte des contraintes d'interface système." }, { "title": "Arbitrages et alignement", "text": "Structuration de la conception review, lotissement Lot 1 / Lot 2, facilitation des trade-offs techniques (archi modulaire vs ship fast, feature flag, réutilisabilité cross-marché HealthHero)." } ] },
+      "insight": { "section_title": "L'INSIGHT DÉCISIF", "headline": "Seule une alerte impossible à ignorer fonctionne", "text": "Qare avait déjà exploré les alternatives moins coûteuses : push notifications, SMS, écrans d'attente améliorés. Aucune n'a suffisamment réduit les no-shows. L'insight clé : quand un patient n'est plus sur l'app, seul un appel téléphonique le ramène. C'est le geste le plus familier et le plus intrusif, donc le plus efficace.", "verbatims": [ { "quote": "\"Lors de la prise de contacte il n y a pas de sonnerie il faut resté les yeux rivé sur son téléphone\"", "source": "Avis store - 12/2/2026" }, { "quote": "\"Impossibilité de la quitter sous peine de perdre la consultation\"", "source": "Avis store - 30/12/2026" } ], "image_caption": "Écran de la salle d'attente (où le patient doit rester les yeux rivés sur son téléphone)" },
+      "design_approach": { "section_title": "L'APPROCHE DESIGN", "headline": "Être appelé par son praticien comme un appel classique", "cards": [ { "title": "Pré-conditions intelligentes", "text": "Le branded call ne se déclenche que lorsque toutes les conditions pré-consultation sont remplies et que le patient n'est pas en salle d'attente. Pour limiter les coûts et éviter une expérience incohérente." }, { "title": "Lot 1 : déclenchement réactif", "text": "L'appel est passé quand le praticien rejoint la consultation. Deux tentatives à 20 secondes d'intervalle. Clôture automatique du no-show, le praticien n'a plus à déclarer les absences manuellement." }, { "title": "Lot 2 : déclenchement proactif", "text": "L'appel est déclenché en amont sur un signal prédictif data-driven (clôture consultation précédente, génération du CR). Le praticien en modèle horaire ne voit plus de no-show. Qare devient sans non-présent." } ], "image_captions": { "no_show_logic": "Logique autour de la déclaration des no-show", "trigger_logic": "Logique de déclenchement (version simplifiée)" } },
+      "technical": { "section_title": "ÉLÉMENTS TECHNIQUES", "headline": "L'affichage n'est pas identique sur iOS et Android", "text": "Dev natif obligatoire, 3 bases de code à maintenir. Sur iOS, CallKit impose l'interface système avec un branding limité au nom du praticien. Sur Android, le design est entièrement libre : logo Qare, nom du praticien, contexte de consultation.", "placeholder": "Comparatif iOS vs Android - 5 états du téléphone" },
+      "learnings": { "section_title": "LEARNINGS", "headline": "Les leçons clés de ce projet", "worked_title": "Ce qui a fonctionné", "worked": [ "La solution la plus bold est parfois la bonne : les approches incrémentales avaient échoué", "Le lotissement Lot 1 / Lot 2 permet de shipper vite et d'itérer avec la data", "Automatiser la déclaration de no-show supprime une friction majeure côté praticien", "La discovery continue (feedbacks stores + Trustpilot) nourrit les bons projets" ], "failed_title": "Ce qui reste à valider", "failed": [ "L'impact réel post-lancement (Lot 1 en développement)", "Le signal prédictif du Lot 2 nécessite un travail data approfondi", "L'architecture modulaire pour les autres marchés HealthHero", "L'affichage du nom du praticien vs \"Consultation Qare\" sur l'appel (à tester post Lot 1)" ] },
+      "challenges": {
+        "section_title": "Ce qui a résisté",
+        "blocks": [
+          {
+            "title": "Un sujet ignoré pendant 4 ans",
+            "text": "Le biais d'ancrage avait rendu ce projet invisible dans la roadmap. Convaincre les stakeholders que la solution \"évidente\" méritait un investissement technique significatif a demandé un cadrage data solide (8,4M€ de manque à gagner)."
+          }
+        ]
+      },
+      "next_steps": {
+        "section_title": "Next steps",
+        "blocks": [
+          {
+            "title": "Un écosystème anti no-show plus large",
+            "text": "Le branded call est une brique d'une stratégie plus vaste. En complément : une redirection automatique vers le patient suivant en cas de no-show ou de fin de consultation, inspirée du \"bouton Next\" de Netflix. Et un pivot vers une assurance annulation, pour transformer le frein financier en levier d'engagement."
+          },
+          {
+            "title": "Contexte historique",
+            "text": "Les no-shows ont déjà été réduits drastiquement depuis mon arrivée chez Qare. Le levier le plus puissant à l'époque : les frais de service. Les patients qui paient sont plus engagés, on ne bloque plus les patients sérieux en réduisant la demande de ceux qui risquent de ne pas venir."
+          }
+        ]
+      },
+      "project_nav": { "previous_label": "Projet précédent", "next_label": "Projet suivant" }
+    },
+    "en": {
+      "meta": { "tag1": "IC Design Lead", "tag2": "1 PM, 1 Lead Dev", "period": "2025-2026" },
+      "hero": { "title": "BRANDED CALL", "subtitle": "Reducing no-shows by calling patients like a regular phone call" },
+      "hero_stats": [
+        { "value": "8.4M€", "label": "in recovered revenue per year", "tooltip": "Estimated annual revenue loss from no-shows, recoverable through branded call." },
+        { "value": "-146K", "label": "patient no-shows per year", "tooltip": "Annual volume of lost consultations due to lack of effective patient alerts." },
+        { "value": "2,167h", "label": "of medical time restored per year", "tooltip": "Practitioner hours lost each year waiting for patients who don't show up." }
+      ],
+      "contexte": { "section_title": "CONTEXT", "headline": "About Qare?", "col1": "Qare is a French telemedicine platform that allows patients to consult general practitioners and specialists 24/7, from home.", "col2": "With over 2,500 doctors and 15,000 daily consultations, Qare is a key player in digital healthcare in France." },
+      "challenge": { "section_title": "THE CHALLENGE", "headline": "Available patients, no effective alert", "cards": [ { "title": "The problem", "text": "Patients waiting for a teleconsultation are not effectively alerted when their session starts. They switch to another app, walk away from their phone, or let the screen go to sleep. Result: 146K no-shows per year, 8.4M in lost revenue, and major practitioner dissatisfaction." }, { "title": "The opportunities", "text": "Branded calling is a common pattern outside healthcare (delivery, transport, services). Only Livi among our competitors offers it. A phone call is the only alert impossible to ignore for a patient who has left the app." }, { "title": "The constraint", "text": "Cheaper alternatives (push notifications, SMS) had already been tried without sufficient results. Branded calling requires native development on iOS and Android (no Vonage React Native SDK), with different display constraints per OS." } ] },
+      "role": { "section_title": "MY ROLE", "headline": "From technical discovery to design review", "description": "I led the research, structured the design and facilitated trade-offs to deliver a solution in two progressive phases, collaborating with Tristan (PM) and Nicolas (Lead Dev).", "blocks": [ { "title": "Discovery and framing", "text": "Ongoing categorization of user feedback (app stores, Trustpilot) with Eva to feed the executive committee. This project emerged from that continuous discovery. Technical investigation of Vonage, benchmarking Livi, Slack, WhatsApp, Signal." }, { "title": "Cross-platform design", "text": "Mapping of iOS (CallKit) and Android (ConnectionService) behaviors across 5 phone states. Designing patient and practitioner flows for both phases, accounting for system interface constraints." }, { "title": "Trade-offs and alignment", "text": "Structuring the design review, phasing into Lot 1 / Lot 2, facilitating technical trade-offs (modular architecture vs ship fast, feature flags, cross-market reusability for HealthHero)." } ] },
+      "insight": { "section_title": "THE KEY INSIGHT", "headline": "Only an alert impossible to ignore works", "text": "Qare had already explored cheaper alternatives: push notifications, SMS, improved waiting screens. None reduced no-shows enough. The key insight: when a patient has left the app, only a phone call brings them back. It's the most familiar and intrusive gesture, and therefore the most effective.", "verbatims": [ { "quote": "\"Lors de la prise de contacte il n y a pas de sonnerie il faut resté les yeux rivé sur son téléphone\"", "source": "Store review - 12/2/2026" }, { "quote": "\"Impossibilité de la quitter sous peine de perdre la consultation\"", "source": "Store review - 30/12/2026" } ], "image_caption": "Waiting room screen (where the patient must keep their eyes glued to the phone)" },
+      "design_approach": { "section_title": "THE DESIGN APPROACH", "headline": "Being called by your doctor like a regular phone call", "cards": [ { "title": "Smart pre-conditions", "text": "The branded call only triggers when all pre-consultation conditions are met and the patient is not in the waiting room. To limit costs and avoid an inconsistent experience." }, { "title": "Phase 1: reactive trigger", "text": "The call is placed when the practitioner joins the consultation. Two attempts 20 seconds apart. Automatic no-show closure, the practitioner no longer has to manually declare absences." }, { "title": "Phase 2: proactive trigger", "text": "The call is triggered ahead of time based on a data-driven predictive signal (previous consultation closure, report generation). Hourly-model practitioners no longer see no-shows. Qare becomes no-show free." } ], "image_captions": { "no_show_logic": "No-show declaration logic", "trigger_logic": "Trigger logic (simplified version)" } },
+      "technical": { "section_title": "TECHNICAL ELEMENTS", "headline": "The display differs between iOS and Android", "text": "Native development required, 3 codebases to maintain. On iOS, CallKit enforces the system interface with branding limited to the practitioner's name. On Android, the design is fully customizable: Qare logo, practitioner name, consultation context.", "placeholder": "iOS vs Android comparison - 5 phone states" },
+      "learnings": { "section_title": "LEARNINGS", "headline": "Key lessons from this project", "worked_title": "What worked", "worked": [ "Sometimes the boldest solution is the right one: incremental approaches had failed", "Phasing into Lot 1 / Lot 2 allows shipping fast and iterating with data", "Automating no-show declaration removes a major friction point for practitioners", "Continuous discovery (app store + Trustpilot feedback) feeds the right projects" ], "failed_title": "What remains to validate", "failed": [ "Real impact post-launch (Phase 1 in development)", "Phase 2's predictive signal requires deeper data work", "Modular architecture for other HealthHero markets", "Displaying practitioner name vs \"Qare Consultation\" on the call (to test post Phase 1)" ] },
+      "challenges": {
+        "section_title": "What pushed back",
+        "blocks": [
+          {
+            "title": "A problem ignored for 4 years",
+            "text": "The anchoring bias had made this project invisible on the roadmap. Convincing stakeholders that the \"obvious\" solution deserved significant technical investment required solid data framing (€8.4M in lost revenue)."
+          }
+        ]
+      },
+      "next_steps": {
+        "section_title": "Next steps",
+        "blocks": [
+          {
+            "title": "A broader anti no-show ecosystem",
+            "text": "The branded call is one piece of a larger strategy. Alongside it: an automatic redirect to the next patient after a no-show or end of consultation, inspired by Netflix's \"Next\" button. And a pivot toward cancellation insurance, turning the financial barrier into an engagement lever."
+          },
+          {
+            "title": "Historical context",
+            "text": "No-shows had already been drastically reduced since I joined Qare. The most powerful lever at the time: service fees. Patients who pay are more committed, so we stopped blocking engaged patients by reducing demand from those likely to no-show."
+          }
+        ]
+      },
+      "project_nav": { "previous_label": "Previous project", "next_label": "Next project" }
+    }
+  },
+
+  "footer_looking_for": {
+    "fr": {
+      "title": "Ce que je cherche",
+      "body": "Je recherche un poste de Lead ou Head of Product Design dans une entreprise produit ambitieuse. Je prends autant de plaisir à mettre les mains dans le craft qu'à porter une vision design à un niveau stratégique, que ces deux dimensions coexistent dans un même rôle ou non.",
+      "location": "Basé à Nantes, disponible en hybride sur Paris."
+    },
+    "en": {
+      "title": "What I'm looking for",
+      "body": "I'm looking for a Lead or Head of Product Design role in an ambitious product company. I enjoy getting hands-on with craft just as much as driving design at a strategic level, whether those two dimensions live in the same role or not.",
+      "location": "Based in Nantes (France) and available for Remote or hybrid work in Paris."
+    }
+  }
+}

@@ -1,0 +1,47 @@
+Place la section "Challenges" juste avant la section "Approche design" existante.
+Place la section "Next steps" après la section "Learnings" existante, en dernière position.
+Utilise le même style visuel que les sections existantes (même typographie, même espacement, même structure titre + paragraphes). Ne modifie rien au contenu ou à la mise en page des sections déjà en place. Garde la logique design existante intacte.
+Mets également à jour le fichier JSON de traduction avec les versions FR et EN ci-dessous.
+
+Page : Programmes chroniques
+Section Challenges (FR)
+Délai inédit pour Qare. 3,5 semaines pour livrer un nouveau service avec un nouveau business model, sans précédent en interne. Chaque décision design devait être prise en sachant qu'on ne pourrait pas itérer avant le lancement.
+Deux programmes, une seule architecture. Shape et Mind partageaient la même base produit mais des parcours patients très différents. Poser des fondations réutilisables sans sur-généraliser a été le principal arbitrage design.
+Un chat non adapté au suivi long cours. L'outil de messagerie existant était conçu pour l'épisodique. Nous avons dû concevoir autour de cette limite plutôt que la résoudre dans le MVP.
+Section Challenges (EN)
+An unprecedented timeline for Qare. 3.5 weeks to ship a new service with a new business model, a first internally. Every design decision had to be made knowing there would be no iteration before launch.
+Two programs, one architecture. Shape and Mind shared the same product foundation but had very different patient journeys. Building reusable foundations without over-generalizing was the main design tradeoff.
+Section Next steps (FR)
+Consolider la rétention. La priorité : personnaliser les contenus au profil patient (stade, comorbidités, objectifs) et remplacer le chat par un outil de suivi dédié à la relation continue patient-équipe médicale.
+Élargir à de nouvelles pathologies. Shape et Mind ont posé les fondations d'une plateforme réutilisable. Le next step : la ménopause en priorité, pour élargir la cible au-delà des 25-40 ans et ouvrir la santé de la femme comme axe stratégique. Puis d'autres programmes récurrents (santé sexuelle, etc.) sur la même base.
+Section Next steps (EN)
+Strengthen retention. The priority: personalize content based on patient profile (program stage, comorbidities, goals) and replace the chat with a dedicated follow-up tool for the ongoing patient-care team relationship.
+Expand to new conditions. Shape and Mind laid the foundations for a reusable platform. Next step: menopause first, to broaden the target beyond the 25-40 age range and open women's health as a strategic axis. Then other recurring programs (sexual health, etc.) on the same foundation.
+
+Page : Optimiser le temps médical
+Section Challenges (FR)
+Identifier les limites du LLM en production. Au lancement, nous manquions de recul sur les capacités réelles des LLM en contexte médical. C'est maintenant, avec des features en production, qu'on découvre concrètement où le LLM apporte de la valeur et où une automatisation classique est plus fiable et moins coûteuse.
+Changer un workflow ancré. L'inversion des boutons (générer le CR avant raccrocher) remettait en question un geste réflexe quotidien pour 2 500 praticiens. Le risque de rejet était réel, d'où l'importance des tests utilisateurs qualitatifs avec des médecins en discovery pour valider le concept avant dev.
+Section Challenges (EN)
+Discovering LLM limits in production. At launch, we lacked real-world perspective on LLM capabilities in a medical context. It is now, with features in production, that we are concretely learning where the LLM adds value and where classical automation is more reliable and cost-effective.
+Changing an ingrained workflow. Swapping the button order (generate the report before hanging up) challenged a daily reflex for 2,500 practitioners. The risk of rejection was real, which made the qualitative user test with doctors critical to validate the concept before development.
+Section Next steps (FR)
+Généraliser au-delà de la gêne urinaire. Le cas de la cystite a servi de terrain d'itération idéal (diagnostic simple, forte volumétrie). L'enjeu suivant : adapter l'interface contextuelle à des pathologies plus complexes avec des arbres de décision plus profonds.
+Mesurer l'impact sur la qualité diagnostique. Le gain de temps est prouvé. Reste à valider que la qualité des diagnostics et prescriptions n'est pas dégradée par l'automatisation, un sujet qui implique l'équipe médicale directement.
+Section Next steps (EN)
+Generalize beyond urinary discomfort. The cystitis case served as an ideal iteration ground (simple diagnosis, high volume). The next challenge: adapting the contextual interface to more complex conditions with deeper decision trees.
+Measure the impact on diagnostic quality. The time savings are proven. What remains is validating that the quality of diagnoses and prescriptions is not degraded by automation, a topic that directly involves the medical team.
+
+Page : Branded Call
+Section Challenges (FR)
+Un sujet ignoré pendant 4 ans. Le biais d'ancrage avait rendu ce projet invisible dans la roadmap. Convaincre les stakeholders que la solution "évidente" méritait un investissement technique significatif a demandé un cadrage data solide (8,4M€ de manque à gagner).
+Section Challenges (EN)
+A problem ignored for 4 years. The anchoring bias had made this project invisible on the roadmap. Convincing stakeholders that the "obvious" solution deserved significant technical investment required solid data framing (€8.4M in lost revenue).
+Section Next steps (FR)
+Un écosystème anti no-show plus large. Le branded call est une brique d'une stratégie plus vaste. En complément : une redirection automatique vers le patient suivant en cas de no-show ou de fin de consultation, inspirée du "bouton Next" de Netflix. Et un pivot vers une assurance annulation, pour transformer le frein financier en levier d'engagement.
+Contexte historique. Les no-shows ont déjà été réduits drastiquement depuis mon arrivée chez Qare. Le levier le plus puissant à l'époque : les frais de service. Les patients qui paient sont plus engagés, on ne bloque plus les patients sérieux en réduisant la demande de ceux qui risquent de ne pas venir.
+Section Next steps (EN)
+A broader anti no-show ecosystem. The branded call is one piece of a larger strategy. Alongside it: an automatic redirect to the next patient after a no-show or end of consultation, inspired by Netflix's "Next" button. And a pivot toward cancellation insurance, turning the financial barrier into an engagement lever.
+Historical context. No-shows had already been drastically reduced since I joined Qare. The most powerful lever at the time: service fees. Patients who pay are more committed, so we stopped blocking engaged patients by reducing demand from those likely to no-show.
+
+Pense à bien ajouter toutes ces clés dans le fichier JSON de traduction, avec les clés structurées par page et par section (ex: chronic.challenges.title, chronic.challenges.block1, etc.).
