@@ -1,7 +1,7 @@
 import svgPaths from "./svg-q4l3m5ssp7";
-import imgImage715 from "figma:asset/29b08f7bb13f6dda67c4bd717417f76b77a6730a.png";
-import imgImage716 from "figma:asset/a1628c1e0a466f01138d6b3b2432901a0eefb85a.png";
-import imgImage717 from "figma:asset/6d84aab448b0a17c03a9a8efe59ab130eaf16760.png";
+import imgImage715 from "@/assets/29b08f7bb13f6dda67c4bd717417f76b77a6730a.png";
+import imgImage716 from "@/assets/a1628c1e0a466f01138d6b3b2432901a0eefb85a.png";
+import imgImage717 from "@/assets/6d84aab448b0a17c03a9a8efe59ab130eaf16760.png";
 
 export default function Starterkit({ onClose }: { onClose?: () => void }) {
   return (

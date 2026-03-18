@@ -1,5 +1,5 @@
 import svgPaths from "./svg-jb513hsmab";
-import imgGeminiGeneratedImageNyv827Nyv827Nyv81 from "figma:asset/9d671a799b6c8e651bc72a1e7a229fe1eb8345cf.png";
+import imgGeminiGeneratedImageNyv827Nyv827Nyv81 from "@/assets/9d671a799b6c8e651bc72a1e7a229fe1eb8345cf.png";
 
 function Wrapper({ children }: React.PropsWithChildren<{}>) {
   return (

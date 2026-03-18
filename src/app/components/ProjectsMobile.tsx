@@ -1,7 +1,7 @@
-import imgQare from "figma:asset/11af05f0212fbda46592464adca2cfe9cb64b28e.png";
-import imgTempsMedical from "figma:asset/b1e327b80299135e2fc027ba55121756be6c94ae.png";
-import imgMonetisation from "figma:asset/42b0e4588a42e64d9354d4538b430ccc04ef48a9.png";
-import imgBrandedCall from "figma:asset/f5121ae8295ff655c5d23a610e7985e780962097.png";
+import imgQare from "@/assets/11af05f0212fbda46592464adca2cfe9cb64b28e.png";
+import imgTempsMedical from "@/assets/b1e327b80299135e2fc027ba55121756be6c94ae.png";
+import imgMonetisation from "@/assets/42b0e4588a42e64d9354d4538b430ccc04ef48a9.png";
+import imgBrandedCall from "@/assets/f5121ae8295ff655c5d23a610e7985e780962097.png";
 import { Link } from "react-router";
 import { useTranslation } from "./LanguageContext";
 

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import svgPaths from "./svg-a102n0vf9s";
-import imgOnboardingFunnelShape3 from "figma:asset/2e8772cf9ade8d51857159caab4e7697c5cde3df.png";
-import imgOnboardingFunnelShape4 from "figma:asset/c451dbc6094083fc2a3ba8336599e708e4bb3281.png";
+import imgOnboardingFunnelShape3 from "@/assets/2e8772cf9ade8d51857159caab4e7697c5cde3df.png";
+import imgOnboardingFunnelShape4 from "@/assets/c451dbc6094083fc2a3ba8336599e708e4bb3281.png";
 type OnboardingFunnelShapeProps = {
   additionalClassNames?: string;
 };

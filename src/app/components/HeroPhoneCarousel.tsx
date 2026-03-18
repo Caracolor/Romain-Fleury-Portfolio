@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
-import imgScreen1 from "figma:asset/719be8b40038074e2e5653e96e2637c01ff07358.png";
-import imgScreen2 from "figma:asset/adc61ec21a8ee5cd871b10ebae30a0019b402800.png";
-import imgScreen3 from "figma:asset/3edd87430316fdb862ee9332b0aff018bf6b92d6.png";
+import imgScreen1 from "@/assets/719be8b40038074e2e5653e96e2637c01ff07358.png";
+import imgScreen2 from "@/assets/adc61ec21a8ee5cd871b10ebae30a0019b402800.png";
+import imgScreen3 from "@/assets/3edd87430316fdb862ee9332b0aff018bf6b92d6.png";
 
 const HERO_IMAGES = [imgScreen1, imgScreen2, imgScreen3];
 const CYCLE_MS = 5000;

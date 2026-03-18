@@ -1,9 +1,9 @@
-import imgImage718 from "figma:asset/8031ff6fa2c24a39fc9d5f7f894dce4313fe86dc.png";
-import imgImage719 from "figma:asset/8ecac9b94f99399f58ab5b6001b4db450ecf9c86.png";
-import imgImage720 from "figma:asset/824ee382afb812949c18925ce440c381fa4d8329.png";
-import imgImage721 from "figma:asset/3ae2d981c145943e3ef7ec026d0cff81db681077.png";
-import imgImage722 from "figma:asset/bddd705962e1f024dc25d914193526aa0c381ef7.png";
-import imgImage723 from "figma:asset/ab097c6f22d603baa487dc7941eb87b22dc4d1a4.png";
+import imgImage718 from "@/assets/8031ff6fa2c24a39fc9d5f7f894dce4313fe86dc.png";
+import imgImage719 from "@/assets/8ecac9b94f99399f58ab5b6001b4db450ecf9c86.png";
+import imgImage720 from "@/assets/824ee382afb812949c18925ce440c381fa4d8329.png";
+import imgImage721 from "@/assets/3ae2d981c145943e3ef7ec026d0cff81db681077.png";
+import imgImage722 from "@/assets/bddd705962e1f024dc25d914193526aa0c381ef7.png";
+import imgImage723 from "@/assets/ab097c6f22d603baa487dc7941eb87b22dc4d1a4.png";
 
 export default function Frame() {
   return (

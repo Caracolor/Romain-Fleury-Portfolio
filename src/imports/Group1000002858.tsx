@@ -1,5 +1,5 @@
 import svgPaths from "./svg-c3ko4dbfwy";
-import imgRectangle from "figma:asset/f9e309890f0c6e1e474802111bac509e74358b67.png";
+import imgRectangle from "@/assets/f9e309890f0c6e1e474802111bac509e74358b67.png";
 
 export default function Group() {
   return (

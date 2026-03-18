@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import imgImage724 from "figma:asset/07ce22b1b88d174a8705a3dedf40795c96815c79.png";
+import imgImage724 from "@/assets/07ce22b1b88d174a8705a3dedf40795c96815c79.png";
 type HelperProps = {
   text: string;
   text1: string;

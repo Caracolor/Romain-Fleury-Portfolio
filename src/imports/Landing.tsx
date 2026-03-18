@@ -1,6 +1,6 @@
-import image_8e716b81ae9e4efdf9e10cfaa7c4c52b3f26825d from 'figma:asset/8e716b81ae9e4efdf9e10cfaa7c4c52b3f26825d.png'
+import image_8e716b81ae9e4efdf9e10cfaa7c4c52b3f26825d from '@/assets/8e716b81ae9e4efdf9e10cfaa7c4c52b3f26825d.png'
 import svgPaths from "./svg-0dbtaqq88m";
-import imgDesktopLanding1 from "figma:asset/0ccaac6df6f9c41f48563a32e4a8282c0a418563.png";
+import imgDesktopLanding1 from "@/assets/0ccaac6df6f9c41f48563a32e4a8282c0a418563.png";
 
 export default function Landing({ onClose }: { onClose?: () => void }) {
   return (

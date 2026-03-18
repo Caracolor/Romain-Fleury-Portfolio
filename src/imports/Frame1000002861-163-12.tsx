@@ -1,4 +1,4 @@
-import imgImage24 from "figma:asset/6a84daf118dcd7bdbc8533ef80263c5e6dc6c58b.png";
+import imgImage24 from "@/assets/6a84daf118dcd7bdbc8533ef80263c5e6dc6c58b.png";
 
 export default function Frame() {
   return (

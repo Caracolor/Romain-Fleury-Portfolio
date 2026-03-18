@@ -1,5 +1,5 @@
 import svgPaths from "./svg-h3681qlot9";
-import imgIllustrationHybrid1 from "figma:asset/4a694fe37c89e831b17ffcc945ced9c8d1ccbca5.png";
+import imgIllustrationHybrid1 from "@/assets/4a694fe37c89e831b17ffcc945ced9c8d1ccbca5.png";
 
 export default function Frame() {
   return (

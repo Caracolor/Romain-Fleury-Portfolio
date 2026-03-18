@@ -1,6 +1,6 @@
 import svgPaths from "./svg-zcy5iblb1g";
-import imgMind from "figma:asset/d6920b25d0dacb652a7f15f95d1fa9fc65e4be75.png";
-import imgShape1 from "figma:asset/df79892ff413427f060d32c68e012fe91c5915f1.png";
+import imgMind from "@/assets/d6920b25d0dacb652a7f15f95d1fa9fc65e4be75.png";
+import imgShape1 from "@/assets/df79892ff413427f060d32c68e012fe91c5915f1.png";
 import { useTranslation } from "../app/components/LanguageContext";
 import { StatTooltip } from "../app/components/StatTooltip";
 type HelperProps = {

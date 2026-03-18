@@ -1,7 +1,7 @@
 import React from "react";
 import OutlinedSystemeCheck from "../../imports/OutlinedSystemeCheck";
 import OutlinedSystemeCancel from "../../imports/OutlinedSystemeCancel";
-import imgLearnings from "figma:asset/f776a534aef1cb13cd22e25a8a1b6f4a69a03846.png";
+import imgLearnings from "@/assets/f776a534aef1cb13cd22e25a8a1b6f4a69a03846.png";
 import { StatsCard } from "./StatsCard";
 import { useTranslation } from "./LanguageContext";
 

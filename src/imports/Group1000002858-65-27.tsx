@@ -1,6 +1,6 @@
-import image_9df522785521e74f1bbae9a8a4e18454c4d8e38e from 'figma:asset/9df522785521e74f1bbae9a8a4e18454c4d8e38e.png'
+import image_9df522785521e74f1bbae9a8a4e18454c4d8e38e from '@/assets/9df522785521e74f1bbae9a8a4e18454c4d8e38e.png'
 import svgPaths from "./svg-1bl6ypmu62";
-import imgRectangle from "figma:asset/f9e309890f0c6e1e474802111bac509e74358b67.png";
+import imgRectangle from "@/assets/f9e309890f0c6e1e474802111bac509e74358b67.png";
 
 export default function Group() {
   return (

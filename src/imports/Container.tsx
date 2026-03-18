@@ -1,5 +1,5 @@
 import svgPaths from "./svg-jn5c2x1go6";
-import imgPicture from "figma:asset/c56d5debaacac6566dcecd8d88a82d82ecdd2621.png";
+import imgPicture from "@/assets/c56d5debaacac6566dcecd8d88a82d82ecdd2621.png";
 
 export default function Container() {
   return (

@@ -22,7 +22,7 @@ import { ProjectNavigation } from "../components/ProjectNavigation";
 import { ContextSection } from "../components/ContextSection";
 import { ChallengesNextSteps } from "../components/ChallengesNextSteps";
 import { useTranslation } from "../components/LanguageContext";
-import image_showcase from "figma:asset/d6e137ac84f850b9345374da1bfb5243f027efc5.png";
+import image_showcase from "@/assets/d6e137ac84f850b9345374da1bfb5243f027efc5.png";
 
 const CONTENT_WIDTH = 950;
 

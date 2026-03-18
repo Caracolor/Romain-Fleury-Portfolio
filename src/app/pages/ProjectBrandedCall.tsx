@@ -1,4 +1,4 @@
-import image_2deade2a147c6a50b530c3268f88ff199de14276 from 'figma:asset/2deade2a147c6a50b530c3268f88ff199de14276.png'
+import image_2deade2a147c6a50b530c3268f88ff199de14276 from '@/assets/2deade2a147c6a50b530c3268f88ff199de14276.png'
 import { ScaledSection } from "../components/ScaledSection";
 import { useTranslation } from "../components/LanguageContext";
 import { useIsMobile } from "../components/useIsMobile";
@@ -16,14 +16,14 @@ import { ProjectNavigation } from "../components/ProjectNavigation";
 import { ContextSection } from "../components/ContextSection";
 import { ChallengesNextSteps } from "../components/ChallengesNextSteps";
 import svgQuote from "../../imports/svg-eda8j0i4h7";
-import imgHeroBrandedCall from "figma:asset/07ce22b1b88d174a8705a3dedf40795c96815c79.png";
-import imgWaitingRoom from "figma:asset/9d671a799b6c8e651bc72a1e7a229fe1eb8345cf.png";
-import imgNoShowLogic from "figma:asset/c1cc6a616be8de19fe5f8895eabaddff80aea7c6.png";
-import imgTriggerLogic from "figma:asset/2eeeab41dcae822d135c01c33a2caeb3acd4b7c5.png";
-import imgSketchBrandedCall from "figma:asset/1ea6fd23dc5cbfb308b899ec3a13e623566b0de3.png";
-import imgRoleGrid1 from "figma:asset/fc9ea84d4278e19a62dbac88dd0fc2f64597e90b.png";
-import imgRoleGrid2 from "figma:asset/1ac1c00a853def5807d6bdb5f60c31c75e6f02e6.png";
-import imgRoleGrid3 from "figma:asset/eb011123c8e70c165a23555a609d1067dfd55470.png";
+import imgHeroBrandedCall from "@/assets/07ce22b1b88d174a8705a3dedf40795c96815c79.png";
+import imgWaitingRoom from "@/assets/9d671a799b6c8e651bc72a1e7a229fe1eb8345cf.png";
+import imgNoShowLogic from "@/assets/c1cc6a616be8de19fe5f8895eabaddff80aea7c6.png";
+import imgTriggerLogic from "@/assets/2eeeab41dcae822d135c01c33a2caeb3acd4b7c5.png";
+import imgSketchBrandedCall from "@/assets/1ea6fd23dc5cbfb308b899ec3a13e623566b0de3.png";
+import imgRoleGrid1 from "@/assets/fc9ea84d4278e19a62dbac88dd0fc2f64597e90b.png";
+import imgRoleGrid2 from "@/assets/1ac1c00a853def5807d6bdb5f60c31c75e6f02e6.png";
+import imgRoleGrid3 from "@/assets/eb011123c8e70c165a23555a609d1067dfd55470.png";
 
 /* ── QuoteMark SVG ── */
 function QuoteMark({ size = 100 }: { size?: number }) {

@@ -1,4 +1,4 @@
-import imgCaptureDecran20260311A1646111 from "figma:asset/3b92b510279dff858eeeea280c7b9c830671086f.png";
+import imgCaptureDecran20260311A1646111 from "@/assets/3b92b510279dff858eeeea280c7b9c830671086f.png";
 
 function Wrapper({ children }: React.PropsWithChildren<{}>) {
   return (

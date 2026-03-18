@@ -1,5 +1,5 @@
-import imgPicture from "figma:asset/d056db09b2a2d24aa59fd3a25ea1adb45c65452e.png";
-import imgPicture1 from "figma:asset/ccffe314c01aeb4af4ddf2ea17f67a0f97538d27.png";
+import imgPicture from "@/assets/d056db09b2a2d24aa59fd3a25ea1adb45c65452e.png";
+import imgPicture1 from "@/assets/ccffe314c01aeb4af4ddf2ea17f67a0f97538d27.png";
 
 function Wrapper({ children }: React.PropsWithChildren<{}>) {
   return (

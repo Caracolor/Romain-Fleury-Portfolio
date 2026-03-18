@@ -1,5 +1,5 @@
-import imgOffreDemande1 from "figma:asset/21363b588e3c244cb572f9799af56ec8ae7a2fb9.png";
-import imgConsultationTimeDesktop1 from "figma:asset/119b9d08982735226c998127e9e2ca9ad617a580.png";
+import imgOffreDemande1 from "@/assets/21363b588e3c244cb572f9799af56ec8ae7a2fb9.png";
+import imgConsultationTimeDesktop1 from "@/assets/119b9d08982735226c998127e9e2ca9ad617a580.png";
 
 export default function Frame() {
   return (

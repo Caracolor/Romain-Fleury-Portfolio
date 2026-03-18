@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import imgImg2026031809485221 from "figma:asset/1ea6fd23dc5cbfb308b899ec3a13e623566b0de3.png";
-import imgPlaceholderVisual from "figma:asset/fc9ea84d4278e19a62dbac88dd0fc2f64597e90b.png";
-import imgPlaceholderVisual1 from "figma:asset/1ac1c00a853def5807d6bdb5f60c31c75e6f02e6.png";
-import imgPlaceholderVisual2 from "figma:asset/eb011123c8e70c165a23555a609d1067dfd55470.png";
+import imgImg2026031809485221 from "@/assets/1ea6fd23dc5cbfb308b899ec3a13e623566b0de3.png";
+import imgPlaceholderVisual from "@/assets/fc9ea84d4278e19a62dbac88dd0fc2f64597e90b.png";
+import imgPlaceholderVisual1 from "@/assets/1ac1c00a853def5807d6bdb5f60c31c75e6f02e6.png";
+import imgPlaceholderVisual2 from "@/assets/eb011123c8e70c165a23555a609d1067dfd55470.png";
 
 function Wrapper({ children }: React.PropsWithChildren<{}>) {
   return (

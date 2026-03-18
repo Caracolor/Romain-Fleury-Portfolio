@@ -1,15 +1,15 @@
 import clsx from "clsx";
 import svgPaths from "./svg-o6x8qiyqqd";
-import imgMind from "figma:asset/d6920b25d0dacb652a7f15f95d1fa9fc65e4be75.png";
-import imgShape1 from "figma:asset/df79892ff413427f060d32c68e012fe91c5915f1.png";
-import imgImg1 from "figma:asset/f8e2e46d3dfe67538f50f1b78a004a8a3e250bd6.png";
-import imgFrame20873251291 from "figma:asset/be3c68be05446c05aa5d0b0e20ea4003ae3c4135.png";
-import imgRectangle2065 from "figma:asset/29b08f7bb13f6dda67c4bd717417f76b77a6730a.png";
-import imgRectangle2067 from "figma:asset/0340fd21e644f3e79fb70a6148ca3346d42f5503.png";
-import imgRectangle2066 from "figma:asset/5fbfa8664a8e7235ddf4eecd1681a7eea0c2de5a.png";
-import imgRectangle2068 from "figma:asset/623c959409db4893ffbb1a4c84b4c225c3506adf.png";
-import imgRectangle from "figma:asset/f9e309890f0c6e1e474802111bac509e74358b67.png";
-import imgRectangle1 from "figma:asset/f776a534aef1cb13cd22e25a8a1b6f4a69a03846.png";
+import imgMind from "@/assets/d6920b25d0dacb652a7f15f95d1fa9fc65e4be75.png";
+import imgShape1 from "@/assets/df79892ff413427f060d32c68e012fe91c5915f1.png";
+import imgImg1 from "@/assets/f8e2e46d3dfe67538f50f1b78a004a8a3e250bd6.png";
+import imgFrame20873251291 from "@/assets/be3c68be05446c05aa5d0b0e20ea4003ae3c4135.png";
+import imgRectangle2065 from "@/assets/29b08f7bb13f6dda67c4bd717417f76b77a6730a.png";
+import imgRectangle2067 from "@/assets/0340fd21e644f3e79fb70a6148ca3346d42f5503.png";
+import imgRectangle2066 from "@/assets/5fbfa8664a8e7235ddf4eecd1681a7eea0c2de5a.png";
+import imgRectangle2068 from "@/assets/623c959409db4893ffbb1a4c84b4c225c3506adf.png";
+import imgRectangle from "@/assets/f9e309890f0c6e1e474802111bac509e74358b67.png";
+import imgRectangle1 from "@/assets/f776a534aef1cb13cd22e25a8a1b6f4a69a03846.png";
 
 function ContainerBackgroundImage2({ children }: React.PropsWithChildren<{}>) {
   return (

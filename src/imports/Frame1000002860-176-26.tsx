@@ -1,4 +1,4 @@
-import imgFrame1000002860 from "figma:asset/11af05f0212fbda46592464adca2cfe9cb64b28e.png";
+import imgFrame1000002860 from "@/assets/11af05f0212fbda46592464adca2cfe9cb64b28e.png";
 
 export default function Frame() {
   return (
