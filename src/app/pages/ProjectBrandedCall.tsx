@@ -70,10 +70,10 @@ export default function ProjectBrandedCall() {
               <Tag>{cs.meta.tag1}</Tag>
               <Tag>{cs.meta.tag2}</Tag>
             </div>
-            <h1 className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[36px] leading-[normal] tracking-[10px] uppercase text-center">
+            <h1 className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[36px] leading-[normal] tracking-[10px] uppercase text-center">
               {cs.hero.title}
             </h1>
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] leading-[normal] text-[20px] text-center">
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] leading-[normal] text-[20px] text-center">
               {cs.hero.subtitle}
             </p>
             <HeroStatsCard stats={cs.hero_stats} mobile />
@@ -88,10 +88,10 @@ export default function ProjectBrandedCall() {
                   <Tag>{cs.meta.tag1}</Tag>
                   <Tag>{cs.meta.tag2}</Tag>
                 </div>
-                <h1 className="font-['Aeonik:Regular',sans-serif] text-[#40295b] leading-[normal] tracking-[15px] uppercase w-[547px] text-[40px] pl-[8px]">
+                <h1 className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] leading-[normal] tracking-[15px] uppercase w-[547px] text-[40px] pl-[8px]">
                   {cs.hero.title}
                 </h1>
-                <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] leading-[normal] text-[28px] whitespace-pre-wrap pl-[8px]">
+                <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] leading-[normal] text-[28px] whitespace-pre-wrap pl-[8px]">
                   {cs.hero.subtitle}
                 </p>
               </div>
@@ -149,7 +149,7 @@ export default function ProjectBrandedCall() {
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP }}>
           <div className="flex flex-col gap-[24px]">
             <SectionHeader label={cs.insight.section_title} headline={cs.insight.headline} mobile />
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[15px] leading-[22px]">
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[15px] leading-[22px]">
               {cs.insight.text}
             </p>
             {/* Verbatims */}
@@ -160,10 +160,10 @@ export default function ProjectBrandedCall() {
                     <div className="absolute mix-blend-multiply" style={{ left: -12, top: -12 }}>
                       <QuoteMark size={70} />
                     </div>
-                    <p className="font-['Times_New_Roman:Bold_Italic',sans-serif] italic leading-[normal] text-[#7a63ca] text-[18px] relative">
+                    <p className="font-['Times_New_Roman:Bold_Italic',sans-serif] italic leading-[normal] text-[var(--color-qare-brand)] text-[18px] relative">
                       {v.quote}
                     </p>
-                    <p className="font-['Aeonik:Regular',sans-serif] text-[13px] leading-[normal] text-[#40295b]">
+                    <p className="font-['Aeonik:Regular',sans-serif] text-[13px] leading-[normal] text-[var(--color-qare-text)]">
                       {v.source}
                     </p>
                   </div>
@@ -175,7 +175,7 @@ export default function ProjectBrandedCall() {
               <div className="relative w-full overflow-hidden rounded-[20px]" style={{ aspectRatio: "800/490.41" }}>
                 <img alt="" className="w-full h-full object-contain" src={image_2deade2a147c6a50b530c3268f88ff199de14276} />
               </div>
-              <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[14px] text-center leading-[normal]">
+              <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[14px] text-center leading-[normal]">
                 {cs.insight.image_caption}
               </p>
             </div>
@@ -185,7 +185,7 @@ export default function ProjectBrandedCall() {
         <ScaledSection maxWidth={800} style={{ paddingTop: SECTION_GAP }}>
           <div className="flex flex-col gap-[52px] items-start w-[800px]">
             <SectionHeader label={cs.insight.section_title} headline={cs.insight.headline} />
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[20px] leading-[30px] w-[794px]">
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[20px] leading-[30px] w-[794px]">
               {cs.insight.text}
             </p>
             {/* Verbatims */}
@@ -196,10 +196,10 @@ export default function ProjectBrandedCall() {
                     <div className="absolute mix-blend-multiply" style={{ left: -20, top: -18 }}>
                       <QuoteMark size={100} />
                     </div>
-                    <p className="font-['Times_New_Roman:Bold_Italic',sans-serif] italic leading-[normal] text-[#7a63ca] text-[30px] relative">
+                    <p className="font-['Times_New_Roman:Bold_Italic',sans-serif] italic leading-[normal] text-[var(--color-qare-brand)] text-[30px] relative">
                       {v.quote}
                     </p>
-                    <p className="font-['Aeonik:Regular',sans-serif] text-[16px] leading-[normal] text-[#40295b]">
+                    <p className="font-['Aeonik:Regular',sans-serif] text-[16px] leading-[normal] text-[var(--color-qare-text)]">
                       {v.source}
                     </p>
                   </div>
@@ -211,7 +211,7 @@ export default function ProjectBrandedCall() {
               <div className="relative w-full overflow-hidden rounded-[20px]" style={{ aspectRatio: "800/490.41" }}>
                 <img alt="" className="w-full h-full object-contain" style={{ transform: "scale(1.07)" }} src={image_2deade2a147c6a50b530c3268f88ff199de14276} />
               </div>
-              <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[14px] text-center leading-[normal]">
+              <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[14px] text-center leading-[normal]">
                 {cs.insight.image_caption}
               </p>
             </div>
@@ -226,7 +226,7 @@ export default function ProjectBrandedCall() {
             <div className="relative w-full overflow-hidden rounded-[16px]">
               <img alt="" className="w-full h-auto object-cover" src={imgTriggerLogic} />
             </div>
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[14px] text-center leading-[normal] w-full">
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[14px] text-center leading-[normal] w-full">
               {cs.design_approach.image_captions?.trigger_logic}
             </p>
           </div>
@@ -238,7 +238,7 @@ export default function ProjectBrandedCall() {
               <div className="relative w-[800px] overflow-hidden rounded-[16px]" style={{ aspectRatio: "800/1031" }}>
                 <img alt="" className="w-full h-full object-cover" src={imgTriggerLogic} />
               </div>
-              <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[16px] text-center leading-[normal] w-[800px]">
+              <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[16px] text-center leading-[normal] w-[800px]">
                 {cs.design_approach.image_captions?.trigger_logic}
               </p>
             </div>
@@ -251,7 +251,7 @@ export default function ProjectBrandedCall() {
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP }}>
           <div className="flex flex-col gap-[24px]">
             <SectionHeader label={cs.role.section_title} headline={cs.role.headline} mobile />
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[15px] leading-[22px]">
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[15px] leading-[22px]">
               {cs.role.description}
             </p>
             <div className="flex flex-col">
@@ -289,7 +289,7 @@ export default function ProjectBrandedCall() {
         <ScaledSection maxWidth={800} style={{ paddingTop: SECTION_GAP }}>
           <div className="flex flex-col gap-[52px] items-start w-[800px]">
             <SectionHeader label={cs.role.section_title} headline={cs.role.headline} />
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[20px] leading-[28px] w-[794px]">
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[20px] leading-[28px] w-[794px]">
               {cs.role.description}
             </p>
             <div className="flex flex-col w-full">
@@ -324,13 +324,13 @@ export default function ProjectBrandedCall() {
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP }}>
           <div className="flex flex-col gap-[24px]">
             <SectionHeader label={cs.design_approach.section_title} headline={cs.design_approach.headline} mobile />
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[15px] leading-[22px]">
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[15px] leading-[22px]">
               {cs.design_approach.cards[0].text}
             </p>
             {/* No-show logic diagram */}
             <div className="flex flex-col gap-[12px] items-center w-full">
               <img alt="" className="w-full h-auto object-contain rounded-[12px]" src={imgNoShowLogic} />
-              <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[14px] text-center leading-[normal]">
+              <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[14px] text-center leading-[normal]">
                 {cs.design_approach.image_captions?.no_show_logic}
               </p>
             </div>
@@ -338,11 +338,11 @@ export default function ProjectBrandedCall() {
               {cs.design_approach.cards.slice(1).map((card: { title: string; text: string }, i: number) => (
                 <div key={i} className="flex gap-[16px] items-start w-full">
                   <div className="flex flex-col items-center self-stretch shrink-0">
-                    <div className="shrink-0 w-[2px]" style={{ height: 10, backgroundColor: i === 0 ? "white" : "#40295b" }} />
+                    <div className="shrink-0 w-[2px]" style={{ height: 10, backgroundColor: i === 0 ? "white" : "var(--color-qare-text)" }} />
                     <RoleDot />
-                    <div className="w-[2px]" style={{ flex: "1 0 0", minHeight: 1, backgroundColor: i === cs.design_approach.cards.length - 2 ? "white" : "#40295b" }} />
+                    <div className="w-[2px]" style={{ flex: "1 0 0", minHeight: 1, backgroundColor: i === cs.design_approach.cards.length - 2 ? "white" : "var(--color-qare-text)" }} />
                   </div>
-                  <div className="flex-1 min-w-0 flex flex-col gap-[12px] text-[#40295b]" style={{ paddingBottom: i === cs.design_approach.cards.length - 2 ? 0 : 24 }}>
+                  <div className="flex-1 min-w-0 flex flex-col gap-[12px] text-[var(--color-qare-text)]" style={{ paddingBottom: i === cs.design_approach.cards.length - 2 ? 0 : 24 }}>
                     <p className="font-['Aeonik:Bold',sans-serif] text-[18px] leading-[28px]">{card.title}</p>
                     <p className="font-['Aeonik:Regular',sans-serif] text-[15px] leading-[22px]">{card.text}</p>
                   </div>
@@ -352,12 +352,12 @@ export default function ProjectBrandedCall() {
           </div>
         </div>
       ) : (
-        <div className="w-full" style={{ backgroundColor: "#f2effa", marginTop: SECTION_GAP }}>
+        <div className="w-full" style={{ backgroundColor: "var(--color-qare-050)", marginTop: SECTION_GAP }}>
           <ScaledSection maxWidth={800} style={{ paddingTop: 56, paddingBottom: 56 }}>
             <div className="flex flex-col gap-[52px] items-start w-[800px]">
               <SectionHeader label={cs.design_approach.section_title} headline={cs.design_approach.headline} />
               <div className="flex flex-col gap-[40px] items-start justify-center w-full">
-                <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[20px] leading-[28px] w-full">
+                <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[20px] leading-[28px] w-full">
                   {cs.design_approach.cards[0].text}
                 </p>
                 {/* No-show logic diagram */}
@@ -365,7 +365,7 @@ export default function ProjectBrandedCall() {
                   <div className="relative w-[800px] overflow-hidden rounded-[16px]" style={{ aspectRatio: "800/508" }}>
                     <img alt="" className="w-full h-full object-cover" src={imgNoShowLogic} />
                   </div>
-                  <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[16px] text-center leading-[normal] w-[800px]">
+                  <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[16px] text-center leading-[normal] w-[800px]">
                     {cs.design_approach.image_captions?.no_show_logic}
                   </p>
                 </div>
@@ -373,11 +373,11 @@ export default function ProjectBrandedCall() {
                   {cs.design_approach.cards.slice(1).map((card: { title: string; text: string }, i: number) => (
                     <div key={i} className="flex gap-[24px] items-start w-full">
                       <div className="flex flex-col items-center self-stretch shrink-0">
-                        <div className="shrink-0 w-[2px]" style={{ height: 10, backgroundColor: i === 0 ? "#f2effa" : "#40295b" }} />
+                        <div className="shrink-0 w-[2px]" style={{ height: 10, backgroundColor: i === 0 ? "var(--color-qare-050)" : "var(--color-qare-text)" }} />
                         <RoleDot />
-                        <div className="w-[2px]" style={{ flex: "1 0 0", minHeight: 1, backgroundColor: i === cs.design_approach.cards.length - 2 ? "#f2effa" : "#40295b" }} />
+                        <div className="w-[2px]" style={{ flex: "1 0 0", minHeight: 1, backgroundColor: i === cs.design_approach.cards.length - 2 ? "var(--color-qare-050)" : "var(--color-qare-text)" }} />
                       </div>
-                      <div className="flex-1 min-w-0 flex flex-col gap-[16px] items-start pb-[40px] rounded-[30px] text-[#40295b]">
+                      <div className="flex-1 min-w-0 flex flex-col gap-[16px] items-start pb-[40px] rounded-[30px] text-[var(--color-qare-text)]">
                         <p className="font-['Aeonik:Regular',sans-serif] text-[28px] leading-[normal] w-full">{card.title}</p>
                         <p className="font-['Aeonik:Regular',sans-serif] text-[20px] leading-[28px] w-full">{card.text}</p>
                       </div>

@@ -88,14 +88,14 @@ export default function ProjectChronicPrograms() {
       {/* ── L'approche design ──────────────────────── */}
       {isMobile ? (
         <div
-          className="bg-[#f2effa] w-full"
+          className="bg-[var(--color-qare-050)] w-full"
           style={{ marginTop: SECTION_GAP, paddingTop: 32, paddingBottom: 32 }}
         >
           <ApprocheMobile />
         </div>
       ) : (
         <div
-          className="bg-[#f2effa] w-full relative overflow-visible"
+          className="bg-[var(--color-qare-050)] w-full relative overflow-visible"
           style={{ marginTop: SECTION_GAP, paddingTop: APPROACH_PY, paddingBottom: APPROACH_PY }}
         >
           <ScaledSection maxWidth={CONTENT_WIDTH}>

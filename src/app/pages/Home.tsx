@@ -29,14 +29,14 @@ export default function Home() {
   return (
     <>
       <PageLoader visible={!imagesReady} />
-      <div ref={containerRef} className="relative min-h-screen w-full bg-white overflow-x-hidden">
+      <div ref={containerRef} className="relative min-h-screen w-full bg-[var(--color-qare-white)] overflow-x-hidden">
         {/* Dot pattern — Home uses a non-mobile-aware gradient with different fade distances */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
             background: [
               "linear-gradient(90deg, rgb(255,255,255) 0%, rgba(255,255,255,0) 100%)",
-              "radial-gradient(circle, rgba(190,170,230,0.45) 1px, transparent 1px) 0 0 / 13px 13px",
+              "var(--bg-qare-dot-pattern)",
             ].join(", "),
             maskImage: `linear-gradient(to bottom, black 0%, black ${500 * s}px, transparent ${800 * s}px)`,
             WebkitMaskImage: `linear-gradient(to bottom, black 0%, black ${500 * s}px, transparent ${800 * s}px)`,

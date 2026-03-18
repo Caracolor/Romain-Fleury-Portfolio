@@ -88,14 +88,14 @@ export default function ProjectMedicalTime() {
       {/* 5. L'Approche Design */}
       {isMobile ? (
         <div
-          className="bg-[#f2effa] w-full"
+          className="bg-[var(--color-qare-050)] w-full"
           style={{ marginTop: SECTION_GAP, paddingTop: 32, paddingBottom: 32 }}
         >
           <ApprochDesignMobileAdapted />
         </div>
       ) : (
         <div
-          className="bg-[#f2effa] w-full"
+          className="bg-[var(--color-qare-050)] w-full"
           style={{
             marginTop: SECTION_GAP,
             paddingTop: Math.round(50 * s),

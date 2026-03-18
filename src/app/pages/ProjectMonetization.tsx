@@ -30,7 +30,7 @@ function TimelineDot({ type }: { type: string }) {
       style={{
         width: 14,
         height: 14,
-        border: `2px solid ${type === "alert" ? "#3c3162" : "#40295b"}`,
+        border: `2px solid ${type === "alert" ? "var(--color-qare-800)" : "var(--color-qare-text)"}`,
         backgroundColor: "transparent",
       }}
     />
@@ -53,18 +53,18 @@ function TimelineEvent({
         {!isLast && (
           <div
             className="flex-1 w-[2px]"
-            style={{ backgroundColor: "#3c3162", minHeight: 40 }}
+            style={{ backgroundColor: "var(--color-qare-800)", minHeight: 40 }}
           />
         )}
       </div>
       <div className="flex-1 pb-[40px] md:pb-[56px]">
-        <p className="font-['Aeonik:Regular',sans-serif] text-[13px] md:text-[20px] tracking-[3px] md:tracking-[4px] uppercase text-[#7a63ca] mb-[6px] md:mb-[8px]">
+        <p className="font-['Aeonik:Regular',sans-serif] text-[13px] md:text-[20px] tracking-[3px] md:tracking-[4px] uppercase text-[var(--color-qare-brand)] mb-[6px] md:mb-[8px]">
           {event.date}
         </p>
-        <h3 className="font-['Aeonik:Bold',sans-serif] text-[#16121b] text-[18px] md:text-[24px] leading-[26px] md:leading-[30px] mb-[8px]">
+        <h3 className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-ink)] text-[18px] md:text-[24px] leading-[26px] md:leading-[30px] mb-[8px]">
           {event.title}
         </h3>
-        <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[15px] md:text-[20px] leading-[22px] md:leading-[28px]">
+        <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[15px] md:text-[20px] leading-[22px] md:leading-[28px]">
           {event.description}
         </p>
         {image && (
@@ -136,10 +136,10 @@ export default function ProjectMonetization() {
               <Tag>{cs.meta.tag2}</Tag>
               <Tag>{cs.meta.period}</Tag>
             </div>
-            <h1 className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[36px] leading-[normal] tracking-[10px] uppercase text-center">
+            <h1 className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[36px] leading-[normal] tracking-[10px] uppercase text-center">
               {cs.hero.title}
             </h1>
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] leading-[normal] text-[20px] text-center">
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] leading-[normal] text-[20px] text-center">
               {cs.hero.subtitle}
             </p>
             <HeroStatsCard stats={cs.hero_stats} mobile />
@@ -155,10 +155,10 @@ export default function ProjectMonetization() {
                   <Tag>{cs.meta.tag2}</Tag>
                   <Tag>{cs.meta.period}</Tag>
                 </div>
-                <h1 className="font-['Aeonik:Regular',sans-serif] text-[#40295b] leading-[normal] tracking-[15px] uppercase w-[547px] text-[40px] pl-[8px]">
+                <h1 className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] leading-[normal] tracking-[15px] uppercase w-[547px] text-[40px] pl-[8px]">
                   {cs.hero.title}
                 </h1>
-                <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] leading-[normal] text-[28px] whitespace-pre-wrap pl-[8px]">
+                <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] leading-[normal] text-[28px] whitespace-pre-wrap pl-[8px]">
                   {cs.hero.subtitle}
                 </p>
               </div>
@@ -186,12 +186,12 @@ export default function ProjectMonetization() {
       {/* ── LA PROBLEMATIQUE ──────────────────────────── */}
       {isMobile ? (
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP * 0.6 }}>
-          <h2 className="font-['Aeonik:Bold',sans-serif] text-[#40295b] text-[22px] leading-[28px] mb-[24px]">
+          <h2 className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[22px] leading-[28px] mb-[24px]">
             {cs.problematique.headline}
           </h2>
           <div className="flex flex-col gap-[16px]">
             {cs.problematique.paragraphs.map((p: string, i: number) => (
-              <p key={i} className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[15px] leading-[22px]">
+              <p key={i} className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[15px] leading-[22px]">
                 {p}
               </p>
             ))}
@@ -199,7 +199,7 @@ export default function ProjectMonetization() {
         </div>
       ) : (
         <ScaledSection maxWidth={800} style={{ paddingTop: 110 }}>
-          <div className="flex flex-col gap-[52px] items-start text-[#40295b]">
+          <div className="flex flex-col gap-[52px] items-start text-[var(--color-qare-text)]">
             <h2 className="font-['Aeonik:Bold',sans-serif] text-[36px] leading-[45px] w-[800px]">
               {cs.problematique.headline}
             </h2>
@@ -217,7 +217,7 @@ export default function ProjectMonetization() {
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP }}>
           <div className="flex flex-col gap-[8px] mb-[32px]">
             <SectionHeader label={cs.timeline.section_title} headline={cs.timeline.headline} mobile />
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[15px] leading-[22px] mt-[4px]">
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[15px] leading-[22px] mt-[4px]">
               {cs.timeline.subtitle}
             </p>
           </div>
@@ -227,7 +227,7 @@ export default function ProjectMonetization() {
         <ScaledSection maxWidth={800} style={{ paddingTop: SECTION_GAP }}>
           <div className="flex flex-col gap-[8px] mb-[71px]">
             <SectionHeader label={cs.timeline.section_title} headline={cs.timeline.headline} />
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] leading-[30px] w-[594px] mt-[4px] text-[20px]">
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] leading-[30px] w-[594px] mt-[4px] text-[20px]">
               {cs.timeline.subtitle}
             </p>
           </div>
@@ -248,7 +248,7 @@ export default function ProjectMonetization() {
           </div>
         </div>
       ) : (
-        <div className="w-full" style={{ backgroundColor: "#f2effa", marginTop: SECTION_GAP }}>
+        <div className="w-full" style={{ backgroundColor: "var(--color-qare-050)", marginTop: SECTION_GAP }}>
           <ScaledSection maxWidth={800} style={{ paddingTop: 56, paddingBottom: 56 }}>
             <div className="flex flex-col gap-[52px] items-start w-[800px]">
               <SectionHeader label={cs.methods.section_title} headline={cs.methods.headline} />
