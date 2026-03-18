@@ -275,22 +275,30 @@ html.lang-fade-in a {
   transition: opacity 150ms ease-in;
 }
 
-/* ── Deer flash animation ───────────────────── */
+/* ── Deer flash — 4 éclairs de 40ms toutes les 25s ── */
+/* 40ms = 0.16% de 25s | gap entre éclairs = 40ms */
 @keyframes deer-flash {
-  /* hidden */
-  0%,    97.19% { opacity: 0; }
-  /* flash 1 — allumage instantané */
-  97.2%         { opacity: 1; }
-  97.6%         { opacity: 1; }
-  /* extinction instantanée */
-  97.61%        { opacity: 0; }
-  /* flash 2 — allumage instantané */
-  98.0%         { opacity: 0; }
-  98.01%        { opacity: 1; }
-  98.4%         { opacity: 1; }
-  /* extinction instantanée */
-  98.41%        { opacity: 0; }
-  100%          { opacity: 0; }
+  0%,    97.99% { opacity: 0; }
+  /* éclair 1 */
+  98.0%          { opacity: 1; }
+  98.16%         { opacity: 1; }
+  98.161%        { opacity: 0; }
+  /* éclair 2 */
+  98.32%         { opacity: 0; }
+  98.321%        { opacity: 1; }
+  98.48%         { opacity: 1; }
+  98.481%        { opacity: 0; }
+  /* éclair 3 */
+  98.64%         { opacity: 0; }
+  98.641%        { opacity: 1; }
+  98.80%         { opacity: 1; }
+  98.801%        { opacity: 0; }
+  /* éclair 4 */
+  98.96%         { opacity: 0; }
+  98.961%        { opacity: 1; }
+  99.12%         { opacity: 1; }
+  99.121%        { opacity: 0; }
+  100%           { opacity: 0; }
 }
 
 .deer-flash {
