@@ -31,15 +31,15 @@ export function ChallengesNextSteps({ data, sectionGap, maxWidth = 800 }: Props)
     return (
       <div className="relative z-10 px-[24px]" style={{ paddingTop: sectionGap }}>
         <div className="flex flex-col gap-[24px]">
-          <p className="font-['Aeonik:Regular',sans-serif] text-[#7a63ca] text-[16px] tracking-[3px] uppercase">
+          <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-brand)] text-[16px] tracking-[3px] uppercase">
             {data.section_title}
           </p>
           {data.blocks.map((block, i) => (
             <div key={i} className="flex flex-col gap-[8px]">
-              <p className="font-['Aeonik:Bold',sans-serif] text-[#40295b] text-[18px] leading-[28px]">
+              <p className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[18px] leading-[28px]">
                 {block.title}
               </p>
-              <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[15px] leading-[22px]">
+              <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[15px] leading-[22px]">
                 {block.text}
               </p>
             </div>
@@ -52,16 +52,16 @@ export function ChallengesNextSteps({ data, sectionGap, maxWidth = 800 }: Props)
   return (
     <ScaledSection maxWidth={maxWidth} style={{ paddingTop: sectionGap }}>
       <div className="flex flex-col gap-[40px] items-start" style={{ width: maxWidth }}>
-        <p className="font-['Aeonik:Regular',sans-serif] text-[#7a63ca] text-[24px] tracking-[4.8px] uppercase w-full">
+        <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-brand)] text-[24px] tracking-[4.8px] uppercase w-full">
           {data.section_title}
         </p>
         <div className="flex flex-col gap-[32px] w-full">
           {data.blocks.map((block, i) => (
             <div key={i} className="flex flex-col gap-[8px]">
-              <p className="font-['Aeonik:Bold',sans-serif] text-[#40295b] text-[28px] leading-[normal]">
+              <p className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[28px] leading-[normal]">
                 {block.title}
               </p>
-              <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[20px] leading-[28px]">
+              <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[20px] leading-[28px]">
                 {block.text}
               </p>
             </div>

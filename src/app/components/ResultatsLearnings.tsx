@@ -13,10 +13,10 @@ export function ResultatsLearnings() {
     <div className="content-stretch flex flex-col gap-[32px] md:gap-[56px] items-start relative w-full">
       {/* Header */}
       <div className="content-stretch flex flex-col gap-[8px] items-start not-italic relative shrink-0">
-        <h4 className="font-['Aeonik:Regular',sans-serif] leading-[normal] relative shrink-0 text-[#7a63ca] text-[18px] md:text-[24px] tracking-[4.8px] uppercase">
+        <h4 className="font-['Aeonik:Regular',sans-serif] leading-[normal] relative shrink-0 text-[var(--color-qare-brand)] text-[18px] md:text-[24px] tracking-[4.8px] uppercase">
           {r.section_title}
         </h4>
-        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[32px] md:leading-[45px] relative shrink-0 text-[#16121b] text-[24px] md:text-[36px] max-w-full md:w-[620px]">
+        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[32px] md:leading-[45px] relative shrink-0 text-[var(--color-qare-ink)] text-[24px] md:text-[36px] max-w-full md:w-[620px]">
           {r.headline}
         </h2>
       </div>
@@ -28,7 +28,7 @@ export function ResultatsLearnings() {
       <div className="flex flex-col md:flex-row gap-[32px] md:gap-[40px] w-full items-start relative">
         {/* CE QUI A FONCTIONNÉ */}
         <div className="flex flex-col gap-[16px] flex-1 w-full">
-          <p className="font-['Aeonik:Bold',sans-serif] text-[18px] leading-[normal] relative shrink-0 text-[#16121b]">
+          <p className="font-['Aeonik:Bold',sans-serif] text-[18px] leading-[normal] relative shrink-0 text-[var(--color-qare-ink)]">
             {r.worked_title}
           </p>
           <div className="flex flex-col gap-[12px] md:gap-[16px]">
@@ -46,7 +46,7 @@ export function ResultatsLearnings() {
                     >
                       <OutlinedSystemeCheck />
                     </div>
-                    <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#16121b] text-[16px] md:text-[20px]">
+                    <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-ink)] text-[16px] md:text-[20px]">
                       {text}
                     </p>
                   </div>
@@ -58,7 +58,7 @@ export function ResultatsLearnings() {
 
         {/* CE QUI N'A PAS FONCTIONNÉ */}
         <div className="flex flex-col gap-[16px] flex-1 w-full">
-          <p className="font-['Aeonik:Bold',sans-serif] text-[18px] leading-[normal] relative shrink-0 text-[#16121b]">
+          <p className="font-['Aeonik:Bold',sans-serif] text-[18px] leading-[normal] relative shrink-0 text-[var(--color-qare-ink)]">
             {r.failed_title}
           </p>
           <div className="flex flex-col gap-[12px] md:gap-[16px]">
@@ -76,7 +76,7 @@ export function ResultatsLearnings() {
                     >
                       <OutlinedSystemeCancel />
                     </div>
-                    <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#16121b] text-[16px] md:text-[20px]">
+                    <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-ink)] text-[16px] md:text-[20px]">
                       {text}
                     </p>
                   </div>

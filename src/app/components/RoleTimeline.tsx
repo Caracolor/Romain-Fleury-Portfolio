@@ -6,7 +6,7 @@ export function RoleDot() {
       style={{
         width: 13.6,
         height: 13.6,
-        border: "2px solid #40295b",
+        border: "2px solid var(--color-qare-text)",
         backgroundColor: "transparent",
       }}
     />
@@ -38,7 +38,7 @@ export function RoleTimelineBlock({
           className="shrink-0 w-[2px]"
           style={{
             height: 10,
-            backgroundColor: isFirst ? hiddenLineColor : "#40295b",
+            backgroundColor: isFirst ? hiddenLineColor : "var(--color-qare-text)",
           }}
         />
         <RoleDot />
@@ -47,13 +47,13 @@ export function RoleTimelineBlock({
           style={{
             flex: "1 0 0",
             minHeight: 8,
-            backgroundColor: isLast ? hiddenLineColor : "#40295b",
+            backgroundColor: isLast ? hiddenLineColor : "var(--color-qare-text)",
           }}
         />
       </div>
       {/* Content */}
       <div
-        className="flex-1 min-w-0 flex flex-col gap-[12px] text-[#40295b]"
+        className="flex-1 min-w-0 flex flex-col gap-[12px] text-[var(--color-qare-text)]"
         style={{ paddingBottom: isLast ? 0 : 24 }}
       >
         <p className="font-['Aeonik:Bold',sans-serif] text-[22px] md:text-[24px] leading-[28px] md:leading-[30px] w-full">

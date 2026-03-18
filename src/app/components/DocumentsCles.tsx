@@ -240,7 +240,7 @@ function MobileZoomableModal({
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[9999] bg-white overflow-hidden"
+      className="fixed inset-0 z-[9999] bg-[var(--color-qare-white)] overflow-hidden"
       style={{ touchAction: "none" }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
@@ -248,10 +248,10 @@ function MobileZoomableModal({
     >
       {/* Top bar: title + close — outside scrollable area */}
       <div
-        className="absolute top-0 left-0 right-0 z-[10000] flex items-center justify-between px-4 py-3 bg-white/90 backdrop-blur-sm"
+        className="absolute top-0 left-0 right-0 z-[10000] flex items-center justify-between px-4 py-3 bg-[var(--color-qare-white)]/90 backdrop-blur-sm"
         style={{ pointerEvents: "auto" }}
       >
-        <p className="font-['Aeonik:Regular',sans-serif] text-[15px] text-[#40295b] tracking-[1.5px] uppercase truncate pr-3">
+        <p className="font-['Aeonik:Regular',sans-serif] text-[15px] text-[var(--color-qare-text)] tracking-[1.5px] uppercase truncate pr-3">
           {title}
         </p>
         <button
@@ -329,10 +329,10 @@ export function DocumentsCles() {
     <div className="content-stretch flex flex-col gap-[32px] md:gap-[56px] items-start relative shrink-0 w-full">
       {/* Header */}
       <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 max-w-full md:w-[706px]">
-        <h4 className="font-['Aeonik:Regular',sans-serif] leading-[normal] relative shrink-0 text-[#7a63ca] text-[18px] md:text-[24px] tracking-[4.8px] uppercase">
+        <h4 className="font-['Aeonik:Regular',sans-serif] leading-[normal] relative shrink-0 text-[var(--color-qare-brand)] text-[18px] md:text-[24px] tracking-[4.8px] uppercase">
           {docs.section_title}
         </h4>
-        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[32px] md:leading-[45px] not-italic relative shrink-0 text-[#16121b] text-[24px] md:text-[36px] max-w-full md:w-[539px]">
+        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[32px] md:leading-[45px] not-italic relative shrink-0 text-[var(--color-qare-ink)] text-[24px] md:text-[36px] max-w-full md:w-[539px]">
           {docs.headline}
         </h2>
       </div>
@@ -346,7 +346,7 @@ export function DocumentsCles() {
           className="w-full md:w-auto md:col-[1/span_2] md:row-[1] h-[180px] md:h-[341px] justify-self-stretch relative rounded-[20px] md:rounded-[30px] shrink-0 cursor-pointer group overflow-hidden"
         >
           <div className="absolute inset-0 rounded-[20px] md:rounded-[30px]">
-            <div className="absolute bg-[#d9d9d9] inset-0 rounded-[20px] md:rounded-[30px]" />
+            <div className="absolute bg-[var(--color-qare-neutral-300)] inset-0 rounded-[20px] md:rounded-[30px]" />
             <div className="absolute inset-0 overflow-hidden rounded-[20px] md:rounded-[30px]">
               <img
                 alt="Starter kit for Shape patient"
@@ -354,9 +354,9 @@ export function DocumentsCles() {
                 src={imgRectangle2065}
               />
             </div>
-            <div className="absolute bg-[rgba(59,58,87,0.05)] inset-0 rounded-[20px] md:rounded-[30px]" />
+            <div className="absolute bg-[var(--overlay-qare-purple-light)] inset-0 rounded-[20px] md:rounded-[30px]" />
           </div>
-          <div className="absolute inset-0 rounded-[20px] md:rounded-[30px] bg-[rgba(59,58,87,0.75)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 rounded-[20px] md:rounded-[30px] bg-[var(--overlay-qare-purple)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-[12px]">
             <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[14px] md:text-[24px] text-center text-white tracking-[2px] md:tracking-[4.8px] uppercase">
               {docs.items[0]}
@@ -364,7 +364,7 @@ export function DocumentsCles() {
           </div>
           <div
             aria-hidden="true"
-            className="absolute border-4 border-[#cac1ea] border-solid inset-0 pointer-events-none rounded-[20px] md:rounded-[30px]"
+            className="absolute border-4 border-[var(--color-qare-200)] border-solid inset-0 pointer-events-none rounded-[20px] md:rounded-[30px]"
           />
         </button>
 
@@ -375,7 +375,7 @@ export function DocumentsCles() {
           className="w-full md:w-auto md:col-[3/span_3] md:row-[1] h-[180px] md:h-[341px] justify-self-stretch relative rounded-[20px] md:rounded-[30px] shrink-0 cursor-pointer group overflow-hidden"
         >
           <div className="absolute inset-0 rounded-[20px] md:rounded-[30px]">
-            <div className="absolute bg-[#d9d9d9] inset-0 rounded-[20px] md:rounded-[30px]" />
+            <div className="absolute bg-[var(--color-qare-neutral-300)] inset-0 rounded-[20px] md:rounded-[30px]" />
             <div className="absolute inset-0 overflow-hidden rounded-[20px] md:rounded-[30px]">
               <img
                 alt="Benchmark concurrentiel"
@@ -383,9 +383,9 @@ export function DocumentsCles() {
                 src={imgRectangle2066}
               />
             </div>
-            <div className="absolute bg-[rgba(59,58,87,0.05)] inset-0 rounded-[20px] md:rounded-[30px]" />
+            <div className="absolute bg-[var(--overlay-qare-purple-light)] inset-0 rounded-[20px] md:rounded-[30px]" />
           </div>
-          <div className="absolute inset-0 rounded-[20px] md:rounded-[30px] bg-[rgba(59,58,87,0.75)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 rounded-[20px] md:rounded-[30px] bg-[var(--overlay-qare-purple)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-[12px]">
             <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[14px] md:text-[24px] text-center text-white tracking-[2px] md:tracking-[4.8px] uppercase">
               {docs.items[1]}
@@ -393,7 +393,7 @@ export function DocumentsCles() {
           </div>
           <div
             aria-hidden="true"
-            className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[20px] md:rounded-[30px]"
+            className="absolute border-4 border-[var(--color-qare-100)] border-solid inset-0 pointer-events-none rounded-[20px] md:rounded-[30px]"
           />
         </button>
 
@@ -411,9 +411,9 @@ export function DocumentsCles() {
                 src={imgRectangle2067}
               />
             </div>
-            <div className="absolute bg-[rgba(59,58,87,0.05)] inset-0 rounded-[20px] md:rounded-[30px]" />
+            <div className="absolute bg-[var(--overlay-qare-purple-light)] inset-0 rounded-[20px] md:rounded-[30px]" />
           </div>
-          <div className="absolute inset-0 rounded-[20px] md:rounded-[30px] bg-[rgba(59,58,87,0.75)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 rounded-[20px] md:rounded-[30px] bg-[var(--overlay-qare-purple)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-[12px]">
             <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[14px] md:text-[24px] text-center text-white tracking-[2px] md:tracking-[4.8px] uppercase">
               {docs.items[2]}
@@ -421,7 +421,7 @@ export function DocumentsCles() {
           </div>
           <div
             aria-hidden="true"
-            className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[20px] md:rounded-[30px]"
+            className="absolute border-4 border-[var(--color-qare-100)] border-solid inset-0 pointer-events-none rounded-[20px] md:rounded-[30px]"
           />
         </button>
 
@@ -432,7 +432,7 @@ export function DocumentsCles() {
           className="w-full md:w-auto md:col-[4/span_2] md:row-[2] h-[180px] md:h-[341px] justify-self-stretch relative rounded-[20px] md:rounded-[30px] shrink-0 cursor-pointer group overflow-hidden"
         >
           <div className="absolute inset-0 rounded-[20px] md:rounded-[30px]">
-            <div className="absolute bg-[#d9d9d9] inset-0 rounded-[20px] md:rounded-[30px]" />
+            <div className="absolute bg-[var(--color-qare-neutral-300)] inset-0 rounded-[20px] md:rounded-[30px]" />
             <div className="absolute inset-0 overflow-hidden rounded-[20px] md:rounded-[30px]">
               <img
                 alt="Tunnel de souscription et Onboarding"
@@ -440,9 +440,9 @@ export function DocumentsCles() {
                 src={imgRectangle2068}
               />
             </div>
-            <div className="absolute bg-[rgba(59,58,87,0.05)] inset-0 rounded-[20px] md:rounded-[30px]" />
+            <div className="absolute bg-[var(--overlay-qare-purple-light)] inset-0 rounded-[20px] md:rounded-[30px]" />
           </div>
-          <div className="absolute inset-0 rounded-[20px] md:rounded-[30px] bg-[rgba(59,58,87,0.75)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 rounded-[20px] md:rounded-[30px] bg-[var(--overlay-qare-purple)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-[12px]">
             <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[14px] md:text-[24px] text-center text-white tracking-[2px] md:tracking-[4.8px] uppercase">
               {docs.items[3]}
@@ -450,7 +450,7 @@ export function DocumentsCles() {
           </div>
           <div
             aria-hidden="true"
-            className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[20px] md:rounded-[30px]"
+            className="absolute border-4 border-[var(--color-qare-100)] border-solid inset-0 pointer-events-none rounded-[20px] md:rounded-[30px]"
           />
         </button>
       </div>

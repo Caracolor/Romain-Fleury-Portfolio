@@ -25,9 +25,9 @@ import imgLayoutIteration1 from "@/assets/d72fc7a5015b34c695ad837485b43c1f6291fc
    Shared mobile styles
    ═══════════════════════════════════════════════════════════════ */
 
-const LABEL_CLS = "font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#7a63ca] text-[16px] tracking-[3px] uppercase";
-const TITLE_CLS = "font-['Aeonik:Bold',sans-serif] leading-[28px] text-[#40295b] text-[22px]";
-const BODY_CLS = "font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px]";
+const LABEL_CLS = "font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-brand)] text-[16px] tracking-[3px] uppercase";
+const TITLE_CLS = "font-['Aeonik:Bold',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[22px]";
+const BODY_CLS = "font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px]";
 
 function MobileSectionHeader({ label, title, subtitle }: { label: string; title: string; subtitle?: string }) {
   return (
@@ -41,12 +41,12 @@ function MobileSectionHeader({ label, title, subtitle }: { label: string; title:
 
 function TagPill({ text }: { text: string }) {
   return (
-    <div className="bg-white relative inline-flex items-center justify-center px-[12px] py-[6px] rounded-[16px] shrink-0">
+    <div className="bg-[var(--color-qare-white)] relative inline-flex items-center justify-center px-[12px] py-[6px] rounded-[16px] shrink-0">
       <div
         aria-hidden="true"
-        className="absolute border-[2.5px] border-solid inset-0 pointer-events-none rounded-[16px] border-[#eeedff]"
+        className="absolute border-[2.5px] border-solid inset-0 pointer-events-none rounded-[16px] border-[var(--color-qare-030)]"
       />
-      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#40295b] text-[13px] whitespace-nowrap">
+      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[13px] whitespace-nowrap">
         {text}
       </p>
     </div>
@@ -84,16 +84,16 @@ export function HeroMobileAdapted() {
         <TagPill text={cs.meta.duration} />
       </div>
 
-      <h1 className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#40295b] text-[36px] tracking-[10px] uppercase text-center">
+      <h1 className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[36px] tracking-[10px] uppercase text-center">
         {cs.hero.title}
       </h1>
 
-      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#40295b] text-[20px] text-center">
+      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[20px] text-center">
         {cs.hero.subtitle}
       </p>
 
       {/* KPI card */}
-      <div className="bg-white relative rounded-[20px] w-full" style={{ boxShadow: "12px 18px 30px 0px rgba(159,188,246,0.15)" }}>
+      <div className="bg-[var(--color-qare-white)] relative rounded-[20px] w-full" style={{ boxShadow: "12px 18px 30px 0px rgba(159,188,246,0.15)" }}>
         <div
           aria-hidden="true"
           className="absolute inset-0 pointer-events-none rounded-[20px]"
@@ -105,7 +105,7 @@ export function HeroMobileAdapted() {
             maskComposite: "exclude",
           }}
         />
-        <div className="flex items-center justify-between px-[20px] py-[20px] font-['Aeonik:Regular',sans-serif] text-[#40295b] text-center w-full">
+        <div className="flex items-center justify-between px-[20px] py-[20px] font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-center w-full">
           {cs.hero_stats.map((stat, i) => (
             <StatTooltip key={i} tooltip={stat.tooltip}>
               <div className="flex flex-col gap-[2px] items-center flex-1">
@@ -166,8 +166,8 @@ export function ChallengeMobileAdapted() {
 function PillarItemMobile({ title, body }: { title: string; body: string }) {
   return (
     <div className="flex gap-[12px] items-start w-full">
-      <div className="rounded-[8px] shrink-0 w-[3px] self-stretch bg-[#d7d0ef]" />
-      <div className="flex flex-col gap-[10px] flex-1 font-['Aeonik:Regular',sans-serif] text-[#40295b]">
+      <div className="rounded-[8px] shrink-0 w-[3px] self-stretch bg-[var(--color-qare-150)]" />
+      <div className="flex flex-col gap-[10px] flex-1 font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)]">
         <p className="text-[18px] leading-[normal]">{title}</p>
         <p className="text-[15px] leading-[22px]">{body}</p>
       </div>
@@ -195,7 +195,7 @@ export function MonRoleMobileAdapted() {
             />
           </div>
         </div>
-        <p className="font-['Aeonik:Regular',sans-serif] text-[#16121b] text-[13px] text-center leading-[normal] w-full mt-[12px]">Organigram de l'équipe design</p>
+        <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-ink)] text-[13px] text-center leading-[normal] w-full mt-[12px]">Organigram de l'équipe design</p>
       </div>
 
       {/* Pillars */}
@@ -252,30 +252,30 @@ export function DiscoveryMobileAdapted() {
       {/* Stacked cards */}
       <div className="flex flex-col gap-[20px] px-[20px]">
         {/* Plan de discovery */}
-        <div className="bg-[#f2effa] rounded-[20px] w-full">
+        <div className="bg-[var(--color-qare-050)] rounded-[20px] w-full">
           <div className="flex flex-col gap-[16px] items-start p-[20px]">
-            <p className="font-['Aeonik:Bold',sans-serif] leading-[26px] text-[#40295b] text-[20px]">Plan de discovery</p>
+            <p className="font-['Aeonik:Bold',sans-serif] leading-[26px] text-[var(--color-qare-text)] text-[20px]">Plan de discovery</p>
             <div className="flex flex-col gap-[12px] w-full">
               <div className="flex gap-[10px] items-start w-full">
-                <span className="font-['Aeonik:Regular',sans-serif] leading-[20px] text-[#7a63ca] text-[14px] shrink-0">→</span>
-                <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px] flex-1">
+                <span className="font-['Aeonik:Regular',sans-serif] leading-[20px] text-[var(--color-qare-brand)] text-[14px] shrink-0">→</span>
+                <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px] flex-1">
                   <span>Revue de la littérature médicale et recommandations </span>
                   <span className="font-['Aeonik:Bold',sans-serif]">HAS</span>
                   <span> (Haute Autorité de Santé)</span>
                 </p>
               </div>
               <div className="flex gap-[10px] items-start w-full">
-                <span className="font-['Aeonik:Regular',sans-serif] leading-[20px] text-[#7a63ca] text-[14px] shrink-0">→</span>
-                <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px] flex-1">{`Session de travail avec l'équipe médicale (Dr. Melot)`}</p>
+                <span className="font-['Aeonik:Regular',sans-serif] leading-[20px] text-[var(--color-qare-brand)] text-[14px] shrink-0">→</span>
+                <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px] flex-1">{`Session de travail avec l'équipe médicale (Dr. Melot)`}</p>
               </div>
 
               {/* Bordered items */}
               <div className="relative mt-[4px]">
-                <div className="border-[3px] border-[#3c3162] border-dashed rounded-[16px] p-[16px]">
+                <div className="border-[3px] border-[var(--color-qare-800)] border-dashed rounded-[16px] p-[16px]">
                   <div className="flex flex-col gap-[12px]">
                     <div className="flex gap-[10px] items-start w-full">
-                      <span className="font-['Aeonik:Regular',sans-serif] leading-[20px] text-[#7a63ca] text-[14px] shrink-0">→</span>
-                      <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px] flex-1">
+                      <span className="font-['Aeonik:Regular',sans-serif] leading-[20px] text-[var(--color-qare-brand)] text-[14px] shrink-0">→</span>
+                      <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px] flex-1">
                         <span>Analyse data via </span>
                         <span className="font-['Aeonik:Bold',sans-serif]">Metabase</span>
                         <span> & </span>
@@ -283,8 +283,8 @@ export function DiscoveryMobileAdapted() {
                       </p>
                     </div>
                     <div className="flex gap-[10px] items-start w-full">
-                      <span className="font-['Aeonik:Regular',sans-serif] leading-[20px] text-[#7a63ca] text-[14px] shrink-0">→</span>
-                      <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px] flex-1">
+                      <span className="font-['Aeonik:Regular',sans-serif] leading-[20px] text-[var(--color-qare-brand)] text-[14px] shrink-0">→</span>
+                      <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px] flex-1">
                         <span className="font-['Aeonik:Bold',sans-serif]">5 fausses téléconsultations</span>
                         <span> pour la gêne urinaire</span>
                       </p>
@@ -304,12 +304,12 @@ export function DiscoveryMobileAdapted() {
         {/* Enseignements clés */}
         <div className="bg-[#e4f6ee] rounded-[20px] w-full">
           <div className="flex flex-col gap-[16px] items-start p-[20px]">
-            <p className="font-['Aeonik:Bold',sans-serif] leading-[26px] text-[#40295b] text-[20px]">{ins.key_findings_title}</p>
+            <p className="font-['Aeonik:Bold',sans-serif] leading-[26px] text-[var(--color-qare-text)] text-[20px]">{ins.key_findings_title}</p>
             <div className="flex flex-col gap-[12px] w-full">
               {ins.key_findings.map((finding, i) => (
                 <div key={i} className="flex gap-[10px] items-start w-full">
-                  <span className="font-['Aeonik:Regular',sans-serif] leading-[20px] text-[#7a63ca] text-[14px] shrink-0">→</span>
-                  <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px] flex-1">{finding}</p>
+                  <span className="font-['Aeonik:Regular',sans-serif] leading-[20px] text-[var(--color-qare-brand)] text-[14px] shrink-0">→</span>
+                  <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px] flex-1">{finding}</p>
                 </div>
               ))}
             </div>
@@ -322,7 +322,7 @@ export function DiscoveryMobileAdapted() {
         <div className="relative rounded-[20px] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.2),0px_0px_2px_0px_rgba(0,0,0,0.08),0px_2px_6px_0px_rgba(0,0,0,0.1)] w-full overflow-hidden" style={{ aspectRatio: "946 / 1737" }}>
           <img alt="Arbre de décision sur la gène urinaire" className="absolute inset-0 max-w-none object-cover size-full" src={imgImage24} />
         </div>
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#40295b] text-[13px] text-center w-full">
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[13px] text-center w-full">
           Illustration : Arbre de décision sur la gène urinaire
         </p>
       </div>
@@ -342,16 +342,16 @@ export function ApprochDesignMobileAdapted() {
     <div className="flex flex-col gap-[32px] items-start w-full px-[20px]">
       <div className="flex flex-col gap-[6px] items-start">
         <p className={LABEL_CLS}>{da.section_title}</p>
-        <p className="font-['Aeonik:Bold',sans-serif] leading-[28px] text-[#40295b] text-[22px]">{da.headline}</p>
+        <p className="font-['Aeonik:Bold',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[22px]">{da.headline}</p>
       </div>
       <div className="flex flex-col gap-[16px] w-full">
         {da.pillars.map((card) => (
-          <div key={card.title} className="bg-white relative rounded-[20px] w-full">
-            <div aria-hidden="true" className="absolute border-[3px] border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[20px]" />
+          <div key={card.title} className="bg-[var(--color-qare-white)] relative rounded-[20px] w-full">
+            <div aria-hidden="true" className="absolute border-[3px] border-[var(--color-qare-100)] border-solid inset-0 pointer-events-none rounded-[20px]" />
             <div className="flex flex-col gap-[10px] items-start p-[20px]">
               <p className="text-[28px] leading-[36px]">{card.emoji}</p>
-              <p className="font-['Aeonik:Regular',sans-serif] leading-[26px] text-[#40295b] text-[18px]">{card.title}</p>
-              <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px]">{card.text}</p>
+              <p className="font-['Aeonik:Regular',sans-serif] leading-[26px] text-[var(--color-qare-text)] text-[18px]">{card.title}</p>
+              <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px]">{card.text}</p>
             </div>
           </div>
         ))}
@@ -375,29 +375,29 @@ export function IterationMobileAdapted() {
     <div className="flex flex-col gap-[24px] items-start w-full px-[20px]">
       <div className="flex flex-col gap-[6px] items-start">
         <p className={LABEL_CLS}>{it.section_title}</p>
-        <p className="font-['Aeonik:Bold',sans-serif] leading-[28px] text-[#16121b] text-[22px]">{it.headline}</p>
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px] mt-[4px]">{it.description}</p>
+        <p className="font-['Aeonik:Bold',sans-serif] leading-[28px] text-[var(--color-qare-ink)] text-[22px]">{it.headline}</p>
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px] mt-[4px]">{it.description}</p>
       </div>
       <div className="w-full">
         <img alt="Évolution des 3 versions de layout" className="w-full pointer-events-none rounded-[30px]" src={image_9c21aee94ef64637cfbeed778dd9762776306afb} />
       </div>
-      <div className="bg-[#f2effa] flex gap-[16px] items-start p-[20px] relative rounded-[20px] w-full">
-        <div aria-hidden="true" className="absolute border-[3px] border-[#afa2df] border-solid inset-0 pointer-events-none rounded-[20px]" />
+      <div className="bg-[var(--color-qare-050)] flex gap-[16px] items-start p-[20px] relative rounded-[20px] w-full">
+        <div aria-hidden="true" className="absolute border-[3px] border-[var(--color-qare-300)] border-solid inset-0 pointer-events-none rounded-[20px]" />
 
         {/* Icon */}
-        <div className="bg-[#e4e0f4] flex items-center justify-center rounded-[16px] shrink-0 size-[52px]">
+        <div className="bg-[var(--color-qare-100)] flex items-center justify-center rounded-[16px] shrink-0 size-[52px]">
           <div className="relative shrink-0 size-[20px]">
             <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28 28">
               <g>
-                <path d={svgPathsRocket.p5001800} fill="#7A63CA" />
-                <path d={svgPathsRocket.p19b0b9f0} fill="#7A63CA" />
+                <path d={svgPathsRocket.p5001800} fill="var(--color-qare-brand)" />
+                <path d={svgPathsRocket.p19b0b9f0} fill="var(--color-qare-brand)" />
               </g>
             </svg>
           </div>
         </div>
 
         {/* Text */}
-        <div className="flex flex-col gap-[6px] flex-1 text-[#40295b]">
+        <div className="flex flex-col gap-[6px] flex-1 text-[var(--color-qare-text)]">
           <p className="font-['Aeonik:Bold',sans-serif] leading-[28px] text-[20px]">{it.bold_move_title}</p>
           <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[15px]">{it.bold_move_text}</p>
         </div>
@@ -418,10 +418,10 @@ export function LearningsMobileAdapted() {
     <div className="flex flex-col gap-[32px] items-start w-full px-[20px]">
       <div className="flex flex-col gap-[6px] items-start">
         <p className={LABEL_CLS}>{lr.section_title}</p>
-        <p className="font-['Aeonik:Bold',sans-serif] leading-[28px] text-[#40295b] text-[22px]">{lr.headline}</p>
+        <p className="font-['Aeonik:Bold',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[22px]">{lr.headline}</p>
       </div>
       <div className="flex flex-col gap-[12px] items-start w-full">
-        <p className="font-['Aeonik:Bold',sans-serif] leading-[normal] text-[#40295b] text-[16px]">{lr.worked_title}</p>
+        <p className="font-['Aeonik:Bold',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[16px]">{lr.worked_title}</p>
         {lr.worked.map((text, i) => (
           <div key={i} className="bg-[#f6fcf9] relative rounded-[12px] w-full">
             <div aria-hidden="true" className="absolute border-[3px] border-[#a4e0c6] border-solid inset-0 pointer-events-none rounded-[12px]" />
@@ -433,13 +433,13 @@ export function LearningsMobileAdapted() {
                   </svg>
                 </div>
               </div>
-              <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px]">{text}</p>
+              <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px]">{text}</p>
             </div>
           </div>
         ))}
       </div>
       <div className="flex flex-col gap-[12px] items-start w-full">
-        <p className="font-['Aeonik:Bold',sans-serif] leading-[normal] text-[#40295b] text-[16px]">{lr.failed_title}</p>
+        <p className="font-['Aeonik:Bold',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[16px]">{lr.failed_title}</p>
         {lr.failed.map((text, i) => (
           <div key={i} className="bg-[#feeff2] relative rounded-[12px] w-full">
             <div aria-hidden="true" className="absolute border-[3px] border-[#f9a2af] border-solid inset-0 pointer-events-none rounded-[12px]" />
@@ -451,7 +451,7 @@ export function LearningsMobileAdapted() {
                   </svg>
                 </div>
               </div>
-              <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px]">{text}</p>
+              <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px]">{text}</p>
             </div>
           </div>
         ))}
@@ -466,15 +466,15 @@ export function LearningsMobileAdapted() {
 
 function ChallengeCardTM({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white relative rounded-[20px] p-[20px] flex flex-col gap-[12px] w-full">
+    <div className="bg-[var(--color-qare-white)] relative rounded-[20px] p-[20px] flex flex-col gap-[12px] w-full">
       <div
         aria-hidden="true"
         className="absolute border-[4px] border-[#deddf8] border-solid inset-0 pointer-events-none rounded-[20px]"
       />
-      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[#40295b] text-[22px]">
+      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[22px]">
         {title}
       </p>
-      <div className="font-['Aeonik:Regular',sans-serif] leading-[22px] not-italic text-[#40295b] text-[15px]">
+      <div className="font-['Aeonik:Regular',sans-serif] leading-[22px] not-italic text-[var(--color-qare-text)] text-[15px]">
         {children}
       </div>
     </div>

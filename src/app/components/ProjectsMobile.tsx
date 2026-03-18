@@ -7,12 +7,12 @@ import { useTranslation } from "./LanguageContext";
 
 function ProjectTag({ text }: { text: string }) {
   return (
-    <div className="bg-white inline-flex items-center justify-center px-[12px] py-[6px] relative rounded-[16px] shrink-0">
+    <div className="bg-[var(--color-qare-white)] inline-flex items-center justify-center px-[12px] py-[6px] relative rounded-[16px] shrink-0">
       <div
         aria-hidden="true"
-        className="absolute border-[3px] border-[#eeedff] border-solid inset-0 pointer-events-none rounded-[16px]"
+        className="absolute border-[3px] border-[var(--color-qare-030)] border-solid inset-0 pointer-events-none rounded-[16px]"
       />
-      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative text-[#40295b] text-[14px]">
+      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative text-[var(--color-qare-text)] text-[14px]">
         {text}
       </p>
     </div>
@@ -50,12 +50,12 @@ function ProjectCard({
           className="relative w-full rounded-[20px] overflow-hidden flex items-center justify-center bg-[#231633]"
           style={{ aspectRatio: "946 / 600" }}
         >
-          <p className="font-['Aeonik:Bold',sans-serif] text-[#afa2df] text-[20px] tracking-[4px] uppercase">
+          <p className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-300)] text-[20px] tracking-[4px] uppercase">
             {comingSoon}
           </p>
           <div
             aria-hidden="true"
-            className="absolute border-[3px] border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[20px]"
+            className="absolute border-[3px] border-[var(--color-qare-100)] border-solid inset-0 pointer-events-none rounded-[20px]"
           />
         </div>
       ) : (
@@ -82,23 +82,23 @@ function ProjectCard({
           </div>
           <div
             aria-hidden="true"
-            className="absolute border-[3px] border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[20px] bg-[#23163300]"
+            className="absolute border-[3px] border-[var(--color-qare-100)] border-solid inset-0 pointer-events-none rounded-[20px] bg-[#23163300]"
           />
         </div>
       )}
 
       {/* Label + Title */}
       <div className="flex flex-col items-start">
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[#7a63ca] text-[14px] tracking-[3px] uppercase">
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-brand)] text-[14px] tracking-[3px] uppercase">
           {label}
         </p>
-        <p className="font-['Aeonik:Bold',sans-serif] leading-[32px] not-italic text-[#40295b] text-[24px]">
+        <p className="font-['Aeonik:Bold',sans-serif] leading-[32px] not-italic text-[var(--color-qare-text)] text-[24px]">
           {title}
         </p>
       </div>
 
       {/* Description */}
-      <div className="font-['Aeonik:Regular',sans-serif] leading-[22px] not-italic text-[#40295b] text-[15px]">
+      <div className="font-['Aeonik:Regular',sans-serif] leading-[22px] not-italic text-[var(--color-qare-text)] text-[15px]">
         {description}
       </div>
     </div>
@@ -124,7 +124,7 @@ export function ProjectsMobile() {
   return (
     <div className="flex flex-col gap-[32px] w-full px-[24px]">
       {/* Section title */}
-      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[#40295b] text-[28px] min-[450px]:text-[36px] tracking-[8px] uppercase">
+      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[28px] min-[450px]:text-[36px] tracking-[8px] uppercase">
         {proj.section_title}
       </p>
 

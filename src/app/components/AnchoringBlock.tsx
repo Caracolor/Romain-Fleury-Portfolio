@@ -42,35 +42,35 @@ export function AnchoringBlock({ mobile }: AnchoringBlockProps) {
   return (
     <div className="flex flex-col gap-[16px] md:gap-[20px]">
       <p
-        className={`font-['Aeonik:Regular',sans-serif] text-[#40295b] ${mobile ? "text-[16px] leading-[24px]" : "text-[24px] leading-[30px]"}`}
+        className={`font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] ${mobile ? "text-[16px] leading-[24px]" : "text-[24px] leading-[30px]"}`}
       >
         {anchoring.intro_line1}
         {mobile ? " " : "\n"}
         {anchoring.intro_line2}
       </p>
       <div
-        className="bg-[#f2effa] w-full"
+        className="bg-[var(--color-qare-050)] w-full"
         style={{ borderTopRightRadius: radius, borderBottomRightRadius: radius }}
       >
         <div className="flex items-start w-full" style={{ gap }}>
-          <div className="bg-[#d7d0ef] rounded-[20px] self-stretch shrink-0 w-[4px]" />
+          <div className="bg-[var(--color-qare-150)] rounded-[20px] self-stretch shrink-0 w-[4px]" />
           <div
             className="flex-1 min-w-0 flex flex-col gap-[4px] md:gap-[6px] py-[12px] md:py-[16px]"
             style={{ paddingRight: gap }}
           >
             <div className="flex gap-[8px] md:gap-[10px] items-end">
               <p
-                className="font-['Aeonik:Bold',sans-serif] text-[#40295b] whitespace-nowrap"
+                className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] whitespace-nowrap"
                 style={{ fontSize: termSize, lineHeight: mobile ? "24px" : "28px" }}
               >
                 {anchoring.term}
               </p>
-              <p className="font-['Aeonik:Regular',sans-serif] text-[#3c3162] text-[11px] md:text-[12px] leading-[normal]">
+              <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-800)] text-[11px] md:text-[12px] leading-[normal]">
                 {anchoring.type}
               </p>
             </div>
             <p
-              className="font-['Aeonik:Regular',sans-serif] text-[#40295b] leading-[normal] w-full"
+              className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] leading-[normal] w-full"
               style={{ fontSize: defSize }}
             >
               {anchoring.definition}

@@ -20,7 +20,7 @@ export function InterventionBubble({ text, className = "" }: InterventionBubbleP
       </div>
       
       {/* Bulle */}
-      <div className="bg-[#3c3162] flex gap-[16px] items-center p-[16px] relative rounded-[24px] shrink-0 w-full max-w-[387px]">
+      <div className="bg-[var(--color-qare-800)] flex gap-[16px] items-center p-[16px] relative rounded-[24px] shrink-0 w-full max-w-[387px]">
         {/* Avatar */}
         <div className="relative rounded-full shrink-0 size-[49px] overflow-hidden">
           <img

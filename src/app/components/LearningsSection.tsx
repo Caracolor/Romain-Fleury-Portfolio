@@ -39,7 +39,7 @@ export function LearningsSection({
 
         {/* Worked */}
         <div className="flex flex-col gap-[16px] mb-[32px]">
-          <p className="font-['Aeonik:Bold',sans-serif] text-[18px] text-[#40295b]">
+          <p className="font-['Aeonik:Bold',sans-serif] text-[18px] text-[var(--color-qare-text)]">
             {workedTitle}
           </p>
           {worked.map((text, i) => (
@@ -49,7 +49,7 @@ export function LearningsSection({
 
         {/* Failed */}
         <div className="flex flex-col gap-[16px]">
-          <p className="font-['Aeonik:Bold',sans-serif] text-[18px] text-[#40295b]">
+          <p className="font-['Aeonik:Bold',sans-serif] text-[18px] text-[var(--color-qare-text)]">
             {failedTitle}
           </p>
           {failed.map((text, i) => (
@@ -68,7 +68,7 @@ export function LearningsSection({
         <div className="flex gap-[40px] w-full items-start">
           {/* Worked */}
           <div className="flex flex-col gap-[16px] flex-1">
-            <p className="font-['Aeonik:Bold',sans-serif] text-[18px] text-[#40295b]">
+            <p className="font-['Aeonik:Bold',sans-serif] text-[18px] text-[var(--color-qare-text)]">
               {workedTitle}
             </p>
             <div className="flex flex-col gap-[16px]">
@@ -80,7 +80,7 @@ export function LearningsSection({
 
           {/* Failed */}
           <div className="flex flex-col gap-[16px] flex-1">
-            <p className="font-['Aeonik:Bold',sans-serif] text-[18px] text-[#40295b]">
+            <p className="font-['Aeonik:Bold',sans-serif] text-[18px] text-[var(--color-qare-text)]">
               {failedTitle}
             </p>
             <div className="flex flex-col gap-[16px]">
@@ -127,7 +127,7 @@ function LearningCard({
           <Icon />
         </div>
         <p
-          className={`flex-1 font-['Aeonik:Regular',sans-serif] text-[#40295b] ${mobile ? "text-[16px] leading-[normal]" : "text-[20px] leading-[28px]"}`}
+          className={`flex-1 font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] ${mobile ? "text-[16px] leading-[normal]" : "text-[20px] leading-[28px]"}`}
         >
           {text}
         </p>

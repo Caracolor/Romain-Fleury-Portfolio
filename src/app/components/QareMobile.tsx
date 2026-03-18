@@ -16,12 +16,12 @@ import { useTranslation } from "./LanguageContext";
 
 function TagPill({ text }: { text: string }) {
   return (
-    <div className="bg-white relative inline-flex items-center justify-center px-[12px] py-[6px] rounded-[16px] shrink-0">
+    <div className="bg-[var(--color-qare-white)] relative inline-flex items-center justify-center px-[12px] py-[6px] rounded-[16px] shrink-0">
       <div
         aria-hidden="true"
-        className="absolute border-[3px] border-[#eeedff] border-solid inset-0 pointer-events-none rounded-[16px]"
+        className="absolute border-[3px] border-[var(--color-qare-030)] border-solid inset-0 pointer-events-none rounded-[16px]"
       />
-      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[#40295b] text-[13px] whitespace-nowrap">
+      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[13px] whitespace-nowrap">
         {text}
       </p>
     </div>
@@ -39,7 +39,7 @@ export function HeroMobileChronic() {
         <div className="absolute z-20" style={{ right: "40px", top: "30%", width: "clamp(28px, 7vw, 40px)", height: "clamp(34px, 8.5vw, 48px)" }}>
           <div className="rotate-[-42.82deg] w-full h-full">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 38.6236 46.128" overflow="visible">
-              <path d="M14.3999 5.4889C16.1172 0.972825 22.5068 0.972749 24.2241 5.4889L36.1596 36.8834C37.8072 41.2169 33.4448 45.4053 29.1821 43.5827L19.7251 39.5377C19.4613 39.425 19.1627 39.4251 18.8989 39.5377L9.44185 43.5827C5.17911 45.4056 0.815826 41.217 2.46334 36.8834L14.3999 5.4889Z" fill="#7A63CA" stroke="white" strokeWidth="4.20391">
+              <path d="M14.3999 5.4889C16.1172 0.972825 22.5068 0.972749 24.2241 5.4889L36.1596 36.8834C37.8072 41.2169 33.4448 45.4053 29.1821 43.5827L19.7251 39.5377C19.4613 39.425 19.1627 39.4251 18.8989 39.5377L9.44185 43.5827C5.17911 45.4056 0.815826 41.217 2.46334 36.8834L14.3999 5.4889Z" fill="var(--color-qare-brand)" stroke="white" strokeWidth="4.20391">
                 <animateTransform attributeName="transform" type="translate" values="0,0; 8,-6; 13,2; 5,11; -7,9; -11,0; -5,-9; 7,-11; 0,0" keyTimes="0; 0.13; 0.27; 0.42; 0.56; 0.7; 0.82; 0.92; 1" dur="9s" repeatCount="indefinite" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1" />
               </path>
             </svg>
@@ -57,14 +57,14 @@ export function HeroMobileChronic() {
         <div className="absolute bg-[#fef4ef] flex gap-[6px] items-center px-[8px] py-[5px] rounded-[14px] z-10" style={{ right: "8%", bottom: "5%" }}>
           <div aria-hidden="true" className="absolute border-[#f59260] border-[0.8px] border-solid inset-0 pointer-events-none rounded-[14px]" style={{ boxShadow: "6px 7px 20px 0px rgba(188,193,220,0.37)" }} />
           <span className="text-[12px]">{cs.programs[0].emoji}</span>
-          <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[12px]">
+          <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[12px]">
             <span className="font-['Aeonik:Bold',sans-serif]">{cs.programs[0].name}</span> - {cs.programs[0].detail}
           </p>
         </div>
         <div className="absolute bg-[#feedf8] flex gap-[6px] items-center px-[8px] py-[5px] rounded-[14px] z-10" style={{ left: "5%", top: "5%" }}>
           <div aria-hidden="true" className="absolute border-[#e152a4] border-[0.8px] border-solid inset-0 pointer-events-none rounded-[14px]" style={{ boxShadow: "6px 7px 20px 0px rgba(222,172,204,0.37)" }} />
           <span className="text-[12px]">{cs.programs[1].emoji}</span>
-          <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[12px]">
+          <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[12px]">
             <span className="font-['Aeonik:Bold',sans-serif]">{cs.programs[1].name}</span> - {cs.programs[1].detail}
           </p>
         </div>
@@ -84,10 +84,10 @@ export function HeroMobileChronic() {
 
       {/* Title */}
       <div className="flex flex-col items-center gap-[16px] text-center">
-        <h1 className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[#40295b] text-[36px] tracking-[10px] uppercase">
+        <h1 className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[36px] tracking-[10px] uppercase">
           {cs.hero.title}
         </h1>
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[#40295b] text-[20px]">
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[20px]">
           {cs.hero.subtitle}
         </p>
       </div>
@@ -104,10 +104,10 @@ export function HeroMobileChronic() {
 
 export function ChallengeCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white relative rounded-[20px] p-[20px] flex flex-col gap-[12px] w-full">
+    <div className="bg-[var(--color-qare-white)] relative rounded-[20px] p-[20px] flex flex-col gap-[12px] w-full">
       <div aria-hidden="true" className="absolute border-[4px] border-[#deddf8] border-solid inset-0 pointer-events-none rounded-[20px]" />
-      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[#40295b] text-[22px]">{title}</p>
-      <div className="font-['Aeonik:Regular',sans-serif] leading-[22px] not-italic text-[#40295b] text-[15px]">{children}</div>
+      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[22px]">{title}</p>
+      <div className="font-['Aeonik:Regular',sans-serif] leading-[22px] not-italic text-[var(--color-qare-text)] text-[15px]">{children}</div>
     </div>
   );
 }
@@ -119,8 +119,8 @@ export function ChallengeMobile() {
   return (
     <div className="flex flex-col gap-[24px] items-start w-full px-[20px]">
       <div className="flex flex-col gap-[8px]">
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#7a63ca] text-[16px] tracking-[3px] uppercase">{ch.section_title}</p>
-        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[30px] text-[#40295b] text-[22px]">{ch.headline}</h2>
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-brand)] text-[16px] tracking-[3px] uppercase">{ch.section_title}</p>
+        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[30px] text-[var(--color-qare-text)] text-[22px]">{ch.headline}</h2>
       </div>
       <div className="flex flex-col gap-[16px] w-full">
         <ChallengeCard title={ch.problem_title}><p>{ch.problem_text}</p></ChallengeCard>
@@ -145,21 +145,21 @@ export function MonRoleMobile() {
   return (
     <div className="flex flex-col gap-[24px] items-start w-full px-[20px]">
       <div className="flex flex-col gap-[8px]">
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#7a63ca] text-[16px] tracking-[3px] uppercase">{role.section_title}</p>
-        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[30px] text-[#40295b] text-[22px]">{role.headline}</h2>
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px]">{role.description}</p>
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-brand)] text-[16px] tracking-[3px] uppercase">{role.section_title}</p>
+        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[30px] text-[var(--color-qare-text)] text-[22px]">{role.headline}</h2>
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px]">{role.description}</p>
       </div>
       <div className="w-full flex justify-center">
         <img src={imgMonRole} alt="Shape mobile landing page" className="w-[75%] max-w-[320px] h-auto rounded-[16px]" />
       </div>
-      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[#40295b] text-[13px] text-center w-full">{role.illustration_caption}</p>
+      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[13px] text-center w-full">{role.illustration_caption}</p>
       <div className="flex flex-col gap-[16px] w-full">
         {role.pillars.map(({ title, text }) => (
           <div key={title} className="flex gap-[12px] items-start w-full">
-            <div className="bg-[#d7d0ef] rounded-[10px] shrink-0 w-[4px] self-stretch" />
+            <div className="bg-[var(--color-qare-150)] rounded-[10px] shrink-0 w-[4px] self-stretch" />
             <div className="flex flex-col gap-[8px] flex-1">
-              <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[18px] leading-[normal]">{title}</p>
-              <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[15px] leading-[22px]">{text}</p>
+              <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[18px] leading-[normal]">{title}</p>
+              <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[15px] leading-[22px]">{text}</p>
             </div>
           </div>
         ))}
@@ -187,9 +187,9 @@ export function VerbatimsMobile() {
   return (
     <div className="flex flex-col gap-[24px] items-start w-full px-[20px]">
       <div className="flex flex-col gap-[8px]">
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#7a63ca] text-[16px] tracking-[3px] uppercase">{insight.section_title}</p>
-        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[28px] text-[#40295b] text-[22px]">{insight.headline}</h2>
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px]">{insight.description}</p>
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-brand)] text-[16px] tracking-[3px] uppercase">{insight.section_title}</p>
+        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[22px]">{insight.headline}</h2>
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px]">{insight.description}</p>
       </div>
 
       {/* Quote card */}
@@ -233,8 +233,8 @@ export function VerbatimsMobile() {
                 transition={{ type: "spring", stiffness: 300, damping: 30, mass: 0.8 }}
                 className="relative z-[1]"
               >
-                <p className="font-['Aeonik:Regular',sans-serif] italic leading-[26px] text-[#7a63ca] text-[18px] mb-[12px] relative">{verbatims[current].text}</p>
-                <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[#40295b] text-[13px] relative">{verbatims[current].source}</p>
+                <p className="font-['Aeonik:Regular',sans-serif] italic leading-[26px] text-[var(--color-qare-brand)] text-[18px] mb-[12px] relative">{verbatims[current].text}</p>
+                <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[13px] relative">{verbatims[current].source}</p>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -253,26 +253,26 @@ export function VerbatimsMobile() {
         {/* Dots */}
         <div className="flex justify-center gap-[8px] mt-[16px]">
           {verbatims.map((_, i) => (
-            <button key={i} onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }} className={`rounded-full transition-all duration-300 ${i === current ? "w-[24px] h-[8px] bg-[#7a63ca]" : "size-[8px] bg-[#d7d0ef]"}`} />
+            <button key={i} onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }} className={`rounded-full transition-all duration-300 ${i === current ? "w-[24px] h-[8px] bg-[var(--color-qare-brand)]" : "size-[8px] bg-[var(--color-qare-150)]"}`} />
           ))}
         </div>
       </div>
 
       {/* Insight card */}
-      <div className="bg-[#f2effa] relative rounded-[20px] w-full p-[20px]">
-        <div aria-hidden="true" className="absolute border-4 border-[#afa2df] border-solid inset-0 pointer-events-none rounded-[20px]" />
+      <div className="bg-[var(--color-qare-050)] relative rounded-[20px] w-full p-[20px]">
+        <div aria-hidden="true" className="absolute border-4 border-[var(--color-qare-300)] border-solid inset-0 pointer-events-none rounded-[20px]" />
         <div className="flex gap-[16px] items-start">
-          <div className="bg-[#e4e0f4] rounded-[16px] size-[48px] shrink-0 flex items-center justify-center text-[24px]">
+          <div className="bg-[var(--color-qare-100)] rounded-[16px] size-[48px] shrink-0 flex items-center justify-center text-[24px]">
             <svg width="24" height="18" fill="none" viewBox="0 0 31.0789 23.8336">
               <g id="vector">
-                <path clipRule="evenodd" d={svgPathsNew.p27285580} fill="#7A63CA" fillRule="evenodd" />
-                <path d={svgPathsNew.p18b1c700} fill="#7A63CA" />
+                <path clipRule="evenodd" d={svgPathsNew.p27285580} fill="var(--color-qare-brand)" fillRule="evenodd" />
+                <path d={svgPathsNew.p18b1c700} fill="var(--color-qare-brand)" />
               </g>
             </svg>
           </div>
           <div className="flex flex-col gap-[6px] flex-1">
-            <p className="font-['Aeonik:Bold',sans-serif] text-[#40295b] text-[16px] leading-[normal]">{insight.pluridisciplinary_title}</p>
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[14px] leading-[20px]">{insight.pluridisciplinary_text}</p>
+            <p className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[16px] leading-[normal]">{insight.pluridisciplinary_title}</p>
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[14px] leading-[20px]">{insight.pluridisciplinary_text}</p>
           </div>
         </div>
       </div>
@@ -295,9 +295,9 @@ export function ApprocheMobile() {
   return (
     <div className="flex flex-col gap-[24px] items-start w-full px-[20px]">
       <div className="flex flex-col gap-[8px]">
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#7a63ca] text-[16px] tracking-[3px] uppercase">{da.section_title}</p>
-        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[28px] text-[#40295b] text-[22px]">{da.headline}</h2>
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[#40295b] text-[15px]">{da.description}</p>
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-brand)] text-[16px] tracking-[3px] uppercase">{da.section_title}</p>
+        <h2 className="font-['Aeonik:Bold',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[22px]">{da.headline}</h2>
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[22px] text-[var(--color-qare-text)] text-[15px]">{da.description}</p>
       </div>
 
       <div className="flex flex-col gap-[12px] w-full">
@@ -308,12 +308,12 @@ export function ApprocheMobile() {
             <div key={key} className="w-full">
               <button
                 onClick={() => setActive(isOpen ? "" : key)}
-                className="bg-white relative rounded-[16px] w-full p-[16px] flex gap-[12px] items-center cursor-pointer text-left"
+                className="bg-[var(--color-qare-white)] relative rounded-[16px] w-full p-[16px] flex gap-[12px] items-center cursor-pointer text-left"
               >
-                <div aria-hidden="true" className={`absolute border-[3px] border-solid inset-0 pointer-events-none rounded-[16px] transition-colors duration-300 ${isOpen ? "border-[#afa2df]" : "border-[#d7d0ef]"}`} />
+                <div aria-hidden="true" className={`absolute border-[3px] border-solid inset-0 pointer-events-none rounded-[16px] transition-colors duration-300 ${isOpen ? "border-[var(--color-qare-300)]" : "border-[var(--color-qare-150)]"}`} />
                 <span className="text-[28px] shrink-0">{card.emoji}</span>
-                <p className="font-['Aeonik:Regular',sans-serif] leading-[20px] not-italic text-[#40295b] text-[15px] flex-1">{card.text}</p>
-                <svg className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#40295b" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <p className="font-['Aeonik:Regular',sans-serif] leading-[20px] not-italic text-[var(--color-qare-text)] text-[15px] flex-1">{card.text}</p>
+                <svg className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-qare-text)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </button>
@@ -321,7 +321,7 @@ export function ApprocheMobile() {
                 <div className="pt-[12px] flex flex-col gap-[8px] items-center">
                   <img src={cardImages[i]} alt={card.text} className="w-full h-auto rounded-[12px]" />
                   {i === 0 && (
-                    <p className="font-['Aeonik:Regular',sans-serif] leading-[18px] not-italic text-[#40295b] text-[13px] text-center px-[8px]">
+                    <p className="font-['Aeonik:Regular',sans-serif] leading-[18px] not-italic text-[var(--color-qare-text)] text-[13px] text-center px-[8px]">
                       {da.navigation_text}
                     </p>
                   )}

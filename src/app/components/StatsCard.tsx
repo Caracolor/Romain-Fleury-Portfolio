@@ -30,7 +30,7 @@ export function StatsCard({ items }: StatsCardProps) {
         {items.map(({ value, label, tooltip, hiddenOnMobile }, i) => (
           <StatTooltip key={i} tooltip={tooltip}>
             <div
-              className={`flex flex-col font-['Aeonik:Regular',sans-serif] gap-[2px] items-center leading-[normal] not-italic shrink-0 text-[#40295b] text-center min-w-0 flex-1 md:flex-none md:w-[132px]${hiddenOnMobile ? " hidden min-[480px]:flex" : ""}`}
+              className={`flex flex-col font-['Aeonik:Regular',sans-serif] gap-[2px] items-center leading-[normal] not-italic shrink-0 text-[var(--color-qare-text)] text-center min-w-0 flex-1 md:flex-none md:w-[132px]${hiddenOnMobile ? " hidden min-[480px]:flex" : ""}`}
             >
               <p className="relative shrink-0 text-[24px] md:text-[32px] w-full">{value}</p>
               <p className="relative shrink-0 text-[11px] min-[400px]:text-[13px] md:text-[16px]">

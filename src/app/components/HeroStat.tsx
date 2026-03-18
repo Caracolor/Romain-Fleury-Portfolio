@@ -18,10 +18,10 @@ export function HeroStat({
         className="flex flex-col items-center gap-[2px]"
         style={{ width: width ?? 132 }}
       >
-        <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[28px] md:text-[32px] text-center w-full">
+        <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[28px] md:text-[32px] text-center w-full">
           {value}
         </p>
-        <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[13px] md:text-[16px] text-center leading-[18px] md:leading-[normal]">
+        <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[13px] md:text-[16px] text-center leading-[18px] md:leading-[normal]">
           {label}
         </p>
       </div>

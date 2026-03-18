@@ -33,17 +33,17 @@ export function ContextSection({
       >
         <div className="flex flex-col gap-[24px]">
           <div className="flex flex-col gap-[8px]">
-            <p className="font-['Aeonik:Regular',sans-serif] text-[#7a63ca] text-[18px] tracking-[4.8px] uppercase">
+            <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-brand)] text-[18px] tracking-[4.8px] uppercase">
               {ctx.section_title}
             </p>
-            <h2 className="font-['Aeonik:Bold',sans-serif] text-[#40295b] text-[24px] leading-[32px]">
+            <h2 className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[24px] leading-[32px]">
               {ctx.headline}
             </h2>
           </div>
-          <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[16px] leading-[24px]">
+          <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[16px] leading-[24px]">
             {ctx.col1}
           </p>
-          <p className="font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[16px] leading-[24px]">
+          <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[16px] leading-[24px]">
             {ctx.col2}
           </p>
         </div>
@@ -57,14 +57,14 @@ export function ContextSection({
       style={useMargin ? { marginTop: topSpacing } : { paddingTop: topSpacing }}
     >
       <div className="flex flex-col gap-[8px] items-start">
-        <p className="font-['Aeonik:Regular',sans-serif] text-[#7a63ca] text-[24px] tracking-[4.8px] uppercase w-full">
+        <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-brand)] text-[24px] tracking-[4.8px] uppercase w-full">
           {ctx.section_title}
         </p>
-        <h2 className="font-['Aeonik:Bold',sans-serif] text-[#40295b] text-[36px] leading-[45px] w-full">
+        <h2 className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[36px] leading-[45px] w-full">
           {ctx.headline}
         </h2>
       </div>
-      <div className="flex gap-[52px] items-start mt-[40px] font-['Aeonik:Regular',sans-serif] text-[#40295b] text-[20px] leading-[30px]">
+      <div className="flex gap-[52px] items-start mt-[40px] font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[20px] leading-[30px]">
         <p className="flex-1">{ctx.col1}</p>
         <p className="flex-1">{ctx.col2}</p>
       </div>

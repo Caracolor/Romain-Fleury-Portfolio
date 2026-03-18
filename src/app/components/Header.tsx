@@ -175,9 +175,9 @@ export function Header() {
                 viewBox="0 0 52 72"
               >
                 <g clipPath="url(#clip0_header_mobile)">
-                  <path d={svgPaths.p2d243d70} fill="#40295B" />
-                  <path d={svgPaths.p12205e00} fill="#CAC1EA" />
-                  <path d={svgPaths.p2c77ea00} fill="#40295B" />
+                  <path d={svgPaths.p2d243d70} fill="var(--color-qare-text)" />
+                  <path d={svgPaths.p12205e00} fill="var(--color-qare-200)" />
+                  <path d={svgPaths.p2c77ea00} fill="var(--color-qare-text)" />
                 </g>
                 <defs>
                   <clipPath id="clip0_header_mobile">
@@ -194,7 +194,7 @@ export function Header() {
               aria-label="Toggle menu"
             >
               <span
-                className="block w-[24px] h-[2px] bg-[#40295b] rounded-full transition-all duration-300"
+                className="block w-[24px] h-[2px] bg-[var(--color-qare-text)] rounded-full transition-all duration-300"
                 style={
                   menuOpen
                     ? { transform: "translateY(4px) rotate(45deg)" }
@@ -202,7 +202,7 @@ export function Header() {
                 }
               />
               <span
-                className="block w-[24px] h-[2px] bg-[#40295b] rounded-full transition-all duration-300"
+                className="block w-[24px] h-[2px] bg-[var(--color-qare-text)] rounded-full transition-all duration-300"
                 style={
                   menuOpen
                     ? { transform: "translateY(-4px) rotate(-45deg)" }
@@ -227,7 +227,7 @@ export function Header() {
           >
             {/* About */}
             <button
-              className="font-['Aeonik:Regular',sans-serif] text-[28px] text-[#40295b] cursor-pointer capitalize tracking-[2px] hover:text-[#7a63ca] transition-colors"
+              className="font-['Aeonik:Regular',sans-serif] text-[28px] text-[var(--color-qare-text)] cursor-pointer capitalize tracking-[2px] hover:text-[var(--color-qare-brand)] transition-colors"
               style={{
                 transform: menuClosing ? "translateY(20px)" : "translateY(0)",
                 opacity: menuClosing ? 0 : 1,
@@ -247,7 +247,7 @@ export function Header() {
               }}
             >
               <button
-                className="font-['Aeonik:Regular',sans-serif] text-[28px] text-[#40295b] cursor-pointer capitalize tracking-[2px] hover:text-[#7a63ca] transition-colors flex items-center gap-[10px]"
+                className="font-['Aeonik:Regular',sans-serif] text-[28px] text-[var(--color-qare-text)] cursor-pointer capitalize tracking-[2px] hover:text-[var(--color-qare-brand)] transition-colors flex items-center gap-[10px]"
                 onClick={() => setMobileProjectsOpen((v) => !v)}
               >
                 {nav.projects}
@@ -261,7 +261,7 @@ export function Header() {
                     transition: "transform 0.25s ease",
                   }}
                 >
-                  <path d="M1 1L7 7L13 1" stroke="#40295B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M1 1L7 7L13 1" stroke="var(--color-qare-text)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
               <div
@@ -279,8 +279,8 @@ export function Header() {
                         key={link.path}
                         className={`font-['Aeonik:Regular',sans-serif] text-[20px] text-left transition-opacity ${
                           isActive
-                            ? "text-[#40295b]/35 cursor-default"
-                            : "text-[#7a63ca] cursor-pointer hover:opacity-70"
+                            ? "text-[var(--color-qare-text)]/35 cursor-default"
+                            : "text-[var(--color-qare-brand)] cursor-pointer hover:opacity-70"
                         }`}
                         onClick={() => {
                           if (isActive) return;
@@ -299,7 +299,7 @@ export function Header() {
 
             {/* Experience */}
             <button
-              className="font-['Aeonik:Regular',sans-serif] text-[28px] text-[#40295b] cursor-pointer capitalize tracking-[2px] hover:text-[#7a63ca] transition-colors"
+              className="font-['Aeonik:Regular',sans-serif] text-[28px] text-[var(--color-qare-text)] cursor-pointer capitalize tracking-[2px] hover:text-[var(--color-qare-brand)] transition-colors"
               style={{
                 transform: menuClosing ? "translateY(20px)" : "translateY(0)",
                 opacity: menuClosing ? 0 : 1,
@@ -312,7 +312,7 @@ export function Header() {
 
             <a
               href="mailto:r.s.fleury@gmail.com"
-              className="font-['Aeonik:Regular',sans-serif] text-[28px] text-[#7a63ca] underline decoration-solid mt-[20px]"
+              className="font-['Aeonik:Regular',sans-serif] text-[28px] text-[var(--color-qare-brand)] underline decoration-solid mt-[20px]"
               style={{
                 transform: menuClosing ? "translateY(20px)" : "translateY(0)",
                 opacity: menuClosing ? 0 : 1,
@@ -331,14 +331,14 @@ export function Header() {
               }}
             >
               <button
-                className={`cursor-pointer transition-opacity ${lang === "fr" ? "text-[#40295b] font-['Aeonik:Bold',sans-serif]" : "text-[#40295b]/40"} text-[28px]`}
+                className={`cursor-pointer transition-opacity ${lang === "fr" ? "text-[var(--color-qare-text)] font-['Aeonik:Bold',sans-serif]" : "text-[var(--color-qare-text)]/40"} text-[28px]`}
                 onClick={() => { setLang("fr"); closeMenu(); }}
               >
                 FR
               </button>
-              <span className="text-[#40295b]/30">/</span>
+              <span className="text-[var(--color-qare-text)]/30">/</span>
               <button
-                className={`cursor-pointer transition-opacity ${lang === "en" ? "text-[#40295b] font-['Aeonik:Bold',sans-serif]" : "text-[#40295b]/40"} text-[28px]`}
+                className={`cursor-pointer transition-opacity ${lang === "en" ? "text-[var(--color-qare-text)] font-['Aeonik:Bold',sans-serif]" : "text-[var(--color-qare-text)]/40"} text-[28px]`}
                 onClick={() => { setLang("en"); closeMenu(); }}
               >
                 EN
@@ -402,9 +402,9 @@ export function Header() {
                   viewBox="0 0 52 72"
                 >
                   <g clipPath="url(#clip0_header_fixed)">
-                    <path d={svgPaths.p2d243d70} fill="#40295B" />
-                    <path d={svgPaths.p12205e00} fill="#CAC1EA" />
-                    <path d={svgPaths.p2c77ea00} fill="#40295B" />
+                    <path d={svgPaths.p2d243d70} fill="var(--color-qare-text)" />
+                    <path d={svgPaths.p12205e00} fill="var(--color-qare-200)" />
+                    <path d={svgPaths.p2c77ea00} fill="var(--color-qare-text)" />
                   </g>
                   <defs>
                     <clipPath id="clip0_header_fixed">
@@ -413,7 +413,7 @@ export function Header() {
                   </defs>
                 </svg>
               </div>
-              <div className="flex font-['Aeonik:Regular',sans-serif] gap-[48px] items-center leading-[28px] not-italic text-[#16121b] text-[20px] whitespace-nowrap">
+              <div className="flex font-['Aeonik:Regular',sans-serif] gap-[48px] items-center leading-[28px] not-italic text-[var(--color-qare-ink)] text-[20px] whitespace-nowrap">
                 <p className="cursor-pointer hover:opacity-70 transition-opacity" onClick={() => scrollToSection("about")}>{nav.about}</p>
                 <div
                   className="relative cursor-pointer hover:opacity-70 transition-opacity"
@@ -445,8 +445,8 @@ export function Header() {
                               key={link.path}
                               className={`text-left px-[20px] py-[10px] text-[16px] font-['Aeonik:Regular',sans-serif] leading-[24px] not-italic whitespace-nowrap transition-colors ${
                                 isActive
-                                  ? "text-[#40295b]/30 cursor-default"
-                                  : "text-[#40295b] cursor-pointer hover:bg-[#f2effa] hover:text-[#7a63ca]"
+                                  ? "text-[var(--color-qare-text)]/30 cursor-default"
+                                  : "text-[var(--color-qare-text)] cursor-pointer hover:bg-[var(--color-qare-050)] hover:text-[var(--color-qare-brand)]"
                               }`}
                               onClick={() => {
                                 if (isActive) return;
@@ -467,20 +467,20 @@ export function Header() {
               </div>
             </div>
             <div className="flex items-center gap-[32px]">
-              <a href="mailto:r.s.fleury@gmail.com" className="font-['Aeonik:Regular',sans-serif] leading-[28px] not-italic text-[#7a63ca] text-[20px] whitespace-nowrap underline decoration-solid">
+              <a href="mailto:r.s.fleury@gmail.com" className="font-['Aeonik:Regular',sans-serif] leading-[28px] not-italic text-[var(--color-qare-brand)] text-[20px] whitespace-nowrap underline decoration-solid">
                 r.s.fleury@gmail.com
               </a>
               {/* Language toggle */}
               <div className="flex items-center gap-[4px] font-['Aeonik:Regular',sans-serif] text-[20px] leading-[28px] whitespace-nowrap select-none">
                 <button
-                  className={`cursor-pointer transition-opacity ${lang === "fr" ? "text-[#40295b] font-['Aeonik:Bold',sans-serif]" : "text-[#40295b]/40 hover:text-[#40295b]/60"}`}
+                  className={`cursor-pointer transition-opacity ${lang === "fr" ? "text-[var(--color-qare-text)] font-['Aeonik:Bold',sans-serif]" : "text-[var(--color-qare-text)]/40 hover:text-[var(--color-qare-text)]/60"}`}
                   onClick={() => setLang("fr")}
                 >
                   FR
                 </button>
-                <span className="text-[#40295b]/30">/</span>
+                <span className="text-[var(--color-qare-text)]/30">/</span>
                 <button
-                  className={`cursor-pointer transition-opacity ${lang === "en" ? "text-[#40295b] font-['Aeonik:Bold',sans-serif]" : "text-[#40295b]/40 hover:text-[#40295b]/60"}`}
+                  className={`cursor-pointer transition-opacity ${lang === "en" ? "text-[var(--color-qare-text)] font-['Aeonik:Bold',sans-serif]" : "text-[var(--color-qare-text)]/40 hover:text-[var(--color-qare-text)]/60"}`}
                   onClick={() => setLang("en")}
                 >
                   EN

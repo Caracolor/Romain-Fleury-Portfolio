@@ -4,7 +4,7 @@ import { useTranslation } from "./LanguageContext";
 
 function Tag({ text }: { text: string }) {
   return (
-    <div className="bg-[#7a63ca] inline-flex items-center justify-center pb-[8px] pt-[2px] px-[16px] relative rounded-[18px] shrink-0">
+    <div className="bg-[var(--color-qare-brand)] inline-flex items-center justify-center pb-[8px] pt-[2px] px-[16px] relative rounded-[18px] shrink-0">
       <div
         aria-hidden="true"
         className="absolute border-[2.5px] border-solid border-white inset-[-2.5px] pointer-events-none rounded-[20.5px]"
@@ -18,7 +18,7 @@ function Tag({ text }: { text: string }) {
 
 function StatItem({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex flex-col font-['Aeonik:Regular',sans-serif] gap-[2px] items-center leading-[normal] not-italic text-[#40295b] text-center">
+    <div className="flex flex-col font-['Aeonik:Regular',sans-serif] gap-[2px] items-center leading-[normal] not-italic text-[var(--color-qare-text)] text-center">
       <p className="text-[24px]">{value}</p>
       <p className="text-[13px] whitespace-nowrap">{label}</p>
     </div>
@@ -109,7 +109,7 @@ export function HeroMobile() {
 
         {/* Title + tags — scale text on wider mobiles */}
         <div className="flex flex-col gap-[6px] items-center w-full">
-          <p className="font-['Aeonik:Light',sans-serif] leading-[normal] not-italic text-[#40295b] text-[32px] min-[450px]:text-[40px] text-center">
+          <p className="font-['Aeonik:Light',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[32px] min-[450px]:text-[40px] text-center">
             {hero.greeting}
           </p>
           <div className="flex flex-wrap gap-[6px] items-center justify-center">
@@ -117,7 +117,7 @@ export function HeroMobile() {
           </div>
           <div className="flex flex-wrap gap-[6px] items-center justify-center">
             <Tag text={hero.role_line2} />
-            <p className="font-['Aeonik:Light',sans-serif] leading-[normal] not-italic text-[#40295b] text-[32px] min-[450px]:text-[40px]">
+            <p className="font-['Aeonik:Light',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[32px] min-[450px]:text-[40px]">
               {hero.role_line3}
             </p>
           </div>
@@ -157,8 +157,8 @@ export function HeroMobile() {
 
       {/* ── Description text ── */}
       <div className="flex gap-[16px] items-start w-full">
-        <div className="bg-[#d7d0ef] rounded-[20px] self-stretch shrink-0 w-[3px]" />
-        <div className="font-['Aeonik:Regular',sans-serif] leading-[24px] not-italic text-[#40295b] text-[16px] flex-1">
+        <div className="bg-[var(--color-qare-150)] rounded-[20px] self-stretch shrink-0 w-[3px]" />
+        <div className="font-['Aeonik:Regular',sans-serif] leading-[24px] not-italic text-[var(--color-qare-text)] text-[16px] flex-1">
           {introLines.map((line, i) => (
             <p key={i} className={i < introLines.length - 1 ? "mb-[16px]" : ""}>
               {line}

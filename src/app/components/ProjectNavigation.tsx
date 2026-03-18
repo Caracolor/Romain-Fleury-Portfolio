@@ -70,7 +70,7 @@ function NavCard({
         {/* Border */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 pointer-events-none border-4 border-solid border-[#d7d0ef]"
+          className="absolute inset-0 pointer-events-none border-4 border-solid border-[var(--color-qare-150)]"
           style={{
             borderRadius: isMobile ? 20 : 30,
           }}
@@ -103,14 +103,14 @@ function NavCard({
             >
               <path
                 d="M5 12H19M19 12L13 6M19 12L13 18"
-                stroke="#16121b"
+                stroke="var(--color-qare-ink)"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
             </svg>
             <p
-              className="font-['Aeonik:Regular',sans-serif] uppercase tracking-[3px] text-[#16121b]"
+              className="font-['Aeonik:Regular',sans-serif] uppercase tracking-[3px] text-[var(--color-qare-ink)]"
               style={{
                 fontSize: isMobile ? 11 : 13,
                 lineHeight: "normal",
@@ -122,7 +122,7 @@ function NavCard({
 
           {/* Project title */}
           <p
-            className="font-['Aeonik:Bold',sans-serif] text-[#16121b] group-hover:text-[#7a63ca] transition-colors duration-300"
+            className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-ink)] group-hover:text-[var(--color-qare-brand)] transition-colors duration-300"
             style={{
               fontSize: isMobile ? 17 : 22,
               lineHeight: isMobile ? "24px" : "30px",
@@ -188,7 +188,7 @@ export function ProjectNavigation({
         style={{
           height: 2,
           background:
-            "linear-gradient(90deg, transparent, #e4e0f4 30%, #afa2df 50%, #e4e0f4 70%, transparent)",
+            "linear-gradient(90deg, transparent, var(--color-qare-100) 30%, var(--color-qare-300) 50%, var(--color-qare-100) 70%, transparent)",
           marginBottom: isMobile ? 24 : 40,
           borderRadius: 1,
         }}

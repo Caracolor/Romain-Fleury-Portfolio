@@ -18,10 +18,10 @@ export function SectionHeader({ label, headline, mobile }: SectionHeaderProps) {
   if (mobile) {
     return (
       <div className="flex flex-col gap-[8px]">
-        <p className="font-['Aeonik:Regular',sans-serif] text-[#7a63ca] text-[16px] tracking-[3px] uppercase">
+        <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-brand)] text-[16px] tracking-[3px] uppercase">
           {label}
         </p>
-        <h2 className="font-['Aeonik:Bold',sans-serif] text-[#40295b] text-[22px] leading-[28px]">
+        <h2 className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[22px] leading-[28px]">
           {renderHeadline(headline)}
         </h2>
       </div>
@@ -30,10 +30,10 @@ export function SectionHeader({ label, headline, mobile }: SectionHeaderProps) {
 
   return (
     <div className="flex flex-col gap-[8px] items-start w-[706px]">
-      <p className="font-['Aeonik:Regular',sans-serif] text-[#7a63ca] text-[24px] tracking-[4.8px] uppercase w-full">
+      <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-brand)] text-[24px] tracking-[4.8px] uppercase w-full">
         {label}
       </p>
-      <h2 className="font-['Aeonik:Bold',sans-serif] text-[#40295b] text-[36px] leading-[45px] w-full">
+      <h2 className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[36px] leading-[45px] w-full">
         {renderHeadline(headline)}
       </h2>
     </div>

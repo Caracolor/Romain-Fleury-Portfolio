@@ -24,9 +24,9 @@ import imgLayoutIteration1 from "@/assets/d72fc7a5015b34c695ad837485b43c1f6291fc
    Shared styles
    ═══════════════════════════════════════════════════════════════ */
 
-const LABEL_CLS = "font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#7a63ca] text-[24px] tracking-[4.8px] uppercase";
-const TITLE_CLS = "font-['Aeonik:Bold',sans-serif] leading-[45px] text-[#16121b] text-[36px]";
-const BODY_CLS = "font-['Aeonik:Regular',sans-serif] leading-[28px] text-[#40295b] text-[20px]";
+const LABEL_CLS = "font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-brand)] text-[24px] tracking-[4.8px] uppercase";
+const TITLE_CLS = "font-['Aeonik:Bold',sans-serif] leading-[45px] text-[var(--color-qare-ink)] text-[36px]";
+const BODY_CLS = "font-['Aeonik:Regular',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[20px]";
 const CARD_BORDER = "absolute inset-0 pointer-events-none rounded-[30px]";
 
 function SectionHeader({ label, title, subtitle }: { label: string; title: string; subtitle?: string }) {
@@ -63,12 +63,12 @@ function Highlight({ children, color = "rose" }: { children: React.ReactNode; co
 
 function TagPill({ text, accent }: { text: string; accent?: boolean }) {
   return (
-    <div className="bg-white relative inline-flex items-center justify-center px-[16px] py-[8px] rounded-[20px] shrink-0">
+    <div className="bg-[var(--color-qare-white)] relative inline-flex items-center justify-center px-[16px] py-[8px] rounded-[20px] shrink-0">
       <div
         aria-hidden="true"
-        className={`absolute border-[3px] border-solid inset-0 pointer-events-none rounded-[20px] ${accent ? "border-[#afa2df]" : "border-[#eeedff]"}`}
+        className={`absolute border-[3px] border-solid inset-0 pointer-events-none rounded-[20px] ${accent ? "border-[var(--color-qare-300)]" : "border-[var(--color-qare-030)]"}`}
       />
-      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#40295b] text-[16px] whitespace-nowrap">
+      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[16px] whitespace-nowrap">
         {text}
       </p>
     </div>
@@ -89,16 +89,16 @@ export function HeroDesktopTempsMedical() {
             <TagPill text={cs.meta.team} />
             <TagPill text={cs.meta.duration} />
           </div>
-          <h1 className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#40295b] text-[40px] tracking-[18px] uppercase pl-[8px] pr-[0px] py-[0px]">
+          <h1 className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[40px] tracking-[18px] uppercase pl-[8px] pr-[0px] py-[0px]">
             {cs.hero.title}
           </h1>
-          <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#40295b] text-[28px] pl-[8px] pr-[0px] py-[0px]">
+          <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[28px] pl-[8px] pr-[0px] py-[0px]">
             {cs.hero.subtitle}
           </p>
         </div>
 
         {/* KPI card */}
-        <div className="bg-white relative rounded-[30px] w-full" style={{ boxShadow: "26.83px 40.245px 53.66px 0px rgba(159,188,246,0.15)" }}>
+        <div className="bg-[var(--color-qare-white)] relative rounded-[30px] w-full" style={{ boxShadow: "26.83px 40.245px 53.66px 0px rgba(159,188,246,0.15)" }}>
           <div
             aria-hidden="true"
             className="absolute inset-0 pointer-events-none rounded-[30px]"
@@ -110,7 +110,7 @@ export function HeroDesktopTempsMedical() {
               maskComposite: "exclude",
             }}
           />
-          <div className="flex items-center justify-between px-[40px] py-[32px] font-['Aeonik:Regular',sans-serif] text-[#40295b] text-center w-full">
+          <div className="flex items-center justify-between px-[40px] py-[32px] font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-center w-full">
             {cs.hero_stats.map((stat, i) => (
               <StatTooltip key={i} tooltip={stat.tooltip}>
                 <div className="flex flex-col gap-[2px] items-center w-[132px]">
@@ -164,20 +164,20 @@ export function ChallengeDesktop() {
 
       {/* 3 columns */}
       <div className="flex gap-[40px] items-start w-full">
-        <div className="flex flex-1 flex-col font-['Aeonik:Regular',sans-serif] gap-[16px] items-start text-[#40295b] rounded-[30px]">
+        <div className="flex flex-1 flex-col font-['Aeonik:Regular',sans-serif] gap-[16px] items-start text-[var(--color-qare-text)] rounded-[30px]">
           <p className="text-[32px] leading-[normal] w-full">{ch.problem_title}</p>
           <div className="text-[20px] leading-[28px] w-full whitespace-pre-wrap">
             <p>{ch.problem_text}</p>
           </div>
         </div>
-        <div className="flex flex-1 flex-col font-['Aeonik:Regular',sans-serif] gap-[16px] items-start text-[#40295b] rounded-[30px]">
+        <div className="flex flex-1 flex-col font-['Aeonik:Regular',sans-serif] gap-[16px] items-start text-[var(--color-qare-text)] rounded-[30px]">
           <p className="text-[32px] leading-[normal] w-full">{ch.opportunities_title}</p>
           <div className="text-[20px] leading-[28px] w-full">
             <p className="mb-0">{ch.opportunities[0]}</p>
             <p className="mt-[28px]">{ch.opportunities[1]}</p>
           </div>
         </div>
-        <div className="flex flex-1 flex-col font-['Aeonik:Regular',sans-serif] gap-[16px] items-start text-[#40295b] rounded-[30px]">
+        <div className="flex flex-1 flex-col font-['Aeonik:Regular',sans-serif] gap-[16px] items-start text-[var(--color-qare-text)] rounded-[30px]">
           <p className="text-[32px] leading-[normal] w-full">{ch.constraint_title}</p>
           <div className="text-[20px] leading-[28px] w-full whitespace-pre-wrap">
             <p>{ch.constraint_text}</p>
@@ -200,8 +200,8 @@ export function ChallengeDesktop() {
 function PillarItem({ title, body }: { title: string; body: string }) {
   return (
     <div className="flex gap-[16px] items-start w-full">
-      <div className="rounded-[10px] shrink-0 w-[4px] self-stretch bg-[#d7d0ef]" />
-      <div className="flex flex-col gap-[16px] flex-1 font-['Aeonik:Regular',sans-serif] text-[#40295b]">
+      <div className="rounded-[10px] shrink-0 w-[4px] self-stretch bg-[var(--color-qare-150)]" />
+      <div className="flex flex-col gap-[16px] flex-1 font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)]">
         <p className="text-[32px] leading-[normal]">{title}</p>
         <p className="text-[20px] leading-[normal]">{body}</p>
       </div>
@@ -230,7 +230,7 @@ export function MonRoleDesktop() {
               />
             </div>
           </div>
-          <p className="font-['Aeonik:Regular',sans-serif] text-[#16121b] text-[16px] text-center leading-[normal] w-full">Organigramme de l'équipe design</p>
+          <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-ink)] text-[16px] text-center leading-[normal] w-full">Organigramme de l'équipe design</p>
         </div>
 
         {/* Right column */}
@@ -304,14 +304,14 @@ export function DiscoveryDesktop() {
 
       <div className="flex gap-[40px] items-start w-full">
         {/* Left col - Plan de discovery */}
-        <div className="bg-[#f2effa] flex-1 rounded-[24px] self-stretch relative">
+        <div className="bg-[var(--color-qare-050)] flex-1 rounded-[24px] self-stretch relative">
           <div className="flex flex-col gap-[24px] items-start w-full pl-[32px] pr-[36px] pt-[32px] pb-[58px]">
-            <p className="font-['Aeonik:Bold',sans-serif] leading-[30px] text-[#40295b] text-[24px]">Plan de discovery</p>
+            <p className="font-['Aeonik:Bold',sans-serif] leading-[30px] text-[var(--color-qare-text)] text-[24px]">Plan de discovery</p>
             <div className="flex flex-col gap-[16px] w-full">
               {/* Item 1 */}
               <div className="flex gap-[12px] items-start w-full">
-                <span className="font-['Aeonik:Regular',sans-serif] leading-[24px] text-[#7a63ca] text-[16px] shrink-0">→</span>
-                <p className="font-['Aeonik:Regular',sans-serif] leading-[28px] text-[#40295b] text-[20px] flex-1">
+                <span className="font-['Aeonik:Regular',sans-serif] leading-[24px] text-[var(--color-qare-brand)] text-[16px] shrink-0">→</span>
+                <p className="font-['Aeonik:Regular',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[20px] flex-1">
                   <span>Revue de la littérature médicale et recommandations </span>
                   <span className="font-['Aeonik:Bold',sans-serif]">HAS</span>
                   <span> (Haute Autorité de Santé)</span>
@@ -320,19 +320,19 @@ export function DiscoveryDesktop() {
               
               {/* Item 2 */}
               <div className="flex gap-[12px] items-start w-full">
-                <span className="font-['Aeonik:Regular',sans-serif] leading-[24px] text-[#7a63ca] text-[16px] shrink-0">→</span>
-                <p className="font-['Aeonik:Regular',sans-serif] leading-[28px] text-[#40295b] text-[20px] flex-1">{`Session de travail avec l'équipe médicale (Dr. Melot)`}</p>
+                <span className="font-['Aeonik:Regular',sans-serif] leading-[24px] text-[var(--color-qare-brand)] text-[16px] shrink-0">→</span>
+                <p className="font-['Aeonik:Regular',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[20px] flex-1">{`Session de travail avec l'équipe médicale (Dr. Melot)`}</p>
               </div>
               
               {/* Items 3 & 4 avec bordure pointillée */}
               <div className="relative mt-[8px]">
                 {/* Bordure pointillée */}
-                <div className="border-4 border-[#3c3162] border-dashed rounded-[20px] p-[20px]">
+                <div className="border-4 border-[var(--color-qare-800)] border-dashed rounded-[20px] p-[20px]">
                   <div className="flex flex-col gap-[16px]">
                     {/* Item 3 - Analyse data */}
                     <div className="flex gap-[12px] items-start w-full">
-                      <span className="font-['Aeonik:Regular',sans-serif] leading-[24px] text-[#7a63ca] text-[16px] shrink-0">→</span>
-                      <p className="font-['Aeonik:Regular',sans-serif] leading-[28px] text-[#40295b] text-[20px] flex-1">
+                      <span className="font-['Aeonik:Regular',sans-serif] leading-[24px] text-[var(--color-qare-brand)] text-[16px] shrink-0">→</span>
+                      <p className="font-['Aeonik:Regular',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[20px] flex-1">
                         <span>Analyse data via </span>
                         <span className="font-['Aeonik:Bold',sans-serif]">Metabase</span>
                         <span> & </span>
@@ -342,8 +342,8 @@ export function DiscoveryDesktop() {
                     
                     {/* Item 4 - 5 fausses téléconsultations */}
                     <div className="flex gap-[12px] items-start w-full">
-                      <span className="font-['Aeonik:Regular',sans-serif] leading-[24px] text-[#7a63ca] text-[16px] shrink-0">→</span>
-                      <p className="font-['Aeonik:Regular',sans-serif] leading-[28px] text-[#40295b] text-[20px] flex-1">
+                      <span className="font-['Aeonik:Regular',sans-serif] leading-[24px] text-[var(--color-qare-brand)] text-[16px] shrink-0">→</span>
+                      <p className="font-['Aeonik:Regular',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[20px] flex-1">
                         <span className="font-['Aeonik:Bold',sans-serif]">5 fausses téléconsultations</span>
                         <span> pour la gêne urinaire</span>
                       </p>
@@ -363,12 +363,12 @@ export function DiscoveryDesktop() {
         {/* Right col - Enseignements clés */}
         <div className="bg-[#e4f6ee] flex-1 rounded-[24px]">
           <div className="flex flex-col gap-[24px] items-start p-[32px] w-full">
-            <p className="font-['Aeonik:Bold',sans-serif] leading-[30px] text-[#40295b] text-[24px]">{ins.key_findings_title}</p>
+            <p className="font-['Aeonik:Bold',sans-serif] leading-[30px] text-[var(--color-qare-text)] text-[24px]">{ins.key_findings_title}</p>
             <div className="flex flex-col gap-[16px] w-full">
               {ins.key_findings.map((finding, i) => (
                 <div key={i} className="flex gap-[12px] items-start w-full">
-                  <span className="font-['Aeonik:Regular',sans-serif] leading-[24px] text-[#7a63ca] text-[16px] shrink-0">→</span>
-                  <p className="font-['Aeonik:Regular',sans-serif] leading-[28px] text-[#40295b] text-[20px] flex-1">{finding}</p>
+                  <span className="font-['Aeonik:Regular',sans-serif] leading-[24px] text-[var(--color-qare-brand)] text-[16px] shrink-0">→</span>
+                  <p className="font-['Aeonik:Regular',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[20px] flex-1">{finding}</p>
                 </div>
               ))}
             </div>
@@ -382,13 +382,13 @@ export function DiscoveryDesktop() {
       <div className="flex flex-col gap-[26px] items-center w-full px-[0px] pt-[80px] pb-[0px]">
         <div className="relative rounded-[30px] shadow-[0px_0px_0px_1.063px_rgba(0,0,0,0.2),0px_0px_2.125px_0px_rgba(0,0,0,0.08),0px_2.125px_6.376px_0px_rgba(0,0,0,0.1)] shrink-0 w-full max-w-[946px]" style={{ height: "1737.156px" }}>
           <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
-            <div className="absolute bg-white inset-0 rounded-[30px]" />
+            <div className="absolute bg-[var(--color-qare-white)] inset-0 rounded-[30px]" />
             <div className="absolute inset-0 overflow-hidden rounded-[30px]">
               <img alt="Arbre de décision sur la gêne urinaire" className="absolute left-0 max-w-none size-full top-0" src={imgImage24} />
             </div>
           </div>
         </div>
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#40295b] text-[16px] text-center w-full max-w-[946px]">
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[16px] text-center w-full max-w-[946px]">
           {ins.decision_tree_caption}
         </p>
       </div>
@@ -405,24 +405,24 @@ export function ApprochDesignDesktop() {
   const da = cs.design_approach;
 
   return (
-    <div className="bg-[#f2effa] flex flex-col items-center justify-center py-[56px] w-full">
+    <div className="bg-[var(--color-qare-050)] flex flex-col items-center justify-center py-[56px] w-full">
       <div className="flex flex-col gap-[56px] items-start shrink-0 w-[946px]">
         {/* Header */}
         <div className="flex flex-col gap-[8px] items-start w-[706px]">
-          <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#7a63ca] text-[24px] tracking-[4.8px] uppercase">{da.section_title}</p>
-          <p className="font-['Aeonik:Bold',sans-serif] leading-[45px] text-[#40295b] text-[36px] w-[533.9px]">{da.headline}</p>
+          <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-brand)] text-[24px] tracking-[4.8px] uppercase">{da.section_title}</p>
+          <p className="font-['Aeonik:Bold',sans-serif] leading-[45px] text-[var(--color-qare-text)] text-[36px] w-[533.9px]">{da.headline}</p>
         </div>
         
         {/* 3 Cards */}
         <div className="flex gap-[40px] items-stretch w-full">
           {da.pillars.map((pillar, i) => (
             <div key={i} className="flex-1 flex flex-row items-stretch">
-              <div className="bg-white flex-1 min-h-px min-w-px relative rounded-[30px]">
-                <div aria-hidden="true" className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[30px]" />
+              <div className="bg-[var(--color-qare-white)] flex-1 min-h-px min-w-px relative rounded-[30px]">
+                <div aria-hidden="true" className="absolute border-4 border-[var(--color-qare-100)] border-solid inset-0 pointer-events-none rounded-[30px]" />
                 <div className="flex flex-col gap-[16px] items-start p-[32px] w-full">
                   <p className="font-['Inter:Regular',sans-serif] font-normal leading-[48px] text-[#0a0a0a] text-[32px] tracking-[0.4063px] whitespace-nowrap">{pillar.emoji}</p>
-                  <p className="font-['Aeonik:Regular',sans-serif] leading-[30px] text-[#40295b] text-[24px]">{pillar.title}</p>
-                  <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#40295b] text-[16px]">{pillar.text}</p>
+                  <p className="font-['Aeonik:Regular',sans-serif] leading-[30px] text-[var(--color-qare-text)] text-[24px]">{pillar.title}</p>
+                  <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[16px]">{pillar.text}</p>
                 </div>
               </div>
             </div>
@@ -454,10 +454,10 @@ export function IterationDesktop() {
       {/* Header */}
       <div className="flex flex-col gap-[10px] items-start">
         <div className="flex h-[29.5px] items-start">
-          <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#7a63ca] text-[24px] tracking-[4.8px] uppercase whitespace-nowrap">{it.section_title}</p>
+          <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-brand)] text-[24px] tracking-[4.8px] uppercase whitespace-nowrap">{it.section_title}</p>
         </div>
-        <p className="font-['Aeonik:Bold',sans-serif] leading-[45px] text-[#16121b] text-[36px] whitespace-nowrap">{it.headline}</p>
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[30px] text-[#40295b] text-[24px] w-[660px]">{it.description}</p>
+        <p className="font-['Aeonik:Bold',sans-serif] leading-[45px] text-[var(--color-qare-ink)] text-[36px] whitespace-nowrap">{it.headline}</p>
+        <p className="font-['Aeonik:Regular',sans-serif] leading-[30px] text-[var(--color-qare-text)] text-[24px] w-[660px]">{it.description}</p>
       </div>
       
       {/* Layout iteration image */}
@@ -466,17 +466,17 @@ export function IterationDesktop() {
       </div>
       
       {/* Bold move block */}
-      <div className="bg-[#f2effa] flex gap-[30px] items-center p-[32px] relative rounded-[30px] shrink-0 w-[950px]">
-        <div aria-hidden="true" className="absolute border-4 border-[#afa2df] border-solid inset-0 pointer-events-none rounded-[30px]" />
+      <div className="bg-[var(--color-qare-050)] flex gap-[30px] items-center p-[32px] relative rounded-[30px] shrink-0 w-[950px]">
+        <div aria-hidden="true" className="absolute border-4 border-[var(--color-qare-300)] border-solid inset-0 pointer-events-none rounded-[30px]" />
         
         {/* Icon container */}
-        <div className="bg-[#e4e0f4] flex items-center justify-center relative rounded-[22.8px] shrink-0 size-[76px]">
+        <div className="bg-[var(--color-qare-100)] flex items-center justify-center relative rounded-[22.8px] shrink-0 size-[76px]">
           <div className="relative shrink-0 size-[28px]">
             <div className="bg-clip-padding border-0 border-[transparent] border-solid overflow-clip relative rounded-[inherit] size-full">
               <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28 28">
                 <g>
-                  <path d={svgPathsRocket.p5001800} fill="#7A63CA" />
-                  <path d={svgPathsRocket.p19b0b9f0} fill="#7A63CA" />
+                  <path d={svgPathsRocket.p5001800} fill="var(--color-qare-brand)" />
+                  <path d={svgPathsRocket.p19b0b9f0} fill="var(--color-qare-brand)" />
                 </g>
               </svg>
             </div>
@@ -484,7 +484,7 @@ export function IterationDesktop() {
         </div>
         
         {/* Text content */}
-        <div className="flex flex-col gap-[8px] h-[122px] items-start text-[#40295b] shrink-0 w-[780px]">
+        <div className="flex flex-col gap-[8px] h-[122px] items-start text-[var(--color-qare-text)] shrink-0 w-[780px]">
           <p className="font-['Aeonik:Bold',sans-serif] leading-[36px] text-[24px] whitespace-nowrap">{it.bold_move_title}</p>
           <p className="font-['Aeonik:Regular',sans-serif] leading-[26px] text-[20px] w-[753px]">{it.bold_move_text}</p>
         </div>
@@ -508,14 +508,14 @@ export function UserTestDesktop() {
 
       <div className="grid grid-cols-2 gap-[24px] w-full">
         <div className="bg-[#f7f7fa] rounded-[24px] p-[32px] flex flex-col gap-[16px]">
-          <p className="font-['Aeonik:Bold',sans-serif] text-[#40295b] text-[22px]">Avant les tests</p>
-          <p className="font-['Aeonik:Regular',sans-serif] leading-[26px] text-[#40295b] text-[18px]">
+          <p className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[22px]">Avant les tests</p>
+          <p className="font-['Aeonik:Regular',sans-serif] leading-[26px] text-[var(--color-qare-text)] text-[18px]">
             J'étais convaincu que le bouton 'Nouvelle prescription' dans le panneau de prescriptions n'était pas assez visible car il manquait de contexte. Plutôt que d'imposer un changement, j'en ai discuté avec Léa pour qu'elle intègre ce point dans le protocole de test utilisateur.
           </p>
         </div>
         <div className="bg-[#f0faf5] rounded-[24px] p-[32px] flex flex-col gap-[16px]" style={{ border: "3px solid #a4e0c6" }}>
-          <p className="font-['Aeonik:Bold',sans-serif] text-[#40295b] text-[22px]">Après les tests</p>
-          <p className="font-['Aeonik:Regular',sans-serif] leading-[26px] text-[#40295b] text-[18px]">
+          <p className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[22px]">Après les tests</p>
+          <p className="font-['Aeonik:Regular',sans-serif] leading-[26px] text-[var(--color-qare-text)] text-[18px]">
             Le test a confirmé le problème. L'emplacement a été modifié pour améliorer la visibilité et la compréhension. L'action 'Ajouter un médicament' est passée en bas de la liste des prescriptions, dans le contexte d'usage.
           </p>
         </div>
@@ -539,9 +539,9 @@ export function LearningsDesktop() {
       {/* Header */}
       <div className="flex flex-col gap-[8px] items-start w-[706px]">
         <div className="flex h-[29px] items-start w-[378.508px]">
-          <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[#7a63ca] text-[24px] tracking-[4.8px] uppercase whitespace-nowrap">{lr.section_title}</p>
+          <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] text-[var(--color-qare-brand)] text-[24px] tracking-[4.8px] uppercase whitespace-nowrap">{lr.section_title}</p>
         </div>
-        <p className="font-['Aeonik:Bold',sans-serif] leading-[45px] text-[#40295b] text-[36px] w-full">{lr.headline}</p>
+        <p className="font-['Aeonik:Bold',sans-serif] leading-[45px] text-[var(--color-qare-text)] text-[36px] w-full">{lr.headline}</p>
       </div>
       
       {/* Two columns */}
@@ -549,7 +549,7 @@ export function LearningsDesktop() {
         {/* Left column */}
         <div className="flex-1 min-h-px min-w-px flex flex-col gap-[16px] items-start">
           <div className="flex h-[21.5px] items-start w-full">
-            <p className="flex-1 font-['Aeonik:Bold',sans-serif] leading-[normal] text-[#40295b] text-[18px]">{lr.worked_title}</p>
+            <p className="flex-1 font-['Aeonik:Bold',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[18px]">{lr.worked_title}</p>
           </div>
           <div className="flex flex-col gap-[16px] items-start w-full">
             {lr.worked.map((text, i) => (
@@ -565,7 +565,7 @@ export function LearningsDesktop() {
                       </div>
                     </div>
                   </div>
-                  <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[28px] text-[#40295b] text-[20px]">{text}</p>
+                  <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[20px]">{text}</p>
                 </div>
               </div>
             ))}
@@ -575,7 +575,7 @@ export function LearningsDesktop() {
         {/* Right column */}
         <div className="flex-1 min-h-px min-w-px flex flex-col gap-[16px] items-start">
           <div className="flex h-[21.5px] items-start w-full">
-            <p className="flex-1 font-['Aeonik:Bold',sans-serif] leading-[normal] text-[#40295b] text-[18px]">{lr.failed_title}</p>
+            <p className="flex-1 font-['Aeonik:Bold',sans-serif] leading-[normal] text-[var(--color-qare-text)] text-[18px]">{lr.failed_title}</p>
           </div>
           <div className="flex flex-col gap-[16px] items-start w-full">
             {lr.failed.map((text, i) => (
@@ -591,7 +591,7 @@ export function LearningsDesktop() {
                       </div>
                     </div>
                   </div>
-                  <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[28px] text-[#40295b] text-[20px]">{text}</p>
+                  <p className="flex-1 font-['Aeonik:Regular',sans-serif] leading-[28px] text-[var(--color-qare-text)] text-[20px]">{text}</p>
                 </div>
               </div>
             ))}
@@ -609,18 +609,18 @@ export function LearningsDesktop() {
 export function StatusBannerDesktop() {
   return (
     <div
-      className="bg-[#f2effa] border-4 border-[#afa2df] rounded-[30px] p-[48px] flex flex-col gap-[20px] items-center text-center w-full"
+      className="bg-[var(--color-qare-050)] border-4 border-[var(--color-qare-300)] rounded-[30px] p-[48px] flex flex-col gap-[20px] items-center text-center w-full"
       style={{ boxShadow: "26.83px 40.24px 53.66px 0px rgba(159,188,246,0.15)" }}
     >
       {/* Icon circle */}
-      <div className="w-[76px] h-[76px] rounded-full bg-[#e4e0f4] flex items-center justify-center shrink-0">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7A63CA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <div className="w-[76px] h-[76px] rounded-full bg-[var(--color-qare-100)] flex items-center justify-center shrink-0">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-qare-brand)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="10" />
           <polyline points="12 6 12 12 16 14" />
         </svg>
       </div>
-      <p className="font-['Aeonik:Bold',sans-serif] text-[#40295b] text-[28px]">Projet en cours</p>
-      <p className="font-['Aeonik:Regular',sans-serif] leading-[26px] text-[#40295b] text-[18px] max-w-[600px]">
+      <p className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[28px]">Projet en cours</p>
+      <p className="font-['Aeonik:Regular',sans-serif] leading-[26px] text-[var(--color-qare-text)] text-[18px] max-w-[600px]">
         Ce projet est actuellement en phase de livraison tech. Les métriques d'impact seront disponibles après le déploiement.
       </p>
     </div>
