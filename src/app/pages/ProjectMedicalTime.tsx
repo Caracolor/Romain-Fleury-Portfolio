@@ -1,26 +1,17 @@
-import { ScaledSection } from "../components/ScaledSection";
 import { useIsMobile } from "../components/useIsMobile";
 import { useDesignScale } from "../components/useDesignScale";
 import { ProjectPageWrapper } from "../components/ProjectPageWrapper";
 import { ResponsiveSection } from "../components/ResponsiveSection";
+import { ScaledSection } from "../components/ScaledSection";
 import {
-  HeroDesktopTempsMedical,
-  ChallengeDesktop,
-  MonRoleDesktop,
-  DiscoveryDesktop,
-  ApprochDesignDesktop,
-  IterationDesktop,
-  LearningsDesktop,
-} from "../components/TempsMedicalDesktop";
-import {
-  HeroMobileAdapted,
-  ChallengeMobileAdapted,
-  MonRoleMobileAdapted,
-  DiscoveryMobileAdapted,
-  ApprochDesignMobileAdapted,
-  IterationMobileAdapted,
-  LearningsMobileAdapted,
-} from "../components/TempsMedicalMobileAdapted";
+  HeroTempsMedical,
+  ChallengeTempsMedical,
+  MonRoleTempsMedical,
+  DiscoveryTempsMedical,
+  ApprochDesignTempsMedical,
+  IterationTempsMedical,
+  LearningsTempsMedical,
+} from "../components/TempsMedical";
 import { ProjectNavigation } from "../components/ProjectNavigation";
 import { ContextSection } from "../components/ContextSection";
 import { ChallengesNextSteps } from "../components/ChallengesNextSteps";
@@ -43,8 +34,8 @@ export default function ProjectMedicalTime() {
         <ResponsiveSection
           maxWidth={CONTENT_WIDTH}
           style={{ paddingTop: HERO_PAD_TOP }}
-          mobile={<HeroMobileAdapted />}
-          desktop={<HeroDesktopTempsMedical />}
+          mobile={<HeroTempsMedical />}
+          desktop={<HeroTempsMedical />}
         />
       </div>
 
@@ -58,24 +49,24 @@ export default function ProjectMedicalTime() {
       <ResponsiveSection
         maxWidth={CONTENT_WIDTH}
         style={{ marginTop: SECTION_GAP }}
-        mobile={<ChallengeMobileAdapted />}
-        desktop={<ChallengeDesktop />}
+        mobile={<ChallengeTempsMedical />}
+        desktop={<ChallengeTempsMedical />}
       />
 
       {/* 3. Mon Role */}
       <ResponsiveSection
         maxWidth={CONTENT_WIDTH}
         style={{ marginTop: SECTION_GAP }}
-        mobile={<MonRoleMobileAdapted />}
-        desktop={<MonRoleDesktop />}
+        mobile={<MonRoleTempsMedical />}
+        desktop={<MonRoleTempsMedical />}
       />
 
       {/* 4. Discovery */}
       <ResponsiveSection
         maxWidth={CONTENT_WIDTH}
         style={{ marginTop: SECTION_GAP }}
-        mobile={<DiscoveryMobileAdapted />}
-        desktop={<DiscoveryDesktop />}
+        mobile={<DiscoveryTempsMedical />}
+        desktop={<DiscoveryTempsMedical />}
       />
 
       {/* 4b. Challenges */}
@@ -86,42 +77,33 @@ export default function ProjectMedicalTime() {
       />
 
       {/* 5. L'Approche Design */}
-      {isMobile ? (
-        <div
-          className="bg-[var(--color-qare-050)] w-full"
-          style={{ marginTop: SECTION_GAP, paddingTop: 32, paddingBottom: 32 }}
-        >
-          <ApprochDesignMobileAdapted />
-        </div>
-      ) : (
-        <div
-          className="bg-[var(--color-qare-050)] w-full"
-          style={{
-            marginTop: SECTION_GAP,
-            paddingTop: Math.round(50 * s),
-            paddingBottom: Math.round(50 * s),
-          }}
-        >
-          <ScaledSection maxWidth={CONTENT_WIDTH}>
-            <ApprochDesignDesktop />
-          </ScaledSection>
-        </div>
-      )}
+      <div
+        className="bg-[var(--color-qare-050)] w-full"
+        style={{
+          marginTop: SECTION_GAP,
+          paddingTop: isMobile ? 32 : Math.round(50 * s),
+          paddingBottom: isMobile ? 32 : Math.round(50 * s),
+        }}
+      >
+        <ScaledSection maxWidth={CONTENT_WIDTH}>
+          <ApprochDesignTempsMedical />
+        </ScaledSection>
+      </div>
 
       {/* 6. Iteration */}
       <ResponsiveSection
         maxWidth={CONTENT_WIDTH}
         style={{ marginTop: SECTION_GAP }}
-        mobile={<IterationMobileAdapted />}
-        desktop={<IterationDesktop />}
+        mobile={<IterationTempsMedical />}
+        desktop={<IterationTempsMedical />}
       />
 
       {/* 7. Learnings */}
       <ResponsiveSection
         maxWidth={CONTENT_WIDTH}
         style={{ marginTop: SECTION_GAP }}
-        mobile={<LearningsMobileAdapted />}
-        desktop={<LearningsDesktop />}
+        mobile={<LearningsTempsMedical />}
+        desktop={<LearningsTempsMedical />}
       />
 
       {/* 7b. Next steps */}
