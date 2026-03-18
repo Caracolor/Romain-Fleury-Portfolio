@@ -39,6 +39,60 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* ── Qare Design Tokens ─────────────────────────────────── */
+
+  /* Palette violette Qare */
+  --color-qare-900: #40295b;
+  --color-qare-800: #3c3162;
+  --color-qare-600: #7a63ca;
+  --color-qare-300: #afa2df;
+  --color-qare-200: #cac1ea;
+  --color-qare-150: #d7d0ef;
+  --color-qare-100: #e4e0f4;
+  --color-qare-050: #f2effa;
+  --color-qare-030: #eeedff;
+
+  /* Sémantiques */
+  --color-qare-text:          var(--color-qare-900);
+  --color-qare-ink:           #16121b;
+  --color-qare-brand:         var(--color-qare-600);
+  --color-qare-white:         #ffffff;
+  --color-qare-muted:         #97979f;
+  --color-qare-neutral-300:   #d9d9d9;
+  --color-qare-neutral-100:   #f7f7fa;
+
+  /* Overlays */
+  --overlay-qare-purple:        rgba(59, 58, 87, 0.75);
+  --overlay-qare-purple-light:  rgba(59, 58, 87, 0.05);
+  --overlay-qare-border:        rgba(195, 192, 255, 0.3);
+  --overlay-qare-dot:           rgba(190, 170, 230, 0.45);
+
+  /* Dot pattern */
+  --qare-dot-size: 13px;
+  --bg-qare-dot-pattern:
+    radial-gradient(circle, var(--overlay-qare-dot) 1px, transparent 1px)
+    0 0 / var(--qare-dot-size) var(--qare-dot-size);
+
+  /* Gradients */
+  --qare-gradient-brand:
+    linear-gradient(135deg, var(--color-qare-600) 0%, var(--color-qare-300) 100%);
+  --qare-gradient-brand-h:
+    linear-gradient(90deg, var(--color-qare-600), var(--color-qare-300));
+  --qare-gradient-card-border:
+    linear-gradient(135deg, var(--color-qare-100), var(--color-qare-300), var(--color-qare-100));
+
+  /* Shadow */
+  --qare-shadow-card-color: rgba(159, 188, 246, 0.15);
+
+  /* Radius */
+  --qare-radius-pill:    1000px;
+  --qare-radius-card:      30px;
+  --qare-radius-card-sm:   20px;
+  --qare-radius-panel:     16px;
+  --qare-radius-chip:      14px;
+  --qare-radius-sm:        12px;
+  --qare-radius-xs:        10px;
 }
 
 .dark {
@@ -117,6 +171,22 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Qare tokens → Tailwind utilities */
+  --color-qare-900:         var(--color-qare-900);
+  --color-qare-800:         var(--color-qare-800);
+  --color-qare-600:         var(--color-qare-600);
+  --color-qare-300:         var(--color-qare-300);
+  --color-qare-200:         var(--color-qare-200);
+  --color-qare-150:         var(--color-qare-150);
+  --color-qare-100:         var(--color-qare-100);
+  --color-qare-050:         var(--color-qare-050);
+  --color-qare-030:         var(--color-qare-030);
+  --color-qare-text:        var(--color-qare-text);
+  --color-qare-ink:         var(--color-qare-ink);
+  --color-qare-brand:       var(--color-qare-brand);
+  --color-qare-white:       var(--color-qare-white);
+  --color-qare-muted:       var(--color-qare-muted);
 }
 
 @layer base {
