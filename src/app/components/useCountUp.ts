@@ -9,7 +9,7 @@ function easeOut(t: number): number {
  * Anime un nombre de 0 vers `target` en `duration` ms.
  * Retourne la valeur courante arrondie.
  */
-export function useCountUp(target: number, duration = 2000): number {
+export function useCountUp(target: number, duration = 5000): number {
   const [count, setCount] = useState(0);
   const startRef = useRef<number | null>(null);
   const rafRef   = useRef<number>();
