@@ -3,6 +3,7 @@ import svgPaths from "./svg-2k7gxlzkzt";
 import imgDsc087301 from "@/assets/1680f5d397351ddf45665415243080fa4096145a.png";
 import { useTranslation } from "../app/components/LanguageContext";
 import { useAnimatedTitle } from "../app/components/useAnimatedTitle";
+import { useCountUp, parseStatValue } from "../app/components/useCountUp";
 type WrapperProps = {
   additionalClassNames?: string;
 };
@@ -19,10 +20,17 @@ type HelperProps = {
   text1: string;
 };
 
+function AnimatedStatValue({ value }: { value: string }) {
+  const { num, suffix } = parseStatValue(value);
+  const count = useCountUp(isNaN(num) ? 0 : num);
+  if (isNaN(num)) return <>{value}</>;
+  return <>{count}{suffix}</>;
+}
+
 function Helper({ text, text1 }: HelperProps) {
   return (
     <div className="content-stretch flex flex-col font-['Aeonik:Regular',sans-serif] gap-[2px] items-center leading-[normal] not-italic relative shrink-0 text-[#40295b] text-center w-[132px]">
-      <p className="relative shrink-0 text-[32px] w-full">{text}</p>
+      <p className="relative shrink-0 text-[32px] w-full"><AnimatedStatValue value={text} /></p>
       <p className="relative shrink-0 text-[16px] w-full">{text1}</p>
     </div>
   );
@@ -168,7 +176,7 @@ export default function Frame() {
               <Helper text={stats[1].value} text1={stats[1].label} />
               <div className="content-stretch flex flex-col gap-[2px] items-center relative shrink-0 w-[132px]">
                 <div className="content-stretch flex items-start relative shrink-0">
-                  <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#40295b] text-[32px] text-center w-[26.35px]">{stats[2].value}</p>
+                  <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#40295b] text-[32px] text-center w-[26.35px]"><AnimatedStatValue value={stats[2].value} /></p>
                 </div>
                 <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] min-w-full not-italic relative shrink-0 text-[#40295b] text-[16px] text-center w-[min-content]">{stats[2].label}</p>
               </div>

@@ -2,6 +2,7 @@ import svgPaths from "../../imports/svg-2k7gxlzkzt";
 import imgDsc087301 from "@/assets/1680f5d397351ddf45665415243080fa4096145a.png";
 import { useTranslation } from "./LanguageContext";
 import { useAnimatedTitle } from "./useAnimatedTitle";
+import { useCountUp, parseStatValue } from "./useCountUp";
 
 function Tag({ text }: { text: string }) {
   return (
@@ -17,10 +18,17 @@ function Tag({ text }: { text: string }) {
   );
 }
 
+function AnimatedStatValue({ value }: { value: string }) {
+  const { num, suffix } = parseStatValue(value);
+  const count = useCountUp(isNaN(num) ? 0 : num);
+  if (isNaN(num)) return <>{value}</>;
+  return <>{count}{suffix}</>;
+}
+
 function StatItem({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col font-['Aeonik:Regular',sans-serif] gap-[2px] items-center leading-[normal] not-italic text-[var(--color-qare-text)] text-center">
-      <p className="text-[24px]">{value}</p>
+      <p className="text-[24px]"><AnimatedStatValue value={value} /></p>
       <p className="text-[13px] whitespace-nowrap">{label}</p>
     </div>
   );
