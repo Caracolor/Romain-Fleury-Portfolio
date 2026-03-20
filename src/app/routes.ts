@@ -1,10 +1,12 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router";
 import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import ProjectChronicPrograms from "./pages/ProjectChronicPrograms";
-import ProjectMedicalTime from "./pages/ProjectMedicalTime";
-import ProjectMonetization from "./pages/ProjectMonetization";
-import ProjectBrandedCall from "./pages/ProjectBrandedCall";
+
+const Home = lazy(() => import("./pages/Home"));
+const ProjectChronicPrograms = lazy(() => import("./pages/ProjectChronicPrograms"));
+const ProjectMedicalTime = lazy(() => import("./pages/ProjectMedicalTime"));
+const ProjectMonetization = lazy(() => import("./pages/ProjectMonetization"));
+const ProjectBrandedCall = lazy(() => import("./pages/ProjectBrandedCall"));
 
 export const router = createBrowserRouter([
   {

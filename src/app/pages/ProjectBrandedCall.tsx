@@ -417,7 +417,7 @@ export default function ProjectBrandedCall() {
 
       {/* ── Navigation projet ─────────────────────────── */}
       <ResponsiveSection
-        maxWidth={950}
+        maxWidth={800}
         style={{ paddingTop: SECTION_GAP, paddingBottom: isMobile ? 60 : 300 }}
         mobile={<ProjectNavigation currentSlug="branded-call" />}
         desktop={<ProjectNavigation currentSlug="branded-call" />}

@@ -68,6 +68,8 @@ export function HeroMobile() {
                     className="absolute h-[148.9%] left-[-23.45%] max-w-none top-[-7.49%] w-[115.29%]"
                     style={{ transform: "rotate(-8deg) translateX(28px)" }}
                     src={imgDsc087301}
+                    loading="eager"
+                    decoding="sync"
                   />
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import { Outlet, useLocation } from "react-router";
 import { Header } from "../components/Header";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
+import { PageLoader } from "../components/PageLoader";
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -13,7 +14,9 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <Outlet />
+      <Suspense fallback={<PageLoader visible />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 }
