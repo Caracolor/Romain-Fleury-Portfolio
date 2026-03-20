@@ -16,6 +16,7 @@ import { ProjectNavigation } from "../components/ProjectNavigation";
 import { ContextSection } from "../components/ContextSection";
 import { ChallengesNextSteps } from "../components/ChallengesNextSteps";
 import { useTranslation } from "../components/LanguageContext";
+import { LazySection } from "../components/LazySection";
 
 const CONTENT_WIDTH = 950;
 
@@ -40,78 +41,96 @@ export default function ProjectMedicalTime() {
       </div>
 
       {/* 1b. Contexte */}
-      <ContextSection
-        translationKey="case_study_medical_time"
-        topSpacing={isMobile ? 60 : SECTION_GAP}
-      />
+      <LazySection>
+        <ContextSection
+          translationKey="case_study_medical_time"
+          topSpacing={isMobile ? 60 : SECTION_GAP}
+        />
+      </LazySection>
 
       {/* 2. Le Challenge */}
-      <ResponsiveSection
-        maxWidth={CONTENT_WIDTH}
-        style={{ marginTop: SECTION_GAP }}
-        mobile={<ChallengeTempsMedical />}
-        desktop={<ChallengeTempsMedical />}
-      />
+      <LazySection>
+        <ResponsiveSection
+          maxWidth={CONTENT_WIDTH}
+          style={{ marginTop: SECTION_GAP }}
+          mobile={<ChallengeTempsMedical />}
+          desktop={<ChallengeTempsMedical />}
+        />
+      </LazySection>
 
       {/* 3. Mon Role */}
-      <ResponsiveSection
-        maxWidth={CONTENT_WIDTH}
-        style={{ marginTop: SECTION_GAP }}
-        mobile={<MonRoleTempsMedical />}
-        desktop={<MonRoleTempsMedical />}
-      />
+      <LazySection>
+        <ResponsiveSection
+          maxWidth={CONTENT_WIDTH}
+          style={{ marginTop: SECTION_GAP }}
+          mobile={<MonRoleTempsMedical />}
+          desktop={<MonRoleTempsMedical />}
+        />
+      </LazySection>
 
       {/* 4. Discovery */}
-      <ResponsiveSection
-        maxWidth={CONTENT_WIDTH}
-        style={{ marginTop: SECTION_GAP }}
-        mobile={<DiscoveryTempsMedical />}
-        desktop={<DiscoveryTempsMedical />}
-      />
+      <LazySection>
+        <ResponsiveSection
+          maxWidth={CONTENT_WIDTH}
+          style={{ marginTop: SECTION_GAP }}
+          mobile={<DiscoveryTempsMedical />}
+          desktop={<DiscoveryTempsMedical />}
+        />
+      </LazySection>
 
       {/* 4b. Challenges */}
-      <ChallengesNextSteps
-        data={cs.challenges}
-        sectionGap={SECTION_GAP}
-        maxWidth={CONTENT_WIDTH}
-      />
+      <LazySection>
+        <ChallengesNextSteps
+          data={cs.challenges}
+          sectionGap={SECTION_GAP}
+          maxWidth={CONTENT_WIDTH}
+        />
+      </LazySection>
 
       {/* 5. L'Approche Design */}
-      <div
-        className="bg-[var(--color-qare-050)] w-full"
-        style={{
-          marginTop: SECTION_GAP,
-          paddingTop: isMobile ? 32 : Math.round(50 * s),
-          paddingBottom: isMobile ? 32 : Math.round(50 * s),
-        }}
-      >
-        <ScaledSection maxWidth={CONTENT_WIDTH}>
-          <ApprochDesignTempsMedical />
-        </ScaledSection>
-      </div>
+      <LazySection>
+        <div
+          className="bg-[var(--color-qare-050)] w-full"
+          style={{
+            marginTop: SECTION_GAP,
+            paddingTop: isMobile ? 32 : Math.round(50 * s),
+            paddingBottom: isMobile ? 32 : Math.round(50 * s),
+          }}
+        >
+          <ScaledSection maxWidth={CONTENT_WIDTH}>
+            <ApprochDesignTempsMedical />
+          </ScaledSection>
+        </div>
+      </LazySection>
 
       {/* 6. Iteration */}
-      <ResponsiveSection
-        maxWidth={CONTENT_WIDTH}
-        style={{ marginTop: SECTION_GAP }}
-        mobile={<IterationTempsMedical />}
-        desktop={<IterationTempsMedical />}
-      />
+      <LazySection>
+        <ResponsiveSection
+          maxWidth={CONTENT_WIDTH}
+          style={{ marginTop: SECTION_GAP }}
+          mobile={<IterationTempsMedical />}
+          desktop={<IterationTempsMedical />}
+        />
+      </LazySection>
 
       {/* 7. Learnings */}
-      <ResponsiveSection
-        maxWidth={CONTENT_WIDTH}
-        style={{ marginTop: SECTION_GAP }}
-        mobile={<LearningsTempsMedical />}
-        desktop={<LearningsTempsMedical />}
-      />
+      <LazySection>
+        <ResponsiveSection
+          maxWidth={CONTENT_WIDTH}
+          style={{ marginTop: SECTION_GAP }}
+          mobile={<LearningsTempsMedical />}
+          desktop={<LearningsTempsMedical />}
+        />
+      </LazySection>
 
       {/* 7b. Next steps */}
-      <ChallengesNextSteps
-        data={cs.next_steps}
-        sectionGap={SECTION_GAP}
-        maxWidth={CONTENT_WIDTH}
-      />
+      <LazySection>
+        <ChallengesNextSteps
+          data={cs.next_steps}
+          sectionGap={SECTION_GAP}
+          maxWidth={CONTENT_WIDTH}
+        />
+      </LazySection>
 
       {/* ── Navigation projet ──────────────────────── */}
       <ResponsiveSection

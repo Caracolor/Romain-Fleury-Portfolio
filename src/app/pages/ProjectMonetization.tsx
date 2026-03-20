@@ -12,6 +12,7 @@ import { HeroPhoneCarousel } from "../components/HeroPhoneCarousel";
 import { AnimatedMouseCursor } from "../components/AnimatedMouseCursor";
 import { ProjectNavigation } from "../components/ProjectNavigation";
 import { ContextSection } from "../components/ContextSection";
+import { LazySection } from "../components/LazySection";
 
 // Timeline images
 import imgPriceSensibilityMobile from "@/assets/dc6ee1bfdf23a92bf7600d11316969bca0b66dea.webp";
@@ -176,14 +177,17 @@ export default function ProjectMonetization() {
       )}
 
       {/* ── CONTEXTE ──────────────────────────────────── */}
-      <ContextSection
-        translationKey="case_study_monetisation"
-        topSpacing={isMobile ? SECTION_GAP : -100}
-        desktopMaxWidth={800}
-        useMargin
-      />
+      <LazySection>
+        <ContextSection
+          translationKey="case_study_monetisation"
+          topSpacing={isMobile ? SECTION_GAP : -100}
+          desktopMaxWidth={800}
+          useMargin
+        />
+      </LazySection>
 
       {/* ── LA PROBLEMATIQUE ──────────────────────────── */}
+      <LazySection>
       {isMobile ? (
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP * 0.6 }}>
           <h2 className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-text)] text-[22px] leading-[28px] mb-[24px]">
@@ -212,7 +216,10 @@ export default function ProjectMonetization() {
         </ScaledSection>
       )}
 
+      </LazySection>
+
       {/* ── TIMELINE ──────────────────────────────────── */}
+      <LazySection>
       {isMobile ? (
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP }}>
           <div className="flex flex-col gap-[8px] mb-[32px]">
@@ -235,7 +242,10 @@ export default function ProjectMonetization() {
         </ScaledSection>
       )}
 
+      </LazySection>
+
       {/* ── METHODS ───────────────────────────────────── */}
+      <LazySection>
       {isMobile ? (
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP }}>
           <div className="mb-[24px]">
@@ -262,7 +272,10 @@ export default function ProjectMonetization() {
         </div>
       )}
 
+      </LazySection>
+
       {/* ── LEARNINGS ─────────────────────────────────── */}
+      <LazySection>
       <LearningsSection
         sectionTitle={cs.learnings.section_title}
         headline={cs.learnings.headline}
@@ -272,6 +285,8 @@ export default function ProjectMonetization() {
         failed={cs.learnings.failed}
         sectionGap={SECTION_GAP}
       />
+
+      </LazySection>
 
       {/* ── Navigation projet ─────────────────────────── */}
       <ResponsiveSection

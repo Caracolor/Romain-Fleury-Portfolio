@@ -15,6 +15,7 @@ import { AnimatedMouseCursor } from "../components/AnimatedMouseCursor";
 import { ProjectNavigation } from "../components/ProjectNavigation";
 import { ContextSection } from "../components/ContextSection";
 import { ChallengesNextSteps } from "../components/ChallengesNextSteps";
+import { LazySection } from "../components/LazySection";
 import svgQuote from "../../imports/svg-eda8j0i4h7";
 import imgHeroBrandedCall from "@/assets/07ce22b1b88d174a8705a3dedf40795c96815c79.webp";
 import imgWaitingRoom from "@/assets/9d671a799b6c8e651bc72a1e7a229fe1eb8345cf.webp";
@@ -106,14 +107,17 @@ export default function ProjectBrandedCall() {
       )}
 
       {/* ── CONTEXTE ──────────────────────────────────── */}
-      <ContextSection
-        translationKey="case_study_branded_call"
-        topSpacing={SECTION_GAP}
-        desktopMaxWidth={800}
-        useMargin
-      />
+      <LazySection>
+        <ContextSection
+          translationKey="case_study_branded_call"
+          topSpacing={SECTION_GAP}
+          desktopMaxWidth={800}
+          useMargin
+        />
+      </LazySection>
 
       {/* ── LE CHALLENGE ──────────────────────────────── */}
+      <LazySection>
       {isMobile ? (
         <div className="relative z-10 px-[24px] mx-[0px] mt-[24px] mb-[0px]" style={{ paddingTop: SECTION_GAP * 0.6 }}>
           <div className="mb-[24px]">
@@ -144,7 +148,10 @@ export default function ProjectBrandedCall() {
         </div>
       )}
 
+      </LazySection>
+
       {/* ── INSIGHT ───────────────────────────────────── */}
+      <LazySection>
       {isMobile ? (
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP }}>
           <div className="flex flex-col gap-[24px]">
@@ -219,7 +226,10 @@ export default function ProjectBrandedCall() {
         </ScaledSection>
       )}
 
+      </LazySection>
+
       {/* ── TRIGGER LOGIC IMAGE ─────────────────────────── */}
+      <LazySection>
       {isMobile ? (
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP * 0.6 }}>
           <div className="flex flex-col gap-[16px] items-center w-full">
@@ -246,7 +256,10 @@ export default function ProjectBrandedCall() {
         </div>
       )}
 
+      </LazySection>
+
       {/* ── MON ROLE ──────────────────────────────────── */}
+      <LazySection>
       {isMobile ? (
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP }}>
           <div className="flex flex-col gap-[24px]">
@@ -319,7 +332,10 @@ export default function ProjectBrandedCall() {
         </ScaledSection>
       )}
 
+      </LazySection>
+
       {/* ── DESIGN APPROACH ───────────────────────────── */}
+      <LazySection>
       {isMobile ? (
         <div className="relative z-10 px-[24px]" style={{ paddingTop: SECTION_GAP }}>
           <div className="flex flex-col gap-[24px]">
@@ -390,30 +406,38 @@ export default function ProjectBrandedCall() {
         </div>
       )}
 
+      </LazySection>
+
       {/* ── CHALLENGES ─────────────────────────────────── */}
-      <ChallengesNextSteps
-        data={cs.challenges}
-        sectionGap={SECTION_GAP}
-        maxWidth={800}
-      />
+      <LazySection>
+        <ChallengesNextSteps
+          data={cs.challenges}
+          sectionGap={SECTION_GAP}
+          maxWidth={800}
+        />
+      </LazySection>
 
       {/* ── LEARNINGS ─────────────────────────────────── */}
-      <LearningsSection
-        sectionTitle={cs.learnings.section_title}
-        headline={cs.learnings.headline}
-        workedTitle={cs.learnings.worked_title}
-        worked={cs.learnings.worked}
-        failedTitle={cs.learnings.failed_title}
-        failed={cs.learnings.failed}
-        sectionGap={SECTION_GAP}
-      />
+      <LazySection>
+        <LearningsSection
+          sectionTitle={cs.learnings.section_title}
+          headline={cs.learnings.headline}
+          workedTitle={cs.learnings.worked_title}
+          worked={cs.learnings.worked}
+          failedTitle={cs.learnings.failed_title}
+          failed={cs.learnings.failed}
+          sectionGap={SECTION_GAP}
+        />
+      </LazySection>
 
       {/* ── NEXT STEPS ─────────────────────────────────── */}
-      <ChallengesNextSteps
-        data={cs.next_steps}
-        sectionGap={SECTION_GAP}
-        maxWidth={800}
-      />
+      <LazySection>
+        <ChallengesNextSteps
+          data={cs.next_steps}
+          sectionGap={SECTION_GAP}
+          maxWidth={800}
+        />
+      </LazySection>
 
       {/* ── Navigation projet ─────────────────────────── */}
       <ResponsiveSection
