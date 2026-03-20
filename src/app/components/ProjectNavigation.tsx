@@ -146,10 +146,9 @@ export function ProjectNavigation({
         className="w-full mx-auto"
         style={{
           height: 2,
-          background:
-            "linear-gradient(90deg, transparent, var(--color-qare-100) 30%, var(--color-qare-300) 50%, var(--color-qare-100) 70%, transparent)",
+          background: "var(--color-qare-100)",
           marginBottom: isMobile ? 24 : 40,
-          borderRadius: 1,
+          borderRadius: 9999,
         }}
       />
 
