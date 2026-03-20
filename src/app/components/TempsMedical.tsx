@@ -1,5 +1,6 @@
 import React from "react";
 import { StatsCard } from "./StatsCard";
+import { AnimatedStatValue } from "./AnimatedStatValue";
 import { InterventionBubble } from "./InterventionBubble";
 import { AnimatedMouseCursor } from "./AnimatedMouseCursor";
 import { useTranslation } from "./LanguageContext";
@@ -78,7 +79,7 @@ export function HeroTempsMedical() {
             {cs.hero_stats.map((stat, i) => (
               <StatTooltip key={i} tooltip={stat.tooltip}>
                 <div className="flex flex-col gap-[2px] items-center flex-1">
-                  <p className="text-[22px]">{stat.value}</p>
+                  <p className="text-[22px]"><AnimatedStatValue value={stat.value} /></p>
                   <p className="text-[12px]">{stat.label}</p>
                 </div>
               </StatTooltip>
@@ -105,7 +106,7 @@ export function HeroTempsMedical() {
             {cs.hero_stats.map((stat, i) => (
               <StatTooltip key={i} tooltip={stat.tooltip}>
                 <div className="flex flex-col gap-[2px] items-center w-[132px]">
-                  <p className="text-[32px]">{stat.value}</p>
+                  <p className="text-[32px]"><AnimatedStatValue value={stat.value} /></p>
                   <p className="text-[16px] whitespace-nowrap">{stat.label}</p>
                 </div>
               </StatTooltip>
