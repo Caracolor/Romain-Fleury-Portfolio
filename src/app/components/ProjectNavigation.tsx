@@ -59,12 +59,12 @@ function NavLink({
       to={project.path}
       className="group no-underline flex-1 min-w-0"
       onClick={() => window.scrollTo(0, 0)}
-      style={{ textAlign: isMobile ? "center" : isPrev ? "left" : "right" }}
+      style={{ textAlign: isPrev ? "left" : "right" }}
     >
       {/* Arrow + label */}
       <div
         className="flex items-center gap-[8px] mb-[12px]"
-        style={{ justifyContent: isMobile ? "center" : isPrev ? "flex-start" : "flex-end" }}
+        style={{ justifyContent: isPrev ? "flex-start" : "flex-end" }}
       >
         {isPrev && (
           <svg width={isMobile ? 16 : 18} height={isMobile ? 16 : 18} viewBox="0 0 24 24" fill="none">
@@ -156,8 +156,8 @@ export function ProjectNavigation({
       <div
         className="flex"
         style={{
-          flexDirection: isMobile ? "column" : "row",
-          gap: isMobile ? 40 : 16,
+          flexDirection: "row",
+          gap: isMobile ? 24 : 16,
         }}
       >
         <NavLink
