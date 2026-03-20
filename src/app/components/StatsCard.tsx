@@ -1,6 +1,6 @@
 import React from "react";
 import { StatTooltip } from "./StatTooltip";
-import { AnimatedStatValue } from "./useCountUp";
+import { AnimatedStatValue } from "./AnimatedStatValue";
 
 export type StatItem = {
   value: string;

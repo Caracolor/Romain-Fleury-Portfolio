@@ -1,5 +1,5 @@
 import { StatTooltip } from "./StatTooltip";
-import { AnimatedStatValue } from "./useCountUp";
+import { AnimatedStatValue } from "./AnimatedStatValue";
 
 /** Single stat value + label used in hero stats cards. */
 export function HeroStat({
