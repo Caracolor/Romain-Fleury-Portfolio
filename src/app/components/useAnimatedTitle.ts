@@ -44,7 +44,7 @@ export function useAnimatedTitle(): AnimatedTitleState {
       setPhase("typing");
       return;
     }
-    const timer = setTimeout(() => setDisplayed(d => d.slice(0, -1)), 30);
+    const timer = setTimeout(() => setDisplayed(d => d.slice(0, -1)), 16);
     return () => clearTimeout(timer);
   }, [phase, displayed]);
 
@@ -58,7 +58,7 @@ export function useAnimatedTitle(): AnimatedTitleState {
     }
     const timer = setTimeout(() => {
       setDisplayed(TITLES[currentIdx].full.slice(0, displayed.length + 1));
-    }, 42);
+    }, 22);
     return () => clearTimeout(timer);
   }, [phase, displayed, currentIdx]);
 
