@@ -11,7 +11,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
     ViteImageOptimizer({
-      png: { quality: 80 },
       webp: { lossless: false, quality: 80 },
     }),
   ],

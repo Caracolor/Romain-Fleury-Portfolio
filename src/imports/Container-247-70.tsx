@@ -1,5 +1,5 @@
 import svgPaths from "./svg-161w5b2d80";
-import imgRectangle from "@/assets/f776a534aef1cb13cd22e25a8a1b6f4a69a03846.png";
+import imgRectangle from "@/assets/f776a534aef1cb13cd22e25a8a1b6f4a69a03846.webp";
 
 function Container3({ children }: React.PropsWithChildren<{}>) {
   return (

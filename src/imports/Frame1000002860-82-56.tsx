@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import imgRectangle2065 from "@/assets/11af05f0212fbda46592464adca2cfe9cb64b28e.png";
+import imgRectangle2065 from "@/assets/11af05f0212fbda46592464adca2cfe9cb64b28e.webp";
 type WrapperProps = {
   additionalClassNames?: string;
 };

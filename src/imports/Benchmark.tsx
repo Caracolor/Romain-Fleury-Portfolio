@@ -1,5 +1,5 @@
 import svgPaths from "./svg-xjepifcudg";
-import imgBenchmark1 from "@/assets/5fbfa8664a8e7235ddf4eecd1681a7eea0c2de5a.png";
+import imgBenchmark1 from "@/assets/5fbfa8664a8e7235ddf4eecd1681a7eea0c2de5a.webp";
 
 export default function Benchmark({ onClose }: { onClose?: () => void }) {
   return (

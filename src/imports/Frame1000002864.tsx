@@ -1,4 +1,4 @@
-import imgImage718 from "@/assets/8031ff6fa2c24a39fc9d5f7f894dce4313fe86dc.png";
+import imgImage718 from "@/assets/8031ff6fa2c24a39fc9d5f7f894dce4313fe86dc.webp";
 
 export default function Frame() {
   return (

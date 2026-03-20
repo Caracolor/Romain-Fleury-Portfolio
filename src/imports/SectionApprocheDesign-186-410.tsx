@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import svgPaths from "./svg-aiwr537a48";
-import imgCaptureDecran20260226A0908541 from "@/assets/3bed108660497d47cf40f8a8e62abf095735707b.png";
-import imgFrame1217111 from "@/assets/c431e7c9e80c1d2c40ee9ceef75c1ed1dbfd42a6.png";
+import imgCaptureDecran20260226A0908541 from "@/assets/3bed108660497d47cf40f8a8e62abf095735707b.webp";
+import imgFrame1217111 from "@/assets/c431e7c9e80c1d2c40ee9ceef75c1ed1dbfd42a6.webp";
 
 function Wrapper3({ children }: React.PropsWithChildren<{}>) {
   return (

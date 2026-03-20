@@ -1,4 +1,4 @@
-import imgFrame20873251291 from "@/assets/be3c68be05446c05aa5d0b0e20ea4003ae3c4135.png";
+import imgFrame20873251291 from "@/assets/be3c68be05446c05aa5d0b0e20ea4003ae3c4135.webp";
 
 export default function Frame() {
   return (

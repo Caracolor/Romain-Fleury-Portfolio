@@ -14,12 +14,12 @@ import { ProjectNavigation } from "../components/ProjectNavigation";
 import { ContextSection } from "../components/ContextSection";
 
 // Timeline images
-import imgPriceSensibilityMobile from "@/assets/dc6ee1bfdf23a92bf7600d11316969bca0b66dea.png";
-import imgPriceSensibilityDesktop from "@/assets/a87641c26b355f8eb3b0d2ee21837f4876f54fc4.png";
-import imgAcceptanceDesktop from "@/assets/a8b6053946f629022e134fe46fa66f582a6a36cb.png";
-import imgAcceptanceMobile from "@/assets/4a319af4da30f34269a20e91b709e6b2d8cc5e4d.png";
-import imgShapeMind from "@/assets/9266f5273d04579f2e153f47053fa924a782b161.png";
-import imgFastTrack from "@/assets/9e14cc9bcd4ce1150f063e079f11058e9d413e7c.png";
+import imgPriceSensibilityMobile from "@/assets/dc6ee1bfdf23a92bf7600d11316969bca0b66dea.webp";
+import imgPriceSensibilityDesktop from "@/assets/a87641c26b355f8eb3b0d2ee21837f4876f54fc4.webp";
+import imgAcceptanceDesktop from "@/assets/a8b6053946f629022e134fe46fa66f582a6a36cb.webp";
+import imgAcceptanceMobile from "@/assets/4a319af4da30f34269a20e91b709e6b2d8cc5e4d.webp";
+import imgShapeMind from "@/assets/9266f5273d04579f2e153f47053fa924a782b161.webp";
+import imgFastTrack from "@/assets/9e14cc9bcd4ce1150f063e079f11058e9d413e7c.webp";
 
 /* ── Timeline sub-components ──────────────────────────── */
 

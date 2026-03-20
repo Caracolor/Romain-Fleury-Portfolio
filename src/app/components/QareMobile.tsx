@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import imgMind from "@/assets/d6920b25d0dacb652a7f15f95d1fa9fc65e4be75.png";
-import imgShape1 from "@/assets/df79892ff413427f060d32c68e012fe91c5915f1.png";
-import imgMonRole from "@/assets/f8e2e46d3dfe67538f50f1b78a004a8a3e250bd6.png";
-import imgNavigation from "@/assets/a07a6d726bebe0040766453e49c540e024a24462.png";
-import imgSystem from "@/assets/f629ac87b5e08989098c25c5aea7b7440d75ed78.png";
-import imgAcquisition from "@/assets/c431e7c9e80c1d2c40ee9ceef75c1ed1dbfd42a6.png";
+import imgMind from "@/assets/d6920b25d0dacb652a7f15f95d1fa9fc65e4be75.webp";
+import imgShape1 from "@/assets/df79892ff413427f060d32c68e012fe91c5915f1.webp";
+import imgMonRole from "@/assets/f8e2e46d3dfe67538f50f1b78a004a8a3e250bd6.webp";
+import imgNavigation from "@/assets/a07a6d726bebe0040766453e49c540e024a24462.webp";
+import imgSystem from "@/assets/f629ac87b5e08989098c25c5aea7b7440d75ed78.webp";
+import imgAcquisition from "@/assets/c431e7c9e80c1d2c40ee9ceef75c1ed1dbfd42a6.webp";
 import { StatsCard } from "./StatsCard";
 import svgPathsNew from "../../imports/svg-a7p7sqn3p1";
 import { useTranslation } from "./LanguageContext";

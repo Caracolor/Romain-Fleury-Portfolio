@@ -1,6 +1,6 @@
-import imgOrganisgram1 from "@/assets/fb28a3fd7c23dbf855f8316f9a578b7e5395c3cd.png";
-import imgPicture from "@/assets/d056db09b2a2d24aa59fd3a25ea1adb45c65452e.png";
-import imgPicture1 from "@/assets/ccffe314c01aeb4af4ddf2ea17f67a0f97538d27.png";
+import imgOrganisgram1 from "@/assets/fb28a3fd7c23dbf855f8316f9a578b7e5395c3cd.webp";
+import imgPicture from "@/assets/d056db09b2a2d24aa59fd3a25ea1adb45c65452e.webp";
+import imgPicture1 from "@/assets/ccffe314c01aeb4af4ddf2ea17f67a0f97538d27.webp";
 
 function Wrapper({ children }: React.PropsWithChildren<{}>) {
   return (

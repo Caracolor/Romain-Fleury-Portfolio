@@ -1,5 +1,5 @@
 import svgPaths from "./svg-ih2ozeb3v7";
-import imgLayoutIteration1 from "@/assets/d72fc7a5015b34c695ad837485b43c1f6291fcd4.png";
+import imgLayoutIteration1 from "@/assets/d72fc7a5015b34c695ad837485b43c1f6291fcd4.webp";
 
 export default function IterationDesktop() {
   return (

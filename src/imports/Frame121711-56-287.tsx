@@ -1,4 +1,4 @@
-import imgImg1 from "@/assets/f8e2e46d3dfe67538f50f1b78a004a8a3e250bd6.png";
+import imgImg1 from "@/assets/f8e2e46d3dfe67538f50f1b78a004a8a3e250bd6.webp";
 import { useTranslation } from "../app/components/LanguageContext";
 
 type HelperProps = {

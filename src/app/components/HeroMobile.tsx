@@ -1,5 +1,5 @@
 import svgPaths from "../../imports/svg-2k7gxlzkzt";
-import imgDsc087301 from "@/assets/1680f5d397351ddf45665415243080fa4096145a.png";
+import imgDsc087301 from "@/assets/1680f5d397351ddf45665415243080fa4096145a.webp";
 import { useTranslation } from "./LanguageContext";
 import { useAnimatedTitle } from "./useAnimatedTitle";
 import { AnimatedStatValue } from "./AnimatedStatValue";

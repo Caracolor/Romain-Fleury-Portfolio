@@ -1,6 +1,6 @@
 import React from "react";
 import svgPaths from "../../imports/svg-kf00idfee1";
-import imgTitouan from "@/assets/c56d5debaacac6566dcecd8d88a82d82ecdd2621.png";
+import imgTitouan from "@/assets/c56d5debaacac6566dcecd8d88a82d82ecdd2621.webp";
 
 interface InterventionBubbleProps {
   text: string;

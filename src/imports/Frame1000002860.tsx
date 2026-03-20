@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import svgPaths from "./svg-2k7gxlzkzt";
-import imgDsc087301 from "@/assets/1680f5d397351ddf45665415243080fa4096145a.png";
+import imgDsc087301 from "@/assets/1680f5d397351ddf45665415243080fa4096145a.webp";
 import { useTranslation } from "../app/components/LanguageContext";
 import { useAnimatedTitle } from "../app/components/useAnimatedTitle";
 import { AnimatedStatValue } from "../app/components/AnimatedStatValue";

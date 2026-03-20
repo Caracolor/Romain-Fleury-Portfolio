@@ -1,4 +1,4 @@
-import imgLogiqueAutourDuNoShowDoubleCalls1 from "@/assets/c1cc6a616be8de19fe5f8895eabaddff80aea7c6.png";
+import imgLogiqueAutourDuNoShowDoubleCalls1 from "@/assets/c1cc6a616be8de19fe5f8895eabaddff80aea7c6.webp";
 
 function Container() {
   return (

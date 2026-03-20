@@ -5,10 +5,10 @@ import React, {
   useRef,
 } from "react";
 import { createPortal } from "react-dom";
-import imgRectangle2065 from "@/assets/29b08f7bb13f6dda67c4bd717417f76b77a6730a.png";
-import imgRectangle2066 from "@/assets/5fbfa8664a8e7235ddf4eecd1681a7eea0c2de5a.png";
-import imgRectangle2067 from "@/assets/0340fd21e644f3e79fb70a6148ca3346d42f5503.png";
-import imgRectangle2068 from "@/assets/623c959409db4893ffbb1a4c84b4c225c3506adf.png";
+import imgRectangle2065 from "@/assets/29b08f7bb13f6dda67c4bd717417f76b77a6730a.webp";
+import imgRectangle2066 from "@/assets/5fbfa8664a8e7235ddf4eecd1681a7eea0c2de5a.webp";
+import imgRectangle2067 from "@/assets/0340fd21e644f3e79fb70a6148ca3346d42f5503.webp";
+import imgRectangle2068 from "@/assets/623c959409db4893ffbb1a4c84b4c225c3506adf.webp";
 import Starterkit from "../../imports/Starterkit";
 import Benchmark from "../../imports/Benchmark";
 import Landing from "../../imports/Landing";

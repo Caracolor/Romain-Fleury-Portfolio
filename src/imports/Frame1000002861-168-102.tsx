@@ -1,4 +1,4 @@
-import imgAvantApres1 from "@/assets/5abc98df57480d34cdb6e825b2ac4fb4b883c7f3.png";
+import imgAvantApres1 from "@/assets/5abc98df57480d34cdb6e825b2ac4fb4b883c7f3.webp";
 
 function Container({ children }: React.PropsWithChildren<{}>) {
   return (

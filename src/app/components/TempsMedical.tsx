@@ -10,20 +10,20 @@ import svgPathsRocket from "../../imports/svg-ih2ozeb3v7";
 import svgPathsLearnings from "../../imports/svg-b6nbpwykbe";
 
 // Shared images
-import imgIllustrationHybrid1 from "@/assets/4a694fe37c89e831b17ffcc945ced9c8d1ccbca5.png";
-import imgOffreDemande1 from "@/assets/21363b588e3c244cb572f9799af56ec8ae7a2fb9.png";
-import imgConsultationTimeDesktop from "@/assets/119b9d08982735226c998127e9e2ca9ad617a580.png";
-import imgConsultationTimeMobile from "@/assets/25f97dea947a0e3a5412c371eacde1a450de3759.png";
-import imgHeroMobile from "@/assets/67dd1390210a8a11cd0de85d6a6c0edc1ad99a51.png";
-import imgOrganisgram1 from "@/assets/fb28a3fd7c23dbf855f8316f9a578b7e5395c3cd.png";
-import imgLea from "@/assets/5d3aa7fff8e1d250f910487a824ca86998ddd868.png";
-import imgTitouan from "@/assets/cdbc2a9643259de6fa0b6a470f74773eadf8d035.png";
-import imgDiscoveryWorkflow from "@/assets/3b92b510279dff858eeeea280c7b9c830671086f.png";
-import imgImage24 from "@/assets/6a84daf118dcd7bdbc8533ef80263c5e6dc6c58b.png";
-import imgAvantApresDesktop from "@/assets/5abc98df57480d34cdb6e825b2ac4fb4b883c7f3.png";
-import imgAvantApresMobile from "@/assets/512ff59f04327aa92ced48924ddb5bdfd2d746ee.png";
-import imgLayoutDesktop from "@/assets/d72fc7a5015b34c695ad837485b43c1f6291fcd4.png";
-import imgLayoutMobile from "@/assets/9c21aee94ef64637cfbeed778dd9762776306afb.png";
+import imgIllustrationHybrid1 from "@/assets/4a694fe37c89e831b17ffcc945ced9c8d1ccbca5.webp";
+import imgOffreDemande1 from "@/assets/21363b588e3c244cb572f9799af56ec8ae7a2fb9.webp";
+import imgConsultationTimeDesktop from "@/assets/119b9d08982735226c998127e9e2ca9ad617a580.webp";
+import imgConsultationTimeMobile from "@/assets/25f97dea947a0e3a5412c371eacde1a450de3759.webp";
+import imgHeroMobile from "@/assets/67dd1390210a8a11cd0de85d6a6c0edc1ad99a51.webp";
+import imgOrganisgram1 from "@/assets/fb28a3fd7c23dbf855f8316f9a578b7e5395c3cd.webp";
+import imgLea from "@/assets/5d3aa7fff8e1d250f910487a824ca86998ddd868.webp";
+import imgTitouan from "@/assets/cdbc2a9643259de6fa0b6a470f74773eadf8d035.webp";
+import imgDiscoveryWorkflow from "@/assets/3b92b510279dff858eeeea280c7b9c830671086f.webp";
+import imgImage24 from "@/assets/6a84daf118dcd7bdbc8533ef80263c5e6dc6c58b.webp";
+import imgAvantApresDesktop from "@/assets/5abc98df57480d34cdb6e825b2ac4fb4b883c7f3.webp";
+import imgAvantApresMobile from "@/assets/512ff59f04327aa92ced48924ddb5bdfd2d746ee.webp";
+import imgLayoutDesktop from "@/assets/d72fc7a5015b34c695ad837485b43c1f6291fcd4.webp";
+import imgLayoutMobile from "@/assets/9c21aee94ef64637cfbeed778dd9762776306afb.webp";
 
 /* ═══════════════════════════════════════════════════════════════
    Internal sub-components

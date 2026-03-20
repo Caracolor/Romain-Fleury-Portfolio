@@ -1,10 +1,10 @@
-import image_50943770418c16aae344d1425538ab4848b6617c from '@/assets/50943770418c16aae344d1425538ab4848b6617c.png'
-import image_758f2ade10de96bb2fb4159b7acc2bfa13440e59 from '@/assets/758f2ade10de96bb2fb4159b7acc2bfa13440e59.png'
+import image_50943770418c16aae344d1425538ab4848b6617c from '@/assets/50943770418c16aae344d1425538ab4848b6617c.webp'
+import image_758f2ade10de96bb2fb4159b7acc2bfa13440e59 from '@/assets/758f2ade10de96bb2fb4159b7acc2bfa13440e59.webp'
 import { useState } from "react";
 import svgPaths from "./svg-6xhyatu5cg";
-import imgCaptureDecran20260226A0908541 from "@/assets/f629ac87b5e08989098c25c5aea7b7440d75ed78.png";
-import imgFrame1217111 from "@/assets/c431e7c9e80c1d2c40ee9ceef75c1ed1dbfd42a6.png";
-import imgNavigation from "@/assets/a07a6d726bebe0040766453e49c540e024a24462.png";
+import imgCaptureDecran20260226A0908541 from "@/assets/f629ac87b5e08989098c25c5aea7b7440d75ed78.webp";
+import imgFrame1217111 from "@/assets/c431e7c9e80c1d2c40ee9ceef75c1ed1dbfd42a6.webp";
+import imgNavigation from "@/assets/a07a6d726bebe0040766453e49c540e024a24462.webp";
 import { useTranslation } from "../app/components/LanguageContext";
 
 type CardVariant = "nav" | "system" | "acquisition";

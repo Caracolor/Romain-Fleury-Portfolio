@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import svgPaths from "./svg-r5zxlpd8nb";
-import imgAcceptanceRateOfOptionalFees1 from "@/assets/a8b6053946f629022e134fe46fa66f582a6a36cb.png";
-import imgLancementDesProgrammesShapeMind1 from "@/assets/9266f5273d04579f2e153f47053fa924a782b161.png";
-import imgPractitionerSearchPageWithFastTrackIndicator1 from "@/assets/9e14cc9bcd4ce1150f063e079f11058e9d413e7c.png";
+import imgAcceptanceRateOfOptionalFees1 from "@/assets/a8b6053946f629022e134fe46fa66f582a6a36cb.webp";
+import imgLancementDesProgrammesShapeMind1 from "@/assets/9266f5273d04579f2e153f47053fa924a782b161.webp";
+import imgPractitionerSearchPageWithFastTrackIndicator1 from "@/assets/9e14cc9bcd4ce1150f063e079f11058e9d413e7c.webp";
 
 function Container4({ children }: React.PropsWithChildren<{}>) {
   return (

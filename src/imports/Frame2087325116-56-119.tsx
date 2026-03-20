@@ -1,6 +1,6 @@
 import svgPaths from "./svg-zcy5iblb1g";
-import imgMind from "@/assets/d6920b25d0dacb652a7f15f95d1fa9fc65e4be75.png";
-import imgShape1 from "@/assets/df79892ff413427f060d32c68e012fe91c5915f1.png";
+import imgMind from "@/assets/d6920b25d0dacb652a7f15f95d1fa9fc65e4be75.webp";
+import imgShape1 from "@/assets/df79892ff413427f060d32c68e012fe91c5915f1.webp";
 type HelperProps = {
   text: string;
   text1: string;

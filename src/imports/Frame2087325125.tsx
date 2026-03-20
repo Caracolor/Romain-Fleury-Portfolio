@@ -1,5 +1,5 @@
 import svgPaths from "./svg-1l7j89rko";
-import imgFrame1217111 from "@/assets/c431e7c9e80c1d2c40ee9ceef75c1ed1dbfd42a6.png";
+import imgFrame1217111 from "@/assets/c431e7c9e80c1d2c40ee9ceef75c1ed1dbfd42a6.webp";
 
 function BackgroundImage1({ children }: React.PropsWithChildren<{}>) {
   return (

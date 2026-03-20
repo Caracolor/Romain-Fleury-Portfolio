@@ -1,4 +1,4 @@
-import imgLogiqueDeDeclenchementOption11 from "@/assets/2eeeab41dcae822d135c01c33a2caeb3acd4b7c5.png";
+import imgLogiqueDeDeclenchementOption11 from "@/assets/2eeeab41dcae822d135c01c33a2caeb3acd4b7c5.webp";
 
 export default function Frame() {
   return (

@@ -1,7 +1,7 @@
-import imgFrame1000002860 from "@/assets/11af05f0212fbda46592464adca2cfe9cb64b28e.png";
-import imgFrame1000002861 from "@/assets/b1e327b80299135e2fc027ba55121756be6c94ae.png";
-import imgFrame1000002862 from "@/assets/42b0e4588a42e64d9354d4538b430ccc04ef48a9.png";
-import imgBrandedCall from "@/assets/f5121ae8295ff655c5d23a610e7985e780962097.png";
+import imgFrame1000002860 from "@/assets/11af05f0212fbda46592464adca2cfe9cb64b28e.webp";
+import imgFrame1000002861 from "@/assets/b1e327b80299135e2fc027ba55121756be6c94ae.webp";
+import imgFrame1000002862 from "@/assets/42b0e4588a42e64d9354d4538b430ccc04ef48a9.webp";
+import imgBrandedCall from "@/assets/f5121ae8295ff655c5d23a610e7985e780962097.webp";
 import { useTranslation } from "../app/components/LanguageContext";
 
 function Wrapper({ children }: React.PropsWithChildren<{}>) {

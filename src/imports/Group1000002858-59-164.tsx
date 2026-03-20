@@ -1,5 +1,5 @@
 import svgPaths from "./svg-mtzcsu206h";
-import imgRectangle from "@/assets/f9e309890f0c6e1e474802111bac509e74358b67.png";
+import imgRectangle from "@/assets/f9e309890f0c6e1e474802111bac509e74358b67.webp";
 
 export default function Group() {
   return (

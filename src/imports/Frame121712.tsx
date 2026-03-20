@@ -1,4 +1,4 @@
-import imgOrganisgram1 from "@/assets/fb28a3fd7c23dbf855f8316f9a578b7e5395c3cd.png";
+import imgOrganisgram1 from "@/assets/fb28a3fd7c23dbf855f8316f9a578b7e5395c3cd.webp";
 
 export default function Frame() {
   return (
