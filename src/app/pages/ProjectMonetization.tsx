@@ -277,8 +277,8 @@ export default function ProjectMonetization() {
       <ResponsiveSection
         maxWidth={950}
         style={{ paddingTop: SECTION_GAP, paddingBottom: isMobile ? 60 : 300 }}
-        mobile={<ProjectNavigation currentSlug="monetisation" />}
-        desktop={<ProjectNavigation currentSlug="monetisation" />}
+        mobile={<ProjectNavigation currentSlug="health-monetization" />}
+        desktop={<ProjectNavigation currentSlug="health-monetization" />}
       />
     </ProjectPageWrapper>
   );

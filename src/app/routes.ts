@@ -14,9 +14,9 @@ export const router = createBrowserRouter([
     Component: Layout,
     children: [
       { index: true, Component: Home },
-      { path: "project/qare", Component: ProjectChronicPrograms },
-      { path: "project/temps-medical", Component: ProjectMedicalTime },
-      { path: "project/monetisation", Component: ProjectMonetization },
+      { path: "project/chronic-programs", Component: ProjectChronicPrograms },
+      { path: "project/medical-time", Component: ProjectMedicalTime },
+      { path: "project/health-monetization", Component: ProjectMonetization },
       { path: "project/branded-call", Component: ProjectBrandedCall },
     ],
   },

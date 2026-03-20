@@ -120,8 +120,8 @@ export default function ProjectMedicalTime() {
           paddingBottom: isMobile ? 60 : 180,
           marginTop: SECTION_GAP,
         }}
-        mobile={<ProjectNavigation currentSlug="temps-medical" />}
-        desktop={<ProjectNavigation currentSlug="temps-medical" />}
+        mobile={<ProjectNavigation currentSlug="medical-time" />}
+        desktop={<ProjectNavigation currentSlug="medical-time" />}
       />
     </ProjectPageWrapper>
   );

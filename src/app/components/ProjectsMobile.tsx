@@ -134,7 +134,7 @@ export function ProjectsMobile() {
         label={items[0].company}
         title={items[0].title}
         tags={[items[0].tag, ...(items[0].tag2 ? [items[0].tag2] : [])]}
-        to="/project/qare"
+        to="/project/chronic-programs"
         description={
           <p>
             {items[0].description}{" "}
@@ -149,7 +149,7 @@ export function ProjectsMobile() {
         label={items[1].company}
         title={items[1].title}
         tags={[items[1].tag, ...(items[1].team ? [items[1].team] : [])]}
-        to="/project/temps-medical"
+        to="/project/medical-time"
         description={
           <p>
             {items[1].description}{" "}
@@ -166,7 +166,7 @@ export function ProjectsMobile() {
         label={items[2].company}
         title={items[2].title}
         tags={[items[2].tag, ...(items[2].tag2 ? [items[2].tag2] : [])]}
-        to="/project/monetisation"
+        to="/project/health-monetization"
         description={
           <p>
             {items[2].description}{" "}

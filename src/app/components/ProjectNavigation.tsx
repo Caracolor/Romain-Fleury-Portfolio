@@ -14,20 +14,20 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    slug: "qare",
-    path: "/project/qare",
+    slug: "chronic-programs",
+    path: "/project/chronic-programs",
     image: imgQare,
     titleKey: "chronic",
   },
   {
-    slug: "temps-medical",
-    path: "/project/temps-medical",
+    slug: "medical-time",
+    path: "/project/medical-time",
     image: imgTempsMedical,
     titleKey: "medical",
   },
   {
-    slug: "monetisation",
-    path: "/project/monetisation",
+    slug: "health-monetization",
+    path: "/project/health-monetization",
     image: imgMonetisation,
     titleKey: "monetisation",
   },

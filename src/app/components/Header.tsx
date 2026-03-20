@@ -27,9 +27,9 @@ export function Header() {
   const projectsSection = useTranslation("projects_section");
 
   const projectLinks = [
-    { title: projectsSection.items?.[0]?.title || "Chronic Programs", path: "/project/qare" },
-    { title: projectsSection.items?.[1]?.title || "Temps Médical", path: "/project/temps-medical" },
-    { title: projectsSection.items?.[2]?.title || "Monétisation", path: "/project/monetisation" },
+    { title: projectsSection.items?.[0]?.title || "Chronic Programs", path: "/project/chronic-programs" },
+    { title: projectsSection.items?.[1]?.title || "Temps Médical", path: "/project/medical-time" },
+    { title: projectsSection.items?.[2]?.title || "Monétisation", path: "/project/health-monetization" },
     { title: projectsSection.items?.[3]?.title || "Branded Call", path: "/project/branded-call" },
   ];
 

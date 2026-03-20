@@ -61,9 +61,9 @@ export default function Home() {
             mobile={<ProjectsMobile />}
             desktop={
               <ProjectsFrame
-                onQareClick={() => navigate("/project/qare")}
-                onTempsMedicalClick={() => navigate("/project/temps-medical")}
-                onMonetisationClick={() => navigate("/project/monetisation")}
+                onQareClick={() => navigate("/project/chronic-programs")}
+                onTempsMedicalClick={() => navigate("/project/medical-time")}
+                onMonetisationClick={() => navigate("/project/health-monetization")}
                 onBrandedCallClick={() => navigate("/project/branded-call")}
               />
             }

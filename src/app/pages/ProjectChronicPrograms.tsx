@@ -158,8 +158,8 @@ export default function ProjectChronicPrograms() {
       <ResponsiveSection
         maxWidth={CONTENT_WIDTH}
         style={{ paddingBottom: isMobile ? 60 : BOTTOM_PAD }}
-        mobile={<ProjectNavigation currentSlug="qare" />}
-        desktop={<ProjectNavigation currentSlug="qare" />}
+        mobile={<ProjectNavigation currentSlug="chronic-programs" />}
+        desktop={<ProjectNavigation currentSlug="chronic-programs" />}
       />
     </ProjectPageWrapper>
   );
