@@ -35,11 +35,45 @@ export function useCountUp(target: number, duration = 5000): number {
 }
 
 /**
- * Parse "12+", "72+", "7", "B2B" → { num, suffix }
- * num = NaN si non numérique (ex: "B2B")
+ * Parse des valeurs comme "12+", "€18k", "+56%", "2 179", "B2B"
+ * → { prefix, num, suffix, useSpaceFormat }
+ * num = NaN si non numérique (ex: "B2B", "Remote")
  */
-export function parseStatValue(value: string): { num: number; suffix: string } {
-  const match = value.match(/^(\d+)(.*)$/);
-  if (!match) return { num: NaN, suffix: value };
-  return { num: parseInt(match[1], 10), suffix: match[2] };
+export function parseStatValue(value: string): {
+  prefix: string;
+  num: number;
+  suffix: string;
+  useSpaceFormat: boolean; // "2 179" → true, affiche avec espace milliers
+} {
+  // Supprimer les espaces internes pour détecter le nombre ("2 179" → "2179")
+  const useSpaceFormat = /\d[\s\u00A0]\d/.test(value);
+  const cleaned = value.replace(/[\s\u00A0]/g, "");
+
+  // prefix (non-chiffre) + nombre + suffix (non-chiffre)
+  const match = cleaned.match(/^([^0-9]*)(\d+)([^0-9]*)$/);
+  if (!match) return { prefix: "", num: NaN, suffix: value, useSpaceFormat: false };
+
+  return {
+    prefix: match[1],                  // "€", "+", ""
+    num: parseInt(match[2], 10),       // 18, 56, 2179
+    suffix: match[3],                  // "k", "%", "+"
+    useSpaceFormat,
+  };
+}
+
+/**
+ * Composant React affichant une valeur stat animée.
+ * Gère : "12+", "€18k", "+56%", "2 179", "B2B", "Remote"…
+ */
+export function AnimatedStatValue({ value }: { value: string }) {
+  const { prefix, num, suffix, useSpaceFormat } = parseStatValue(value);
+  const count = useCountUp(isNaN(num) ? 0 : num);
+
+  if (isNaN(num)) return <>{value}</>;
+
+  const formatted = useSpaceFormat && count >= 1000
+    ? count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\u00A0") // espace insécable
+    : count.toString();
+
+  return <>{prefix}{formatted}{suffix}</>;
 }

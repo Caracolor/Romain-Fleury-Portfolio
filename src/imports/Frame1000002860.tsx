@@ -3,7 +3,7 @@ import svgPaths from "./svg-2k7gxlzkzt";
 import imgDsc087301 from "@/assets/1680f5d397351ddf45665415243080fa4096145a.png";
 import { useTranslation } from "../app/components/LanguageContext";
 import { useAnimatedTitle } from "../app/components/useAnimatedTitle";
-import { useCountUp, parseStatValue } from "../app/components/useCountUp";
+import { AnimatedStatValue } from "../app/components/useCountUp";
 type WrapperProps = {
   additionalClassNames?: string;
 };
@@ -20,12 +20,6 @@ type HelperProps = {
   text1: string;
 };
 
-function AnimatedStatValue({ value }: { value: string }) {
-  const { num, suffix } = parseStatValue(value);
-  const count = useCountUp(isNaN(num) ? 0 : num);
-  if (isNaN(num)) return <>{value}</>;
-  return <>{count}{suffix}</>;
-}
 
 function Helper({ text, text1 }: HelperProps) {
   return (

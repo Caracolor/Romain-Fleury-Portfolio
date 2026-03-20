@@ -3,6 +3,7 @@ import imgMind from "@/assets/d6920b25d0dacb652a7f15f95d1fa9fc65e4be75.png";
 import imgShape1 from "@/assets/df79892ff413427f060d32c68e012fe91c5915f1.png";
 import { useTranslation } from "../app/components/LanguageContext";
 import { StatTooltip } from "../app/components/StatTooltip";
+import { AnimatedStatValue } from "../app/components/useCountUp";
 type HelperProps = {
   text: string;
   text1: string;
@@ -13,7 +14,7 @@ function Helper({ text, text1, tooltip }: HelperProps) {
   return (
     <StatTooltip tooltip={tooltip}>
       <div className="content-stretch flex flex-col gap-[2px] items-center relative shrink-0 w-[132px]">
-        <p className="relative shrink-0 text-[32px] w-full">{text}</p>
+        <p className="relative shrink-0 text-[32px] w-full"><AnimatedStatValue value={text} /></p>
         <p className="relative shrink-0 text-[16px] w-full whitespace-nowrap">{text1}</p>
       </div>
     </StatTooltip>
@@ -66,7 +67,7 @@ export default function Frame() {
               <Helper text={cs.hero_stats[0].value} text1={cs.hero_stats[0].label} tooltip={cs.hero_stats[0].tooltip} />
               <StatTooltip tooltip={cs.hero_stats[1].tooltip}>
                 <div className="content-stretch flex flex-col gap-[2px] items-center relative shrink-0 w-[132px]">
-                  <p className="min-w-full relative shrink-0 text-[32px] w-[min-content]">{cs.hero_stats[1].value}</p>
+                  <p className="min-w-full relative shrink-0 text-[32px] w-[min-content]"><AnimatedStatValue value={cs.hero_stats[1].value} /></p>
                   <p className="relative shrink-0 text-[16px] whitespace-nowrap">{cs.hero_stats[1].label}</p>
                 </div>
               </StatTooltip>
