@@ -1,7 +1,6 @@
 import svgPaths from "../../imports/svg-2k7gxlzkzt";
 import imgDsc087301 from "@/assets/1680f5d397351ddf45665415243080fa4096145a.png";
 import { useTranslation } from "./LanguageContext";
-import { motion, AnimatePresence } from "motion/react";
 import { useAnimatedTitle } from "./useAnimatedTitle";
 
 function Tag({ text }: { text: string }) {
@@ -31,7 +30,7 @@ export function HeroMobile() {
   const hero = useTranslation("hero");
   const stats = useTranslation("stats");
   const intro = useTranslation("intro");
-  const title = useAnimatedTitle();
+  const { p1, p2 } = useAnimatedTitle();
 
   const introLines = intro.text.split("\n\n");
 
@@ -117,26 +116,17 @@ export function HeroMobile() {
           <p className="font-['Aeonik:Light',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[32px] min-[450px]:text-[40px] text-center">
             {hero.greeting}
           </p>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={title.idx}
-              className="flex flex-col gap-[6px] items-center w-full"
-              initial={{ opacity: 0, filter: "blur(5px)", y: -8 }}
-              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              exit={{ opacity: 0, filter: "blur(5px)", y: 8 }}
-              transition={{ duration: 0.35, ease: "easeInOut" }}
-            >
-              <div className="flex flex-wrap gap-[6px] items-center justify-center">
-                <Tag text={title.line1} />
-              </div>
-              <div className="flex flex-wrap gap-[6px] items-center justify-center">
-                <Tag text={title.line2} />
-                <p className="font-['Aeonik:Light',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[32px] min-[450px]:text-[40px]">
-                  {hero.role_line3}
-                </p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+          <div className="flex flex-col gap-[6px] items-center w-full">
+            <div className="flex flex-wrap gap-[6px] items-center justify-center">
+              <Tag text={p1} />
+            </div>
+            <div className="flex flex-wrap gap-[6px] items-center justify-center">
+              {p2 && <Tag text={p2} />}
+              <p className="font-['Aeonik:Light',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[32px] min-[450px]:text-[40px]">
+                {hero.role_line3}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

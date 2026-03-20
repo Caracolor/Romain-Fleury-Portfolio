@@ -2,7 +2,6 @@ import clsx from "clsx";
 import svgPaths from "./svg-2k7gxlzkzt";
 import imgDsc087301 from "@/assets/1680f5d397351ddf45665415243080fa4096145a.png";
 import { useTranslation } from "../app/components/LanguageContext";
-import { motion, AnimatePresence } from "motion/react";
 import { useAnimatedTitle } from "../app/components/useAnimatedTitle";
 type WrapperProps = {
   additionalClassNames?: string;
@@ -81,7 +80,7 @@ export default function Frame() {
   const hero = useTranslation("hero");
   const stats = useTranslation("stats");
   const intro = useTranslation("intro");
-  const title = useAnimatedTitle();
+  const { p1, p2 } = useAnimatedTitle();
   const introLines = intro.text.split("\n\n");
 
   return (
@@ -120,22 +119,11 @@ export default function Frame() {
           </div>
           <div className="content-stretch flex flex-col gap-[8px] items-start justify-end relative shrink-0 w-[554px]">
             <p className="font-['Aeonik:Light',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#40295b] text-[54px] whitespace-pre-wrap">{hero.greeting}</p>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={title.idx}
-                className="flex flex-col gap-[8px] items-start w-full"
-                initial={{ opacity: 0, filter: "blur(6px)", y: -10 }}
-                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                exit={{ opacity: 0, filter: "blur(6px)", y: 10 }}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
-              >
-                <Text text={title.line1} />
-                <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
-                  <Text text={title.line2} />
-                  <p className="font-['Aeonik:Light',sans-serif] h-[72px] leading-[normal] not-italic relative shrink-0 text-[#40295b] text-[54px] whitespace-nowrap">{hero.role_line3}</p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+            <Text text={p1} />
+            <div className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full">
+              {p2 && <Text text={p2} />}
+              <p className="font-['Aeonik:Light',sans-serif] h-[72px] leading-[normal] not-italic relative shrink-0 text-[#40295b] text-[54px] whitespace-nowrap">{hero.role_line3}</p>
+            </div>
           </div>
           <div className="absolute h-[281px] left-[232px] overflow-clip top-[100.5px] w-[403px]" data-name="Component 3">
             <div className="absolute flex h-[57.62px] items-center justify-center left-[97px] top-[107px] w-[57.026px]" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "19" } as React.CSSProperties}>
