@@ -1,8 +1,5 @@
 import { useTranslation } from "./LanguageContext";
-
-const CONTENT_WIDTH = 950;
-const DESKTOP_SIDE_PADDING = 200;
-const MAX_WIDTH_WITH_PADDING = CONTENT_WIDTH + DESKTOP_SIDE_PADDING * 2; // 1350
+import { ScaledSection } from "./ScaledSection";
 
 export function FooterLookingFor() {
   const t = useTranslation("footer_looking_for");
@@ -11,17 +8,8 @@ export function FooterLookingFor() {
     <div className="bg-[var(--color-qare-050)] w-full relative z-10">
       {/* Desktop */}
       <div className="hidden md:block">
-        <div
-          className="mx-auto py-[56px]"
-          style={{
-            maxWidth: MAX_WIDTH_WITH_PADDING,
-            paddingLeft: DESKTOP_SIDE_PADDING,
-            paddingRight: DESKTOP_SIDE_PADDING,
-            boxSizing: "border-box",
-            width: "100%",
-          }}
-        >
-          <div className="flex flex-col gap-[40px] items-start" style={{ maxWidth: CONTENT_WIDTH }}>
+        <ScaledSection maxWidth={950} style={{ paddingTop: 56, paddingBottom: 56 }}>
+          <div className="flex flex-col gap-[40px] items-start w-full">
             <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] tracking-[15px] uppercase text-[40px]">
               {t.title}
             </p>
@@ -36,7 +24,7 @@ export function FooterLookingFor() {
               </div>
             </div>
           </div>
-        </div>
+        </ScaledSection>
       </div>
 
       {/* Mobile */}
