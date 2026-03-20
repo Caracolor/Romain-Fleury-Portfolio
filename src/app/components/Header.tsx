@@ -416,13 +416,13 @@ export function Header() {
               <div className="flex font-['Aeonik:Regular',sans-serif] gap-[48px] items-center leading-[28px] not-italic text-[var(--color-qare-ink)] text-[20px] whitespace-nowrap">
                 <p className="cursor-pointer hover:opacity-70 transition-opacity" onClick={() => scrollToSection("about")}>{nav.about}</p>
                 <div
-                  className="relative cursor-pointer hover:opacity-70 transition-opacity"
+                  className="relative cursor-pointer"
                   onMouseEnter={() => setProjectsDropdownOpen(true)}
                   onMouseLeave={() => {
                     dropdownTimeoutRef.current = setTimeout(() => setProjectsDropdownOpen(false), 200);
                   }}
                 >
-                  <p className="inline-block">{nav.projects}</p>
+                  <p className="inline-block hover:opacity-70 transition-opacity">{nav.projects}</p>
                   
                   {projectsDropdownOpen && (
                     <div

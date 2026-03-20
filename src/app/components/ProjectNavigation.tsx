@@ -39,7 +39,7 @@ const PROJECTS: Project[] = [
   },
 ];
 
-function NavCard({
+function NavLink({
   project,
   direction,
   isMobile,
@@ -59,79 +59,38 @@ function NavCard({
       to={project.path}
       className="group no-underline flex-1 min-w-0"
       onClick={() => window.scrollTo(0, 0)}
+      style={{ textAlign: isPrev ? "left" : "right" }}
     >
+      {/* Arrow + label */}
       <div
-        className="relative overflow-hidden h-full"
-        style={{
-          borderRadius: isMobile ? 20 : 30,
-          background: "white",
-        }}
+        className="flex items-center gap-[8px] mb-[12px]"
+        style={{ justifyContent: isPrev ? "flex-start" : "flex-end" }}
       >
-        {/* Border */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 pointer-events-none border-4 border-solid border-[var(--color-qare-150)]"
-          style={{
-            borderRadius: isMobile ? 20 : 30,
-          }}
-        />
-
-        {/* Content */}
-        <div
-          className="relative z-10 flex flex-col gap-[8px]"
-          style={{
-            padding: isMobile ? "20px 16px" : "32px 28px",
-            alignItems: isPrev ? "flex-start" : "flex-end",
-            textAlign: isPrev ? "left" : "right",
-          }}
+        {isPrev && (
+          <svg width={isMobile ? 16 : 18} height={isMobile ? 16 : 18} viewBox="0 0 24 24" fill="none">
+            <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="var(--color-qare-ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        )}
+        <p
+          className="font-['Aeonik:Regular',sans-serif] uppercase tracking-[3px] text-[var(--color-qare-ink)]"
+          style={{ fontSize: isMobile ? 11 : 13, lineHeight: "normal" }}
         >
-          {/* Arrow + direction label */}
-          <div
-            className="flex items-center gap-[8px]"
-            style={{
-              flexDirection: isPrev ? "row" : "row-reverse",
-            }}
-          >
-            <svg
-              width={isMobile ? 18 : 22}
-              height={isMobile ? 18 : 22}
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{
-                transform: isPrev ? "rotate(180deg)" : "none",
-              }}
-            >
-              <path
-                d="M5 12H19M19 12L13 6M19 12L13 18"
-                stroke="var(--color-qare-ink)"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <p
-              className="font-['Aeonik:Regular',sans-serif] uppercase tracking-[3px] text-[var(--color-qare-ink)]"
-              style={{
-                fontSize: isMobile ? 11 : 13,
-                lineHeight: "normal",
-              }}
-            >
-              {directionLabel}
-            </p>
-          </div>
-
-          {/* Project title */}
-          <p
-            className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-ink)] group-hover:text-[var(--color-qare-brand)] transition-colors duration-300"
-            style={{
-              fontSize: isMobile ? 17 : 22,
-              lineHeight: isMobile ? "24px" : "30px",
-            }}
-          >
-            {title}
-          </p>
-        </div>
+          {directionLabel}
+        </p>
+        {!isPrev && (
+          <svg width={isMobile ? 16 : 18} height={isMobile ? 16 : 18} viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="var(--color-qare-ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        )}
       </div>
+
+      {/* Project title */}
+      <p
+        className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-brand)] group-hover:opacity-70 transition-opacity duration-200"
+        style={{ fontSize: isMobile ? 18 : 24, lineHeight: isMobile ? "26px" : "32px" }}
+      >
+        {title}
+      </p>
     </Link>
   );
 }
@@ -201,14 +160,14 @@ export function ProjectNavigation({
           flexDirection: isMobile ? "column" : "row",
         }}
       >
-        <NavCard
+        <NavLink
           project={prevProject}
           direction="prev"
           isMobile={isMobile}
           directionLabel={labels.prev_label}
           title={titleMap[prevProject.titleKey]}
         />
-        <NavCard
+        <NavLink
           project={nextProject}
           direction="next"
           isMobile={isMobile}
