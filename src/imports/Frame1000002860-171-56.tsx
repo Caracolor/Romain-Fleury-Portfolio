@@ -19,10 +19,9 @@ type Helper1Props = {
   text1: string;
 };
 
-function Helper1({ text, text1 }: Helper1Props) {
+function Helper1({ text1 }: Helper1Props) {
   return (
     <div className="content-stretch flex flex-col items-start not-italic relative shrink-0 w-full">
-      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] min-w-full relative shrink-0 text-[#7a63ca] text-[24px] tracking-[4.8px] uppercase w-[min-content]">{text}</p>
       <p className="font-['Aeonik:Bold',sans-serif] leading-[45px] relative shrink-0 text-[#40295b] text-[36px] w-[305px]">{text1}</p>
     </div>
   );
