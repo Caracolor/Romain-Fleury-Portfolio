@@ -1,0 +1,86 @@
+{
+  "caseStudy": "branded-call",
+  "meta": {
+    "title": "Branded Call — Réduire les no-shows par l'identité visuelle",
+    "status": "En cours de développement",
+    "role": "Head of Product Design — IC + coordination",
+    "company": "Qare (groupe HealthHero)",
+    "partner": "Vonage SDK (en cours de validation technique)"
+  },
+  "context": {
+    "summary": "Qare enregistre environ 146 000 no-shows par an, soit une perte estimée à 8,4M€. Les patients ne décrochent pas les appels des médecins car ils ne reconnaissent pas le numéro. L'enjeu : rendre l'appel reconnaissable et légitime en affichant l'identité Qare sur l'écran d'appel entrant.",
+    "problem": "Un appel entrant sans identité visuelle (numéro inconnu) est ignoré dans la majorité des cas. Ce comportement entraîne des consultations manquées, une perte de revenus estimée à 8,4M€ par an, et une dégradation de l'expérience patient."
+  },
+  "role": {
+    "summary": "Conception et cadrage du projet, coordination avec les équipes tech et le partenaire externe Vonage. Rôle IC sur la conception des deux lots et la définition des contraintes techniques par plateforme."
+  },
+  "solution": {
+    "concept": "Système d'appel téléphonique brandé : affichage du logo Qare, du nom du médecin et d'un message contextuel sur l'écran d'appel entrant du patient.",
+    "lots": {
+      "lot1": {
+        "name": "Lot 1 — Réactif",
+        "description": "Afficher l'identité Qare sur les appels entrants existants. Le patient voit que c'est Qare qui appelle.",
+        "rationale": "Techniquement faisable rapidement — livrer de la valeur sans attendre la complexité du Lot 2."
+      },
+      "lot2": {
+        "name": "Lot 2 — Proactif",
+        "description": "Initier des appels de rappel ou de suivi depuis la plateforme, avec identité visuelle complète.",
+        "rationale": "Logique d'orchestration plus complexe — implique d'initier des appels depuis la plateforme, pas juste d'habiller des appels entrants existants."
+      }
+    },
+    "whyTwoLots": "La séparation en deux lots est une contrainte technique sur la logique de proactivité, pas un choix de priorisation business. Le Lot 1 était techniquement faisable rapidement. Le Lot 2 implique une logique d'orchestration plus complexe. Séparer les deux permettait de livrer de la valeur rapidement sans bloquer sur la complexité du Lot 2."
+  },
+  "technicalConstraints": {
+    "iOS": {
+      "api": "CallKit",
+      "capabilities": "Interface d'appel non personnalisable au-delà du cadre système",
+      "limits": ["Petit avatar circulaire uniquement", "Deux lignes de texte maximum", "Pas de couleur de fond custom", "Pas de full-screen branding"],
+      "designApproach": "Concevoir d'abord pour iOS — le plus restrictif — pour garantir une expérience cohérente sur toutes les plateformes."
+    },
+    "android": {
+      "api": "ConnectionService",
+      "capabilities": "Interface d'appel entièrement personnalisable",
+      "possibilities": ["Full custom branding possible", "Couleurs Qare", "Logo en grand format", "Mise en page libre"],
+      "challenge": "Fragmentation des versions Android à gérer — comportements potentiellement différents selon les constructeurs et versions OS."
+    },
+    "designStrategy": "La stratégie design a été de concevoir d'abord pour les contraintes iOS — le plus restrictif — puis d'enrichir l'expérience Android avec les possibilités supplémentaires offertes par ConnectionService."
+  },
+  "measurement": {
+    "kpi": "Taux de no-show — comparaison avant/après déploiement du Branded Call.",
+    "context": "Le projet est encore en cours de développement, les données d'impact réel ne sont pas encore disponibles.",
+    "baseline": "146 000 no-shows par an, perte estimée à 8,4M€."
+  },
+  "partner": {
+    "name": "Vonage SDK",
+    "status": "Validation technique en cours",
+    "context": "Emails de cadrage envoyés au account manager Vonage pour confirmer les capacités d'intégration CallKit et ConnectionService."
+  },
+  "currentStatus": "En cours de développement. Validation technique avec Vonage SDK en cours. Données d'impact sur les no-shows non encore disponibles.",
+  "learnings": [
+    "Les contraintes techniques iOS (CallKit) imposent une approche design-first contrainte — concevoir pour le plus restrictif garantit la cohérence cross-platform.",
+    "Séparer un projet en lots selon les contraintes techniques (et non selon les priorités business) permet de livrer de la valeur rapidement sans bloquer sur la complexité.",
+    "La validation technique du partenaire (Vonage) doit être faite très en amont de la conception — les capacités réelles du SDK conditionnent les décisions design."
+  ],
+  "suggestedQuestions": [
+    {
+      "question": "Quel était ton rôle sur ce projet ?",
+      "answer": "Conception et cadrage du projet, coordination avec les équipes tech et le partenaire externe Vonage. Rôle IC sur la conception des deux lots et la définition des contraintes techniques par plateforme — notamment la différence fondamentale entre iOS (CallKit, très limité) et Android (ConnectionService, full custom)."
+    },
+    {
+      "question": "Comment avez-vous mesuré l'impact sur les no-shows ?",
+      "answer": "Le KPI principal est le taux de no-show — comparaison avant/après déploiement du Branded Call. La baseline est de 146 000 no-shows par an, soit une perte estimée à 8,4M€. Le projet est encore en cours de développement, les données d'impact réel ne sont pas encore disponibles."
+    },
+    {
+      "question": "Pourquoi deux lots distincts ?",
+      "answer": "Une contrainte technique sur la logique de proactivité, pas un choix de priorisation business. Le Lot 1 (réactif) était techniquement faisable rapidement — afficher l'identité Qare sur les appels entrants existants. Le Lot 2 (proactif) implique une logique d'orchestration plus complexe — initier des appels depuis la plateforme. Séparer les deux lots permettait de livrer de la valeur rapidement sans bloquer sur la complexité du Lot 2."
+    },
+    {
+      "question": "Comment avez-vous géré la différence iOS / Android ?",
+      "answer": "iOS via CallKit est très contraignant : petit avatar circulaire et deux lignes de texte maximum, pas de couleur custom ni de full-screen branding. Android via ConnectionService est à l'opposé : interface entièrement personnalisable, full custom branding possible. La stratégie design a donc été de concevoir d'abord pour les contraintes iOS — le plus restrictif — puis d'enrichir l'expérience Android avec les possibilités supplémentaires."
+    },
+    {
+      "question": "Où en est le projet aujourd'hui ?",
+      "answer": "En cours de développement. La validation technique avec Vonage SDK est en cours — des échanges avec l'account manager Vonage ont été initiés pour confirmer les capacités d'intégration CallKit et ConnectionService. Les données d'impact sur les no-shows ne sont pas encore disponibles."
+    }
+  ]
+}

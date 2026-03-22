@@ -1,0 +1,84 @@
+{
+  "caseStudy": "monetisation",
+  "meta": {
+    "title": "La monétisation chez Qare — 5 pivots en 3 ans",
+    "role": "Head of Product Design — IC + Leadership",
+    "company": "Qare (groupe HealthHero)",
+    "format": "Article narratif — pas une liste de features. Suit la thèse : le design comme levier business, ancré dans la data comportementale et la recherche utilisateur.",
+    "team": ["Romain Fleury (Head of Product Design)", "Arnaud Parise (Head of Product)", "Pierre-Olivier Calande (CPO)"]
+  },
+  "context": {
+    "summary": "Qare a traversé plusieurs modèles économiques en 3 ans, sous l'impulsion de contraintes réglementaires multiples et parfois contradictoires (ANS, Ordre des médecins, CNIL), de la dynamique du marché de la télémédecine, et de la pression de l'acquisition par HealthHero. Ce case study documente les pivots successifs et le rôle du design dans chacun.",
+    "regulatoryLandscape": "Naviguer dans la santé c'est complexe — les régulateurs sont multiples et se contredisent parfois. L'ANS, l'Ordre des médecins, la CNIL ont chacun des exigences qui peuvent entrer en tension. Qare n'a pas encore la masse critique pour influencer les régulateurs plutôt que de les subir. Quelques victoires via le lobbying notamment grâce au LET, mais Qare ne mène pas encore suffisamment la danse.",
+    "designRole": "Le design a systématiquement apporté son expertise sur les choix de services payants via des tests d'acceptabilité et des études utilisateurs. C'est le duo Head of Product + Head of Design qui a tiré le sujet de la monétisation, avec la recherche utilisateur comme outil de légitimation interne face aux stakeholders."
+  },
+  "role": {
+    "summary": "Head of Product Design — rôle IC + leadership sur l'ensemble du sujet monétisation.",
+    "details": [
+      "Pilotage des études d'acceptabilité prix (Van Westendorp) pour calibrer les modèles de pricing.",
+      "Co-construction des décisions de modèle économique avec le Head of Product.",
+      "Animation des études utilisateurs sur les personas et leurs habitudes (connaissance des GLP-1, rapport au paiement médical, etc.).",
+      "Conception des parcours de conversion et de souscription.",
+      "A/B tests de pricing pour valider les seuils d'acceptabilité avant de les soumettre aux décideurs.",
+      "Alignement stakeholders — utilisation de la data recherche pour convaincre les C-suite de prendre des décisions de pricing audacieuses."
+    ]
+  },
+  "pivots": {
+    "context": "Chaque pivot a été déclenché principalement par des contraintes réglementaires, pas par un choix stratégique libre. L'art a été de transformer ces contraintes en opportunités de redesign du modèle économique.",
+    "mainPivot": {
+      "trigger": "Sortie des frais de service classiques imposée par les régulateurs.",
+      "challenge": "Obligation d'augmenter les prix sans perdre les patients. Les stakeholders internes étaient réticents à monter au-delà de 4€ de frais de service.",
+      "designResponse": "Études Van Westendorp pour objectiver le prix acceptable perçu par les patients. A/B tests progressifs — 4€, puis 5€, puis 7€, puis 9€.",
+      "result": "Passage de 4€ à 9€ de frais de service. +125% sur le pricing, validé par la recherche utilisateur avant d'être soumis aux décideurs.",
+      "learning": "Les données ont donné la confiance aux stakeholders pour aller au-delà de ce qu'ils auraient osé sans recherche. C'est un cas concret où le design a directement influencé une décision business majeure."
+    }
+  },
+  "methodology": {
+    "vanWestendorp": "Étude d'acceptabilité prix permettant d'identifier le prix minimum acceptable, le prix maximum acceptable, le prix perçu comme bon marché, et le prix perçu comme trop cher. Utilisée systématiquement pour calibrer les décisions de pricing.",
+    "abTesting": "Tests progressifs de prix sur des segments de patients pour valider la tenue de la demande à chaque seuil avant de généraliser.",
+    "acceptabilityTests": "Tests réguliers de type 'êtes-vous prêt à payer X€ pour tel service ou avantage ?' pour valider les décisions de services payants.",
+    "framework": "Framework FOCUSED (Rémi Guyot & Tristan Charvillat) — utilisé comme cadre de discovery continu.",
+    "contentsquare": "Déployé pour l'analyse comportementale et la data-informed design."
+  },
+  "kpis": {
+    "primary": [
+      "Taux d'application des frais (taux d'acceptation ou de conversion sur les services payants)",
+      "Taux de conversion global — patients qui réalisent effectivement une consultation"
+    ],
+    "context": "Les deux indicateurs ensemble donnent une lecture complète entre acceptation du pricing et impact sur l'usage réel."
+  },
+  "challenges": [
+    "Contraintes réglementaires multiples et parfois contradictoires — ANS, Ordre des médecins, CNIL",
+    "Stakeholders internes réticents à augmenter les prix sans validation externe",
+    "Qare n'a pas encore la masse critique pour influencer les régulateurs — position subie plutôt que proactive",
+    "Naviguer entre impératifs business, contraintes réglementaires et besoins utilisateurs réels"
+  ],
+  "learnings": [
+    "Les régulateurs en santé sont multiples et se contredisent — la navigation réglementaire est un métier à part entière que Qare doit encore développer.",
+    "La recherche utilisateur (Van Westendorp, A/B tests) est le meilleur outil pour donner aux stakeholders la confiance de prendre des décisions de pricing audacieuses.",
+    "Les pivots subis peuvent devenir des opportunités si le design est capable de les transformer en redesign intentionnel du modèle.",
+    "Le duo Head of Product + Head of Design comme moteur des décisions de monétisation est plus efficace que de laisser ces décisions au business seul."
+  ],
+  "suggestedQuestions": [
+    {
+      "question": "Qu'est-ce qui a déclenché chaque pivot ?",
+      "answer": "Principalement des contraintes réglementaires — l'ANS, l'Ordre des médecins, la CNIL. Les régulateurs sont multiples et se contredisent parfois. Naviguer dans la santé c'est complexe, et Qare n'a pas encore la masse critique pour influencer les régulateurs plutôt que de les subir. On mène quelques victoires via le lobbying notamment grâce au LET, mais on ne mène pas encore suffisamment la danse."
+    },
+    {
+      "question": "Comment le design a-t-il influencé les décisions business ?",
+      "answer": "On a systématiquement apporté notre expertise sur les choix de services payants via des tests d'acceptabilité — 'êtes-vous prêt à payer X€ pour tel service ou avantage ?'. C'est vraiment le produit qui a tiré le sujet, et plus précisément le duo Head of Product et moi, en charge de ces études de recherche utilisateur."
+    },
+    {
+      "question": "Quels KPIs suiviez-vous pour valider un modèle ?",
+      "answer": "Deux indicateurs principaux : le taux d'application des frais (taux d'acceptation ou de conversion sur les services payants) et le taux de conversion global — les patients qui réalisent effectivement une consultation. Les deux ensemble donnent une lecture complète entre acceptation du pricing et impact sur l'usage réel."
+    },
+    {
+      "question": "Quel pivot a eu le plus d'impact ?",
+      "answer": "La sortie des frais de service classiques, poussée par les régulateurs, qui nous a obligés à augmenter les prix. Les analyses Van Westendorp ont rassuré les stakeholders pour oser monter les prix — on a fait des A/B tests progressifs et on est passé de 4€ à 9€ de frais de service. +125% sur le pricing, validé par la recherche utilisateur avant d'être soumis aux décideurs."
+    },
+    {
+      "question": "Comment avez-vous convaincu les stakeholders de monter les prix ?",
+      "answer": "Avec des études Van Westendorp qui objectivent le prix acceptable perçu par les patients, complétées par des A/B tests progressifs. On a montré que la demande tenait à 5€, puis 7€, puis 9€. Les données ont donné la confiance aux stakeholders pour aller au-delà de ce qu'ils auraient osé sans recherche. C'est un cas concret où le design a directement influencé une décision business majeure."
+    }
+  ]
+}

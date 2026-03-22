@@ -9,6 +9,7 @@ import { ContentCard } from "../components/ContentCard";
 import { HeroStatsCard } from "../components/HeroStatsCard";
 import { SectionHeader } from "../components/SectionHeader";
 import { LearningsSection } from "../components/LearningsSection";
+import { CaseStudyChat } from "../components/CaseStudyChat";
 import { AnchoringBlock } from "../components/AnchoringBlock";
 import { RoleDot, RoleTimelineBlock } from "../components/RoleTimeline";
 import { AnimatedMouseCursor } from "../components/AnimatedMouseCursor";
@@ -428,6 +429,13 @@ export default function ProjectBrandedCall() {
           failed={cs.learnings.failed}
           sectionGap={SECTION_GAP}
         />
+      </LazySection>
+
+      {/* ── Assistant Q&A ─────────────────────────────── */}
+      <LazySection>
+        <div style={{ marginTop: SECTION_GAP }}>
+          <CaseStudyChat caseStudy="branded-call" />
+        </div>
       </LazySection>
 
       {/* ── NEXT STEPS ─────────────────────────────────── */}

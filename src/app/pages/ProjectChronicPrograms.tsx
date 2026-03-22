@@ -6,6 +6,7 @@ import MonRoleFrame from "../../imports/Frame121711-56-287";
 import CookingPotIllustration from "../../imports/Group1000002858-65-27";
 import { ResultatsLearnings } from "../components/ResultatsLearnings";
 import { DocumentsCles } from "../components/DocumentsCles";
+import { CaseStudyChat } from "../components/CaseStudyChat";
 import { ScaledSection } from "../components/ScaledSection";
 import { useIsMobile } from "../components/useIsMobile";
 import { useDesignScale } from "../components/useDesignScale";
@@ -137,6 +138,11 @@ export default function ProjectChronicPrograms() {
         mobile={<ResultatsLearnings />}
         desktop={<ResultatsLearnings />}
       />
+
+      {/* ── Assistant Q&A ──────────────────────────────── */}
+      <div style={{ marginTop: SECTION_GAP }}>
+        <CaseStudyChat caseStudy="chronic-programs" />
+      </div>
 
       {/* ── Next steps ─────────────────────────────────── */}
       <ChallengesNextSteps

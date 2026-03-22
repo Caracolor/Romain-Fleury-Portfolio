@@ -5,6 +5,11 @@ import react from '@vitejs/plugin-react'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 
 export default defineConfig({
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3001',
+    },
+  },
   plugins: [
     // The React and Tailwind plugins are both required for Make, even if
     // Tailwind is not being actively used – do not remove them
