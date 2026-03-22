@@ -14,7 +14,7 @@ async function signRS256(data: string, pemKey: string): Promise<string> {
 
   const binaryKey = Buffer.from(pemContents, "base64");
 
-  const cryptoKey = await crypto.subtle.importKey(
+  const cryptoKey = await globalThis.crypto.subtle.importKey(
     "pkcs8",
     binaryKey,
     { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
@@ -22,7 +22,7 @@ async function signRS256(data: string, pemKey: string): Promise<string> {
     ["sign"]
   );
 
-  const signature = await crypto.subtle.sign(
+  const signature = await globalThis.crypto.subtle.sign(
     "RSASSA-PKCS1-v1_5",
     cryptoKey,
     new TextEncoder().encode(data)

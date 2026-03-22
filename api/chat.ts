@@ -1,7 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { logToSheet } from "../lib/logToSheet";
 
 // ── Rate limiter (in-memory, resets on cold start — acceptable for a portfolio) ──
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -18,6 +17,101 @@ function checkRateLimit(ip: string): boolean {
   if (entry.count >= RATE_LIMIT) return false;
   entry.count++;
   return true;
+}
+
+// ── Google Sheets logger (inlined — no cross-directory import) ──────────────
+async function logToSheet(params: {
+  date: string;
+  caseStudy: string;
+  question: string;
+}): Promise<void> {
+  try {
+    const serviceAccountJson = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+    const sheetId = process.env.GOOGLE_SHEET_ID;
+    if (!serviceAccountJson || !sheetId) return;
+
+    const sa = JSON.parse(serviceAccountJson) as {
+      client_email: string;
+      private_key: string;
+    };
+
+    // Build JWT
+    const now = Math.floor(Date.now() / 1000);
+    const claim = {
+      iss: sa.client_email,
+      scope: "https://www.googleapis.com/auth/spreadsheets",
+      aud: "https://oauth2.googleapis.com/token",
+      exp: now + 3600,
+      iat: now,
+    };
+    const b64url = (s: string) =>
+      Buffer.from(s).toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+
+    const header = b64url(JSON.stringify({ alg: "RS256", typ: "JWT" }));
+    const payload = b64url(JSON.stringify(claim));
+    const toSign = `${header}.${payload}`;
+
+    // Sign with Web Crypto (global in Node.js 18+)
+    const pem = sa.private_key
+      .replace(/\\n/g, "\n")
+      .replace(/-----BEGIN PRIVATE KEY-----/, "")
+      .replace(/-----END PRIVATE KEY-----/, "")
+      .replace(/\s/g, "");
+
+    const keyData = Uint8Array.from(Buffer.from(pem, "base64"));
+    const cryptoKey = await globalThis.crypto.subtle.importKey(
+      "pkcs8",
+      keyData,
+      { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+      false,
+      ["sign"]
+    );
+    const sigBuf = await globalThis.crypto.subtle.sign(
+      "RSASSA-PKCS1-v1_5",
+      cryptoKey,
+      new TextEncoder().encode(toSign)
+    );
+    const sig = Buffer.from(sigBuf)
+      .toString("base64")
+      .replace(/\+/g, "-")
+      .replace(/\//g, "_")
+      .replace(/=/g, "");
+
+    const jwt = `${toSign}.${sig}`;
+
+    // Exchange JWT for access token
+    const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+        assertion: jwt,
+      }),
+    });
+    const tokenData = (await tokenRes.json()) as { access_token?: string };
+    if (!tokenData.access_token) {
+      console.error("[logToSheet] No access_token:", tokenData);
+      return;
+    }
+
+    // Append row to sheet
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1:append?valueInputOption=USER_ENTERED`;
+    const sheetRes = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${tokenData.access_token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        values: [[params.date, params.caseStudy, params.question]],
+      }),
+    });
+    if (!sheetRes.ok) {
+      console.error("[logToSheet] Sheets API error:", await sheetRes.text());
+    }
+  } catch (err) {
+    console.error("[logToSheet] Error:", err);
+  }
 }
 
 // ── System prompt ──────────────────────────────────────────────────────────────
@@ -108,7 +202,7 @@ export default async function handler(req: any, res: any) {
     return res.status(502).json({ error: "Service IA indisponible." });
   }
 
-  // Log to Google Sheets
+  // Log to Google Sheets (never throws — errors logged silently)
   await logToSheet({
     date: new Date().toISOString(),
     caseStudy,
