@@ -144,7 +144,7 @@ export default function ProjectMonetization() {
               <Tag>{cs.meta.tag2}</Tag>
               <Tag>{cs.meta.period}</Tag>
             </div>
-            <h1 className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[36px] leading-[normal] tracking-[10px] uppercase text-center">
+            <h1 className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] text-[28px] md:text-[36px] leading-[normal] tracking-[4px] md:tracking-[10px] uppercase text-center">
               {cs.hero.title}
             </h1>
             <p className="font-['Aeonik:Regular',sans-serif] text-[var(--color-qare-text)] leading-[normal] text-[20px] text-center">

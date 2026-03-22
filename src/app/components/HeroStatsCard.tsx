@@ -35,7 +35,7 @@ export function HeroStatsCard({ stats, mobile }: HeroStatsCardProps) {
         }}
       />
       <div
-        className={`flex items-center justify-between ${mobile ? "px-[20px] py-[24px]" : "px-[40px] py-[32px]"}`}
+        className={`flex items-center ${mobile ? "px-[12px] py-[24px] gap-[8px]" : "px-[40px] py-[32px] justify-between"}`}
       >
         {stats.map((stat, i) => (
           <HeroStat
@@ -43,7 +43,8 @@ export function HeroStatsCard({ stats, mobile }: HeroStatsCardProps) {
             value={stat.value}
             label={stat.label}
             tooltip={stat.tooltip}
-            width={!mobile && i === 0 ? 144 : undefined}
+            width={!mobile ? (i === 0 ? 144 : undefined) : undefined}
+            flex={mobile}
           />
         ))}
       </div>
