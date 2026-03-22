@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { track } from "../../lib/posthog";
 import HeroFrame from "../../imports/Frame2087325116-53-169";
 import Frame2 from "../../imports/Frame121711-178-173";
 import Frame3 from "../../imports/Frame2087325117";
@@ -30,6 +32,10 @@ const CONTENT_WIDTH = 950;
 export default function ProjectChronicPrograms() {
   const s = useDesignScale();
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    track("case_study_viewed", { caseStudy: "chronic-programs" });
+  }, []);
   const cs = useTranslation("case_study_chronic_programs") as any;
 
   const HERO_PAD_TOP = isMobile ? 100 : Math.round(180 * s);

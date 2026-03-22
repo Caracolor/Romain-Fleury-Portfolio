@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import { track } from "../../lib/posthog";
 import { useNavigate } from "react-router";
 import { useIsMobile } from "../components/useIsMobile";
 import { useDesignScale } from "../components/useDesignScale";
@@ -21,6 +22,10 @@ export default function Home() {
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
   const imagesReady = useImagePreloader(containerRef);
+
+  useEffect(() => {
+    track("portfolio_homepage_viewed");
+  }, []);
 
   const sectionGap = isMobile ? 80 : Math.round(180 * s);
   const topPad = isMobile ? 100 : Math.round(180 * s);

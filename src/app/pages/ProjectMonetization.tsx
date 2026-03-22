@@ -1,6 +1,8 @@
 import { ScaledSection } from "../components/ScaledSection";
 import { useTranslation } from "../components/LanguageContext";
 import { useIsMobile } from "../components/useIsMobile";
+import { useEffect } from "react";
+import { track } from "../../lib/posthog";
 import { ProjectPageWrapper } from "../components/ProjectPageWrapper";
 import { Tag } from "../components/Tag";
 import { ContentCard } from "../components/ContentCard";
@@ -84,6 +86,10 @@ function TimelineEvent({
    ══════════════════════════════════════════════════════════════ */
 export default function ProjectMonetization() {
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    track("case_study_viewed", { caseStudy: "monetisation" });
+  }, []);
   const cs = useTranslation("case_study_monetisation") as any;
 
   const topPad = isMobile ? 120 : 169;

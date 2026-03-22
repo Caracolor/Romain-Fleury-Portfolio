@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Send } from "lucide-react";
 import { ScaledSection } from "./ScaledSection";
 import { useIsMobile } from "./useIsMobile";
+import { track } from "../../lib/posthog";
 
 // ── JSON data (suggested questions per case study) ───────────────────────────
 import chronicData from "../../data/qa-chronic-programs.json";
@@ -132,8 +133,11 @@ export function CaseStudyChat({ caseStudy }: CaseStudyChatProps) {
     }
   }, [messages]);
 
-  const ask = async (q: string) => {
+  const ask = async (q: string, source: "suggested" | "free_input" = "free_input") => {
     if (!q.trim() || loading) return;
+
+    track("chat_question_sent", { question: q.trim(), caseStudy, source });
+
     const userMessage: ChatMessage = { role: "user", content: q.trim() };
     const nextMessages = [...messages, userMessage];
     setMessages(nextMessages);
@@ -148,13 +152,18 @@ export function CaseStudyChat({ caseStudy }: CaseStudyChatProps) {
         body: JSON.stringify({
           question: q.trim(),
           caseStudy,
-          history: messages, // send previous turns as context
+          history: messages,
         }),
       });
       const data = await res.json();
       if (!res.ok) {
         setError(data.error ?? "Une erreur s'est produite.");
       } else {
+        track("chat_answer_received", {
+          caseStudy,
+          answered: data.answered,
+          responseLength: (data.response as string)?.length ?? 0,
+        });
         setMessages([
           ...nextMessages,
           { role: "assistant", content: data.response },
@@ -167,11 +176,14 @@ export function CaseStudyChat({ caseStudy }: CaseStudyChatProps) {
     }
   };
 
-  const handleSuggestion = (q: string) => ask(q);
+  const handleSuggestion = (q: string) => {
+    track("chat_question_suggested_clicked", { question: q, caseStudy });
+    ask(q, "suggested");
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    ask(input);
+    ask(input, "free_input");
   };
 
   const fSize = isMobile ? 15 : 16;

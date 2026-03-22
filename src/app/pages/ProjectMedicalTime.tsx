@@ -1,4 +1,6 @@
 import { useIsMobile } from "../components/useIsMobile";
+import { useEffect } from "react";
+import { track } from "../../lib/posthog";
 import { useDesignScale } from "../components/useDesignScale";
 import { ProjectPageWrapper } from "../components/ProjectPageWrapper";
 import { ResponsiveSection } from "../components/ResponsiveSection";
@@ -24,6 +26,10 @@ const CONTENT_WIDTH = 950;
 export default function ProjectMedicalTime() {
   const s = useDesignScale();
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    track("case_study_viewed", { caseStudy: "llm-medical" });
+  }, []);
   const cs = useTranslation("case_study_medical_time") as any;
 
   const HERO_PAD_TOP = isMobile ? 100 : Math.round(180 * s);

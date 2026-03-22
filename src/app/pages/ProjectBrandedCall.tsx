@@ -2,6 +2,8 @@ import image_2deade2a147c6a50b530c3268f88ff199de14276 from '@/assets/2deade2a147
 import { ScaledSection } from "../components/ScaledSection";
 import { useTranslation } from "../components/LanguageContext";
 import { useIsMobile } from "../components/useIsMobile";
+import { useEffect } from "react";
+import { track } from "../../lib/posthog";
 import { ProjectPageWrapper } from "../components/ProjectPageWrapper";
 import { ResponsiveSection } from "../components/ResponsiveSection";
 import { Tag } from "../components/Tag";
@@ -50,6 +52,10 @@ function QuoteMark({ size = 100 }: { size?: number }) {
    ══════════════════════════════════════════════════════════════ */
 export default function ProjectBrandedCall() {
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    track("case_study_viewed", { caseStudy: "branded-call" });
+  }, []);
   const cs = useTranslation("case_study_branded_call") as any;
 
   const topPad = isMobile ? 120 : 169;

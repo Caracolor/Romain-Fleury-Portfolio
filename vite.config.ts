@@ -5,6 +5,8 @@ import react from '@vitejs/plugin-react'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 
 export default defineConfig({
+  // Expose NEXT_PUBLIC_* env vars to the client (Vercel convention)
+  envPrefix: ["VITE_", "NEXT_PUBLIC_"],
   server: {
     proxy: {
       '/api': 'http://localhost:3001',
