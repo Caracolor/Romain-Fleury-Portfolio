@@ -124,13 +124,6 @@ export default function ProjectMedicalTime() {
         />
       </LazySection>
 
-      {/* Assistant Q&A */}
-      <LazySection>
-        <div style={{ marginTop: SECTION_GAP }}>
-          <CaseStudyChat caseStudy="llm-medical" />
-        </div>
-      </LazySection>
-
       {/* 7b. Next steps */}
       <LazySection>
         <ChallengesNextSteps
@@ -138,6 +131,13 @@ export default function ProjectMedicalTime() {
           sectionGap={SECTION_GAP}
           maxWidth={CONTENT_WIDTH}
         />
+      </LazySection>
+
+      {/* Assistant Q&A */}
+      <LazySection>
+        <div style={{ marginTop: SECTION_GAP }}>
+          <CaseStudyChat caseStudy="llm-medical" />
+        </div>
       </LazySection>
 
       {/* ── Navigation projet ──────────────────────── */}

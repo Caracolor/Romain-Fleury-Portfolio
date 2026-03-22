@@ -431,13 +431,6 @@ export default function ProjectBrandedCall() {
         />
       </LazySection>
 
-      {/* ── Assistant Q&A ─────────────────────────────── */}
-      <LazySection>
-        <div style={{ marginTop: SECTION_GAP }}>
-          <CaseStudyChat caseStudy="branded-call" />
-        </div>
-      </LazySection>
-
       {/* ── NEXT STEPS ─────────────────────────────────── */}
       <LazySection>
         <ChallengesNextSteps
@@ -445,6 +438,13 @@ export default function ProjectBrandedCall() {
           sectionGap={SECTION_GAP}
           maxWidth={800}
         />
+      </LazySection>
+
+      {/* ── Assistant Q&A ─────────────────────────────── */}
+      <LazySection>
+        <div style={{ marginTop: SECTION_GAP }}>
+          <CaseStudyChat caseStudy="branded-call" />
+        </div>
       </LazySection>
 
       {/* ── Navigation projet ─────────────────────────── */}

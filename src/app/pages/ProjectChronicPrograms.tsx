@@ -139,17 +139,17 @@ export default function ProjectChronicPrograms() {
         desktop={<ResultatsLearnings />}
       />
 
-      {/* ── Assistant Q&A ──────────────────────────────── */}
-      <div style={{ marginTop: SECTION_GAP }}>
-        <CaseStudyChat caseStudy="chronic-programs" />
-      </div>
-
       {/* ── Next steps ─────────────────────────────────── */}
       <ChallengesNextSteps
         data={cs.next_steps}
         sectionGap={SECTION_GAP}
         maxWidth={CONTENT_WIDTH}
       />
+
+      {/* ── Assistant Q&A ──────────────────────────────── */}
+      <div style={{ marginTop: SECTION_GAP }}>
+        <CaseStudyChat caseStudy="chronic-programs" />
+      </div>
 
       {/* ── Documents cles ─────────────────────────── */}
       <ResponsiveSection

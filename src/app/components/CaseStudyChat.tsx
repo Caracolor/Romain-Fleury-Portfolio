@@ -179,52 +179,31 @@ export function CaseStudyChat({ caseStudy }: CaseStudyChatProps) {
 
   const inner = (
     <div className="flex flex-col" style={{ gap: isMobile ? 24 : 32 }}>
-      {/* Label */}
-      <p
-        className="font-['Aeonik:Regular',sans-serif] text-[13px] tracking-[4px] uppercase"
-        style={{ color: "var(--color-qare-brand)" }}
-      >
-        Questions fréquentes
-      </p>
-
-      {/* Zone 1 — Suggested questions */}
-      <div className="flex flex-wrap" style={{ gap: 10 }}>
-        {suggestedQuestions.map((q, i) => (
-          <button
-            key={i}
-            onClick={() => handleSuggestion(q)}
-            disabled={loading}
-            className="font-['Aeonik:Regular',sans-serif] text-left transition-colors"
-            style={{
-              fontSize: isMobile ? 13 : 15,
-              lineHeight: "normal",
-              paddingLeft: 16,
-              paddingRight: 16,
-              paddingTop: 10,
-              paddingBottom: 10,
-              borderRadius: 999,
-              border: "1px solid var(--color-qare-800)",
-              color: "var(--color-qare-text)",
-              backgroundColor: "transparent",
-              cursor: loading ? "not-allowed" : "pointer",
-              opacity: loading ? 0.45 : 1,
-            }}
-            onMouseEnter={(e) => {
-              if (!loading)
-                (e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                  "var(--color-qare-050)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                "transparent";
-            }}
-          >
-            {q}
-          </button>
-        ))}
+      {/* Label + headline */}
+      <div className="flex flex-col" style={{ gap: 8 }}>
+        <p
+          className="font-['Aeonik:Regular',sans-serif] uppercase"
+          style={{
+            color: "var(--color-qare-brand)",
+            fontSize: isMobile ? 16 : 24,
+            letterSpacing: isMobile ? "3px" : "4.8px",
+          }}
+        >
+          Vous avez une question ?
+        </p>
+        <p
+          className="font-['Aeonik:Bold',sans-serif]"
+          style={{
+            color: "var(--color-qare-text)",
+            fontSize: isMobile ? 22 : 36,
+            lineHeight: isMobile ? "28px" : "45px",
+          }}
+        >
+          Posez votre question à l'assistant IA de ce portfolio
+        </p>
       </div>
 
-      {/* Zone 2 — Conversation + input */}
+      {/* Zone 2 — Conversation + input + tags */}
       <div className="flex flex-col" style={{ gap: 12 }}>
         {/* Conversation history */}
         {messages.length > 0 && (
@@ -357,6 +336,44 @@ export function CaseStudyChat({ caseStudy }: CaseStudyChatProps) {
           </div>
         </form>
 
+        {/* Suggested questions — 3 first, below the input */}
+        <div className="flex flex-wrap" style={{ gap: 8 }}>
+          {suggestedQuestions.slice(0, 3).map((q, i) => (
+            <button
+              key={i}
+              onClick={() => handleSuggestion(q)}
+              disabled={loading}
+              className="font-['Aeonik:Regular',sans-serif] text-left transition-colors"
+              style={{
+                fontSize: isMobile ? 13 : 14,
+                lineHeight: "normal",
+                paddingLeft: 14,
+                paddingRight: 14,
+                paddingTop: 8,
+                paddingBottom: 8,
+                borderRadius: 999,
+                border: "1px solid var(--color-qare-800)",
+                color: "var(--color-qare-text)",
+                backgroundColor: "transparent",
+                cursor: loading ? "not-allowed" : "pointer",
+                opacity: loading ? 0.35 : 0.7,
+              }}
+              onMouseEnter={(e) => {
+                if (!loading) {
+                  (e.currentTarget as HTMLButtonElement).style.backgroundColor = "var(--color-qare-050)";
+                  (e.currentTarget as HTMLButtonElement).style.opacity = "1";
+                }
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.backgroundColor = "transparent";
+                (e.currentTarget as HTMLButtonElement).style.opacity = loading ? "0.35" : "0.7";
+              }}
+            >
+              {q}
+            </button>
+          ))}
+        </div>
+
         {/* Error */}
         {error && (
           <p
@@ -371,14 +388,14 @@ export function CaseStudyChat({ caseStudy }: CaseStudyChatProps) {
       {/* Zone 3 — Contact mention */}
       <p
         className="font-['Aeonik:Regular',sans-serif]"
-        style={{ fontSize: 13, lineHeight: "normal", color: "var(--color-qare-text)", opacity: 0.45 }}
+        style={{ fontSize: isMobile ? 15 : 16, lineHeight: isMobile ? "22px" : "26px", color: "var(--color-qare-text)", opacity: 0.45 }}
       >
         Vous souhaitez des informations absentes de ce case study ?{" "}
         <a
           href="mailto:romain.fleury@gmail.com"
           style={{ color: "var(--color-qare-brand)", opacity: 1, textDecoration: "underline" }}
         >
-          Écrivez-nous
+          Écrivez-moi
         </a>
       </p>
     </div>
