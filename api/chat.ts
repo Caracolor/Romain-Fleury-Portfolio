@@ -1,7 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { logToSheet } from "../lib/logToSheet";
+// logToSheet import moved inline to avoid bundling issues — see below
 
 // ── Rate limiter (in-memory, resets on cold start — acceptable for a portfolio) ──
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -108,13 +108,17 @@ export default async function handler(req: any, res: any) {
     return res.status(502).json({ error: "Service IA indisponible." });
   }
 
-  // Log to Google Sheets — awaited so Vercel doesn't cut the function before completion.
-  // logToSheet never throws, so this doesn't affect the response on error.
-  await logToSheet({
-    date: new Date().toISOString(),
-    caseStudy,
-    question: question.trim(),
-  });
+  // Log to Google Sheets — dynamically imported to avoid bundling issues
+  try {
+    const { logToSheet } = await import("../lib/logToSheet");
+    await logToSheet({
+      date: new Date().toISOString(),
+      caseStudy,
+      question: question.trim(),
+    });
+  } catch (logErr) {
+    console.error("[chat] logToSheet import/call error:", logErr);
+  }
 
   return res.status(200).json({ response });
 }
