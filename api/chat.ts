@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { logToSheet } from "../lib/logToSheet";
 
 // ── Rate limiter (in-memory, resets on cold start — acceptable for a portfolio) ──
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -106,6 +107,13 @@ export default async function handler(req: any, res: any) {
     console.error("[chat] Anthropic error:", err);
     return res.status(502).json({ error: "Service IA indisponible." });
   }
+
+  // Log every question to Google Sheets (fire-and-forget, never blocks)
+  logToSheet({
+    date: new Date().toISOString(),
+    caseStudy,
+    question: question.trim(),
+  });
 
   return res.status(200).json({ response });
 }
