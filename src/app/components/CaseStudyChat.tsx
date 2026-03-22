@@ -417,5 +417,5 @@ export function CaseStudyChat({ caseStudy }: CaseStudyChatProps) {
     return <div className="px-[24px]">{inner}</div>;
   }
 
-  return <ScaledSection maxWidth={800}>{inner}</ScaledSection>;
+  return <ScaledSection maxWidth={950}>{inner}</ScaledSection>;
 }
