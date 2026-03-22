@@ -1,9 +1,34 @@
-import { createSign } from "node:crypto";
-
 interface LogParams {
   date: string;
   caseStudy: string;
   question: string;
+}
+
+// Sign a string with an RSA-SHA256 private key using the Web Crypto API
+// (globally available in Node.js 18+ — no import needed)
+async function signRS256(data: string, pemKey: string): Promise<string> {
+  const pemContents = pemKey
+    .replace(/-----BEGIN PRIVATE KEY-----/, "")
+    .replace(/-----END PRIVATE KEY-----/, "")
+    .replace(/\s/g, "");
+
+  const binaryKey = Buffer.from(pemContents, "base64");
+
+  const cryptoKey = await crypto.subtle.importKey(
+    "pkcs8",
+    binaryKey,
+    { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+
+  const signature = await crypto.subtle.sign(
+    "RSASSA-PKCS1-v1_5",
+    cryptoKey,
+    new TextEncoder().encode(data)
+  );
+
+  return Buffer.from(signature).toString("base64url");
 }
 
 // Build a signed JWT and exchange it for a Google OAuth2 access token
@@ -31,10 +56,7 @@ async function getAccessToken(serviceAccount: {
   // Private keys stored as env vars have literal \n — restore real newlines
   const privateKey = serviceAccount.private_key.replace(/\\n/g, "\n");
 
-  const sign = createSign("RSA-SHA256");
-  sign.update(toSign);
-  const signature = sign.sign(privateKey, "base64url");
-
+  const signature = await signRS256(toSign, privateKey);
   const jwt = `${toSign}.${signature}`;
 
   const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
