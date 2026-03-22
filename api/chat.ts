@@ -108,8 +108,9 @@ export default async function handler(req: any, res: any) {
     return res.status(502).json({ error: "Service IA indisponible." });
   }
 
-  // Log every question to Google Sheets (fire-and-forget, never blocks)
-  logToSheet({
+  // Log to Google Sheets — awaited so Vercel doesn't cut the function before completion.
+  // logToSheet never throws, so this doesn't affect the response on error.
+  await logToSheet({
     date: new Date().toISOString(),
     caseStudy,
     question: question.trim(),
