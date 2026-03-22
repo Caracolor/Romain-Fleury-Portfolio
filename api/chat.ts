@@ -1,7 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { readFileSync } from "fs";
-import { join } from "path";
-import { logToSheet } from "../lib/logToSheet";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
 // ── Rate limiter (in-memory, resets on cold start — acceptable for a portfolio) ──
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
