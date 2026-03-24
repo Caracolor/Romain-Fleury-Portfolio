@@ -14,12 +14,21 @@ export function initPostHog() {
 
   posthog.init(key, {
     api_host: host,
+    defaults: "2026-01-30",
     autocapture: false,
-    capture_pageview: false,
-    capture_pageleave: false,
+    capture_pageview: false, // tracked manually in Layout for SPA
+    capture_pageleave: true,
   });
 
   initialized = true;
+}
+
+export function trackPageview() {
+  try {
+    posthog.capture("$pageview");
+  } catch {
+    // never block the UI
+  }
 }
 
 export function track(event: string, properties?: Record<string, unknown>) {
