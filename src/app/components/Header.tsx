@@ -2,8 +2,35 @@ import { useLanguage } from "./LanguageContext";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { useIsMobile } from "./useIsMobile";
-import svgPaths from "../../imports/svg-jrftw4tb9m";
 import { useTranslation } from "./LanguageContext";
+import Lottie from "lottie-react";
+import logoAnimation from "../../../public/logo-animation.json";
+
+function LogoLottie({ width, height }: { width: number; height: number }) {
+  const lottieRef = useRef<any>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
+
+  return (
+    <Lottie
+      lottieRef={lottieRef}
+      animationData={logoAnimation}
+      loop={false}
+      autoplay
+      style={{ width, height }}
+      onComplete={() => {
+        timerRef.current = setTimeout(() => {
+          lottieRef.current?.goToAndPlay(0);
+        }, 10_000);
+      }}
+    />
+  );
+}
 
 const HEADER_MAX_WIDTH = 1100;
 const SCROLL_THRESHOLD_DESKTOP = 500;
@@ -162,29 +189,14 @@ export function Header() {
           >
             {/* Logo */}
             <div
-              className="h-[48px] w-[35px] shrink-0 relative cursor-pointer"
+              className="shrink-0 cursor-pointer"
+              style={{ width: 35, height: 48 }}
               onClick={() => {
                 navigate("/");
                 setMenuOpen(false);
               }}
             >
-              <svg
-                className="absolute block size-full"
-                fill="none"
-                preserveAspectRatio="none"
-                viewBox="0 0 52 72"
-              >
-                <g clipPath="url(#clip0_header_mobile)">
-                  <path d={svgPaths.p2d243d70} fill="var(--color-qare-text)" />
-                  <path d={svgPaths.p12205e00} fill="var(--color-qare-200)" />
-                  <path d={svgPaths.p2c77ea00} fill="var(--color-qare-text)" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_header_mobile">
-                    <rect fill="white" height="72" width="52" />
-                  </clipPath>
-                </defs>
-              </svg>
+              <LogoLottie width={35} height={48} />
             </div>
 
             {/* Hamburger button */}
@@ -392,26 +404,11 @@ export function Header() {
             <div className="flex gap-[57px] items-center">
               {/* Caracolor logo */}
               <div
-                className="h-[72px] w-[52px] shrink-0 relative cursor-pointer hover:opacity-80 transition-opacity"
+                className="shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
+                style={{ width: 52, height: 72 }}
                 onClick={() => navigate("/")}
               >
-                <svg
-                  className="absolute block size-full"
-                  fill="none"
-                  preserveAspectRatio="none"
-                  viewBox="0 0 52 72"
-                >
-                  <g clipPath="url(#clip0_header_fixed)">
-                    <path d={svgPaths.p2d243d70} fill="var(--color-qare-text)" />
-                    <path d={svgPaths.p12205e00} fill="var(--color-qare-200)" />
-                    <path d={svgPaths.p2c77ea00} fill="var(--color-qare-text)" />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_header_fixed">
-                      <rect fill="white" height="72" width="52" />
-                    </clipPath>
-                  </defs>
-                </svg>
+                <LogoLottie width={52} height={72} />
               </div>
               <div className="flex font-['Aeonik:Regular',sans-serif] gap-[48px] items-center leading-[28px] not-italic text-[var(--color-qare-ink)] text-[20px] whitespace-nowrap">
                 <p className="cursor-pointer hover:opacity-70 transition-opacity" onClick={() => scrollToSection("about")}>{nav.about}</p>
