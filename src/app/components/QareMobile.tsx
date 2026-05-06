@@ -1,4 +1,24 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import reorgVideoUrl from "@/assets/reorg-app.mp4";
+
+function MutedVideo({ src, className }: { src: string; className?: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.muted = true;
+    el.setAttribute("muted", "");
+    el.setAttribute("autoplay", "");
+    el.setAttribute("playsinline", "");
+    el.load();
+    el.play().catch(() => {});
+  }, []);
+  return (
+    <video ref={ref} loop playsInline className={className}>
+      <source src={src} type="video/mp4" />
+    </video>
+  );
+}
 import { motion, AnimatePresence } from "motion/react";
 import imgMind from "@/assets/d6920b25d0dacb652a7f15f95d1fa9fc65e4be75.webp";
 import imgShape1 from "@/assets/df79892ff413427f060d32c68e012fe91c5915f1.webp";
@@ -319,7 +339,11 @@ export function ApprocheMobile() {
               </button>
               <div className="overflow-hidden transition-all duration-400" style={{ maxHeight: isOpen ? 500 : 0, opacity: isOpen ? 1 : 0 }}>
                 <div className="pt-[12px] flex flex-col gap-[8px] items-center">
-                  <img loading="lazy" src={cardImages[i]} alt={card.text} className="w-full h-auto rounded-[12px]" />
+                  {i === 0 ? (
+                    <MutedVideo src={reorgVideoUrl} className="w-full h-auto rounded-[12px]" />
+                  ) : (
+                    <img loading="lazy" src={cardImages[i]} alt={card.text} className="w-full h-auto rounded-[12px]" />
+                  )}
                   {i === 0 && (
                     <p className="font-['Aeonik:Regular',sans-serif] leading-[18px] not-italic text-[var(--color-qare-text)] text-[13px] text-center px-[8px]">
                       {da.navigation_text}

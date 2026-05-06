@@ -1,6 +1,26 @@
 import image_50943770418c16aae344d1425538ab4848b6617c from '@/assets/50943770418c16aae344d1425538ab4848b6617c.webp'
 import image_758f2ade10de96bb2fb4159b7acc2bfa13440e59 from '@/assets/758f2ade10de96bb2fb4159b7acc2bfa13440e59.webp'
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import reorgVideoUrl from "@/assets/reorg-app.mp4";
+
+function MutedVideo({ src, className }: { src: string; className?: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.muted = true;
+    el.setAttribute("muted", "");
+    el.setAttribute("autoplay", "");
+    el.setAttribute("playsinline", "");
+    el.load();
+    el.play().catch(() => {});
+  }, []);
+  return (
+    <video ref={ref} loop playsInline className={className}>
+      <source src={src} type="video/mp4" />
+    </video>
+  );
+}
 import svgPaths from "./svg-6xhyatu5cg";
 import imgCaptureDecran20260226A0908541 from "@/assets/f629ac87b5e08989098c25c5aea7b7440d75ed78.webp";
 import imgFrame1217111 from "@/assets/c431e7c9e80c1d2c40ee9ceef75c1ed1dbfd42a6.webp";
@@ -100,7 +120,7 @@ export default function Frame() {
           {active === "nav" && (
             <div className="flex flex-col gap-[16px] items-center w-full">
               <div className="w-full overflow-hidden rounded-[20px]">
-                <img className="w-[calc(100%+4px)] h-auto -ml-[2px] -mt-[2px]" src={imgNavigation} alt="Navigation" />
+                <MutedVideo src={reorgVideoUrl} className="w-[calc(100%+4px)] h-auto -ml-[2px] -mt-[2px]" />
               </div>
               <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#40295b] text-[16px] text-center max-w-[440px]">
                 {da.navigation_text}
