@@ -1,8 +1,145 @@
-import imgFrame1000002860 from "@/assets/11af05f0212fbda46592464adca2cfe9cb64b28e.webp";
+import { useCallback, useEffect, useRef } from "react";
 import imgFrame1000002861 from "@/assets/b1e327b80299135e2fc027ba55121756be6c94ae.webp";
 import imgFrame1000002862 from "@/assets/42b0e4588a42e64d9354d4538b430ccc04ef48a9.webp";
 import imgBrandedCall from "@/assets/f5121ae8295ff655c5d23a610e7985e780962097.webp";
+import chronicVideoUrl from "@/assets/chronic-thumbnail.mp4";
+import chronicPosterUrl from "@/assets/chronic-thumbnail-poster.webp";
 import { useTranslation } from "../app/components/LanguageContext";
+
+/** Image d'arrêt de la vidéo de miniature : la composition complète. */
+const REST_TIME = 6.474;
+
+/**
+ * Miniature animée. La vidéo se fige toujours sur REST_TIME, qui correspond
+ * à l'ancienne image statique :
+ * - à la première apparition à l'écran, elle se joue depuis le début ;
+ * - au survol, elle repart et boucle une fois pour revenir se figer au même
+ *   endroit.
+ * Elle n'est téléchargée qu'à l'approche du viewport.
+ */
+function ThumbnailVideo({
+  src,
+  poster,
+  playRef,
+}: {
+  src: string;
+  poster: string;
+  playRef: React.MutableRefObject<(() => void) | null>;
+}) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const running = useRef(false);
+  const wrapped = useRef(false);
+  const previous = useRef(0);
+  const autoPlayed = useRef(false);
+
+  /** Fige la vidéo dès qu'elle atteint son image d'arrêt. */
+  const stopAtRest = useCallback(() => {
+    const el = ref.current;
+    if (!el || !running.current) return;
+    const t = el.currentTime;
+    if (t < previous.current - 0.1) wrapped.current = true; // repassée par 0
+    previous.current = t;
+    if (wrapped.current && t >= REST_TIME) {
+      el.pause();
+      el.loop = false;
+      el.currentTime = REST_TIME;
+      running.current = false;
+    }
+  }, []);
+
+  const playToRest = useCallback((fromStart: boolean) => {
+    const el = ref.current;
+    if (!el || running.current) return;
+
+    if (fromStart) el.currentTime = 0;
+    // Depuis l'image d'arrêt, il faut un tour complet avant de s'y refiger.
+    wrapped.current = fromStart || el.currentTime < REST_TIME - 0.05;
+    previous.current = el.currentTime;
+    running.current = true;
+    el.loop = true;
+    el.play().catch(() => {
+      running.current = false;
+      el.loop = false;
+    });
+  }, []);
+
+  useEffect(() => {
+    playRef.current = () => playToRest(false);
+  }, [playRef, playToRest]);
+
+  // Surveillance double : requestAnimationFrame pour la précision quand l'onglet
+  // est visible, et l'événement `timeupdate` — qui, lui, continue en arrière-plan —
+  // pour que la vidéo se fige bien même si l'utilisateur change d'onglet.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let id = requestAnimationFrame(function tick() {
+      stopAtRest();
+      id = requestAnimationFrame(tick);
+    });
+    el.addEventListener("timeupdate", stopAtRest);
+    return () => {
+      cancelAnimationFrame(id);
+      el.removeEventListener("timeupdate", stopAtRest);
+    };
+  }, [stopAtRest]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.muted = true;
+
+    // Tant que la vidéo n'a pas joué, on affiche son image d'arrêt.
+    const onLoaded = () => {
+      if (!autoPlayed.current) el.currentTime = REST_TIME;
+    };
+    el.addEventListener("loadeddata", onLoaded);
+
+    // Téléchargement à l'approche…
+    const loader = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        el.preload = "auto";
+        el.load();
+        loader.disconnect();
+      },
+      { rootMargin: "400px" }
+    );
+    loader.observe(el);
+
+    // …puis lecture unique lorsque la carte est réellement visible.
+    const starter = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || autoPlayed.current) return;
+        autoPlayed.current = true;
+        playToRest(true);
+        starter.disconnect();
+      },
+      { threshold: 0.3 }
+    );
+    starter.observe(el);
+
+    return () => {
+      el.removeEventListener("loadeddata", onLoaded);
+      loader.disconnect();
+      starter.disconnect();
+      if (frame.current) cancelAnimationFrame(frame.current);
+    };
+  }, [playToRest]);
+
+  return (
+    <video
+      ref={ref}
+      muted
+      playsInline
+      preload="none"
+      poster={poster}
+      className="absolute max-w-none object-cover opacity-95 rounded-[30px] size-full"
+    >
+      <source src={src} type="video/mp4" />
+    </video>
+  );
+}
 
 function Wrapper({ children }: React.PropsWithChildren<{}>) {
   return (
@@ -82,6 +219,7 @@ type FrameProps = {
 export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisationClick, onBrandedCallClick }: FrameProps) {
   const proj = useTranslation("projects_section");
   const items = proj.items;
+  const chronicPlay = useRef<(() => void) | null>(null);
 
   return (
     <div className="content-stretch flex flex-col gap-[80px] items-start relative size-full">
@@ -92,10 +230,13 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
           onClick={onQareClick}
           role={onQareClick ? "button" : undefined}
         >
-          <div className="h-[461px] relative rounded-[30px] shrink-0 w-full">
+          <div
+            className="aspect-[1158/716] relative rounded-[30px] shrink-0 w-full"
+            onMouseEnter={() => chronicPlay.current?.()}
+          >
             <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
               <div className="absolute bg-[#231633] inset-0 rounded-[30px]" />
-              <img alt="" className="absolute max-w-none object-cover opacity-95 rounded-[30px] size-full" src={imgFrame1000002860} />
+              <ThumbnailVideo src={chronicVideoUrl} poster={chronicPosterUrl} playRef={chronicPlay} />
             </div>
             <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
               <HelperChronicPrograms />
