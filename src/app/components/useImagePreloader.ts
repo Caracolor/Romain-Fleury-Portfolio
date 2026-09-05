@@ -54,6 +54,12 @@ export function useImagePreloader(
       if (watchedImages.has(img)) return;
       watchedImages.add(img);
       if (img.complete && img.naturalWidth > 0) return; // already loaded
+      // Une image `loading="lazy"` n'est, par définition, pas nécessaire à
+      // l'affichage initial : le navigateur ne la télécharge qu'au scroll.
+      // L'attendre bloquerait le loader jusqu'au timeout de secours — c'est
+      // ce qui provoquait un écran blanc de plusieurs secondes pour tout
+      // visiteur arrivant sans cache.
+      if (img.loading === "lazy") return;
       pendingCount++;
       img.addEventListener("load", onImgDone, { once: true });
       img.addEventListener("error", onImgDone, { once: true });
