@@ -88,7 +88,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
       <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0">
         <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#40295b] tracking-[15px] uppercase w-[547px] text-[40px]">{proj.section_title}</p>
         <div 
-          className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[946px] cursor-pointer transition-opacity hover:opacity-90"
+          className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-[946px] cursor-pointer group"
           onClick={onQareClick}
           role={onQareClick ? "button" : undefined}
         >
@@ -100,7 +100,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
             <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
               <HelperChronicPrograms />
             </div>
-            <div aria-hidden="true" className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[30px]" />
+            <div aria-hidden="true" className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[30px] transition-colors duration-200 group-hover:border-[#40295b]" />
           </div>
           <Helper1 text={items[0].company} text1={items[0].title} />
           <p className="font-['Aeonik:Regular',sans-serif] leading-[0] not-italic relative shrink-0 text-[#40295b] text-[0px] text-[24px] w-full whitespace-pre-wrap">
@@ -111,7 +111,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
       </div>
       <div className="content-stretch flex gap-[40px] h-[568px] items-center relative shrink-0 w-full">
         <div 
-          className="flex flex-[1_0_0] flex-row items-center self-stretch cursor-pointer transition-opacity hover:opacity-90"
+          className="flex flex-[1_0_0] flex-row items-center self-stretch cursor-pointer group"
           onClick={onTempsMedicalClick}
           role={onTempsMedicalClick ? "button" : undefined}
         >
@@ -126,7 +126,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
               <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
                 <HelperTempsMedical />
               </div>
-              <div aria-hidden="true" className="absolute border-4 border-[#E4E0F4] border-solid inset-0 pointer-events-none rounded-[30px]" />
+              <div aria-hidden="true" className="absolute border-4 border-[#E4E0F4] border-solid inset-0 pointer-events-none rounded-[30px] transition-colors duration-200 group-hover:border-[#40295b]" />
             </div>
             <Helper1 text={items[1].company} text1={items[1].title} />
             <p className="font-['Aeonik:Regular',sans-serif] leading-[0] not-italic relative shrink-0 text-[#40295b] text-[0px] text-[24px] w-full">
@@ -136,7 +136,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
           </div>
         </div>
         <div 
-          className="flex flex-[1_0_0] flex-row items-center self-stretch cursor-pointer transition-opacity hover:opacity-90"
+          className="flex flex-[1_0_0] flex-row items-center self-stretch cursor-pointer group"
           onClick={onMonetisationClick}
           role={onMonetisationClick ? "button" : undefined}
         >
@@ -151,7 +151,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
               <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
                 <HelperMonetisation />
               </div>
-              <div aria-hidden="true" className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[30px]" />
+              <div aria-hidden="true" className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[30px] transition-colors duration-200 group-hover:border-[#40295b]" />
             </div>
             <Helper1 text={items[2].company} text1={items[2].title} />
             <p className="font-['Aeonik:Regular',sans-serif] leading-[0] not-italic relative shrink-0 text-[#40295b] text-[0px] text-[24px] w-full whitespace-pre-wrap">
@@ -166,7 +166,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
       {items[3] && (
         <div className="content-stretch flex gap-[40px] h-[568px] items-center relative shrink-0 w-full">
           <div 
-            className="flex flex-[1_0_0] flex-row items-center self-stretch cursor-pointer transition-opacity hover:opacity-90"
+            className="flex flex-[1_0_0] flex-row items-center self-stretch cursor-pointer group"
             onClick={onBrandedCallClick}
             role={onBrandedCallClick ? "button" : undefined}
           >
@@ -192,7 +192,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
                     )}
                   </Wrapper>
                 </div>
-                <div aria-hidden="true" className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[30px]" />
+                <div aria-hidden="true" className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[30px] transition-colors duration-200 group-hover:border-[#40295b]" />
               </div>
               <Helper1 text={items[3].company} text1={items[3].title} />
               <p className="font-['Aeonik:Regular',sans-serif] leading-[0] not-italic relative shrink-0 text-[#40295b] text-[0px] text-[24px] w-full whitespace-pre-wrap"><span className="leading-[30px]">{`${items[3].description}  `}</span><span className="font-['Aeonik:Bold',sans-serif] leading-[30px]">{`\u2192 ${items[3].result}`}</span></p>
