@@ -183,12 +183,13 @@ async function handleChat(req: IncomingMessage, res: ServerResponse) {
   let response: string;
   try {
     const message = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-sonnet-5",
       max_tokens: 1024,
       system: `${SYSTEM_PROMPT}\n\n---\n\nDocumentation du case study :\n\n${docContent}`,
       messages,
     });
-    response = message.content[0].type === "text" ? message.content[0].text : "";
+    const textBlock = message.content.find((block) => block.type === "text");
+    response = textBlock?.type === "text" ? textBlock.text : "";
   } catch (err) {
     console.error("[dev-api] Anthropic error:", err);
     return send(res, 502, { error: "Service IA indisponible." });
