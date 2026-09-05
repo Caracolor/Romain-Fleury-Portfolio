@@ -154,12 +154,20 @@ function Wrapper({ children }: React.PropsWithChildren<{}>) {
 type Helper1Props = {
   text: string;
   text1: string;
+  /** Laisse le titre occuper toute la largeur de la carte (grande carte). */
+  wide?: boolean;
 };
 
-function Helper1({ text1 }: Helper1Props) {
+function Helper1({ text1, wide = false }: Helper1Props) {
   return (
     <div className="content-stretch flex flex-col items-start not-italic relative shrink-0 w-full">
-      <p className="font-['Aeonik:Bold',sans-serif] leading-[45px] relative shrink-0 text-[#40295b] text-[36px] w-[305px]">{text1}</p>
+      <p
+        className={`font-['Aeonik:Bold',sans-serif] leading-[45px] relative shrink-0 text-[#40295b] text-[36px] ${
+          wide ? "w-full" : "w-[305px]"
+        }`}
+      >
+        {text1}
+      </p>
     </div>
   );
 }
@@ -243,7 +251,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
             </div>
             <div aria-hidden="true" className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[30px] transition-colors duration-200 group-hover:border-[#40295b]" />
           </div>
-          <Helper1 text={items[0].company} text1={items[0].title} />
+          <Helper1 text={items[0].company} text1={items[0].title} wide />
           <p className="font-['Aeonik:Regular',sans-serif] leading-[0] not-italic relative shrink-0 text-[#40295b] text-[0px] text-[24px] w-full whitespace-pre-wrap">
             <span className="leading-[30px]">{`${items[0].description}  `}</span>
             <span className="font-['Aeonik:Bold',sans-serif] leading-[30px]">{`\u2192 ${items[0].result}`}</span>
