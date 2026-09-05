@@ -2,21 +2,43 @@ import image_50943770418c16aae344d1425538ab4848b6617c from '@/assets/50943770418
 import image_758f2ade10de96bb2fb4159b7acc2bfa13440e59 from '@/assets/758f2ade10de96bb2fb4159b7acc2bfa13440e59.webp'
 import { useState, useRef, useEffect } from "react";
 import reorgVideoUrl from "@/assets/reorg-app.mp4";
+import reorgPosterUrl from "@/assets/reorg-app-poster.webp";
 
-function MutedVideo({ src, className }: { src: string; className?: string }) {
+function MutedVideo({ src, poster, className }: { src: string; poster?: string; className?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
+  const loaded = useRef(false);
+
+  // Le poster s'affiche immédiatement ; la vidéo n'est téléchargée que
+  // lorsqu'elle approche du viewport (preload="none" + IntersectionObserver).
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     el.muted = true;
     el.setAttribute("muted", "");
-    el.setAttribute("autoplay", "");
     el.setAttribute("playsinline", "");
-    el.load();
-    el.play().catch(() => {});
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            if (!loaded.current) {
+              loaded.current = true;
+              el.load();
+            }
+            el.play().catch(() => {});
+          } else if (loaded.current) {
+            el.pause();
+          }
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
+
   return (
-    <video ref={ref} loop playsInline className={className}>
+    <video ref={ref} loop playsInline preload="none" poster={poster} className={className}>
       <source src={src} type="video/mp4" />
     </video>
   );
@@ -120,7 +142,7 @@ export default function Frame() {
           {active === "nav" && (
             <div className="flex flex-col gap-[16px] items-center w-full">
               <div className="w-full overflow-hidden rounded-[20px]">
-                <MutedVideo src={reorgVideoUrl} className="w-[calc(100%+4px)] h-auto -ml-[2px] -mt-[2px]" />
+                <MutedVideo src={reorgVideoUrl} poster={reorgPosterUrl} className="w-[calc(100%+4px)] h-auto -ml-[2px] -mt-[2px]" />
               </div>
               <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#40295b] text-[16px] text-center max-w-[440px]">
                 {da.navigation_text}

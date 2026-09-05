@@ -1,20 +1,42 @@
 import React, { useState, useRef, useEffect } from "react";
 import reorgVideoUrl from "@/assets/reorg-app.mp4";
+import reorgPosterUrl from "@/assets/reorg-app-poster.webp";
 
-function MutedVideo({ src, className }: { src: string; className?: string }) {
+function MutedVideo({ src, poster, className }: { src: string; poster?: string; className?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
+  const loaded = useRef(false);
+
+  // Le poster s'affiche immédiatement ; la vidéo n'est téléchargée que
+  // lorsqu'elle approche du viewport (preload="none" + IntersectionObserver).
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     el.muted = true;
     el.setAttribute("muted", "");
-    el.setAttribute("autoplay", "");
     el.setAttribute("playsinline", "");
-    el.load();
-    el.play().catch(() => {});
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            if (!loaded.current) {
+              loaded.current = true;
+              el.load();
+            }
+            el.play().catch(() => {});
+          } else if (loaded.current) {
+            el.pause();
+          }
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
+
   return (
-    <video ref={ref} loop playsInline className={className}>
+    <video ref={ref} loop playsInline preload="none" poster={poster} className={className}>
       <source src={src} type="video/mp4" />
     </video>
   );
@@ -340,7 +362,7 @@ export function ApprocheMobile() {
               <div className="overflow-hidden transition-all duration-400" style={{ maxHeight: isOpen ? 500 : 0, opacity: isOpen ? 1 : 0 }}>
                 <div className="pt-[12px] flex flex-col gap-[8px] items-center">
                   {i === 0 ? (
-                    <MutedVideo src={reorgVideoUrl} className="w-full h-auto rounded-[12px]" />
+                    <MutedVideo src={reorgVideoUrl} poster={reorgPosterUrl} className="w-full h-auto rounded-[12px]" />
                   ) : (
                     <img loading="lazy" src={cardImages[i]} alt={card.text} className="w-full h-auto rounded-[12px]" />
                   )}
