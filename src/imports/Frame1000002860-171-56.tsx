@@ -123,7 +123,6 @@ function ThumbnailVideo({
       el.removeEventListener("loadeddata", onLoaded);
       loader.disconnect();
       starter.disconnect();
-      if (frame.current) cancelAnimationFrame(frame.current);
     };
   }, [playToRest]);
 
