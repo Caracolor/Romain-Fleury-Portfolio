@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useRef } from "react";
-import imgBrandedCall from "@/assets/f5121ae8295ff655c5d23a610e7985e780962097.webp";
 import chronicVideoUrl from "@/assets/chronic-thumbnail.mp4";
 import chronicPosterUrl from "@/assets/chronic-thumbnail-poster.webp";
 import tempsMedicalVideoUrl from "@/assets/temps-medical-thumbnail.mp4";
 import tempsMedicalPosterUrl from "@/assets/temps-medical-thumbnail-poster.webp";
 import monetisationVideoUrl from "@/assets/monetisation-thumbnail.mp4";
 import monetisationPosterUrl from "@/assets/monetisation-thumbnail-poster.webp";
+import brandedCallVideoUrl from "@/assets/branded-call-thumbnail.mp4";
+import brandedCallPosterUrl from "@/assets/branded-call-thumbnail-poster.webp";
 import { useTranslation } from "../app/components/LanguageContext";
 
 /**
@@ -223,6 +224,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
   const chronicPlay = useRef<(() => void) | null>(null);
   const tempsMedicalPlay = useRef<(() => void) | null>(null);
   const monetisationPlay = useRef<(() => void) | null>(null);
+  const brandedCallPlay = useRef<(() => void) | null>(null);
 
   return (
     <div className="content-stretch flex flex-col gap-[80px] items-start relative size-full">
@@ -317,12 +319,13 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
             role={onBrandedCallClick ? "button" : undefined}
           >
             <div className="content-stretch flex flex-[1_0_0] flex-col gap-[16px] h-full items-start min-h-px min-w-px relative">
-              <div className="h-[327px] relative rounded-[30px] shrink-0 w-full">
+              <div
+                className="aspect-[1140/982] relative rounded-[30px] shrink-0 w-full"
+                onMouseEnter={() => brandedCallPlay.current?.()}
+              >
                 <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
                   <div className="absolute bg-[#231633] inset-0 rounded-[30px]" />
-                  <div className="absolute inset-0 overflow-hidden rounded-[30px]">
-                    <img alt="" className="absolute inset-0 w-full h-full object-cover rounded-[30px] opacity-95" src={imgBrandedCall} />
-                  </div>
+                  <ThumbnailVideo src={brandedCallVideoUrl} poster={brandedCallPosterUrl} restTime={2.269} playRef={brandedCallPlay} />
                 </div>
                 <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
                   <Wrapper>
@@ -348,7 +351,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
           {items[4] ? (
           <div className="flex flex-[1_0_0] flex-row items-center self-stretch opacity-50 cursor-default">
             <div className="content-stretch flex flex-[1_0_0] flex-col gap-[16px] h-full items-start min-h-px min-w-px relative">
-              <div className="h-[327px] relative rounded-[30px] shrink-0 w-full bg-[#231633] flex items-center justify-center">
+              <div className="aspect-[1140/982] relative rounded-[30px] shrink-0 w-full bg-[#231633] flex items-center justify-center">
                 <p className="font-['Aeonik:Bold',sans-serif] text-[#afa2df] text-[24px] tracking-[5px] uppercase">
                   {proj.coming_soon_label}
                 </p>
