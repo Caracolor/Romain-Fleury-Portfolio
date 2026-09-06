@@ -182,7 +182,7 @@ export default function Frame() {
         </div>
         <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full">
           <div className="bg-[#d7d0ef] rounded-[20px] self-stretch shrink-0 w-[4px]" />
-          <div className="font-['Aeonik:Regular',sans-serif] leading-[30px] not-italic relative shrink-0 text-[#40295b] text-[24px] w-[918px] whitespace-pre-wrap">
+          <div className="font-['Aeonik:Light',sans-serif] leading-[30px] not-italic relative shrink-0 text-[#40295b] text-[24px] w-[918px] whitespace-pre-wrap">
             {introLines.map((line, i) => (
               <p key={i} className={i < introLines.length - 1 ? "mb-[30px]" : ""}>{line}</p>
             ))}
