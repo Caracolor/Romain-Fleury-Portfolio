@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useRef } from "react";
-import imgFrame1000002862 from "@/assets/42b0e4588a42e64d9354d4538b430ccc04ef48a9.webp";
 import imgBrandedCall from "@/assets/f5121ae8295ff655c5d23a610e7985e780962097.webp";
 import chronicVideoUrl from "@/assets/chronic-thumbnail.mp4";
 import chronicPosterUrl from "@/assets/chronic-thumbnail-poster.webp";
 import tempsMedicalVideoUrl from "@/assets/temps-medical-thumbnail.mp4";
 import tempsMedicalPosterUrl from "@/assets/temps-medical-thumbnail-poster.webp";
+import monetisationVideoUrl from "@/assets/monetisation-thumbnail.mp4";
+import monetisationPosterUrl from "@/assets/monetisation-thumbnail-poster.webp";
 import { useTranslation } from "../app/components/LanguageContext";
 
 /**
@@ -227,6 +228,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
   const items = proj.items;
   const chronicPlay = useRef<(() => void) | null>(null);
   const tempsMedicalPlay = useRef<(() => void) | null>(null);
+  const monetisationPlay = useRef<(() => void) | null>(null);
 
   return (
     <div className="content-stretch flex flex-col gap-[80px] items-start relative size-full">
@@ -290,12 +292,13 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
           role={onMonetisationClick ? "button" : undefined}
         >
           <div className="content-stretch flex flex-[1_0_0] flex-col gap-[16px] h-full items-start min-h-px min-w-px relative">
-            <div className="h-[327px] relative rounded-[30px] shrink-0 w-full">
+            <div
+              className="aspect-[1140/982] relative rounded-[30px] shrink-0 w-full"
+              onMouseEnter={() => monetisationPlay.current?.()}
+            >
               <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
                 <div className="absolute bg-[#231633] inset-0 rounded-[30px]" />
-                <div className="absolute inset-0 overflow-hidden rounded-[30px]">
-                  <img alt="" className="absolute h-[104.27%] left-[-2.99%] max-w-none top-[-2.13%] w-[96.56%]" src={imgFrame1000002862} />
-                </div>
+                <ThumbnailVideo src={monetisationVideoUrl} poster={monetisationPosterUrl} restTime={1.163} playRef={monetisationPlay} />
               </div>
               <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
                 <HelperMonetisation />
