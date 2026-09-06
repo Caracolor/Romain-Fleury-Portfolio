@@ -264,7 +264,7 @@ export default function Frame() {
         <p className="leading-[normal] relative shrink-0 tracking-[15px] uppercase whitespace-nowrap text-[40px]">{langs.section_title}</p>
         <div className="content-stretch flex flex-col gap-[32px] items-start leading-[0] relative shrink-0 text-[0px] text-[24px] w-full">
           {langs.items.map((l) => (
-            <p key={l.language} className="relative shrink-0 w-[170px]">
+            <p key={l.language} className="relative shrink-0 whitespace-nowrap">
               <span className="font-['Aeonik:Bold',sans-serif] leading-[30px]">{l.language}</span>
               <span className="leading-[30px]">{` - ${l.level}`}</span>
             </p>
