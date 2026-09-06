@@ -348,6 +348,21 @@ export function CaseStudyChat({ caseStudy }: CaseStudyChatProps) {
           </div>
         </form>
 
+        {/* Character counter — only shown near the limit, to avoid clutter */}
+        {input.length >= 400 && (
+          <p
+            className="font-['Aeonik:Regular',sans-serif] text-right"
+            style={{
+              fontSize: 13,
+              margin: 0,
+              color: input.length >= 500 ? "var(--color-qare-800)" : "var(--color-qare-text)",
+              opacity: input.length >= 500 ? 1 : 0.5,
+            }}
+          >
+            {input.length}/500
+          </p>
+        )}
+
         {/* Suggested questions — 3 first, below the input */}
         <div className="flex flex-wrap" style={{ gap: 8 }}>
           {suggestedQuestions.slice(0, 3).map((q, i) => (
