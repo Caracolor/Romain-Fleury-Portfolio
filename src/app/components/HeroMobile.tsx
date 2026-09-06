@@ -166,7 +166,7 @@ export function HeroMobile() {
       {/* ── Description text ── */}
       <div className="flex gap-[16px] items-start w-full">
         <div className="bg-[var(--color-qare-150)] rounded-[20px] self-stretch shrink-0 w-[3px]" />
-        <div className="font-['Aeonik:Light',sans-serif] leading-[24px] not-italic text-[var(--color-qare-text)] text-[16px] flex-1">
+        <div className="font-['Aeonik:Regular',sans-serif] leading-[24px] not-italic text-[var(--color-qare-text)] text-[16px] flex-1">
           {introLines.map((line, i) => (
             <p key={i} className={i < introLines.length - 1 ? "mb-[16px]" : ""}>
               {line}

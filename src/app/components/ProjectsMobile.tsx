@@ -98,7 +98,7 @@ function ProjectCard({
       </div>
 
       {/* Description */}
-      <div className="font-['Aeonik:Light',sans-serif] leading-[22px] not-italic text-[var(--color-qare-text)] text-[15px]">
+      <div className="font-['Aeonik:Regular',sans-serif] leading-[22px] not-italic text-[var(--color-qare-text)] text-[15px]">
         {description}
       </div>
     </div>
@@ -138,7 +138,7 @@ export function ProjectsMobile() {
         description={
           <p>
             {items[0].description}{" "}
-            <span className="font-['Aeonik:Regular',sans-serif]">{`→ ${items[0].result}`}</span>
+            <span className="font-['Aeonik:Bold',sans-serif]">{`→ ${items[0].result}`}</span>
           </p>
         }
       />
@@ -153,7 +153,7 @@ export function ProjectsMobile() {
         description={
           <p>
             {items[1].description}{" "}
-            <span className="font-['Aeonik:Regular',sans-serif]">
+            <span className="font-['Aeonik:Bold',sans-serif]">
               {`→ ${items[1].result}`}
             </span>
           </p>
@@ -170,7 +170,7 @@ export function ProjectsMobile() {
         description={
           <p>
             {items[2].description}{" "}
-            <span className="font-['Aeonik:Regular',sans-serif]">
+            <span className="font-['Aeonik:Bold',sans-serif]">
               {`→ ${items[2].result}`}
             </span>
           </p>
@@ -188,7 +188,7 @@ export function ProjectsMobile() {
           description={
             <p>
               {items[3].description}{" "}
-              <span className="font-['Aeonik:Regular',sans-serif]">
+              <span className="font-['Aeonik:Bold',sans-serif]">
                 {`→ ${items[3].result}`}
               </span>
             </p>
@@ -207,7 +207,7 @@ export function ProjectsMobile() {
           description={
             <p>
               {items[4].description}{" "}
-              <span className="font-['Aeonik:Regular',sans-serif]">
+              <span className="font-['Aeonik:Bold',sans-serif]">
                 {`→ ${items[4].result}`}
               </span>
             </p>
