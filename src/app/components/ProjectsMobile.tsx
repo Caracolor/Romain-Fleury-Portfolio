@@ -21,7 +21,6 @@ function ProjectTag({ text }: { text: string }) {
 
 interface ProjectCardProps {
   image: string;
-  label: string;
   title: string;
   description: React.ReactNode;
   tags: string[];
@@ -31,7 +30,6 @@ interface ProjectCardProps {
 
 function ProjectCard({
   image,
-  label,
   title,
   description,
   tags,
@@ -87,11 +85,8 @@ function ProjectCard({
         </div>
       )}
 
-      {/* Label + Title */}
+      {/* Title */}
       <div className="flex flex-col items-start">
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-brand)] text-[14px] tracking-[3px] uppercase">
-          {label}
-        </p>
         <p className="font-['Aeonik:Regular',sans-serif] leading-[32px] not-italic text-[var(--color-qare-text)] text-[24px]">
           {title}
         </p>
@@ -131,7 +126,6 @@ export function ProjectsMobile() {
       {/* Project 1 — Programmes chroniques */}
       <ProjectCard
         image={imgQare}
-        label={items[0].company}
         title={items[0].title}
         tags={[items[0].tag, ...(items[0].tag2 ? [items[0].tag2] : [])]}
         to="/project/chronic-programs"
@@ -146,7 +140,6 @@ export function ProjectsMobile() {
       {/* Project 2 — Temps Médical */}
       <ProjectCard
         image={imgTempsMedical}
-        label={items[1].company}
         title={items[1].title}
         tags={[items[1].tag, ...(items[1].team ? [items[1].team] : [])]}
         to="/project/medical-time"
@@ -163,7 +156,6 @@ export function ProjectsMobile() {
       {/* Project 3 — Monétisation */}
       <ProjectCard
         image={imgMonetisation}
-        label={items[2].company}
         title={items[2].title}
         tags={[items[2].tag, ...(items[2].tag2 ? [items[2].tag2] : [])]}
         to="/project/health-monetization"
@@ -181,7 +173,6 @@ export function ProjectsMobile() {
       {items[3] && (
         <ProjectCard
           image={imgBrandedCall}
-          label={items[3].company}
           title={items[3].title}
           tags={[items[3].tag, ...(items[3].tag2 ? [items[3].tag2] : [])]}
           to="/project/branded-call"
@@ -200,7 +191,6 @@ export function ProjectsMobile() {
       {items[4] && (
         <ProjectCard
           image=""
-          label={items[4].company}
           title={items[4].title}
           tags={[items[4].tag, ...(items[4].tag2 ? [items[4].tag2] : [])]}
           comingSoon={proj.coming_soon_label}
