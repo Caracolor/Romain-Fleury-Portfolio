@@ -1,17 +1,14 @@
 import { useCallback, useEffect, useRef } from "react";
-import imgFrame1000002861 from "@/assets/b1e327b80299135e2fc027ba55121756be6c94ae.webp";
 import imgFrame1000002862 from "@/assets/42b0e4588a42e64d9354d4538b430ccc04ef48a9.webp";
 import imgBrandedCall from "@/assets/f5121ae8295ff655c5d23a610e7985e780962097.webp";
 import chronicVideoUrl from "@/assets/chronic-thumbnail.mp4";
 import chronicPosterUrl from "@/assets/chronic-thumbnail-poster.webp";
+import tempsMedicalVideoUrl from "@/assets/temps-medical-thumbnail.mp4";
+import tempsMedicalPosterUrl from "@/assets/temps-medical-thumbnail-poster.webp";
 import { useTranslation } from "../app/components/LanguageContext";
 
-/** Image d'arrêt de la vidéo de miniature : la composition complète. */
-const REST_TIME = 6.474;
-
 /**
- * Miniature animée. La vidéo se fige toujours sur REST_TIME, qui correspond
- * à l'ancienne image statique :
+ * Miniature animée. La vidéo se fige toujours sur `restTime` (en secondes) :
  * - à la première apparition à l'écran, elle se joue depuis le début ;
  * - au survol, elle repart et boucle une fois pour revenir se figer au même
  *   endroit.
@@ -20,10 +17,12 @@ const REST_TIME = 6.474;
 function ThumbnailVideo({
   src,
   poster,
+  restTime,
   playRef,
 }: {
   src: string;
   poster: string;
+  restTime: number;
   playRef: React.MutableRefObject<(() => void) | null>;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -39,13 +38,13 @@ function ThumbnailVideo({
     const t = el.currentTime;
     if (t < previous.current - 0.1) wrapped.current = true; // repassée par 0
     previous.current = t;
-    if (wrapped.current && t >= REST_TIME) {
+    if (wrapped.current && t >= restTime) {
       el.pause();
       el.loop = false;
-      el.currentTime = REST_TIME;
+      el.currentTime = restTime;
       running.current = false;
     }
-  }, []);
+  }, [restTime]);
 
   const playToRest = useCallback((fromStart: boolean) => {
     const el = ref.current;
@@ -53,7 +52,7 @@ function ThumbnailVideo({
 
     if (fromStart) el.currentTime = 0;
     // Depuis l'image d'arrêt, il faut un tour complet avant de s'y refiger.
-    wrapped.current = fromStart || el.currentTime < REST_TIME - 0.05;
+    wrapped.current = fromStart || el.currentTime < restTime - 0.05;
     previous.current = el.currentTime;
     running.current = true;
     el.loop = true;
@@ -61,7 +60,7 @@ function ThumbnailVideo({
       running.current = false;
       el.loop = false;
     });
-  }, []);
+  }, [restTime]);
 
   useEffect(() => {
     playRef.current = () => playToRest(false);
@@ -91,7 +90,7 @@ function ThumbnailVideo({
 
     // Tant que la vidéo n'a pas joué, on affiche son image d'arrêt.
     const onLoaded = () => {
-      if (!autoPlayed.current) el.currentTime = REST_TIME;
+      if (!autoPlayed.current) el.currentTime = restTime;
     };
     el.addEventListener("loadeddata", onLoaded);
 
@@ -124,7 +123,7 @@ function ThumbnailVideo({
       loader.disconnect();
       starter.disconnect();
     };
-  }, [playToRest]);
+  }, [playToRest, restTime]);
 
   return (
     <video
@@ -227,6 +226,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
   const proj = useTranslation("projects_section");
   const items = proj.items;
   const chronicPlay = useRef<(() => void) | null>(null);
+  const tempsMedicalPlay = useRef<(() => void) | null>(null);
 
   return (
     <div className="content-stretch flex flex-col gap-[80px] items-start relative size-full">
@@ -243,7 +243,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
           >
             <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
               <div className="absolute bg-[#231633] inset-0 rounded-[30px]" />
-              <ThumbnailVideo src={chronicVideoUrl} poster={chronicPosterUrl} playRef={chronicPlay} />
+              <ThumbnailVideo src={chronicVideoUrl} poster={chronicPosterUrl} restTime={6.474} playRef={chronicPlay} />
             </div>
             <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
               <HelperChronicPrograms />
@@ -264,12 +264,13 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
           role={onTempsMedicalClick ? "button" : undefined}
         >
           <div className="content-stretch flex flex-[1_0_0] flex-col gap-[16px] h-full items-start min-h-px min-w-px relative">
-            <div className="h-[327px] relative rounded-[30px] shrink-0 w-full">
+            <div
+              className="aspect-[1140/982] relative rounded-[30px] shrink-0 w-full"
+              onMouseEnter={() => tempsMedicalPlay.current?.()}
+            >
               <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
                 <div className="absolute bg-[#231633] inset-0 rounded-[30px]" />
-                <div className="absolute inset-0 opacity-95 overflow-hidden rounded-[30px]">
-                  <img alt="" className="absolute h-[137.55%] left-0 max-w-none top-0 w-[113.43%]" src={imgFrame1000002861} />
-                </div>
+                <ThumbnailVideo src={tempsMedicalVideoUrl} poster={tempsMedicalPosterUrl} restTime={1.759} playRef={tempsMedicalPlay} />
               </div>
               <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
                 <HelperTempsMedical />
