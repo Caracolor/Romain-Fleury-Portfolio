@@ -17,14 +17,12 @@
     "fr": {
       "greeting": "Bonjour,\nje suis Romain",
       "role_line1": "Head of product",
-      "role_line2": "design",
-      "role_line3": "chez Qare"
+      "role_line2": "design"
     },
     "en": {
       "greeting": "Hello,\nI'm Romain",
       "role_line1": "Head of product",
-      "role_line2": "design",
-      "role_line3": "at Qare"
+      "role_line2": "design"
     }
   },
   "stats": {
@@ -47,10 +45,10 @@
   },
   "intro": {
     "fr": {
-      "text": "Chez Qare, j'allie culture du craft et résolution de problèmes stratégiques.\n\nJ'ai accompagné Qare dans la monétisation de son modèle économique, piloté la première solution pour les praticiens à base de LLM et co-structuré l'organisation en product triad."
+      "text": "J'allie culture du craft et résolution de problèmes stratégiques dans des environnements complexes et réglementés.\n\nJ'ai piloté la monétisation d'un modèle économique, lancé une première solution praticien à base de LLM, et co-structuré une organisation en product triad. Toujours avec les mains dans le produit."
     },
     "en": {
-      "text": "At Qare, I combine craft culture with strategic problem-solving.\n\nI helped Qare monetize its business model, led the first LLM-based solution for practitioners, and co-structured the organization into product triads."
+      "text": "I combine a culture of craft with strategic problem-solving in complex, regulated environments.\n\nI led the monetization of a business model, launched a first LLM-based practitioner solution, and co-structured an organization into product triads. Always hands-on with the product."
     }
   },
   "projects_section": {

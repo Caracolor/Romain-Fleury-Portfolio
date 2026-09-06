@@ -122,12 +122,11 @@ export function HeroMobile() {
             <div className="flex flex-wrap gap-[6px] items-center justify-center">
               <Tag text={p1} />
             </div>
-            <div className="flex flex-wrap gap-[6px] items-center justify-center">
-              {p2 && <Tag text={p2} />}
-              <p className="font-['Aeonik:Light',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[32px] min-[450px]:text-[40px]">
-                {hero.role_line3}
-              </p>
-            </div>
+            {p2 && (
+              <div className="flex flex-wrap gap-[6px] items-center justify-center">
+                <Tag text={p2} />
+              </div>
+            )}
           </div>
         </div>
       </div>
