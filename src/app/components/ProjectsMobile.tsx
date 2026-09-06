@@ -6,6 +6,7 @@ import monetisationVideoUrl from "@/assets/monetisation-thumbnail.mp4";
 import monetisationPosterUrl from "@/assets/monetisation-thumbnail-poster.webp";
 import brandedCallVideoUrl from "@/assets/branded-call-thumbnail.mp4";
 import brandedCallPosterUrl from "@/assets/branded-call-thumbnail-poster.webp";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import { ThumbnailVideo } from "./ThumbnailVideo";
 import { useTranslation } from "./LanguageContext";
@@ -29,6 +30,7 @@ interface ProjectCardProps {
   video?: string;
   poster?: string;
   restTime?: number;
+  resetRef?: React.MutableRefObject<(() => void) | null>;
   title: string;
   description: React.ReactNode;
   tags: string[];
@@ -40,6 +42,7 @@ function ProjectCard({
   video,
   poster,
   restTime,
+  resetRef,
   title,
   description,
   tags,
@@ -76,7 +79,7 @@ function ProjectCard({
             className="absolute inset-0 pointer-events-none rounded-[20px]"
           >
             <div className="absolute bg-[#231633] inset-0 rounded-[20px]" />
-            <ThumbnailVideo src={video} poster={poster} restTime={restTime} rounded="20px" />
+            <ThumbnailVideo src={video} poster={poster} restTime={restTime} resetRef={resetRef} rounded="20px" />
           </div>
           {/* Tags overlay */}
           <div className="absolute bottom-0 left-0 right-0 flex flex-wrap gap-[6px] p-[16px]">
@@ -122,8 +125,34 @@ export function ProjectsMobile() {
   const proj = useTranslation("projects_section");
   const items = proj.items;
 
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const chronicReset = useRef<(() => void) | null>(null);
+  const tempsMedicalReset = useRef<(() => void) | null>(null);
+  const monetisationReset = useRef<(() => void) | null>(null);
+  const brandedCallReset = useRef<(() => void) | null>(null);
+
+  // Une fois la section entièrement quittée (pas juste une carte), réarme
+  // les quatre vidéos : au prochain retour dans la zone, chacune rejoue
+  // depuis le début plutôt que de rester figée sur son image d'arrêt.
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) return;
+        chronicReset.current?.();
+        tempsMedicalReset.current?.();
+        monetisationReset.current?.();
+        brandedCallReset.current?.();
+      },
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="flex flex-col gap-[32px] w-full px-[24px]">
+    <div ref={sectionRef} className="flex flex-col gap-[32px] w-full px-[24px]">
       {/* Section title */}
       <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic text-[var(--color-qare-text)] text-[28px] min-[450px]:text-[36px] tracking-[8px] uppercase">
         {proj.section_title}
@@ -134,6 +163,7 @@ export function ProjectsMobile() {
         video={chronicVideoUrl}
         poster={chronicPosterUrl}
         restTime={6.474}
+        resetRef={chronicReset}
         title={items[0].title}
         tags={[items[0].tag, ...(items[0].tag2 ? [items[0].tag2] : [])]}
         to="/project/chronic-programs"
@@ -150,6 +180,7 @@ export function ProjectsMobile() {
         video={tempsMedicalVideoUrl}
         poster={tempsMedicalPosterUrl}
         restTime={1.759}
+        resetRef={tempsMedicalReset}
         title={items[1].title}
         tags={[items[1].tag, ...(items[1].team ? [items[1].team] : [])]}
         to="/project/medical-time"
@@ -168,6 +199,7 @@ export function ProjectsMobile() {
         video={monetisationVideoUrl}
         poster={monetisationPosterUrl}
         restTime={1.163}
+        resetRef={monetisationReset}
         title={items[2].title}
         tags={[items[2].tag, ...(items[2].tag2 ? [items[2].tag2] : [])]}
         to="/project/health-monetization"
@@ -187,6 +219,7 @@ export function ProjectsMobile() {
           video={brandedCallVideoUrl}
           poster={brandedCallPosterUrl}
           restTime={2.269}
+          resetRef={brandedCallReset}
           title={items[3].title}
           tags={[items[3].tag, ...(items[3].tag2 ? [items[3].tag2] : [])]}
           to="/project/branded-call"

@@ -8,6 +8,12 @@ import { useCallback, useEffect, useRef } from "react";
  *   de survol, on omet `playRef` : la vidéo joue une seule fois puis reste
  *   figée — rejouer au tap n'aurait pas de sens puisque le tap navigue déjà
  *   vers le case study.
+ * - si `resetRef` est fourni (mobile, piloté par la section qui contient
+ *   toutes les cartes), l'appeler réarme la lecture : la prochaine fois que
+ *   la vidéo redevient visible, elle se rejoue depuis le début plutôt que de
+ *   rester figée. Prévu pour être déclenché une fois que le visiteur a
+ *   quitté toute la section (pas juste cette carte), pour ne pas relancer
+ *   inutilement au moindre petit scroll dans les deux sens.
  * Elle n'est téléchargée qu'à l'approche du viewport.
  */
 export function ThumbnailVideo({
@@ -15,12 +21,14 @@ export function ThumbnailVideo({
   poster,
   restTime,
   playRef,
+  resetRef,
   rounded = "30px",
 }: {
   src: string;
   poster: string;
   restTime: number;
   playRef?: React.MutableRefObject<(() => void) | null>;
+  resetRef?: React.MutableRefObject<(() => void) | null>;
   /** Rayon des coins (doit correspondre au conteneur qui la clippe). */
   rounded?: string;
 }) {
@@ -56,8 +64,21 @@ export function ThumbnailVideo({
     running.current = true;
     el.loop = true;
     el.play().catch(() => {
+      // Chrome peut rejeter cette promesse tout en laissant la lecture se
+      // poursuivre réellement (ex : rejet lié à l'économie d'énergie sur un
+      // onglet jugé en arrière-plan, sans interruption effective). On ne se
+      // fie donc pas au rejet seul : si la vidéo tourne bel et bien,
+      // `running` doit rester vrai pour que stopAtRest continue à la
+      // surveiller et l'arrête à `restTime` normalement.
+      if (!el.paused) return;
+      // Sinon la lecture a vraiment échoué : on revient à l'image d'arrêt
+      // et on redonne sa chance à l'observateur de réessayer au prochain
+      // passage dans la zone, plutôt que de rester bloquée indéfiniment sur
+      // une frame arbitraire.
       running.current = false;
       el.loop = false;
+      el.currentTime = restTime;
+      autoPlayed.current = false;
     });
   }, [restTime]);
 
@@ -65,6 +86,24 @@ export function ThumbnailVideo({
     if (!playRef) return;
     playRef.current = () => playToRest(false);
   }, [playRef, playToRest]);
+
+  useEffect(() => {
+    if (!resetRef) return;
+    resetRef.current = () => {
+      const el = ref.current;
+      // Si le premier passage n'avait pas fini de tourner (ex: connexion
+      // lente, ou un onglet ralenti par le navigateur), on l'arrête pour de
+      // bon ici — sinon `running` reste vrai et le prochain retour dans la
+      // zone se ferait bloquer en silence par le garde-fou anti-chevauchement
+      // de `playToRest`, sans jamais rejouer.
+      if (el && running.current) {
+        el.pause();
+        el.loop = false;
+      }
+      running.current = false;
+      autoPlayed.current = false;
+    };
+  }, [resetRef]);
 
   // Surveillance double : requestAnimationFrame pour la précision quand l'onglet
   // est visible, et l'événement `timeupdate` — qui, lui, continue en arrière-plan —
@@ -106,13 +145,16 @@ export function ThumbnailVideo({
     );
     loader.observe(el);
 
-    // …puis lecture unique lorsque la carte est réellement visible.
+    // …puis lecture lorsque la carte devient visible. Reste actif (ne se
+    // déconnecte pas après le premier déclenchement) : c'est ce qui permet
+    // à `resetRef` de la relancer plus tard, sans réobserver quoi que ce
+    // soit — `autoPlayed` est le seul garde-fou contre les rejouages
+    // intempestifs au moindre petit va-et-vient de scroll.
     const starter = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting || autoPlayed.current) return;
         autoPlayed.current = true;
         playToRest(true);
-        starter.disconnect();
       },
       { threshold: 0.3 }
     );
