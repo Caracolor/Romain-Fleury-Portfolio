@@ -110,7 +110,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
             onMouseEnter={() => chronicPlay.current?.()}
           >
             <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
-              <div className="absolute bg-[#231633] inset-0 rounded-[30px]" />
+              <div className="absolute bg-[#e4e0f4] inset-0 rounded-[30px]" />
               <ThumbnailVideo src={chronicVideoUrl} poster={chronicPosterUrl} restTime={6.474} playRef={chronicPlay} />
             </div>
             <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
@@ -137,7 +137,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
               onMouseEnter={() => tempsMedicalPlay.current?.()}
             >
               <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
-                <div className="absolute bg-[#231633] inset-0 rounded-[30px]" />
+                <div className="absolute bg-[#e4e0f4] inset-0 rounded-[30px]" />
                 <ThumbnailVideo src={tempsMedicalVideoUrl} poster={tempsMedicalPosterUrl} restTime={1.759} playRef={tempsMedicalPlay} />
               </div>
               <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
@@ -163,7 +163,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
               onMouseEnter={() => monetisationPlay.current?.()}
             >
               <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
-                <div className="absolute bg-[#231633] inset-0 rounded-[30px]" />
+                <div className="absolute bg-[#e4e0f4] inset-0 rounded-[30px]" />
                 <ThumbnailVideo src={monetisationVideoUrl} poster={monetisationPosterUrl} restTime={1.163} playRef={monetisationPlay} />
               </div>
               <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
@@ -194,7 +194,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
                 onMouseEnter={() => brandedCallPlay.current?.()}
               >
                 <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
-                  <div className="absolute bg-[#231633] inset-0 rounded-[30px]" />
+                  <div className="absolute bg-[#e4e0f4] inset-0 rounded-[30px]" />
                   <ThumbnailVideo src={brandedCallVideoUrl} poster={brandedCallPosterUrl} restTime={2.269} playRef={brandedCallPlay} />
                 </div>
                 <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">

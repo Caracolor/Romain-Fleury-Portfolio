@@ -83,7 +83,7 @@ function ProjectCard({
             aria-hidden="true"
             className="absolute inset-0 pointer-events-none rounded-[20px]"
           >
-            <div className="absolute bg-[#231633] inset-0 rounded-[20px]" />
+            <div className="absolute bg-[var(--color-qare-100)] inset-0 rounded-[20px]" />
             <ThumbnailVideo src={video} poster={poster} restTime={restTime} resetRef={resetRef} rounded="20px" />
           </div>
           {/* Tags overlay */}
