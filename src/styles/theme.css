@@ -323,11 +323,12 @@ html.lang-fade-in a {
   86.11%  { transform: rotate(155deg); opacity: 1; }
   100%    { transform: rotate(180deg); opacity: 0; }
 }
-/* Minus arrives pre-rotated 90° and settles to 0°, fading in over that same
-   first 25° window (relative to its own 90° travel). */
+/* Minus stays hidden, pre-rotated 90°, until that same final window, then
+   rotates to 0° and fades in right alongside the plus fading out — a real
+   crossfade at the end rather than an early pop-in. */
 @keyframes icon-minus-in {
   0%      { transform: rotate(90deg); opacity: 0; }
-  27.78%  { transform: rotate(0deg);  opacity: 1; }
+  86.11%  { transform: rotate(90deg); opacity: 0; }
   100%    { transform: rotate(0deg);  opacity: 1; }
 }
 /* Reverse of the pair above, for closing the accordion back up. */
@@ -338,6 +339,6 @@ html.lang-fade-in a {
 }
 @keyframes icon-plus-in {
   0%      { transform: rotate(-90deg); opacity: 0; }
-  27.78%  { transform: rotate(0deg);   opacity: 1; }
+  86.11%  { transform: rotate(-90deg); opacity: 0; }
   100%    { transform: rotate(0deg);   opacity: 1; }
 }
