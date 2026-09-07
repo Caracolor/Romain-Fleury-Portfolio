@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import svgPaths from "./svg-tkf3hjp872";
 import { useTranslation } from "../app/components/LanguageContext";
@@ -58,22 +58,52 @@ type HelperbuttonHelper1Props = {
   isOpen?: boolean;
 };
 
+const ICON_SWAP_MS = 320;
+
 function HelperbuttonHelper1({ isOpen = false }: HelperbuttonHelper1Props) {
+  const prevOpen = useRef(isOpen);
+  const [direction, setDirection] = useState<"opening" | "closing" | null>(null);
+
+  useEffect(() => {
+    if (prevOpen.current === isOpen) return;
+    prevOpen.current = isOpen;
+    setDirection(isOpen ? "opening" : "closing");
+    const t = setTimeout(() => setDirection(null), ICON_SWAP_MS);
+    return () => clearTimeout(t);
+  }, [isOpen]);
+
+  // Pendant la transition, l'animation CSS pilote transform/opacity ; au repos,
+  // seule l'icône active (plus si fermé, moins si ouvert) est visible.
+  const plusAnim =
+    direction === "opening" ? "animate-[icon-plus-out_320ms_ease_forwards]"
+    : direction === "closing" ? "animate-[icon-plus-in_320ms_ease_forwards]"
+    : "";
+  const minusAnim =
+    direction === "opening" ? "animate-[icon-minus-in_320ms_ease_forwards]"
+    : direction === "closing" ? "animate-[icon-minus-out_320ms_ease_forwards]"
+    : "";
+
   return (
     <div className="content-stretch flex items-center relative self-stretch shrink-0">
-      <div
-        className={`overflow-clip relative shrink-0 size-[41.756px] transition-transform duration-150 ease-out group-hover:scale-[1.08] ${isOpen ? "text-[#4D4D4D] group-hover:text-[#6b6b6b]" : "text-[#40295B] group-hover:text-[#5d4785]"}`}
-        data-name={isOpen ? "Full/Information/Less" : "Full/Information/More"}
-      >
-        <div className="absolute inset-[8.33%]" data-name="vector">
-          <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox={isOpen ? "0 0 20 20" : "0 0 34.7966 34.7966"}>
-            <path
-              clipRule="evenodd"
-              d={isOpen ? svgPaths.p23196c80 : svgPaths.pfd03300}
-              fill="currentColor"
-              fillRule="evenodd"
-              id="vector"
-            />
+      <div className="relative shrink-0 size-[41.756px] transition-transform duration-150 ease-out group-hover:scale-[1.08]">
+        {/* Plus */}
+        <div
+          className={`absolute inset-[8.33%] text-[#40295B] transition-colors duration-150 group-hover:text-[#5d4785] ${plusAnim}`}
+          style={direction ? undefined : { opacity: isOpen ? 0 : 1, pointerEvents: isOpen ? "none" : "auto" }}
+          data-name="Full/Information/More"
+        >
+          <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 34.7966 34.7966">
+            <path clipRule="evenodd" d={svgPaths.pfd03300} fill="currentColor" fillRule="evenodd" id="vector" />
+          </svg>
+        </div>
+        {/* Moins */}
+        <div
+          className={`absolute inset-[8.33%] text-[#4D4D4D] transition-colors duration-150 group-hover:text-[#6b6b6b] ${minusAnim}`}
+          style={direction ? undefined : { opacity: isOpen ? 1 : 0, pointerEvents: isOpen ? "auto" : "none" }}
+          data-name="Full/Information/Less"
+        >
+          <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
+            <path clipRule="evenodd" d={svgPaths.p23196c80} fill="currentColor" fillRule="evenodd" id="vector" />
           </svg>
         </div>
       </div>
