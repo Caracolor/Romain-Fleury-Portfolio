@@ -69,7 +69,6 @@ export function HeroMobile() {
                 <img
                   alt="Romain"
                   className="absolute inset-0 size-full object-cover object-top"
-                  style={{ transform: "scaleX(-1)" }}
                   src={imgDsc087301}
                   loading="eager"
                   decoding="sync"
