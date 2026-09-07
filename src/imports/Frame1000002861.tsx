@@ -98,8 +98,8 @@ type Component4TextProps = {
 
 function Component4Text({ text, additionalClassNames = "" }: Component4TextProps) {
   return (
-    <div className={clsx("content-stretch flex gap-[32px] h-[22px] items-center relative shrink-0", additionalClassNames)}>
-      <div className="h-[22px] flex items-center justify-center shrink-0 w-[21px]">
+    <div className={clsx("content-stretch flex gap-[32px] h-[14px] items-center relative shrink-0", additionalClassNames)}>
+      <div className="h-[14px] flex items-center justify-center shrink-0 w-[14px]">
         <div
           className="rounded-full shrink-0 flex items-center justify-center"
           style={{ width: 14, height: 14, border: "2px solid #40295b", backgroundColor: "transparent" }}
