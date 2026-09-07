@@ -206,7 +206,7 @@ function Component({ className }: { className?: string }) {
                     onClick={() => toggle(key)}
                   >
                     <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start min-h-px min-w-px relative">
-                      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#3c3162] text-[32px] text-left w-full">{item.company}</p>
+                      <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#3c3162] text-[26px] text-left w-full">{item.company}</p>
                       <HelperbuttonHelper text={item.role} text1={item.period} />
                     </div>
                     <div className="flex flex-row items-center self-stretch">
@@ -252,9 +252,9 @@ export default function Frame() {
                 )}
               </div>
               <div className="content-stretch flex flex-[1_0_0] flex-col font-['Aeonik:Regular',sans-serif] gap-[4px] items-start min-h-px min-w-px not-italic relative">
-                <p className="leading-[normal] relative shrink-0 text-[#40295b] text-[32px] w-full">{item.school}</p>
+                <p className="leading-[normal] relative shrink-0 text-[#40295b] text-[26px] w-full">{item.school}</p>
                 <p className="leading-[normal] relative shrink-0 text-[#7a63ca] text-[20px] tracking-[4px] uppercase w-full">{item.period}</p>
-                <p className="leading-[30px] relative shrink-0 text-[#40295b] text-[24px] w-full">{item.degree}</p>
+                <p className="leading-[26px] relative shrink-0 text-[#40295b] text-[18px] w-full">{item.degree}</p>
               </div>
             </div>
           ))}
@@ -262,11 +262,11 @@ export default function Frame() {
       </div>
       <div className="content-stretch flex flex-col font-['Aeonik:Regular',sans-serif] gap-[40px] items-start not-italic relative shrink-0 text-[#40295b] w-full">
         <p className="leading-[normal] relative shrink-0 tracking-[15px] uppercase whitespace-nowrap text-[40px]">{langs.section_title}</p>
-        <div className="content-stretch flex flex-col gap-[32px] items-start leading-[0] relative shrink-0 text-[0px] text-[24px] w-full">
+        <div className="content-stretch flex flex-col gap-[32px] items-start leading-[0] relative shrink-0 text-[0px] text-[18px] w-full">
           {langs.items.map((l) => (
             <p key={l.language} className="relative shrink-0 whitespace-nowrap">
-              <span className="font-['Aeonik:Bold',sans-serif] leading-[30px]">{l.language}</span>
-              <span className="leading-[30px]">{` - ${l.level}`}</span>
+              <span className="font-['Aeonik:Bold',sans-serif] leading-[26px]">{l.language}</span>
+              <span className="leading-[26px]">{` - ${l.level}`}</span>
             </p>
           ))}
         </div>
