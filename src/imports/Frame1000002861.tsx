@@ -199,40 +199,43 @@ export default function Frame() {
   return (
     <div className="content-stretch flex flex-col gap-[180px] items-start relative size-full">
       <Component className="relative shrink-0 w-full" />
-      <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full">
-        <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#40295b] tracking-[15px] uppercase whitespace-nowrap text-[40px]">{edu.section_title}</p>
-        <div className="content-stretch flex flex-col items-start relative shrink-0">
-          {edu.items.map((item, i) => (
-            <div key={item.school} className="content-stretch flex gap-[32px] h-[160px] items-start relative shrink-0 w-[946px]">
-              <div className="content-stretch flex flex-col h-full items-center relative shrink-0">
-                {i === 0 ? (
-                  <div className="shrink-0 w-[2px] border-l-[2px] border-dashed border-white" style={{ height: 47.6165 }} />
-                ) : (
-                  <div className="shrink-0 w-[2px] bg-[#40295b]" style={{ height: 50.702 }} />
-                )}
-                <Helper />
-                {i < edu.items.length - 1 && (
-                  <div className="flex-[1_0_0] min-h-px w-[2px] bg-[#40295b]" />
-                )}
+      <div className="content-stretch flex gap-[48px] relative shrink-0 w-full">
+        <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0" style={{ width: "58%" }}>
+          <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#40295b] tracking-[15px] uppercase whitespace-nowrap text-[40px]">{edu.section_title}</p>
+          <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
+            {edu.items.map((item, i) => (
+              <div key={item.school} className="content-stretch flex gap-[32px] h-[160px] items-start relative shrink-0 w-full">
+                <div className="content-stretch flex flex-col h-full items-center relative shrink-0">
+                  {i === 0 ? (
+                    <div className="shrink-0 w-[2px] border-l-[2px] border-dashed border-white" style={{ height: 47.6165 }} />
+                  ) : (
+                    <div className="shrink-0 w-[2px] bg-[#40295b]" style={{ height: 50.702 }} />
+                  )}
+                  <Helper />
+                  {i < edu.items.length - 1 && (
+                    <div className="flex-[1_0_0] min-h-px w-[2px] bg-[#40295b]" />
+                  )}
+                </div>
+                <div className="content-stretch flex flex-[1_0_0] flex-col font-['Aeonik:Regular',sans-serif] gap-[4px] items-start min-h-px min-w-px not-italic relative">
+                  <p className="leading-[normal] relative shrink-0 text-[#40295b] text-[26px] w-full">{item.school}</p>
+                  <p className="leading-[normal] relative shrink-0 text-[#7a63ca] text-[20px] tracking-[4px] uppercase w-full">{item.period}</p>
+                  <p className="leading-[26px] relative shrink-0 text-[#40295b] text-[18px] w-full">{item.degree}</p>
+                </div>
               </div>
-              <div className="content-stretch flex flex-[1_0_0] flex-col font-['Aeonik:Regular',sans-serif] gap-[4px] items-start min-h-px min-w-px not-italic relative">
-                <p className="leading-[normal] relative shrink-0 text-[#40295b] text-[26px] w-full">{item.school}</p>
-                <p className="leading-[normal] relative shrink-0 text-[#7a63ca] text-[20px] tracking-[4px] uppercase w-full">{item.period}</p>
-                <p className="leading-[26px] relative shrink-0 text-[#40295b] text-[18px] w-full">{item.degree}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="content-stretch flex flex-col font-['Aeonik:Regular',sans-serif] gap-[40px] items-start not-italic relative shrink-0 text-[#40295b] w-full">
-        <p className="leading-[normal] relative shrink-0 tracking-[15px] uppercase whitespace-nowrap text-[40px]">{langs.section_title}</p>
-        <div className="content-stretch flex flex-col gap-[32px] items-start leading-[0] relative shrink-0 text-[0px] text-[18px] w-full">
-          {langs.items.map((l) => (
-            <p key={l.language} className="relative shrink-0 whitespace-nowrap">
-              <span className="font-['Aeonik:Bold',sans-serif] leading-[26px]">{l.language}</span>
-              <span className="leading-[26px]">{` - ${l.level}`}</span>
-            </p>
-          ))}
+        <div className="shrink-0 w-[2px] bg-[#e4e0f4]" />
+        <div className="content-stretch flex flex-col font-['Aeonik:Regular',sans-serif] gap-[40px] items-start not-italic relative shrink-0 text-[#40295b] flex-[1_0_0] min-w-px">
+          <p className="leading-[normal] relative shrink-0 tracking-[15px] uppercase whitespace-nowrap text-[40px]">{langs.section_title}</p>
+          <div className="content-stretch flex flex-col gap-[32px] items-start leading-[0] relative shrink-0 text-[0px] text-[18px] w-full">
+            {langs.items.map((l) => (
+              <p key={l.language} className="relative shrink-0 whitespace-nowrap">
+                <span className="font-['Aeonik:Bold',sans-serif] leading-[26px]">{l.language}</span>
+                <span className="leading-[26px]">{` - ${l.level}`}</span>
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </div>
