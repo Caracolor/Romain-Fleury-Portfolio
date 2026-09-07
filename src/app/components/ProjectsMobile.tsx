@@ -223,7 +223,7 @@ export function ProjectsMobile() {
         <ProjectCard
           video={brandedCallVideoUrl}
           poster={brandedCallPosterUrl}
-          restTime={2.269}
+          restTime={2.993}
           resetRef={brandedCallReset}
           title={items[3].title}
           tags={[items[3].tag, ...(items[3].tag2 ? [items[3].tag2] : [])]}

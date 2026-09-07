@@ -195,7 +195,7 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
               >
                 <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[30px]">
                   <div className="absolute bg-[#e4e0f4] inset-0 rounded-[30px]" />
-                  <ThumbnailVideo src={brandedCallVideoUrl} poster={brandedCallPosterUrl} restTime={2.269} playRef={brandedCallPlay} />
+                  <ThumbnailVideo src={brandedCallVideoUrl} poster={brandedCallPosterUrl} restTime={2.993} playRef={brandedCallPlay} />
                 </div>
                 <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] size-full">
                   <Wrapper>
