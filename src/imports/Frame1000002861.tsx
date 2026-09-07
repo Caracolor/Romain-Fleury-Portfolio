@@ -204,7 +204,7 @@ export default function Frame() {
           <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#40295b] tracking-[15px] uppercase whitespace-nowrap text-[40px]">{edu.section_title}</p>
           <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
             {edu.items.map((item, i) => (
-              <div key={item.school} className="content-stretch flex gap-[32px] h-[160px] items-start relative shrink-0 w-full">
+              <div key={item.school} className="content-stretch flex gap-[32px] relative shrink-0 w-full">
                 <div className="content-stretch flex flex-col h-full items-center relative shrink-0">
                   {i === 0 ? (
                     <div className="shrink-0 w-[2px] border-l-[2px] border-dashed border-white" style={{ height: 47.6165 }} />
@@ -216,7 +216,7 @@ export default function Frame() {
                     <div className="flex-[1_0_0] min-h-px w-[2px] bg-[#40295b]" />
                   )}
                 </div>
-                <div className="content-stretch flex flex-[1_0_0] flex-col font-['Aeonik:Regular',sans-serif] gap-[4px] items-start min-h-px min-w-px not-italic relative">
+                <div className="content-stretch flex flex-[1_0_0] flex-col font-['Aeonik:Regular',sans-serif] gap-[4px] items-start min-h-px min-w-px not-italic relative pb-[16px]">
                   <p className="leading-[normal] relative shrink-0 text-[#40295b] text-[26px] w-full">{item.school}</p>
                   <p className="leading-[normal] relative shrink-0 text-[#7a63ca] text-[20px] tracking-[4px] uppercase w-full">{item.period}</p>
                   <p className="leading-[26px] relative shrink-0 text-[#40295b] text-[18px] w-full">{item.degree}</p>
