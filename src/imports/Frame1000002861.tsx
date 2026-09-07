@@ -75,12 +75,12 @@ function HelperbuttonHelper1({ isOpen = false }: HelperbuttonHelper1Props) {
   // Pendant la transition, l'animation CSS pilote transform/opacity ; au repos,
   // seule l'icône active (plus si fermé, moins si ouvert) est visible.
   const plusAnim =
-    direction === "opening" ? "animate-[icon-plus-out_450ms_ease_forwards]"
-    : direction === "closing" ? "animate-[icon-plus-in_450ms_ease_forwards]"
+    direction === "opening" ? "animate-[icon-plus-out_450ms_linear_forwards]"
+    : direction === "closing" ? "animate-[icon-plus-in_450ms_linear_forwards]"
     : "";
   const minusAnim =
-    direction === "opening" ? "animate-[icon-minus-in_450ms_ease_forwards]"
-    : direction === "closing" ? "animate-[icon-minus-out_450ms_ease_forwards]"
+    direction === "opening" ? "animate-[icon-minus-in_450ms_linear_forwards]"
+    : direction === "closing" ? "animate-[icon-minus-out_450ms_linear_forwards]"
     : "";
 
   return (

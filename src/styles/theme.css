@@ -317,7 +317,11 @@ html.lang-fade-in a {
 }
 
 /* ── Accordion +/− icon swap ── */
-/* Plus spins a full 180°, only fading out over its last 25° (155°→180°). */
+/* Plus spins a full 180°, only fading out over its last 25° (155°→180°). The
+   final segment is forced linear so it sums to exactly 1 with the incoming
+   icon's fade-in at every instant — with easing on both sides independently,
+   their curves don't cancel out and there's a visible dip where neither
+   icon is fully opaque. */
 @keyframes icon-plus-out {
   0%      { transform: rotate(0deg);   opacity: 1; }
   86.11%  { transform: rotate(155deg); opacity: 1; }
