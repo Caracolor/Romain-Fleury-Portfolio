@@ -61,13 +61,16 @@ type HelperbuttonHelper1Props = {
 function HelperbuttonHelper1({ isOpen = false }: HelperbuttonHelper1Props) {
   return (
     <div className="content-stretch flex items-center relative self-stretch shrink-0">
-      <div className="overflow-clip relative shrink-0 size-[41.756px]" data-name={isOpen ? "Full/Information/Less" : "Full/Information/More"}>
+      <div
+        className={`overflow-clip relative shrink-0 size-[41.756px] transition-transform duration-150 ease-out group-hover:scale-[1.08] ${isOpen ? "text-[#4D4D4D] group-hover:text-[#6b6b6b]" : "text-[#40295B] group-hover:text-[#5d4785]"}`}
+        data-name={isOpen ? "Full/Information/Less" : "Full/Information/More"}
+      >
         <div className="absolute inset-[8.33%]" data-name="vector">
           <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox={isOpen ? "0 0 20 20" : "0 0 34.7966 34.7966"}>
             <path
               clipRule="evenodd"
               d={isOpen ? svgPaths.p23196c80 : svgPaths.pfd03300}
-              fill={isOpen ? "var(--fill-0, #4D4D4D)" : "var(--fill-0, #40295B)"}
+              fill="currentColor"
               fillRule="evenodd"
               id="vector"
             />
@@ -166,7 +169,7 @@ function Component({ className }: { className?: string }) {
                 <WrapperComp />
                 <div className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-start min-h-px min-w-px pb-[24px] relative">
                   <button
-                    className="content-stretch cursor-pointer flex gap-[32px] items-center relative shrink-0 w-full"
+                    className="content-stretch cursor-pointer flex gap-[32px] group items-center relative shrink-0 w-full"
                     onClick={() => toggle(key)}
                   >
                     <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start min-h-px min-w-px relative">
