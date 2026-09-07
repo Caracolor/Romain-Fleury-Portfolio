@@ -11,16 +11,16 @@ function TimelineDot({
     <div className="flex flex-col items-center shrink-0 self-stretch">
       {/* Top line */}
       <div
-        className="w-[4px] shrink-0"
+        className="w-[2px] shrink-0"
         style={{
           height: 16,
           background: isFirst ? "transparent" : "var(--color-qare-text)",
         }}
       />
       {/* Dot */}
-      <div className="w-[16px] h-[16px] rounded-full border-[3px] border-[var(--color-qare-text)] shrink-0" />
+      <div className="w-[14px] h-[14px] rounded-full border-[2px] border-[var(--color-qare-text)] shrink-0" />
       {/* Bottom line */}
-      <div className="w-[4px] flex-1 bg-[var(--color-qare-text)]" />
+      <div className="w-[2px] flex-1 bg-[var(--color-qare-text)]" />
     </div>
   );
 }
@@ -140,15 +140,15 @@ function EducationEntry({
       {/* Timeline */}
       <div className="flex flex-col items-center shrink-0 self-stretch">
         <div
-          className="w-[4px] shrink-0"
+          className="w-[2px] shrink-0"
           style={{
             height: 16,
             background: isFirst ? "transparent" : "var(--color-qare-text)",
           }}
         />
-        <div className="w-[16px] h-[16px] rounded-full border-[3px] border-[var(--color-qare-text)] shrink-0" />
+        <div className="w-[14px] h-[14px] rounded-full border-[2px] border-[var(--color-qare-text)] shrink-0" />
         {!isLast && (
-          <div className="w-[4px] flex-1 bg-[var(--color-qare-text)]" />
+          <div className="w-[2px] flex-1 bg-[var(--color-qare-text)]" />
         )}
       </div>
       {/* Content */}
@@ -205,30 +205,14 @@ export function ExperienceMobile() {
             {/* Timeline connector */}
             <div className="flex flex-col items-center shrink-0 self-stretch">
               <div
-                className="w-[4px] shrink-0"
+                className="w-[2px] shrink-0"
                 style={{ height: 16, background: "var(--color-qare-text)" }}
               />
-              <div className="w-[16px] h-[16px] shrink-0 flex items-center justify-center">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 28 28"
-                  fill="none"
-                >
-                  <circle
-                    cx="14"
-                    cy="14"
-                    r="12"
-                    stroke="var(--color-qare-text)"
-                    strokeWidth="4"
-                  />
-                  <circle
-                    cx="14"
-                    cy="14"
-                    r="5.35"
-                    fill="#7D6CCC"
-                  />
-                </svg>
+              <div
+                className="rounded-full shrink-0 flex items-center justify-center"
+                style={{ width: 14, height: 14, border: "2px solid var(--color-qare-text)", backgroundColor: "transparent" }}
+              >
+                <div className="rounded-full shrink-0" style={{ width: 6, height: 6, backgroundColor: "#7D6CCC" }} />
               </div>
             </div>
             {/* Link */}
