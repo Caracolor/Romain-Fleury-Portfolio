@@ -317,32 +317,23 @@ html.lang-fade-in a {
 }
 
 /* ── Accordion +/− icon swap ── */
-/* Plus spins a full 180°, only fading out over its last 25° (155°→180°). The
-   final segment is forced linear so it sums to exactly 1 with the incoming
-   icon's fade-in at every instant — with easing on both sides independently,
-   their curves don't cancel out and there's a visible dip where neither
-   icon is fully opaque. */
+/* Both glyphs rotate and crossfade together across the whole duration
+   (not one first, then a late handoff) — the classic burger-to-X shape,
+   which reads as a single continuous motion instead of a stop-then-jump. */
 @keyframes icon-plus-out {
-  0%      { transform: rotate(0deg);   opacity: 1; }
-  86.11%  { transform: rotate(155deg); opacity: 1; }
-  100%    { transform: rotate(180deg); opacity: 0; }
+  0%    { transform: rotate(0deg);  opacity: 1; }
+  100%  { transform: rotate(90deg); opacity: 0; }
 }
-/* Minus stays hidden, pre-rotated 90°, until that same final window, then
-   rotates to 0° and fades in right alongside the plus fading out — a real
-   crossfade at the end rather than an early pop-in. */
 @keyframes icon-minus-in {
-  0%      { transform: rotate(90deg); opacity: 0; }
-  86.11%  { transform: rotate(90deg); opacity: 0; }
-  100%    { transform: rotate(0deg);  opacity: 1; }
+  0%    { transform: rotate(-90deg); opacity: 0; }
+  100%  { transform: rotate(0deg);   opacity: 1; }
 }
 /* Reverse of the pair above, for closing the accordion back up. */
 @keyframes icon-minus-out {
-  0%      { transform: rotate(0deg);    opacity: 1; }
-  86.11%  { transform: rotate(-155deg); opacity: 1; }
-  100%    { transform: rotate(-180deg); opacity: 0; }
+  0%    { transform: rotate(0deg);   opacity: 1; }
+  100%  { transform: rotate(-90deg); opacity: 0; }
 }
 @keyframes icon-plus-in {
-  0%      { transform: rotate(-90deg); opacity: 0; }
-  86.11%  { transform: rotate(-90deg); opacity: 0; }
-  100%    { transform: rotate(0deg);   opacity: 1; }
+  0%    { transform: rotate(90deg); opacity: 0; }
+  100%  { transform: rotate(0deg);  opacity: 1; }
 }
