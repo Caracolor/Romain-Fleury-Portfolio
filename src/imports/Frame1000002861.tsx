@@ -28,7 +28,7 @@ type Wrapper3Props = {
 function Wrapper3({ children, additionalClassNames = "" }: React.PropsWithChildren<Wrapper3Props>) {
   return (
     <div className={clsx("absolute", additionalClassNames)}>
-      <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28 28">
+      <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 29 29">
         {children}
       </svg>
     </div>
