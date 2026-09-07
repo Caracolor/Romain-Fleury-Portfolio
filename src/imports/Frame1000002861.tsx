@@ -38,12 +38,12 @@ function Wrapper3({ children, additionalClassNames = "" }: React.PropsWithChildr
 function Wrapper2({ children }: React.PropsWithChildren<{}>) {
   return (
     <div className="content-stretch flex flex-col items-center relative self-stretch shrink-0">
-      <div className="shrink-0 w-[5px] bg-[#40295b]" style={{ height: 14.2 }} />
+      <div className="shrink-0 w-[3px] bg-[#40295b]" style={{ height: 14.2 }} />
       <Helper />
       <div className="flex-[1_0_0] min-h-px min-w-px relative w-0">
         <div className="absolute inset-[0_-2px]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 4 100">
-            <path d="M2 0V100" stroke="var(--stroke-0, #40295B)" strokeWidth="2" />
+            <path d="M2 0V100" stroke="var(--stroke-0, #40295B)" strokeWidth="3" />
           </svg>
         </div>
       </div>
@@ -54,12 +54,12 @@ function Wrapper2({ children }: React.PropsWithChildren<{}>) {
 function Wrapper1({ children }: React.PropsWithChildren<{}>) {
   return (
     <div className="content-stretch flex flex-col items-center relative self-stretch shrink-0">
-      <div className="shrink-0 w-[5px] bg-[#40295b]" style={{ height: 15.279 }} />
+      <div className="shrink-0 w-[3px] bg-[#40295b]" style={{ height: 15.279 }} />
       <Helper />
       <div className="flex-[1_0_0] min-h-px min-w-px relative w-0">
         <div className="absolute inset-[0_-2px]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 4 100">
-            <path d="M2 0V100" stroke="var(--stroke-0, #40295B)" strokeWidth="2" />
+            <path d="M2 0V100" stroke="var(--stroke-0, #40295B)" strokeWidth="3" />
           </svg>
         </div>
       </div>
@@ -76,7 +76,7 @@ function Wrapper({ children }: React.PropsWithChildren<{}>) {
           <div className="flex-[1_0_0] min-h-px min-w-px relative w-0">
             <div className="absolute inset-[0_-2px]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 4 100">
-                <path d="M2 0V100" stroke="var(--stroke-0, #40295B)" strokeWidth="2" />
+                <path d="M2 0V100" stroke="var(--stroke-0, #40295B)" strokeWidth="3" />
               </svg>
             </div>
           </div>
@@ -136,7 +136,7 @@ function Component4Text({ text, additionalClassNames = "" }: Component4TextProps
           <g id="Frame 2085663515">
             <path d="M14.5 3V4" id="Vector 10" stroke="var(--stroke-0, #40295B)" />
             <g id="Frame 2085663519">
-              <circle cx="14" cy="14" id="Ellipse 394" r="12" stroke="var(--stroke-0, #40295B)" strokeWidth="2" />
+              <circle cx="14" cy="14" id="Ellipse 394" r="12" stroke="var(--stroke-0, #40295B)" strokeWidth="3" />
               <circle cx="14" cy="14" fill="var(--fill-0, #7D6CCC)" id="Ellipse 393" r="5.34919" />
             </g>
           </g>
@@ -151,7 +151,7 @@ function Helper() {
   return (
     <div className="relative shrink-0 size-[20px]">
       <Wrapper3 additionalClassNames="inset-[-20%]">
-        <circle cx="14" cy="14" id="Ellipse 393" r="12" stroke="var(--stroke-0, #40295B)" strokeWidth="2" />
+        <circle cx="14" cy="14" id="Ellipse 393" r="12" stroke="var(--stroke-0, #40295B)" strokeWidth="3" />
       </Wrapper3>
     </div>
   );
@@ -242,13 +242,13 @@ export default function Frame() {
             <div key={item.school} className="content-stretch flex gap-[32px] h-[160px] items-start relative shrink-0 w-[946px]">
               <div className="content-stretch flex flex-col h-full items-center relative shrink-0">
                 {i === 0 ? (
-                  <div className="shrink-0 w-[2px] border-l-[2px] border-dashed border-white" style={{ height: 47.6165 }} />
+                  <div className="shrink-0 w-[3px] border-l-[3px] border-dashed border-white" style={{ height: 47.6165 }} />
                 ) : (
-                  <div className="shrink-0 w-[2px] bg-[#40295b]" style={{ height: 50.702 }} />
+                  <div className="shrink-0 w-[3px] bg-[#40295b]" style={{ height: 50.702 }} />
                 )}
                 <Helper />
                 {i < edu.items.length - 1 && (
-                  <div className="flex-[1_0_0] min-h-px w-[2px] bg-[#40295b]" />
+                  <div className="flex-[1_0_0] min-h-px w-[3px] bg-[#40295b]" />
                 )}
               </div>
               <div className="content-stretch flex flex-[1_0_0] flex-col font-['Aeonik:Regular',sans-serif] gap-[4px] items-start min-h-px min-w-px not-italic relative">
