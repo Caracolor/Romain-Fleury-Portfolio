@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 // split = nombre de caractères dans le premier pill (999 = tout dans un seul pill)
 const TITLES = [
-  { full: "Head of product design", split: 15 },  // "Head of product" | "design"
+  { full: "Head of design", split: 999 }, // "Head of design" (1 pill)
   { full: "Product design manager", split: 14 },  // "Product design"  | "manager"
   { full: "Design builder",         split: 999 }, // "Design builder"  (1 pill)
   { full: "Growth hacker",          split: 999 }, // "Growth hacker"   (1 pill)

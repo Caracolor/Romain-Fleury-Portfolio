@@ -6,6 +6,7 @@ import monetisationVideoUrl from "@/assets/monetisation-thumbnail.mp4";
 import monetisationPosterUrl from "@/assets/monetisation-thumbnail-poster.webp";
 import brandedCallVideoUrl from "@/assets/branded-call-thumbnail.mp4";
 import brandedCallPosterUrl from "@/assets/branded-call-thumbnail-poster.webp";
+import comingSoonBgUrl from "@/assets/coming-soon-bg.webp";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import { ThumbnailVideo } from "./ThumbnailVideo";
@@ -58,10 +59,14 @@ function ProjectCard({
       {/* Image */}
       {comingSoon ? (
         <div
-          className="relative w-full rounded-[20px] overflow-hidden flex items-center justify-center bg-[#231633]"
+          className="relative w-full rounded-[20px] overflow-hidden flex items-center justify-center bg-white"
           style={{ aspectRatio: "1140 / 982" }}
         >
-          <p className="font-['Aeonik:Bold',sans-serif] text-[var(--color-qare-300)] text-[20px] tracking-[4px] uppercase">
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-25"
+            style={{ backgroundImage: `url(${comingSoonBgUrl})` }}
+          />
+          <p className="relative font-['Aeonik:Bold',sans-serif] text-black text-[20px] tracking-[4px] uppercase">
             {comingSoon}
           </p>
           <div

@@ -62,20 +62,17 @@ export function HeroMobile() {
               </svg>
             </div>
           </div>
-          {/* Photo image */}
+          {/* Photo image — full-height rect so the head overflows above the background shape, like on desktop */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="-scale-y-100 rotate-180 size-full">
-              <div className="size-full relative rounded-[24px]">
-                <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[24px]">
-                  <img
-                    alt="Romain"
-                    className="absolute h-[148.9%] left-[-23.45%] max-w-none top-[-7.49%] w-[115.29%]"
-                    style={{ transform: "rotate(-8deg) translateX(28px)" }}
-                    src={imgDsc087301}
-                    loading="eager"
-                    decoding="sync"
-                  />
-                </div>
+            <div className="size-full relative rounded-[24px]">
+              <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[24px]">
+                <img
+                  alt="Romain"
+                  className="absolute inset-0 size-full object-cover object-top scale-x-[-1]"
+                  src={imgDsc087301}
+                  loading="eager"
+                  decoding="sync"
+                />
               </div>
             </div>
           </div>

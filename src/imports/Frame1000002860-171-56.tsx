@@ -8,6 +8,7 @@ import monetisationVideoUrl from "@/assets/monetisation-thumbnail.mp4";
 import monetisationPosterUrl from "@/assets/monetisation-thumbnail-poster.webp";
 import brandedCallVideoUrl from "@/assets/branded-call-thumbnail.mp4";
 import brandedCallPosterUrl from "@/assets/branded-call-thumbnail-poster.webp";
+import comingSoonBgUrl from "@/assets/coming-soon-bg.webp";
 import { useTranslation } from "../app/components/LanguageContext";
 
 function Wrapper({ children }: React.PropsWithChildren<{}>) {
@@ -220,8 +221,12 @@ export default function Frame({ onQareClick, onTempsMedicalClick, onMonetisation
           {items[4] ? (
           <div className="flex flex-[1_0_0] flex-row items-center self-stretch opacity-50 cursor-default">
             <div className="content-stretch flex flex-[1_0_0] flex-col gap-[16px] h-full items-start min-h-px min-w-px relative">
-              <div className="aspect-[1140/982] relative rounded-[30px] shrink-0 w-full bg-[#231633] flex items-center justify-center">
-                <p className="font-['Aeonik:Bold',sans-serif] text-[#afa2df] text-[24px] tracking-[5px] uppercase">
+              <div className="aspect-[1140/982] relative rounded-[30px] shrink-0 w-full bg-white flex items-center justify-center">
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-25 rounded-[30px]"
+                  style={{ backgroundImage: `url(${comingSoonBgUrl})` }}
+                />
+                <p className="relative font-['Aeonik:Bold',sans-serif] text-black text-[24px] tracking-[5px] uppercase">
                   {proj.coming_soon_label}
                 </p>
                 <div aria-hidden="true" className="absolute border-4 border-[#e4e0f4] border-solid inset-0 pointer-events-none rounded-[30px]" />
