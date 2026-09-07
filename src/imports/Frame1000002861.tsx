@@ -64,13 +64,20 @@ function HelperbuttonHelper1({ isOpen = false }: HelperbuttonHelper1Props) {
   const prevOpen = useRef(isOpen);
   const [direction, setDirection] = useState<"opening" | "closing" | null>(null);
 
-  useEffect(() => {
-    if (prevOpen.current === isOpen) return;
+  // Détection du changement pendant le rendu (pas dans un effet) : la classe
+  // d'animation est donc posée dès le tout premier rendu qui suit le clic,
+  // sans passer par un rendu intermédiaire figé sur l'état final qui
+  // provoquait un flash (saut à l'état final, puis retour au début).
+  if (prevOpen.current !== isOpen) {
     prevOpen.current = isOpen;
     setDirection(isOpen ? "opening" : "closing");
+  }
+
+  useEffect(() => {
+    if (direction === null) return;
     const t = setTimeout(() => setDirection(null), ICON_SWAP_MS);
     return () => clearTimeout(t);
-  }, [isOpen]);
+  }, [direction]);
 
   // Pendant la transition, l'animation CSS pilote transform/opacity ; au repos,
   // seule l'icône active (plus si fermé, moins si ouvert) est visible.
