@@ -112,7 +112,7 @@ export default function Frame() {
               <div className="-scale-y-100 flex-none rotate-180">
                 <div className="h-[425.601px] relative rounded-[36.176px] w-[361.761px]" data-name="DSC08730 1">
                   <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[36.176px]">
-                    <img alt="" className="absolute inset-0 size-full object-cover object-top scale-x-[-1]" src={imgDsc087301} loading="eager" decoding="sync" />
+                    <img alt="" className="absolute inset-0 size-full object-cover object-top" style={{ transform: "scaleX(-1)" }} src={imgDsc087301} loading="eager" decoding="sync" />
                   </div>
                 </div>
               </div>

@@ -68,7 +68,8 @@ export function HeroMobile() {
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[24px]">
                 <img
                   alt="Romain"
-                  className="absolute inset-0 size-full object-cover object-top scale-x-[-1]"
+                  className="absolute inset-0 size-full object-cover object-top"
+                  style={{ transform: "scaleX(-1)" }}
                   src={imgDsc087301}
                   loading="eager"
                   decoding="sync"
