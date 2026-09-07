@@ -21,20 +21,6 @@ function Wrapper4({ children, additionalClassNames = "" }: React.PropsWithChildr
     </div>
   );
 }
-type Wrapper3Props = {
-  additionalClassNames?: string;
-};
-
-function Wrapper3({ children, additionalClassNames = "" }: React.PropsWithChildren<Wrapper3Props>) {
-  return (
-    <div className={clsx("absolute", additionalClassNames)}>
-      <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 28 28">
-        {children}
-      </svg>
-    </div>
-  );
-}
-
 function Wrapper2({ children }: React.PropsWithChildren<{}>) {
   return (
     <div className="content-stretch flex flex-col items-center relative self-stretch shrink-0">
@@ -113,16 +99,13 @@ type Component4TextProps = {
 function Component4Text({ text, additionalClassNames = "" }: Component4TextProps) {
   return (
     <div className={clsx("content-stretch flex gap-[32px] h-[22px] items-center relative shrink-0", additionalClassNames)}>
-      <div className="h-[22px] relative shrink-0 w-[21px]">
-        <Wrapper3 additionalClassNames="inset-[-13.64%_-14.29%_-13.64%_-19.05%]">
-          <g id="Frame 2085663515">
-            <path d="M14.5 3V4" id="Vector 10" stroke="var(--stroke-0, #40295B)" />
-            <g id="Frame 2085663519">
-              <circle cx="14" cy="14" id="Ellipse 394" r="12" stroke="var(--stroke-0, #40295B)" strokeWidth="3" />
-              <circle cx="14" cy="14" fill="var(--fill-0, #7D6CCC)" id="Ellipse 393" r="5.34919" />
-            </g>
-          </g>
-        </Wrapper3>
+      <div className="h-[22px] flex items-center justify-center shrink-0 w-[21px]">
+        <div
+          className="rounded-full shrink-0 flex items-center justify-center"
+          style={{ width: 14, height: 14, border: "2px solid #40295b", backgroundColor: "transparent" }}
+        >
+          <div className="rounded-full shrink-0" style={{ width: 6, height: 6, backgroundColor: "#7D6CCC" }} />
+        </div>
       </div>
       <a href="https://www.linkedin.com/in/romain-fleury/" target="_blank" rel="noopener noreferrer" className="decoration-solid flex-[1_0_0] font-['Aeonik:Regular',sans-serif] leading-[28px] min-h-px min-w-px not-italic relative text-[#7a63ca] text-[20px] underline">{text}</a>
     </div>
