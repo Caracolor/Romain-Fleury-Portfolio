@@ -40,7 +40,7 @@ function Wrapper2({ children }: React.PropsWithChildren<{}>) {
     <div className="content-stretch flex flex-col items-center relative self-stretch shrink-0">
       <div className="shrink-0 w-[3px] bg-[#40295b]" style={{ height: 14.2 }} />
       <Helper />
-      <div className="flex-[1_0_0] min-h-px min-w-px relative w-0">
+      <div className="flex-[1_0_0] min-h-px min-w-0 relative w-0">
         <div className="absolute inset-[0_-2px]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 4 100">
             <path d="M2 0V100" stroke="var(--stroke-0, #40295B)" strokeWidth="3" />
@@ -56,7 +56,7 @@ function Wrapper1({ children }: React.PropsWithChildren<{}>) {
     <div className="content-stretch flex flex-col items-center relative self-stretch shrink-0">
       <div className="shrink-0 w-[3px] bg-[#40295b]" style={{ height: 15.279 }} />
       <Helper />
-      <div className="flex-[1_0_0] min-h-px min-w-px relative w-0">
+      <div className="flex-[1_0_0] min-h-px min-w-0 relative w-0">
         <div className="absolute inset-[0_-2px]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 4 100">
             <path d="M2 0V100" stroke="var(--stroke-0, #40295B)" strokeWidth="3" />
@@ -73,7 +73,7 @@ function Wrapper({ children }: React.PropsWithChildren<{}>) {
       <div className="flex flex-col items-center size-full">
         <div className="content-stretch flex flex-col h-full items-center pt-[16px] relative">
           <Helper />
-          <div className="flex-[1_0_0] min-h-px min-w-px relative w-0">
+          <div className="flex-[1_0_0] min-h-px min-w-0 relative w-0">
             <div className="absolute inset-[0_-2px]">
               <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 4 100">
                 <path d="M2 0V100" stroke="var(--stroke-0, #40295B)" strokeWidth="3" />
