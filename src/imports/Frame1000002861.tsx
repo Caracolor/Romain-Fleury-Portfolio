@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
-import svgPaths from "./svg-tkf3hjp872";
 import { useTranslation } from "../app/components/LanguageContext";
 
 function Wrapper5({ children }: React.PropsWithChildren<{}>) {
@@ -79,40 +78,27 @@ function HelperbuttonHelper1({ isOpen = false }: HelperbuttonHelper1Props) {
     return () => clearTimeout(t);
   }, [direction]);
 
-  // Pendant la transition, l'animation CSS pilote transform/opacity ; au repos,
-  // seule l'icône active (plus si fermé, moins si ouvert) est visible.
-  const plusAnim =
-    direction === "opening" ? "animate-[icon-plus-out_250ms_ease-in-out_forwards]"
-    : direction === "closing" ? "animate-[icon-plus-in_250ms_ease-in-out_forwards]"
-    : "";
-  const minusAnim =
-    direction === "opening" ? "animate-[icon-minus-in_250ms_ease-in-out_forwards]"
-    : direction === "closing" ? "animate-[icon-minus-out_250ms_ease-in-out_forwards]"
+  // Seule la barre verticale anime (fondu + rotation) ; le cercle et la barre
+  // horizontale restent fixes en permanence, donc jamais deux calques
+  // semi-transparents superposés — donc jamais de blanc qui filtre entre eux.
+  const vBarAnim =
+    direction === "opening" ? "animate-[icon-vbar-out_250ms_ease-in-out_forwards]"
+    : direction === "closing" ? "animate-[icon-vbar-in_250ms_ease-in-out_forwards]"
     : "";
 
   return (
     <div className="content-stretch flex items-center relative self-stretch shrink-0">
       <div className="relative shrink-0 size-[41.756px] transition-transform duration-150 ease-out group-hover:scale-[1.08]">
-        {/* Plus */}
+        <div className="absolute inset-[8.33%] rounded-full bg-[#40295B] transition-colors duration-150 group-hover:bg-[#5d4785]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" style={{ width: 14, height: 2.5 }} />
         <div
-          className={`absolute inset-[8.33%] text-[#40295B] transition-colors duration-150 group-hover:text-[#5d4785] ${plusAnim}`}
-          style={direction ? undefined : { opacity: isOpen ? 0 : 1, pointerEvents: isOpen ? "none" : "auto" }}
-          data-name="Full/Information/More"
-        >
-          <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 34.7966 34.7966">
-            <path clipRule="evenodd" d={svgPaths.pfd03300} fill="currentColor" fillRule="evenodd" id="vector" />
-          </svg>
-        </div>
-        {/* Moins */}
-        <div
-          className={`absolute inset-[8.33%] text-[#40295B] transition-colors duration-150 group-hover:text-[#5d4785] ${minusAnim}`}
-          style={direction ? undefined : { opacity: isOpen ? 1 : 0, pointerEvents: isOpen ? "auto" : "none" }}
-          data-name="Full/Information/Less"
-        >
-          <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
-            <path clipRule="evenodd" d={svgPaths.p23196c80} fill="currentColor" fillRule="evenodd" id="vector" />
-          </svg>
-        </div>
+          className={`absolute top-1/2 left-1/2 rounded-full bg-white ${vBarAnim}`}
+          style={{
+            width: 2.5,
+            height: 14,
+            ...(direction ? undefined : { transform: `translate(-50%, -50%) rotate(${isOpen ? 90 : 0}deg)`, opacity: isOpen ? 0 : 1 }),
+          }}
+        />
       </div>
     </div>
   );

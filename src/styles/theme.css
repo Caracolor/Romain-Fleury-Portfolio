@@ -317,23 +317,14 @@ html.lang-fade-in a {
 }
 
 /* ── Accordion +/− icon swap ── */
-/* Both glyphs rotate and crossfade together across the whole duration
-   (not one first, then a late handoff) — the classic burger-to-X shape,
-   which reads as a single continuous motion instead of a stop-then-jump. */
-@keyframes icon-plus-out {
-  0%    { transform: rotate(0deg);  opacity: 1; }
-  100%  { transform: rotate(90deg); opacity: 0; }
+/* Only the vertical bar animates — the circle and horizontal bar are static,
+   so there's never more than one semi-transparent layer on screen at once
+   (no alpha-compositing gap between two independently-fading shapes). */
+@keyframes icon-vbar-out {
+  0%    { transform: translate(-50%, -50%) rotate(0deg);  opacity: 1; }
+  100%  { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
 }
-@keyframes icon-minus-in {
-  0%    { transform: rotate(-90deg); opacity: 0; }
-  100%  { transform: rotate(0deg);   opacity: 1; }
-}
-/* Reverse of the pair above, for closing the accordion back up. */
-@keyframes icon-minus-out {
-  0%    { transform: rotate(0deg);   opacity: 1; }
-  100%  { transform: rotate(-90deg); opacity: 0; }
-}
-@keyframes icon-plus-in {
-  0%    { transform: rotate(90deg); opacity: 0; }
-  100%  { transform: rotate(0deg);  opacity: 1; }
+@keyframes icon-vbar-in {
+  0%    { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+  100%  { transform: translate(-50%, -50%) rotate(0deg);  opacity: 1; }
 }
