@@ -57,7 +57,7 @@ type HelperbuttonHelper1Props = {
   isOpen?: boolean;
 };
 
-const ICON_SWAP_MS = 250;
+const ICON_SWAP_MS = 300;
 
 function HelperbuttonHelper1({ isOpen = false }: HelperbuttonHelper1Props) {
   const prevOpen = useRef(isOpen);
@@ -78,43 +78,49 @@ function HelperbuttonHelper1({ isOpen = false }: HelperbuttonHelper1Props) {
     return () => clearTimeout(t);
   }, [direction]);
 
-  // Les deux barres tournent ensemble comme un seul "+" rigide (d'où le X
-  // au milieu de la transition) ; seule la barre A s'efface, en fin de
-  // course, une fois figée à 45° — la barre B, elle, ne fait jamais de
-  // fondu et tourne en continu jusqu'à devenir le "−" final. Il n'y a donc
-  // jamais deux calques semi-transparents superposés (jamais de blanc qui
-  // filtre entre eux). Repris à l'identique de l'animation Figma de référence.
-  const barHAnim =
-    direction === "opening" ? "animate-[icon-barH-out_250ms_linear_forwards]"
-    : direction === "closing" ? "animate-[icon-barH-in_250ms_linear_forwards]"
+  // Repris des keyframes Figma (fichier Portfolio, frame 2087325889) :
+  // les deux glyphes y partagent exactement la même piste de rotation
+  // (0° → -180° en 300 ms, ease-in-out), et seule l'opacité les distingue.
+  // Ici le "rotor" porte la rotation commune, la barre horizontale reste
+  // opaque en permanence (c'est elle qui devient le "−"), et seule la barre
+  // verticale s'efface — en pleine rotation, entre 40% et 80% de la course
+  // (120→240 ms sur 300, comme dans Figma). Une seule couche change donc
+  // d'opacité à la fois, au-dessus d'un fond toujours opaque : pas de blanc
+  // qui filtre entre les deux états.
+  const rotorAnim =
+    direction === "opening" ? "animate-[icon-rotor-out_300ms_ease-in-out_forwards]"
+    : direction === "closing" ? "animate-[icon-rotor-in_300ms_ease-in-out_forwards]"
     : "";
-  const barVAnim =
-    direction === "opening" ? "animate-[icon-barV-out_250ms_linear_forwards]"
-    : direction === "closing" ? "animate-[icon-barV-in_250ms_linear_forwards]"
+  const vBarAnim =
+    direction === "opening" ? "animate-[icon-vbar-out_120ms_ease-in-out_120ms_both]"
+    : direction === "closing" ? "animate-[icon-vbar-in_120ms_ease-in-out_60ms_both]"
     : "";
 
   return (
     <div className="content-stretch flex items-center relative self-stretch shrink-0">
       <div className="relative shrink-0 size-[41.756px] transition-transform duration-150 ease-out group-hover:scale-[1.08]">
         <div className="absolute inset-[8.33%] rounded-full bg-[#40295B] transition-colors duration-150 group-hover:bg-[#5d4785]" />
-        {/* Barre A — horizontale dans le "+", s'efface à l'ouverture */}
+        {/* Rotor — porte la rotation commune aux deux barres */}
         <div
-          className={`absolute top-1/2 left-1/2 rounded-full bg-white ${barHAnim}`}
-          style={{
-            width: 14,
-            height: 2.5,
-            ...(direction ? undefined : { transform: `translate(-50%, -50%) rotate(${isOpen ? 45 : 0}deg)`, opacity: isOpen ? 0 : 1 }),
-          }}
-        />
-        {/* Barre B — verticale dans le "+", tourne pour devenir le "−" */}
-        <div
-          className={`absolute top-1/2 left-1/2 rounded-full bg-white ${barVAnim}`}
-          style={{
-            width: 14,
-            height: 2.5,
-            ...(direction ? undefined : { transform: `translate(-50%, -50%) rotate(${isOpen ? 180 : 90}deg)` }),
-          }}
-        />
+          className={`absolute inset-0 ${rotorAnim}`}
+          style={direction ? undefined : { transform: `rotate(${isOpen ? -180 : 0}deg)` }}
+        >
+          {/* Barre horizontale — devient le "−", jamais de fondu */}
+          <div
+            className="absolute top-1/2 left-1/2 rounded-full bg-white"
+            style={{ width: 14, height: 2.5, transform: "translate(-50%, -50%)" }}
+          />
+          {/* Barre verticale — complète le "+", s'efface en pleine rotation */}
+          <div
+            className={`absolute top-1/2 left-1/2 rounded-full bg-white ${vBarAnim}`}
+            style={{
+              width: 14,
+              height: 2.5,
+              transform: "translate(-50%, -50%) rotate(90deg)",
+              ...(direction ? undefined : { opacity: isOpen ? 0 : 1 }),
+            }}
+          />
+        </div>
       </div>
     </div>
   );

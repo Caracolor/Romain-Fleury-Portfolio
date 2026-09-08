@@ -317,29 +317,30 @@ html.lang-fade-in a {
 }
 
 /* ── Accordion +/− icon swap ── */
-/* Both bars rotate together as one rigid "+" for the first part of the
-   move (that's the X seen mid-transition), then bar A freezes at 45° and
-   fades out while bar B alone keeps rotating on to become the final "−".
-   Bar B never fades, so there's never more than one semi-transparent
-   layer on screen at once (no alpha-compositing gap). Matches the
-   reference animation exported from Figma. */
-@keyframes icon-barH-out {
-  0%    { transform: translate(-50%, -50%) rotate(0deg);  opacity: 1; }
-  45%   { transform: translate(-50%, -50%) rotate(45deg); opacity: 1; }
-  60%   { transform: translate(-50%, -50%) rotate(45deg); opacity: 0; }
-  100%  { transform: translate(-50%, -50%) rotate(45deg); opacity: 0; }
+/* Transposé des keyframes Figma (frame 2087325889) : les deux glyphes y
+   partagent la même piste de rotation, 0° → -180° en 300 ms ease-in-out,
+   et seule l'opacité les différencie. Rotation et opacité vivent donc sur
+   deux éléments distincts (le rotor et la barre verticale), chacun avec sa
+   propre courbe — plutôt que sur un seul jeu de keyframes, dont les paliers
+   casseraient la rotation en segments et créeraient une couture visible.
+   La barre horizontale ne bouge jamais d'opacité : il y a toujours une
+   couche 100% opaque, donc jamais de blanc qui filtre entre les deux états. */
+@keyframes icon-rotor-out {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-180deg); }
 }
-@keyframes icon-barH-in {
-  0%    { transform: translate(-50%, -50%) rotate(45deg); opacity: 0; }
-  40%   { transform: translate(-50%, -50%) rotate(45deg); opacity: 0; }
-  55%   { transform: translate(-50%, -50%) rotate(45deg); opacity: 1; }
-  100%  { transform: translate(-50%, -50%) rotate(0deg);  opacity: 1; }
+@keyframes icon-rotor-in {
+  from { transform: rotate(-180deg); }
+  to   { transform: rotate(0deg); }
 }
-@keyframes icon-barV-out {
-  0%    { transform: translate(-50%, -50%) rotate(90deg);  opacity: 1; }
-  100%  { transform: translate(-50%, -50%) rotate(180deg); opacity: 1; }
+/* Fondu de la barre verticale — décalé pour tomber en pleine rotation :
+   40%→80% de la course à l'aller (Figma : 119→241 ms sur 299), et son
+   miroir exact 20%→60% au retour. */
+@keyframes icon-vbar-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
-@keyframes icon-barV-in {
-  0%    { transform: translate(-50%, -50%) rotate(180deg); opacity: 1; }
-  100%  { transform: translate(-50%, -50%) rotate(90deg);  opacity: 1; }
+@keyframes icon-vbar-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
