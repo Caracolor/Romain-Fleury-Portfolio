@@ -105,7 +105,7 @@ function HelperbuttonHelper1({ isOpen = false }: HelperbuttonHelper1Props) {
         </div>
         {/* Moins */}
         <div
-          className={`absolute inset-[8.33%] text-[#4D4D4D] transition-colors duration-150 group-hover:text-[#6b6b6b] ${minusAnim}`}
+          className={`absolute inset-[8.33%] text-[#40295B] transition-colors duration-150 group-hover:text-[#5d4785] ${minusAnim}`}
           style={direction ? undefined : { opacity: isOpen ? 1 : 0, pointerEvents: isOpen ? "auto" : "none" }}
           data-name="Full/Information/Less"
         >
