@@ -2,7 +2,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-// ── Rate limiter (in-memory, resets on cold start — acceptable for a portfolio) ──
+// ── Rate limiter (in-memory, resets on cold start - acceptable for a portfolio) ──
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT = 10;
 const WINDOW_MS = 60_000;
@@ -19,7 +19,7 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
-// ── Google Sheets logger (inlined — no cross-directory import) ──────────────
+// ── Google Sheets logger (inlined - no cross-directory import) ──────────────
 async function logToSheet(params: {
   date: string;
   caseStudy: string;
@@ -116,7 +116,7 @@ async function logToSheet(params: {
 
 // ── System prompt ──────────────────────────────────────────────────────────────
 const SYSTEM_PROMPT =
-  `Tu es l'assistant de Romain Fleury, Head of Product Design. Tu réponds aux questions sur ce case study en te basant sur la documentation fournie. Cette documentation est riche — contexte, rôle, décisions, chiffres, tensions, apprentissages. Utilise tout ce contenu pour donner des réponses précises et complètes. Tu peux reformuler et synthétiser, pas seulement citer. Si une question porte sur un élément présent dans la doc, réponds-y même si elle n'est pas dans les questions suggérées. Si la réponse n'est pas du tout dans la documentation, dis-le clairement et invite à contacter Romain directement. Réponds dans la langue de la question (français ou anglais). Sois direct et concis — pas de blabla, pas de disclaimer.`;
+  `Tu es l'assistant de Romain Fleury, Head of Product Design. Tu réponds aux questions sur ce case study en te basant sur la documentation fournie. Cette documentation est riche - contexte, rôle, décisions, chiffres, tensions, apprentissages. Utilise tout ce contenu pour donner des réponses précises et complètes. Tu peux reformuler et synthétiser, pas seulement citer. Si une question porte sur un élément présent dans la doc, réponds-y même si elle n'est pas dans les questions suggérées. Si la réponse n'est pas du tout dans la documentation, dis-le clairement et invite à contacter Romain directement. Réponds dans la langue de la question (français ou anglais). Sois direct et concis - pas de blabla, pas de disclaimer.`;
 
 // ── Handler ────────────────────────────────────────────────────────────────────
 export default async function handler(req: any, res: any) {
@@ -202,7 +202,7 @@ export default async function handler(req: any, res: any) {
     return res.status(502).json({ error: "Service IA indisponible." });
   }
 
-  // Log to Google Sheets (never throws — errors logged silently)
+  // Log to Google Sheets (never throws - errors logged silently)
   await logToSheet({
     date: new Date().toISOString(),
     caseStudy,

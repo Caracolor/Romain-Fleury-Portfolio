@@ -1,28 +1,28 @@
 {
   "caseStudy": "chronic-programs",
   "meta": {
-    "title": "Qare Chronic Programs — Qare Shape & Qare Mind",
+    "title": "Qare Chronic Programs - Qare Shape & Qare Mind",
     "launch": "Juin 2025",
-    "role": "Head of Product Design — IC + Leadership",
+    "role": "Head of Product Design - IC + Leadership",
     "company": "Qare (groupe HealthHero)",
     "team": ["Romain Fleury (Head of Product Design)", "Léa Rabi (Product Designer)", "Eva Zuliani (Lead Product Designer)", "Arnaud Parise (Head of Product)", "Pierre-Olivier Calande (CPO)"]
   },
   "context": {
     "summary": "Qare est une plateforme de télémédecine française leader sur le marché. Face à une dépendance au modèle consultatif ponctuel (à l'acte), l'enjeu stratégique était de construire un modèle de revenus récurrents via des programmes de suivi chronique dans la durée. C'est une transition fondamentale du modèle économique : passer de soins épisodiques à des soins chroniques avec accompagnement continu.",
     "businessContext": "Le modèle à l'acte ne permettait pas de construire une relation thérapeutique dans le temps ni un modèle de revenus prévisibles et récurrents. Les patients atteints de maladies chroniques (surpoids, santé mentale) n'avaient pas de solution de continuité sur Qare.",
-    "designContext": "Au moment du lancement des programmes, l'équipe design avait passé 2 ans sur des quickwins et des micro-améliorations — contrainte de survie de la boite. Il fallait d'abord recréer les conditions pour qu'un travail ambitieux soit possible avant de faire le travail lui-même."
+    "designContext": "Au moment du lancement des programmes, l'équipe design avait passé 2 ans sur des quickwins et des micro-améliorations - contrainte de survie de la boite. Il fallait d'abord recréer les conditions pour qu'un travail ambitieux soit possible avant de faire le travail lui-même."
   },
   "role": {
-    "summary": "Head of Product Design — rôle IC au début du projet, puis progressivement management et coaching.",
+    "summary": "Head of Product Design - rôle IC au début du projet, puis progressivement management et coaching.",
     "details": [
       "Rôle IC en début de projet pour redonner de l'ambition à une équipe habituée aux quickwins. Pose des bases des programmes et de la logique d'implémentation dans l'app.",
       "Pilotage du discovery et de la recherche utilisateur, notamment les études Van Westendorp sur le pricing.",
       "Coordination avec les équipes produit, médicales et tech.",
       "Coaching et challenge continu des designers sur la conception et les tests utilisateurs.",
-      "Alignement avec l'équipe médicale — rôle d'arbitre entre des avis médicaux parfois contradictoires.",
+      "Alignement avec l'équipe médicale - rôle d'arbitre entre des avis médicaux parfois contradictoires.",
       "Passage progressif en mode management une fois les bases posées, laissant la main à l'équipe pour la délivrance et les améliorations continues."
     ],
-    "approach": "L'enjeu initial n'était pas juste de concevoir un bon produit — c'était de recréer les conditions pour qu'un travail ambitieux soit possible dans une équipe qui avait perdu l'habitude de penser grand."
+    "approach": "L'enjeu initial n'était pas juste de concevoir un bon produit - c'était de recréer les conditions pour qu'un travail ambitieux soit possible dans une équipe qui avait perdu l'habitude de penser grand."
   },
   "problem": {
     "patient": "Les patients atteints de maladies chroniques (surpoids, santé mentale) n'avaient pas de solution de continuité sur Qare. Le modèle à l'acte créait des ruptures dans le suivi thérapeutique.",
@@ -63,7 +63,7 @@
   "keyDecisions": [
     {
       "decision": "Convertir les patients existants plutôt qu'acquérir de nouveaux",
-      "rationale": "C'est le chemin le plus rapide, le moins cher, et avec le plus d'impact. Le coût d'acquisition est quasi nul, la confiance est déjà établie, le time-to-value est immédiat. Nos patients épisodiques nous faisaient déjà confiance — quand le besoin chronique était là, la conversion était naturelle.",
+      "rationale": "C'est le chemin le plus rapide, le moins cher, et avec le plus d'impact. Le coût d'acquisition est quasi nul, la confiance est déjà établie, le time-to-value est immédiat. Nos patients épisodiques nous faisaient déjà confiance - quand le besoin chronique était là, la conversion était naturelle.",
       "impact": "Facteur clé qui explique le 230% vs objectif."
     },
     {
@@ -92,7 +92,7 @@
     },
     {
       "decision": "Parcours d'éligibilité en ligne avant contact commercial",
-      "rationale": "Qualification des leads en amont — évite les appels inutiles pour des patients non éligibles. Le patient s'auto-sélectionne avant d'être contacté par un CSM."
+      "rationale": "Qualification des leads en amont - évite les appels inutiles pour des patients non éligibles. Le patient s'auto-sélectionne avant d'être contacté par un CSM."
     },
     {
       "decision": "Pricing basé sur études Van Westendorp",
@@ -100,7 +100,7 @@
     }
   ],
   "medicalAlignment": {
-    "approach": "On prend les inputs de l'équipe médicale mais pas comme argent comptant. Les médecins ne sont pas toujours d'accord entre eux, et le travail du design c'est aussi de créer cet alignement — les faire se confronter pour consolider un avis commun.",
+    "approach": "On prend les inputs de l'équipe médicale mais pas comme argent comptant. Les médecins ne sont pas toujours d'accord entre eux, et le travail du design c'est aussi de créer cet alignement - les faire se confronter pour consolider un avis commun.",
     "principle": "Le médical chez Qare est dans un rôle de conseil produit, pas de validateur. Si on laisse le médical valider, on se bloque systématiquement pour des raisons éthiques.",
     "inPractice": "Confronter plusieurs avis médicaux, identifier les consensus, les soumettre au design qui arbitre en fonction des besoins utilisateurs réels."
   },
@@ -114,36 +114,36 @@
     "patients_actifs": 2179,
     "croissance_mensuelle": "+56%",
     "vs_objectif": "230%",
-    "context": "Résultat obtenu sans campagne marketing d'acquisition — uniquement via conversion de la base patients existante."
+    "context": "Résultat obtenu sans campagne marketing d'acquisition - uniquement via conversion de la base patients existante."
   },
   "challenges": [
-    "Manque de moyens et délais très serrés — MVP volontairement minimaliste pour tenir la date butoire",
-    "Contenu médical créé par l'équipe médicale de façon trop brute — recadrage nécessaire après lancement",
-    "Deux offres Shape créant de la confusion — décision reconnue comme mauvaise en retrospective",
-    "Processus encore en WIP au lancement (Matching Psy, Activation aPa) — assumé"
+    "Manque de moyens et délais très serrés - MVP volontairement minimaliste pour tenir la date butoire",
+    "Contenu médical créé par l'équipe médicale de façon trop brute - recadrage nécessaire après lancement",
+    "Deux offres Shape créant de la confusion - décision reconnue comme mauvaise en retrospective",
+    "Processus encore en WIP au lancement (Matching Psy, Activation aPa) - assumé"
   ],
   "learnings": [
     "Le product-market fit sur une base existante est radicalement plus efficace que l'acquisition à froid.",
     "Trop de choix = hésitation = drop. Une offre claire bat deux offres segmentées sur un produit médical.",
-    "Le contenu médical doit être cadré par le design dès le début — l'équipe médicale produit du contenu médical brut, pas de l'UX writing.",
+    "Le contenu médical doit être cadré par le design dès le début - l'équipe médicale produit du contenu médical brut, pas de l'UX writing.",
     "Recréer les conditions pour travailler avec ambition est un prérequis au travail lui-même."
   ],
   "suggestedQuestions": [
     {
       "question": "Quel était ton rôle exact sur ce projet ?",
-      "answer": "Au début surtout IC — il fallait redonner de l'ambition à une équipe habituée depuis 2 ans à des quickwins et des micro-améliorations. J'ai posé les bases des programmes et la logique d'implémentation dans l'app, puis j'ai progressivement laissé la main. C'est un projet où j'ai d'abord dû recréer les conditions pour qu'un travail ambitieux soit possible."
+      "answer": "Au début surtout IC - il fallait redonner de l'ambition à une équipe habituée depuis 2 ans à des quickwins et des micro-améliorations. J'ai posé les bases des programmes et la logique d'implémentation dans l'app, puis j'ai progressivement laissé la main. C'est un projet où j'ai d'abord dû recréer les conditions pour qu'un travail ambitieux soit possible."
     },
     {
       "question": "Comment avez-vous mesuré le succès ?",
-      "answer": "Au lancement, le KPI principal était le nombre de souscriptions. Maintenant l'enjeu se déplace vers la rétention des patients, le taux de satisfaction, et les outcomes médicaux — est-ce que les patients se sentent mieux. La partie acquisition est désormais surtout entre les mains du marketing."
+      "answer": "Au lancement, le KPI principal était le nombre de souscriptions. Maintenant l'enjeu se déplace vers la rétention des patients, le taux de satisfaction, et les outcomes médicaux - est-ce que les patients se sentent mieux. La partie acquisition est désormais surtout entre les mains du marketing."
     },
     {
       "question": "Qu'est-ce qui explique les 230% vs objectif ?",
-      "answer": "Un product-market fit beaucoup plus fort que prévu. On s'est appuyé sur notre base de patients existants — des utilisateurs épisodiques qu'on a amenés vers le chronic plutôt que d'aller chercher de nouveaux patients via des campagnes marketing. Ces patients nous faisaient déjà confiance. Quand le besoin est là et que la confiance est établie, la conversion est naturelle et rapide."
+      "answer": "Un product-market fit beaucoup plus fort que prévu. On s'est appuyé sur notre base de patients existants - des utilisateurs épisodiques qu'on a amenés vers le chronic plutôt que d'aller chercher de nouveaux patients via des campagnes marketing. Ces patients nous faisaient déjà confiance. Quand le besoin est là et que la confiance est établie, la conversion est naturelle et rapide."
     },
     {
       "question": "Quels ont été les principaux blocages ?",
-      "answer": "Le manque de moyens et des délais très serrés. On a donc fait un MVP très minimaliste — l'objectif était de sortir quelque chose à la date butoire, pas de livrer un produit parfait. Certains process étaient encore en cours de construction au lancement, c'était assumé."
+      "answer": "Le manque de moyens et des délais très serrés. On a donc fait un MVP très minimaliste - l'objectif était de sortir quelque chose à la date butoire, pas de livrer un produit parfait. Certains process étaient encore en cours de construction au lancement, c'était assumé."
     },
     {
       "question": "Comment as-tu arbitré entre besoins utilisateurs et contraintes médicales ?",
@@ -159,7 +159,7 @@
     },
     {
       "question": "Comment le design a-t-il influencé le modèle économique du programme ?",
-      "answer": "On a conduit une étude Van Westendorp pour calibrer le prix acceptable, complétée par des études sur les personas et leurs habitudes — connaissance des GLP-1, rapport au suivi médical, etc. Ce travail a directement alimenté les décisions de pricing et la structuration des offres."
+      "answer": "On a conduit une étude Van Westendorp pour calibrer le prix acceptable, complétée par des études sur les personas et leurs habitudes - connaissance des GLP-1, rapport au suivi médical, etc. Ce travail a directement alimenté les décisions de pricing et la structuration des offres."
     }
   ]
 }
