@@ -35,7 +35,7 @@
       { "value": "B2C", "label": "Expertise" }
     ],
     "en": [
-      { "value": "12+", "label": "Years experience" },
+      { "value": "12+", "label": "Years of experience" },
       { "value": "6+", "label": "Years leading" },
       { "value": "7", "label": "Team members" },
       { "value": "72+", "label": "Features shipped" },
@@ -80,7 +80,7 @@
           "company": "Qare",
           "title": "Monétisation dans la santé",
           "description": "La sensibilité des patients aux prix",
-          "result": "36% des revenus de Qare provient des frais de service",
+          "result": "36% des revenus de Qare proviennent des frais de service",
           "team": null
         },
         {
@@ -141,7 +141,7 @@
           "company": "Qare",
           "title": "Branded Call",
           "description": "Reducing no-shows by calling patients like a regular phone call",
-          "result": "8.4M€ recovered revenue, -146K no-shows /yr",
+          "result": "€8.4M recovered revenue, -146K no-shows /yr",
           "team": "1 PM, 1 Lead Dev"
         },
         {
@@ -213,11 +213,11 @@
           "highlights": [
             "Made user discovery and user testing a core step",
             "Led the design team and contributed to product delivery",
-            "Monetize a health platform in France",
-            "Launching new medical services and AI-powered tools",
+            "Monetized a health platform in France",
+            "Launched new medical services and AI-powered tools",
             "From startup to scale-up",
             "From 4 to 8 designers",
-            "Switch to a cross-country design system"
+            "Deployed a cross-country design system"
           ]
         },
         {
@@ -324,7 +324,7 @@
         "opportunities_title": "Les opportunités",
         "opportunities": [
           "La santé mentale concerne 1 Français sur 5 et 80% n'ont jamais consulté (déserts médicaux, prix, stigmatisation)",
-          "L'obésité touche 15% de la population française."
+          "L'obésité touche 15% de la population française"
         ],
         "constraint_title": "La contrainte",
         "constraint_text": "Lancer un minimum viable product d'un nouveau service en un temps record pour Qare (3.5 semaines) avec 3 développeurs et un Product manager, tout en validant un nouveau business model et une nouvelle offre."
@@ -373,7 +373,7 @@
         "pillars": [
           { "emoji": "📱", "text": "Navigation de l'app Qare repensée pour faire de la place aux programmes" },
           { "emoji": "🧩", "text": "Système de contenu modulaire sans automatisation ni personnalisation (MVP)" },
-          { "emoji": "🍾", "text": "Utiliser en priorité le produit comme principal source d'acquisition" }
+          { "emoji": "🍾", "text": "Utiliser en priorité le produit comme principale source d'acquisition" }
         ],
         "navigation_title": "Navigation",
         "navigation_text": "Simplification puis réorganisation de l'application puis ajout des éléments des programmes (en violet)",
@@ -388,7 +388,7 @@
           { "value": "€18k", "label": "Revenus mensuels" },
           { "value": "2 179", "label": "Patients actifs" },
           { "value": "75-85%", "label": "de rétention estimée" },
-          { "value": "80%", "label": "D'activation" }
+          { "value": "80%", "label": "d'activation" }
         ],
         "worked_title": "Ce qui a fonctionné",
         "worked": [
@@ -396,7 +396,7 @@
           "Ciblage déserts médicaux + message tiers-payant = combo gagnant",
           "Promesse autour de l'équipe pluridisciplinaire spécialisée",
           "Accompagnement constant : améliore acquisition ET rétention",
-          "Volume consultations en croissance constante -- preuve d'engagement réel"
+          "Volume consultations en croissance constante — preuve d'engagement réel"
         ],
         "failed_title": "Ce qui n'a pas fonctionné",
         "failed": [
@@ -483,7 +483,7 @@
         "opportunities_title": "Opportunities",
         "opportunities": [
           "Mental health affects 1 in 5 French people, and 80% have never consulted (medical deserts, cost, stigma)",
-          "Obesity affects 15% of the French population."
+          "Obesity affects 15% of the French population"
         ],
         "constraint_title": "The constraint",
         "constraint_text": "Launch an MVP of a new service in record time for Qare (3.5 weeks) with 3 developers and one Product Manager, while validating a new business model and a new offering."
@@ -555,7 +555,7 @@
           "Targeting medical deserts + insurance coverage messaging = winning combo",
           "Promise of a specialized multidisciplinary team",
           "Continuous support: improves both acquisition AND retention",
-          "Steadily growing consultation volume -- proof of real engagement"
+          "Steadily growing consultation volume — proof of real engagement"
         ],
         "failed_title": "What didn't work",
         "failed": [
@@ -964,7 +964,7 @@
           "De l'autre, un régulateur qui remet en cause l'existence même de ces frais. Entre les deux, des patients qui ne sont pas sensibles au prix mais à la valeur perçue du service.",
           "Pendant 3 ans, j'ai piloté la discovery et le design de chaque pivot de monétisation chez Qare, en utilisant des méthodes quantitatives (Van Westendorp, user tests asynchrones à grande échelle) pour transformer une contrainte réglementaire en opportunité produit.",
           "Le constat : quand la discovery précède la décision, ça marche. Quand elle est absente, ça échoue.",
-          "C'est cette histoire que je vous propose de développer ici"
+          "C'est cette histoire que je vous propose de développer ici."
         ]
       },
       "timeline": {
@@ -1047,7 +1047,7 @@
           },
           {
             "title": "Effet Zeigarnik",
-            "text": "Ce biais cognitif nous a guidé pour placer le choix de pricing au bon moment du funnel : après la recherche et l'inscription, quand l'engagement est déjà fort."
+            "text": "Ce biais cognitif nous a guidés pour placer le choix de pricing au bon moment du funnel : après la recherche et l'inscription, quand l'engagement est déjà fort."
           },
           {
             "title": "User tests asynchrones",
@@ -1239,8 +1239,8 @@
         { "value": "2 167h", "label": "de temps médical restitué par an", "tooltip": "Heures de temps praticien perdues chaque année en attente de patients qui ne se présentent pas." }
       ],
       "contexte": { "section_title": "CONTEXTE", "headline": "À propos de Qare ?", "col1": "Qare est une plateforme française de téléconsultation médicale qui permet aux patients de consulter des médecins généralistes et spécialistes 24h/24 et 7j/7, depuis chez eux.", "col2": "Avec plus de 2 500 médecins et 15 000 consultations quotidiennes, Qare est un acteur clé de la santé numérique en France." },
-      "challenge": { "section_title": "LE CHALLENGE", "headline": "Des patients disponibles mais pas alertés", "cards": [ { "title": "Le problème", "text": "Les patients en attente d'une téléconsultation ne sont pas alertés quand leur consultation démarre. Ils naviguent sur une autre app, s'éloignent de leur téléphone, ou laissent l'écran se mettre en veille. Résultat : 146K no-shows par an, 8,4M de manque à gagner, et une insatisfaction majeure chez les praticiens." }, { "title": "Les opportunités", "text": "Le branded call (appel de marque) est un pattern courant hors santé (livraison, transport, services). Seul Livi parmi nos concurrents le propose. L'appel téléphonique est la seule alerte impossible à ignorer pour un patient qui n'est plus sur l'app." }, { "title": "La contrainte", "text": "Les alternatives moins coûteuses (push notifications, SMS) ont déjà été explorées sans résultat suffisant. Le branded call nécessite un développement natif sur iOS et Android (pas de SDK Vonage React Native), avec des contraintes d'affichage différentes selon l'OS." } ] },
-      "role": { "section_title": "MON RÔLE", "headline": "De la discovery technique à la conception review", "description": "J'ai mené la recherche, structuré la conception et facilité les arbitrages pour livrer une solution en deux lots progressifs, en collaboration avec Tristan (PM) et Nicolas (Lead Dev).", "blocks": [ { "title": "Discovery et cadrage", "text": "Catégorisation continue des feedbacks utilisateurs (stores, Trustpilot) avec Eva pour alimenter le codir. Ce projet est issu de cette discovery au long cours. Investigation technique Vonage, benchmark Livi, Slack, WhatsApp, Signal." }, { "title": "Conception multi-plateforme", "text": "Cartographie des comportements iOS (CallKit) et Android (ConnectionService) selon 5 états du téléphone. Design des flows patient et praticien pour les deux lots, en tenant compte des contraintes d'interface système." }, { "title": "Arbitrages et alignement", "text": "Structuration de la conception review, lotissement Lot 1 / Lot 2, facilitation des trade-offs techniques (archi modulaire vs ship fast, feature flag, réutilisabilité cross-marché HealthHero)." } ] },
+      "challenge": { "section_title": "LE CHALLENGE", "headline": "Des patients disponibles mais pas alertés", "cards": [ { "title": "Le problème", "text": "Les patients en attente d'une téléconsultation ne sont pas alertés quand leur consultation démarre. Ils naviguent sur une autre app, s'éloignent de leur téléphone, ou laissent l'écran se mettre en veille. Résultat : 146K no-shows par an, 8,4M€ de manque à gagner, et une insatisfaction majeure chez les praticiens." }, { "title": "Les opportunités", "text": "Le branded call (appel de marque) est un pattern courant hors santé (livraison, transport, services). Seul Livi parmi nos concurrents le propose. L'appel téléphonique est la seule alerte impossible à ignorer pour un patient qui n'est plus sur l'app." }, { "title": "La contrainte", "text": "Les alternatives moins coûteuses (push notifications, SMS) ont déjà été explorées sans résultat suffisant. Le branded call nécessite un développement natif sur iOS et Android (pas de SDK Vonage React Native), avec des contraintes d'affichage différentes selon l'OS." } ] },
+      "role": { "section_title": "MON RÔLE", "headline": "De la discovery technique à la design review", "description": "J'ai mené la recherche, structuré la conception et facilité les arbitrages pour livrer une solution en deux lots progressifs, en collaboration avec Tristan (PM) et Nicolas (Lead Dev).", "blocks": [ { "title": "Discovery et cadrage", "text": "Catégorisation continue des feedbacks utilisateurs (stores, Trustpilot) avec Eva pour alimenter le codir. Ce projet est issu de cette discovery au long cours. Investigation technique Vonage, benchmark Livi, Slack, WhatsApp, Signal." }, { "title": "Conception multi-plateforme", "text": "Cartographie des comportements iOS (CallKit) et Android (ConnectionService) selon 5 états du téléphone. Design des flows patient et praticien pour les deux lots, en tenant compte des contraintes d'interface système." }, { "title": "Arbitrages et alignement", "text": "Structuration de la conception review, lotissement Lot 1 / Lot 2, facilitation des trade-offs techniques (archi modulaire vs ship fast, feature flag, réutilisabilité cross-marché HealthHero)." } ] },
       "insight": { "section_title": "L'INSIGHT DÉCISIF", "headline": "Seule une alerte impossible à ignorer fonctionne", "text": "Qare avait déjà exploré les alternatives moins coûteuses : push notifications, SMS, écrans d'attente améliorés. Aucune n'a suffisamment réduit les no-shows. L'insight clé : quand un patient n'est plus sur l'app, seul un appel téléphonique le ramène. C'est le geste le plus familier et le plus intrusif, donc le plus efficace.", "verbatims": [ { "quote": "\"Lors de la prise de contacte il n y a pas de sonnerie il faut resté les yeux rivé sur son téléphone\"", "source": "Avis store - 12/2/2026" }, { "quote": "\"Impossibilité de la quitter sous peine de perdre la consultation\"", "source": "Avis store - 30/12/2026" } ], "image_caption": "Écran de la salle d'attente (où le patient doit rester les yeux rivés sur son téléphone)" },
       "design_approach": { "section_title": "L'APPROCHE DESIGN", "headline": "Être appelé par son praticien comme un appel classique", "cards": [ { "title": "Pré-conditions intelligentes", "text": "Le branded call ne se déclenche que lorsque toutes les conditions pré-consultation sont remplies et que le patient n'est pas en salle d'attente. Pour limiter les coûts et éviter une expérience incohérente." }, { "title": "Lot 1 : déclenchement réactif", "text": "L'appel est passé quand le praticien rejoint la consultation. Deux tentatives à 20 secondes d'intervalle. Clôture automatique du no-show, le praticien n'a plus à déclarer les absences manuellement." }, { "title": "Lot 2 : déclenchement proactif", "text": "L'appel est déclenché en amont sur un signal prédictif data-driven (clôture consultation précédente, génération du CR). Le praticien en modèle horaire ne voit plus de no-show. Qare devient sans non-présent." } ], "image_captions": { "no_show_logic": "Logique autour de la déclaration des no-show", "trigger_logic": "Logique de déclenchement (version simplifiée)" } },
       "technical": { "section_title": "ÉLÉMENTS TECHNIQUES", "headline": "L'affichage n'est pas identique sur iOS et Android", "text": "Dev natif obligatoire, 3 bases de code à maintenir. Sur iOS, CallKit impose l'interface système avec un branding limité au nom du praticien. Sur Android, le design est entièrement libre : logo Qare, nom du praticien, contexte de consultation.", "placeholder": "Comparatif iOS vs Android - 5 états du téléphone" },
@@ -1273,12 +1273,12 @@
       "meta": { "tag1": "IC Design Lead", "tag2": "1 PM, 1 Lead Dev", "period": "2025-2026" },
       "hero": { "title": "BRANDED CALL", "subtitle": "Reducing no-shows by calling patients like a regular phone call" },
       "hero_stats": [
-        { "value": "8.4M€", "label": "in recovered revenue per year", "tooltip": "Estimated annual revenue loss from no-shows, recoverable through branded call." },
+        { "value": "€8.4M", "label": "in recovered revenue per year", "tooltip": "Estimated annual revenue loss from no-shows, recoverable through branded call." },
         { "value": "-146K", "label": "patient no-shows per year", "tooltip": "Annual volume of lost consultations due to lack of effective patient alerts." },
         { "value": "2,167h", "label": "of medical time restored per year", "tooltip": "Practitioner hours lost each year waiting for patients who don't show up." }
       ],
       "contexte": { "section_title": "CONTEXT", "headline": "About Qare?", "col1": "Qare is a French telemedicine platform that allows patients to consult general practitioners and specialists 24/7, from home.", "col2": "With over 2,500 doctors and 15,000 daily consultations, Qare is a key player in digital healthcare in France." },
-      "challenge": { "section_title": "THE CHALLENGE", "headline": "Available patients, no effective alert", "cards": [ { "title": "The problem", "text": "Patients waiting for a teleconsultation are not effectively alerted when their session starts. They switch to another app, walk away from their phone, or let the screen go to sleep. Result: 146K no-shows per year, 8.4M in lost revenue, and major practitioner dissatisfaction." }, { "title": "The opportunities", "text": "Branded calling is a common pattern outside healthcare (delivery, transport, services). Only Livi among our competitors offers it. A phone call is the only alert impossible to ignore for a patient who has left the app." }, { "title": "The constraint", "text": "Cheaper alternatives (push notifications, SMS) had already been tried without sufficient results. Branded calling requires native development on iOS and Android (no Vonage React Native SDK), with different display constraints per OS." } ] },
+      "challenge": { "section_title": "THE CHALLENGE", "headline": "Available patients, no effective alert", "cards": [ { "title": "The problem", "text": "Patients waiting for a teleconsultation are not effectively alerted when their session starts. They switch to another app, walk away from their phone, or let the screen go to sleep. Result: 146K no-shows per year, €8.4M in lost revenue, and major practitioner dissatisfaction." }, { "title": "The opportunities", "text": "Branded calling is a common pattern outside healthcare (delivery, transport, services). Only Livi among our competitors offers it. A phone call is the only alert impossible to ignore for a patient who has left the app." }, { "title": "The constraint", "text": "Cheaper alternatives (push notifications, SMS) had already been tried without sufficient results. Branded calling requires native development on iOS and Android (no Vonage React Native SDK), with different display constraints per OS." } ] },
       "role": { "section_title": "MY ROLE", "headline": "From technical discovery to design review", "description": "I led the research, structured the design and facilitated trade-offs to deliver a solution in two progressive phases, collaborating with Tristan (PM) and Nicolas (Lead Dev).", "blocks": [ { "title": "Discovery and framing", "text": "Ongoing categorization of user feedback (app stores, Trustpilot) with Eva to feed the executive committee. This project emerged from that continuous discovery. Technical investigation of Vonage, benchmarking Livi, Slack, WhatsApp, Signal." }, { "title": "Cross-platform design", "text": "Mapping of iOS (CallKit) and Android (ConnectionService) behaviors across 5 phone states. Designing patient and practitioner flows for both phases, accounting for system interface constraints." }, { "title": "Trade-offs and alignment", "text": "Structuring the design review, phasing into Lot 1 / Lot 2, facilitating technical trade-offs (modular architecture vs ship fast, feature flags, cross-market reusability for HealthHero)." } ] },
       "insight": { "section_title": "THE KEY INSIGHT", "headline": "Only an alert impossible to ignore works", "text": "Qare had already explored cheaper alternatives: push notifications, SMS, improved waiting screens. None reduced no-shows enough. The key insight: when a patient has left the app, only a phone call brings them back. It's the most familiar and intrusive gesture, and therefore the most effective.", "verbatims": [ { "quote": "\"Lors de la prise de contacte il n y a pas de sonnerie il faut resté les yeux rivé sur son téléphone\"", "source": "Store review - 12/2/2026" }, { "quote": "\"Impossibilité de la quitter sous peine de perdre la consultation\"", "source": "Store review - 30/12/2026" } ], "image_caption": "Waiting room screen (where the patient must keep their eyes glued to the phone)" },
       "design_approach": { "section_title": "THE DESIGN APPROACH", "headline": "Being called by your doctor like a regular phone call", "cards": [ { "title": "Smart pre-conditions", "text": "The branded call only triggers when all pre-consultation conditions are met and the patient is not in the waiting room. To limit costs and avoid an inconsistent experience." }, { "title": "Phase 1: reactive trigger", "text": "The call is placed when the practitioner joins the consultation. Two attempts 20 seconds apart. Automatic no-show closure, the practitioner no longer has to manually declare absences." }, { "title": "Phase 2: proactive trigger", "text": "The call is triggered ahead of time based on a data-driven predictive signal (previous consultation closure, report generation). Hourly-model practitioners no longer see no-shows. Qare becomes no-show free." } ], "image_captions": { "no_show_logic": "No-show declaration logic", "trigger_logic": "Trigger logic (simplified version)" } },
@@ -1319,7 +1319,7 @@
     "en": {
       "title": "What I'm looking for",
       "body": "I'm open to all opportunities in an ambitious product company where design plays a central role. I enjoy working in the details of craft just as much as shaping design vision at a product scale, whether those two dimensions live in the same role or not.",
-      "location": "Based in Nantes (France) and available for Remote or hybrid work in Paris."
+      "location": "Based in Nantes (France) and available for remote or hybrid work in Paris."
     }
   }
 }
