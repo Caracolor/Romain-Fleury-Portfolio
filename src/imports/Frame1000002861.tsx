@@ -78,25 +78,41 @@ function HelperbuttonHelper1({ isOpen = false }: HelperbuttonHelper1Props) {
     return () => clearTimeout(t);
   }, [direction]);
 
-  // Seule la barre verticale anime (fondu + rotation) ; le cercle et la barre
-  // horizontale restent fixes en permanence, donc jamais deux calques
-  // semi-transparents superposés — donc jamais de blanc qui filtre entre eux.
-  const vBarAnim =
-    direction === "opening" ? "animate-[icon-vbar-out_250ms_ease-in-out_forwards]"
-    : direction === "closing" ? "animate-[icon-vbar-in_250ms_ease-in-out_forwards]"
+  // Les deux barres tournent ensemble comme un seul "+" rigide (d'où le X
+  // au milieu de la transition) ; seule la barre A s'efface, en fin de
+  // course, une fois figée à 45° — la barre B, elle, ne fait jamais de
+  // fondu et tourne en continu jusqu'à devenir le "−" final. Il n'y a donc
+  // jamais deux calques semi-transparents superposés (jamais de blanc qui
+  // filtre entre eux). Repris à l'identique de l'animation Figma de référence.
+  const barHAnim =
+    direction === "opening" ? "animate-[icon-barH-out_250ms_linear_forwards]"
+    : direction === "closing" ? "animate-[icon-barH-in_250ms_linear_forwards]"
+    : "";
+  const barVAnim =
+    direction === "opening" ? "animate-[icon-barV-out_250ms_linear_forwards]"
+    : direction === "closing" ? "animate-[icon-barV-in_250ms_linear_forwards]"
     : "";
 
   return (
     <div className="content-stretch flex items-center relative self-stretch shrink-0">
       <div className="relative shrink-0 size-[41.756px] transition-transform duration-150 ease-out group-hover:scale-[1.08]">
         <div className="absolute inset-[8.33%] rounded-full bg-[#40295B] transition-colors duration-150 group-hover:bg-[#5d4785]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" style={{ width: 14, height: 2.5 }} />
+        {/* Barre A — horizontale dans le "+", s'efface à l'ouverture */}
         <div
-          className={`absolute top-1/2 left-1/2 rounded-full bg-white ${vBarAnim}`}
+          className={`absolute top-1/2 left-1/2 rounded-full bg-white ${barHAnim}`}
           style={{
-            width: 2.5,
-            height: 14,
-            ...(direction ? undefined : { transform: `translate(-50%, -50%) rotate(${isOpen ? 90 : 0}deg)`, opacity: isOpen ? 0 : 1 }),
+            width: 14,
+            height: 2.5,
+            ...(direction ? undefined : { transform: `translate(-50%, -50%) rotate(${isOpen ? 45 : 0}deg)`, opacity: isOpen ? 0 : 1 }),
+          }}
+        />
+        {/* Barre B — verticale dans le "+", tourne pour devenir le "−" */}
+        <div
+          className={`absolute top-1/2 left-1/2 rounded-full bg-white ${barVAnim}`}
+          style={{
+            width: 14,
+            height: 2.5,
+            ...(direction ? undefined : { transform: `translate(-50%, -50%) rotate(${isOpen ? 180 : 90}deg)` }),
           }}
         />
       </div>
