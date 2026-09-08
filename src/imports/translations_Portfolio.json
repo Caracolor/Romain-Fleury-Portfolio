@@ -3,7 +3,7 @@
     "fr": {
       "about": "À propos",
       "projects": "Projets",
-      "experience": "Expérience",
+      "experience": "Expériences",
       "email": "r.s.fleury@gmail.com"
     },
     "en": {
@@ -159,7 +159,7 @@
   },
   "experience": {
     "fr": {
-      "section_title": "Expérience",
+      "section_title": "Expériences",
       "items": [
         {
           "company": "Qare",
@@ -249,7 +249,7 @@
   },
   "education": {
     "fr": {
-      "section_title": "Formation",
+      "section_title": "Formations",
       "items": [
         {
           "school": "IESA Multimédia Paris",
