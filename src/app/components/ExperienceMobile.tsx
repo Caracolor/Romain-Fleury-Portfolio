@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "./LanguageContext";
 
 /* ── Timeline dot ── */
@@ -26,26 +26,91 @@ function TimelineDot({
 }
 
 /* ── Accordion toggle icon ── */
+/* Même animation que le desktop, transposée des keyframes Figma : les deux
+   barres tournent ensemble de -180° (300 ms ease-in-out) et seule la barre
+   verticale s'efface, en pleine rotation. La barre horizontale reste opaque
+   en permanence, donc jamais de blanc qui filtre entre les deux états.
+   Proportions reprises des anciens SVG : barre = 52,4% du cercle en longueur,
+   10% en épaisseur. */
+const ICON_SWAP_MS = 300;
+const ICON_SIZE = 28;
+const BAR_LEN = ICON_SIZE * 0.524;
+const BAR_THICK = ICON_SIZE * 0.1;
+
 function ToggleIcon({ isOpen }: { isOpen: boolean }) {
+  const prevOpen = useRef(isOpen);
+  const [direction, setDirection] = useState<"opening" | "closing" | null>(null);
+
+  // Comparaison pendant le rendu (pas dans un effet) : la classe d'animation
+  // est posée dès le premier rendu qui suit le tap, sans rendu intermédiaire
+  // figé sur l'état final qui provoquerait un flash.
+  if (prevOpen.current !== isOpen) {
+    prevOpen.current = isOpen;
+    setDirection(isOpen ? "opening" : "closing");
+  }
+
+  useEffect(() => {
+    if (direction === null) return;
+    const t = setTimeout(() => setDirection(null), ICON_SWAP_MS);
+    return () => clearTimeout(t);
+  }, [direction]);
+
+  const rotorAnim =
+    direction === "opening" ? "animate-[icon-rotor-out_300ms_ease-in-out_forwards]"
+    : direction === "closing" ? "animate-[icon-rotor-in_300ms_ease-in-out_forwards]"
+    : "";
+  const vBarAnim =
+    direction === "opening" ? "animate-[icon-vbar-out_120ms_ease-in-out_120ms_both]"
+    : direction === "closing" ? "animate-[icon-vbar-in_120ms_ease-in-out_60ms_both]"
+    : "";
+
   return (
-    <div className="w-[28px] h-[28px] shrink-0 flex items-center justify-center">
-      <svg
-        width="28"
-        height="28"
-        viewBox={isOpen ? "0 0 20 20" : "0 0 34.7966 34.7966"}
-        fill="none"
+    <div className="w-[28px] h-[28px] shrink-0 relative">
+      <div className="absolute inset-0 rounded-full bg-[var(--color-qare-text)]" />
+      {/* Rotor — porte la rotation commune aux deux barres */}
+      <div
+        className={`absolute inset-0 ${rotorAnim}`}
+        style={direction ? undefined : { transform: `rotate(${isOpen ? -180 : 0}deg)` }}
       >
-        <path
-          clipRule="evenodd"
-          d={
-            isOpen
-              ? "M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM4.75737 9.99999C4.75737 9.4477 5.20509 8.99999 5.75737 8.99999H14.2427C14.7949 8.99999 15.2427 9.4477 15.2427 9.99999C15.2427 10.5523 14.7949 11 14.2427 11C10.9289 11 9.07108 11 5.75737 11C5.20509 11 4.75737 10.5523 4.75737 9.99999Z"
-              : "M17.3983 34.7966C27.0071 34.7966 34.7966 27.0071 34.7966 17.3983C34.7966 7.78947 27.0071 0 17.3983 0C7.78947 0 0 7.78947 0 17.3983C0 27.0071 7.78947 34.7966 17.3983 34.7966ZM19.1381 10.0168C19.1381 9.05591 18.3592 8.27696 17.3983 8.27696C16.4374 8.27696 15.6585 9.05591 15.6585 10.0168V15.6584L10.0168 15.6584C9.05595 15.6584 8.27701 16.4374 8.27701 17.3983C8.27701 18.3591 9.05596 19.1381 10.0168 19.1381H15.6585V24.7797C15.6585 25.7406 16.4374 26.5195 17.3983 26.5195C18.3592 26.5195 19.1381 25.7406 19.1381 24.7797V19.1381H24.7798C25.7406 19.1381 26.5196 18.3591 26.5196 17.3983C26.5196 16.4374 25.7406 15.6584 24.7798 15.6584L19.1381 15.6584V10.0168Z"
-          }
-          fill={isOpen ? "#4D4D4D" : "var(--color-qare-text)"}
-          fillRule="evenodd"
+        {/* Barre horizontale — devient le "−", jamais de fondu */}
+        <div
+          className="absolute top-1/2 left-1/2 rounded-full bg-white"
+          style={{ width: BAR_LEN, height: BAR_THICK, transform: "translate(-50%, -50%)" }}
         />
-      </svg>
+        {/* Barre verticale — complète le "+", s'efface en pleine rotation */}
+        <div
+          className={`absolute top-1/2 left-1/2 rounded-full bg-white ${vBarAnim}`}
+          style={{
+            width: BAR_LEN,
+            height: BAR_THICK,
+            transform: "translate(-50%, -50%) rotate(90deg)",
+            ...(direction ? undefined : { opacity: isOpen ? 0 : 1 }),
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+/* ── Repli/dépli animé (voir Frame1000002861.tsx pour le détail) ── */
+function Collapsible({ open, children }: { open: boolean; children: React.ReactNode }) {
+  return (
+    <div
+      className="grid w-full transition-[grid-template-rows] duration-300 ease-in-out"
+      style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
+      aria-hidden={!open}
+    >
+      <div className="min-h-0 overflow-hidden">
+        <div
+          className="pt-[12px]"
+          style={{
+            opacity: open ? 1 : 0,
+            transition: open ? "opacity 200ms ease-out 100ms" : "opacity 150ms ease-in",
+          }}
+        >
+          {children}
+        </div>
+      </div>
     </div>
   );
 }
@@ -106,8 +171,8 @@ function ExperienceEntry({
           </div>
           <ToggleIcon isOpen={isOpen} />
         </div>
-        {isOpen && (
-          <div className="font-['Aeonik:Regular',sans-serif] not-italic text-[var(--color-qare-text)] text-[14px] leading-[20px] mt-[12px]">
+        <Collapsible open={isOpen}>
+          <div className="font-['Aeonik:Regular',sans-serif] not-italic text-[var(--color-qare-text)] text-[14px] leading-[20px]">
             <p>{description}</p>
             <ul className="list-disc pl-[24px] mt-[8px] flex flex-col gap-[2px]">
               {highlights.map((h, i) => (
@@ -115,7 +180,7 @@ function ExperienceEntry({
               ))}
             </ul>
           </div>
-        )}
+        </Collapsible>
       </div>
     </div>
   );

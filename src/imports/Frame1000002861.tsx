@@ -169,6 +169,35 @@ function Helper() {
   );
 }
 
+/* Repli/dépli animé : la grille passe de 0fr à 1fr, seule façon d'animer une
+   hauteur "auto". Le texte se déplie sur la même durée et la même courbe que
+   l'icône (300 ms ease-in-out) ; son opacité, elle, arrive un peu après à
+   l'ouverture et part un peu avant à la fermeture, pour que le texte ne se
+   lise jamais pendant que la boîte bouge encore. */
+function Collapsible({ open, children }: React.PropsWithChildren<{ open: boolean }>) {
+  return (
+    <div
+      className="grid w-full transition-[grid-template-rows] duration-300 ease-in-out"
+      style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
+      aria-hidden={!open}
+    >
+      {/* min-h-0 : sans ça, la hauteur auto d'un élément de grille l'empêche
+          de descendre sous la taille de son contenu, et le repli ne ferme pas */}
+      <div className="min-h-0 overflow-hidden">
+        <div
+          className="pt-[8px]"
+          style={{
+            opacity: open ? 1 : 0,
+            transition: open ? "opacity 200ms ease-out 100ms" : "opacity 150ms ease-in",
+          }}
+        >
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ExperienceDetails({ description, highlights }: { description: string; highlights: string[] }) {
   return (
     <div className="font-['Aeonik:Regular',sans-serif] leading-[0] not-italic relative shrink-0 text-[#40295b] text-[20px] w-full whitespace-pre-wrap">
@@ -212,7 +241,9 @@ function Component({ className }: { className?: string }) {
             return (
               <div key={key} className="content-stretch flex gap-[32px] items-start relative shrink-0 w-[946px]">
                 <WrapperComp />
-                <div className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-start min-h-px min-w-px pb-[24px] relative">
+                {/* pas de gap ici : l'écart de 8px vit dans le Collapsible,
+                    sinon il subsisterait sous le bouton une fois replié */}
+                <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-h-px min-w-px pb-[24px] relative">
                   <button
                     className="content-stretch cursor-pointer flex gap-[32px] group items-center relative shrink-0 w-full"
                     onClick={() => toggle(key)}
@@ -225,9 +256,9 @@ function Component({ className }: { className?: string }) {
                       <HelperbuttonHelper1 isOpen={!!openItems[key]} />
                     </div>
                   </button>
-                  {openItems[key] && (
+                  <Collapsible open={!!openItems[key]}>
                     <ExperienceDetails description={item.description} highlights={item.highlights} />
-                  )}
+                  </Collapsible>
                 </div>
               </div>
             );
