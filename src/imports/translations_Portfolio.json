@@ -72,13 +72,17 @@
       { "value": "6+", "label": "Années de leadership" },
       { "value": "7", "label": "Membres d'équipe" },
       { "value": "12+", "label": "Années d'expérience" },
-      { "value": "72+", "label": "Features livrées" }
+      { "value": "72+", "label": "Features livrées" },
+      { "value": "B2B", "label": "Expertise" },
+      { "value": "B2C", "label": "Expertise" }
     ],
     "en": [
       { "value": "6+", "label": "Years leading" },
       { "value": "7", "label": "Team members" },
       { "value": "12+", "label": "Years of experience" },
-      { "value": "72+", "label": "Features shipped" }
+      { "value": "72+", "label": "Features shipped" },
+      { "value": "B2B", "label": "Expertise" },
+      { "value": "B2C", "label": "Expertise" }
     ]
   },
   "intro": {
