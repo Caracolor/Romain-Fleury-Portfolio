@@ -13,6 +13,36 @@
       "email": "r.s.fleury@gmail.com"
     }
   },
+  "error_404": {
+    "fr": {
+      "code": "404",
+      "headline": "Cette page n'existe pas",
+      "body": "Le lien est peut-être cassé, ou la page a été déplacée.",
+      "cta": "Retour à l'accueil"
+    },
+    "en": {
+      "code": "404",
+      "headline": "This page doesn't exist",
+      "body": "The link might be broken, or the page has moved.",
+      "cta": "Back to home"
+    }
+  },
+  "error_boundary": {
+    "fr": {
+      "code": "500",
+      "headline": "Une erreur est survenue",
+      "body": "Quelque chose s'est mal passé de mon côté. Réessaie, ou reviens à l'accueil.",
+      "cta": "Retour à l'accueil",
+      "retry": "Réessayer"
+    },
+    "en": {
+      "code": "500",
+      "headline": "Something went wrong",
+      "body": "Something broke on my end. Try again, or head back to the homepage.",
+      "cta": "Back to home",
+      "retry": "Try again"
+    }
+  },
   "hero": {
     "fr": {
       "greeting": "Bonjour,\nje suis Romain",
