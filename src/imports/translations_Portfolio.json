@@ -55,12 +55,16 @@
     "fr": [
       { "value": "12+", "label": "Années d'expérience" },
       { "value": "72+", "label": "Features livrées" },
-      { "value": "~70", "label": "Composants design system" }
+      { "value": "~70", "label": "Composants design system" },
+      { "value": "B2B", "label": "Expertise" },
+      { "value": "B2C", "label": "Expertise" }
     ],
     "en": [
       { "value": "12+", "label": "Years of experience" },
       { "value": "72+", "label": "Features shipped" },
-      { "value": "~70", "label": "Design system components" }
+      { "value": "~70", "label": "Design system components" },
+      { "value": "B2B", "label": "Expertise" },
+      { "value": "B2C", "label": "Expertise" }
     ]
   },
   "stats_mg": {
