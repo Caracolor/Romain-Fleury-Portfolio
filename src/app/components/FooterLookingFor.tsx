@@ -1,8 +1,8 @@
-import { useTranslation } from "./LanguageContext";
 import { ScaledSection } from "./ScaledSection";
+import { useVariantTranslation } from "./HomeVariant";
 
 export function FooterLookingFor() {
-  const t = useTranslation("footer_looking_for");
+  const t = useVariantTranslation("footer_looking_for");
 
   return (
     <div className="bg-[var(--color-qare-050)] w-full relative z-10">

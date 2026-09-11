@@ -32,7 +32,7 @@ function StatItem({ value, label }: { value: string; label: string }) {
 export function HeroMobile() {
   const hero = useTranslation("hero");
   const stats = useVariantTranslation("stats");
-  const intro = useVariantTranslation("intro");
+  const intro = useTranslation("intro");
   const { p1, p2 } = useAnimatedTitle();
 
   const introLines = intro.text.split("\n\n");

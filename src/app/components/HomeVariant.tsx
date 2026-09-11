@@ -7,8 +7,9 @@ import translationsData from "../../imports/translations_Portfolio.json";
  *  - "/" and "/IC" — the default: Senior/Staff Product Designer (IC).
  *  - "/MG"         — Design Manager framing.
  * Only a handful of sections actually differ per audience (hero title,
- * stats order, intro paragraph); everything else on the page — projects,
- * experience, footer — stays the same regardless of variant.
+ * stats, the "What I'm looking for" footer); everything else on the
+ * page — the intro paragraph, projects, experience — stays the same
+ * regardless of variant.
  */
 export type HomeVariant = "ic" | "mg";
 
@@ -38,7 +39,7 @@ export function useHomeVariant(): HomeVariant {
  * "Product designer manager" title) isn't translated content at all — see
  * useAnimatedTitle.ts, which reads the variant directly.
  */
-type VariantableSection = "stats" | "intro";
+type VariantableSection = "stats" | "footer_looking_for";
 
 /**
  * Same as useTranslation(), for the sections above: reads "<section>_mg"

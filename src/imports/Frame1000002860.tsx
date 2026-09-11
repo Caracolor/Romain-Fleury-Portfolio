@@ -82,7 +82,7 @@ function Component({ className, property1 = "Frame 2087325871" }: ComponentProps
 export default function Frame() {
   const hero = useTranslation("hero");
   const stats = useVariantTranslation("stats");
-  const intro = useVariantTranslation("intro");
+  const intro = useTranslation("intro");
   const { p1, p2 } = useAnimatedTitle();
   const introLines = intro.text.split("\n\n");
 

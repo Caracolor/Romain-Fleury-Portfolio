@@ -87,14 +87,6 @@
       "text": "I combine a culture of craft with strategic problem-solving in complex, regulated environments.\n\nI led the monetization of a business model, launched a first LLM-based practitioner solution, and co-structured an organization into product triads. Always hands-on with the product."
     }
   },
-  "intro_mg": {
-    "fr": {
-      "text": "Je suis à la recherche d'un poste de Lead ou Head of Product Design dans une entreprise produit ambitieuse.\n\nJ'aime autant mettre les mains dans le craft que piloter le design à un niveau stratégique, que ces deux dimensions coexistent dans un même rôle ou non."
-    },
-    "en": {
-      "text": "I'm looking for a Lead or Head of Product Design role in an ambitious product company.\n\nI enjoy getting hands-on with craft just as much as driving design at a strategic level, whether those two dimensions live in the same role or not."
-    }
-  },
   "projects_section": {
     "fr": {
       "section_title": "Projets",
@@ -1357,12 +1349,24 @@
   "footer_looking_for": {
     "fr": {
       "title": "Ce que je cherche",
-      "body": "Je suis ouvert à toutes les opportunités dans une entreprise produit ambitieuse où le design joue un rôle central. J'aime autant concevoir dans le détail que contribuer à une vision design à l'échelle du produit, que ces deux dimensions coexistent dans un même rôle ou non.",
+      "body": "Je cherche à rejoindre une équipe produit en tant que Senior Product Designer, IC ou Lead, là où le design est traité comme un levier business. Je travaille à l'intersection des besoins utilisateurs, de la stratégie produit et de la pensée système. Je place le craft et la résolution de problèmes en priorité.",
       "location": "Basé à Nantes, disponible en hybride sur Paris."
     },
     "en": {
       "title": "What I'm looking for",
-      "body": "I'm open to all opportunities in an ambitious product company where design plays a central role. I enjoy working in the details of craft just as much as shaping design vision at a product scale, whether those two dimensions live in the same role or not.",
+      "body": "I'm looking to join a product team as a Senior Product Designer, IC or Lead, where design is treated as a business lever. I work at the intersection of user needs, product strategy, and systems thinking. I love craft and solving problems first.",
+      "location": "Based in Nantes (France) and available for remote or hybrid work in Paris."
+    }
+  },
+  "footer_looking_for_mg": {
+    "fr": {
+      "title": "Ce que je cherche",
+      "body": "Je suis à la recherche d'un poste de Lead ou Head of Product Design dans une entreprise produit ambitieuse. J'aime autant mettre les mains dans le craft que piloter le design à un niveau stratégique, que ces deux dimensions coexistent dans un même rôle ou non.",
+      "location": "Basé à Nantes, disponible en hybride sur Paris."
+    },
+    "en": {
+      "title": "What I'm looking for",
+      "body": "I'm looking for a Lead or Head of Product Design role in an ambitious product company. I enjoy getting hands-on with craft just as much as driving design at a strategic level, whether those two dimensions live in the same role or not.",
       "location": "Based in Nantes (France) and available for remote or hybrid work in Paris."
     }
   }
