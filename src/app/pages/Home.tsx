@@ -13,7 +13,7 @@ import ExperienceFrame from "../../imports/Frame1000002861";
 import { PageLoader } from "../components/PageLoader";
 import { useImagePreloader } from "../components/useImagePreloader";
 import { FooterLookingFor } from "../components/FooterLookingFor";
-import { useHomeVariant } from "../components/HomeVariant";
+import { useHomeVariant, rememberHomeVariant } from "../components/HomeVariant";
 
 const CONTENT_WIDTH = 950;
 
@@ -27,6 +27,10 @@ export default function Home() {
 
   useEffect(() => {
     track("portfolio_homepage_viewed", { variant });
+    // Remembered so Header.tsx's "go home" actions (logo, About/Experience
+    // nav) can return here instead of always falling back to "/" — see
+    // HomeVariant.tsx for why.
+    rememberHomeVariant(variant);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [variant]);
 

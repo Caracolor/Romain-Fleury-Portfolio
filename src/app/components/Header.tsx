@@ -3,32 +3,66 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { useIsMobile } from "./useIsMobile";
 import { useTranslation } from "./LanguageContext";
+import { getHomePath, isHomePath } from "./HomeVariant";
 import Lottie from "lottie-react";
 import logoAnimation from "../../../public/logo-animation.json";
 
-function LogoLottie({ width, height }: { width: number; height: number }) {
+function LogoLottie({ width, height, enableHover = false }: { width: number; height: number; enableHover?: boolean }) {
   const lottieRef = useRef<any>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isHoveringRef = useRef(false);
+  const isPlayingRef = useRef(true); // démarre en playing (autoplay)
 
   useEffect(() => {
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
+    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, []);
 
+  const play = useCallback(() => {
+    isPlayingRef.current = true;
+    lottieRef.current?.goToAndPlay(0);
+  }, []);
+
+  const scheduleReplay = useCallback(() => {
+    isPlayingRef.current = false;
+    if (timerRef.current) clearTimeout(timerRef.current);
+    if (!isHoveringRef.current) {
+      timerRef.current = setTimeout(play, 10_000);
+    }
+  }, [play]);
+
+  const handleMouseEnter = useCallback(() => {
+    if (!enableHover) return;
+    isHoveringRef.current = true;
+    if (!isPlayingRef.current) {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      play();
+    }
+  }, [enableHover, play]);
+
+  const handleMouseLeave = useCallback(() => {
+    if (!enableHover) return;
+    isHoveringRef.current = false;
+    if (!isPlayingRef.current) {
+      timerRef.current = setTimeout(play, 10_000);
+    }
+    // Si elle joue encore, onComplete déclenchera scheduleReplay
+  }, [enableHover, play]);
+
   return (
-    <Lottie
-      lottieRef={lottieRef}
-      animationData={logoAnimation}
-      loop={false}
-      autoplay
+    <div
       style={{ width, height }}
-      onComplete={() => {
-        timerRef.current = setTimeout(() => {
-          lottieRef.current?.goToAndPlay(0);
-        }, 10_000);
-      }}
-    />
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Lottie
+        lottieRef={lottieRef}
+        animationData={logoAnimation}
+        loop={false}
+        autoplay
+        style={{ width, height }}
+        onComplete={scheduleReplay}
+      />
+    </div>
   );
 }
 
@@ -154,8 +188,8 @@ export function Header() {
         const y = el.getBoundingClientRect().top + window.scrollY - 300;
         window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
       };
-      if (location.pathname !== "/") {
-        navigate("/");
+      if (!isHomePath(location.pathname)) {
+        navigate(getHomePath());
         setTimeout(() => scrollTo(sectionId), 100);
       } else {
         scrollTo(sectionId);
@@ -192,7 +226,7 @@ export function Header() {
               className="shrink-0 cursor-pointer"
               style={{ width: 35, height: 48 }}
               onClick={() => {
-                navigate("/");
+                navigate(getHomePath());
                 setMenuOpen(false);
               }}
             >
@@ -406,9 +440,9 @@ export function Header() {
               <div
                 className="shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
                 style={{ width: 52, height: 72 }}
-                onClick={() => navigate("/")}
+                onClick={() => navigate(getHomePath())}
               >
-                <LogoLottie width={52} height={72} />
+                <LogoLottie width={52} height={72} enableHover />
               </div>
               <div className="flex font-['Aeonik:Regular',sans-serif] gap-[48px] items-center leading-[28px] not-italic text-[var(--color-qare-ink)] text-[20px] whitespace-nowrap">
                 <p className="cursor-pointer hover:opacity-70 transition-opacity" onClick={() => scrollToSection("about")}>{nav.about}</p>
