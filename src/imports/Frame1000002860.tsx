@@ -4,6 +4,7 @@ import imgDsc087301 from "@/assets/1680f5d397351ddf45665415243080fa4096145a.webp
 import { useTranslation } from "../app/components/LanguageContext";
 import { useAnimatedTitle } from "../app/components/useAnimatedTitle";
 import { AnimatedStatValue } from "../app/components/AnimatedStatValue";
+import { useVariantTranslation } from "../app/components/HomeVariant";
 type WrapperProps = {
   additionalClassNames?: string;
 };
@@ -80,8 +81,8 @@ function Component({ className, property1 = "Frame 2087325871" }: ComponentProps
 
 export default function Frame() {
   const hero = useTranslation("hero");
-  const stats = useTranslation("stats");
-  const intro = useTranslation("intro");
+  const stats = useVariantTranslation("stats");
+  const intro = useVariantTranslation("intro");
   const { p1, p2 } = useAnimatedTitle();
   const introLines = intro.text.split("\n\n");
 

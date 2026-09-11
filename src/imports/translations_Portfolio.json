@@ -45,29 +45,43 @@
   },
   "hero": {
     "fr": {
-      "greeting": "Bonjour,\nje suis Romain",
-      "role_line1": "Head of product",
-      "role_line2": "design"
+      "greeting": "Bonjour,\nje suis Romain"
     },
     "en": {
-      "greeting": "Hello,\nI'm Romain",
-      "role_line1": "Head of product",
-      "role_line2": "design"
+      "greeting": "Hello,\nI'm Romain"
     }
   },
   "stats": {
     "fr": [
       { "value": "12+", "label": "Années d'expérience" },
-      { "value": "6+", "label": "Années de leadership" },
-      { "value": "7", "label": "Membres d'équipe" },
       { "value": "72+", "label": "Features livrées" },
+      { "value": "7", "label": "Membres d'équipe" },
+      { "value": "6+", "label": "Années de leadership" },
       { "value": "B2B", "label": "Expertise" },
       { "value": "B2C", "label": "Expertise" }
     ],
     "en": [
       { "value": "12+", "label": "Years of experience" },
+      { "value": "72+", "label": "Features shipped" },
+      { "value": "7", "label": "Team members" },
+      { "value": "6+", "label": "Years leading" },
+      { "value": "B2B", "label": "Expertise" },
+      { "value": "B2C", "label": "Expertise" }
+    ]
+  },
+  "stats_mg": {
+    "fr": [
+      { "value": "6+", "label": "Années de leadership" },
+      { "value": "7", "label": "Membres d'équipe" },
+      { "value": "12+", "label": "Années d'expérience" },
+      { "value": "72+", "label": "Features livrées" },
+      { "value": "B2B", "label": "Expertise" },
+      { "value": "B2C", "label": "Expertise" }
+    ],
+    "en": [
       { "value": "6+", "label": "Years leading" },
       { "value": "7", "label": "Team members" },
+      { "value": "12+", "label": "Years of experience" },
       { "value": "72+", "label": "Features shipped" },
       { "value": "B2B", "label": "Expertise" },
       { "value": "B2C", "label": "Expertise" }
@@ -79,6 +93,14 @@
     },
     "en": {
       "text": "I combine a culture of craft with strategic problem-solving in complex, regulated environments.\n\nI led the monetization of a business model, launched a first LLM-based practitioner solution, and co-structured an organization into product triads. Always hands-on with the product."
+    }
+  },
+  "intro_mg": {
+    "fr": {
+      "text": "Je suis à la recherche d'un poste de Lead ou Head of Product Design dans une entreprise produit ambitieuse.\n\nJ'aime autant mettre les mains dans le craft que piloter le design à un niveau stratégique, que ces deux dimensions coexistent dans un même rôle ou non."
+    },
+    "en": {
+      "text": "I'm looking for a Lead or Head of Product Design role in an ambitious product company.\n\nI enjoy getting hands-on with craft just as much as driving design at a strategic level, whether those two dimensions live in the same role or not."
     }
   },
   "projects_section": {

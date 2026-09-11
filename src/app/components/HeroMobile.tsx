@@ -3,6 +3,7 @@ import imgDsc087301 from "@/assets/1680f5d397351ddf45665415243080fa4096145a.webp
 import { useTranslation } from "./LanguageContext";
 import { useAnimatedTitle } from "./useAnimatedTitle";
 import { AnimatedStatValue } from "./AnimatedStatValue";
+import { useVariantTranslation } from "./HomeVariant";
 
 function Tag({ text }: { text: string }) {
   return (
@@ -30,8 +31,8 @@ function StatItem({ value, label }: { value: string; label: string }) {
 
 export function HeroMobile() {
   const hero = useTranslation("hero");
-  const stats = useTranslation("stats");
-  const intro = useTranslation("intro");
+  const stats = useVariantTranslation("stats");
+  const intro = useVariantTranslation("intro");
   const { p1, p2 } = useAnimatedTitle();
 
   const introLines = intro.text.split("\n\n");

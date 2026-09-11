@@ -13,6 +13,7 @@ import ExperienceFrame from "../../imports/Frame1000002861";
 import { PageLoader } from "../components/PageLoader";
 import { useImagePreloader } from "../components/useImagePreloader";
 import { FooterLookingFor } from "../components/FooterLookingFor";
+import { useHomeVariant } from "../components/HomeVariant";
 
 const CONTENT_WIDTH = 950;
 
@@ -22,10 +23,12 @@ export default function Home() {
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
   const imagesReady = useImagePreloader(containerRef);
+  const variant = useHomeVariant();
 
   useEffect(() => {
-    track("portfolio_homepage_viewed");
-  }, []);
+    track("portfolio_homepage_viewed", { variant });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [variant]);
 
   const sectionGap = isMobile ? 80 : Math.round(180 * s);
   const topPad = isMobile ? 100 : Math.round(180 * s);

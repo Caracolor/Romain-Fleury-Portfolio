@@ -1,12 +1,32 @@
 import { useState, useEffect } from "react";
+import { useHomeVariant, type HomeVariant } from "./HomeVariant";
+
+type TitleSpec = { full: string; split: number };
 
 // split = nombre de caractères dans le premier pill (999 = tout dans un seul pill)
-const TITLES = [
-  { full: "Head of design", split: 999 }, // "Head of design" (1 pill)
-  { full: "Product design manager", split: 14 },  // "Product design"  | "manager"
-  { full: "Design builder",         split: 999 }, // "Design builder"  (1 pill)
-  { full: "Growth hacker",          split: 999 }, // "Growth hacker"   (1 pill)
+
+// Le titre "primaire" (celui qui reste affiché la majeure partie du temps,
+// et sur lequel l'animation revient) dépend de l'URL : "/MG" veut lire
+// "Product designer manager" dès l'arrivée, "/" et "/IC" "Senior/Staff
+// Product designer" — voir HomeVariant.tsx.
+const PRIMARY: Record<HomeVariant, TitleSpec> = {
+  ic: { full: "Senior/Staff Product designer", split: 999 },
+  mg: { full: "Product designer manager", split: 999 },
+};
+
+// Titres secondaires, affichés brièvement entre deux passages sur le titre
+// primaire — pure fantaisie, communs aux deux variantes. Le titre "primaire"
+// de l'AUTRE variante y est inclus aussi, pour rester lisible si le lien
+// circule au-delà de son audience d'origine.
+const FLAVOR: TitleSpec[] = [
+  { full: "Design builder", split: 999 },
+  { full: "Growth hacker", split: 999 },
 ];
+
+function titlesFor(variant: HomeVariant): TitleSpec[] {
+  const other = variant === "ic" ? PRIMARY.mg : PRIMARY.ic;
+  return [PRIMARY[variant], other, ...FLAVOR];
+}
 
 export type AnimatedTitleState = {
   p1: string;         // contenu du premier pill
@@ -15,6 +35,9 @@ export type AnimatedTitleState = {
 };
 
 export function useAnimatedTitle(): AnimatedTitleState {
+  const variant = useHomeVariant();
+  const TITLES = titlesFor(variant);
+
   const [currentIdx, setCurrentIdx] = useState(0);
   const [nextIdx,    setNextIdx]    = useState(0);
   const [displayed,  setDisplayed]  = useState(TITLES[0].full);
