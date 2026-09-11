@@ -34,5 +34,14 @@ export function parseStatValue(value: string): {
   const cleaned = value.replace(/[\s\u00A0]/g, "");
   const match = cleaned.match(/^([^0-9]*)(\d+)([^0-9]*)$/);
   if (!match) return { prefix: "", num: NaN, suffix: value, useSpaceFormat: false };
-  return { prefix: match[1], num: parseInt(match[2], 10), suffix: match[3], useSpaceFormat };
+  const [, prefix, digits, suffix] = match;
+  // A letter in front of the digits means this isn't a magnitude at all \u2014
+  // it's a short code like "B2B"/"B2C" that happens to contain a digit.
+  // Every real prefix in this codebase is a currency/sign symbol (\u20AC, +, -),
+  // never a letter, so this can't misfire on a genuine stat. Left
+  // unguarded, "B2B" parsed as num=2 with prefix/suffix "B", and the
+  // count-up animation would visibly flicker "B0B" -> "B1B" -> "B2B"
+  // before landing on the right text.
+  if (/[A-Za-z]/.test(prefix)) return { prefix: "", num: NaN, suffix: value, useSpaceFormat: false };
+  return { prefix, num: parseInt(digits, 10), suffix, useSpaceFormat };
 }
