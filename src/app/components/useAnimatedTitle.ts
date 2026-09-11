@@ -10,8 +10,12 @@ type TitleSpec = { full: string; split: number };
 // "Product designer manager" dès l'arrivée, "/" et "/IC" "Senior/Staff
 // Product designer" — voir HomeVariant.tsx.
 const PRIMARY: Record<HomeVariant, TitleSpec> = {
-  ic: { full: "Senior/Staff Product designer", split: 999 },
-  mg: { full: "Product designer manager", split: 999 },
+  // Both are too wide for the 54px single-pill layout at its intended
+  // container width (measured: 597px / 547px rendered vs a 438px box) —
+  // split onto two stacked pills like the pre-existing "Product design
+  // manager" alternate did, instead of overflowing on one line.
+  ic: { full: "Senior/Staff Product designer", split: 12 }, // "Senior/Staff" | "Product designer"
+  mg: { full: "Product designer manager", split: 16 },      // "Product designer" | "manager"
 };
 
 // Titres secondaires, affichés brièvement entre deux passages sur le titre

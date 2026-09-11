@@ -165,18 +165,14 @@ export default function Frame() {
             }}
           />
           <div className="flex flex-row items-center size-full">
+            {/* justify-between + un nombre de tuiles variable selon la variante
+                (voir HomeVariant.tsx) : à l'origine 6 emplacements codés en
+                dur (stats[0]..stats[5]), remplacés par une boucle pour
+                supporter les 4 stats des pages /IC et /MG sans planter. */}
             <div className="content-stretch flex items-center justify-between px-[40px] py-[32px] relative w-full">
-              <Helper text={stats[0].value} text1={stats[0].label} />
-              <Helper text={stats[1].value} text1={stats[1].label} />
-              <div className="content-stretch flex flex-col gap-[2px] items-center relative shrink-0 w-[132px]">
-                <div className="content-stretch flex items-start relative shrink-0">
-                  <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#40295b] text-[32px] text-center w-[26.35px]"><AnimatedStatValue value={stats[2].value} /></p>
-                </div>
-                <p className="font-['Aeonik:Regular',sans-serif] leading-[normal] min-w-full not-italic relative shrink-0 text-[#40295b] text-[16px] text-center w-[min-content]">{stats[2].label}</p>
-              </div>
-              <Helper text={stats[3].value} text1={stats[3].label} />
-              <Helper text={stats[4].value} text1={stats[4].label} />
-              <Helper text={stats[5].value} text1={stats[5].label} />
+              {stats.map((stat, i) => (
+                <Helper key={i} text={stat.value} text1={stat.label} />
+              ))}
             </div>
           </div>
         </div>

@@ -153,9 +153,12 @@ export function HeroMobile() {
         <div className="grid grid-cols-2 min-[450px]:grid-cols-3 gap-y-[20px] gap-x-[8px] px-[16px] py-[20px] relative w-full">
           <StatItem value={stats[0].value} label={stats[0].label} />
           <StatItem value={stats[1].value} label={stats[1].label} />
-          {/* visible à partir de 450px */}
+          {/* 3e stat visible à partir de 450px : toujours la 3e de la liste
+              (pas un index fixe plus loin) puisque chaque variante ordonne
+              déjà ses stats du plus au moins pertinent — voir stats/stats_mg
+              dans translations_Portfolio.json. */}
           <div className="hidden min-[450px]:flex">
-            <StatItem value={stats[3].value} label={stats[3].label} />
+            <StatItem value={stats[2].value} label={stats[2].label} />
           </div>
         </div>
       </div>
