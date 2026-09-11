@@ -16,13 +16,33 @@ const LanguageContext = createContext<LanguageContextType>({
   setLang: () => {},
 });
 
+/**
+ * Browser-language detection, the industry-standard signal for this (what
+ * GitHub, Stripe, Airbnb… all key off) — not IP/geolocation, which is
+ * unreliable (VPNs, travel, corporate proxies) and would need an async
+ * lookup that either blocks first paint or flashes the wrong language.
+ * navigator.language is synchronous and already reflects the OS/browser's
+ * Accept-Language preference.
+ *
+ * Only "fr" and "en" exist as content, so: French browser → fr, anything
+ * else → en (the universal fallback — this portfolio also targets non-FR
+ * recruiters).
+ */
+export function detectLang(): Lang {
+  if (typeof navigator === "undefined") return "fr";
+  const primary = navigator.language || navigator.languages?.[0];
+  return primary?.toLowerCase().startsWith("fr") ? "fr" : "en";
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangRaw] = useState<Lang>(() => {
     try {
+      // An explicit past choice (the FR/EN toggle) always wins over
+      // browser detection — we never override what the visitor picked.
       const stored = localStorage.getItem("lang");
       if (stored === "en" || stored === "fr") return stored;
     } catch {}
-    return "fr";
+    return detectLang();
   });
 
   // Sync <html lang="…"> with current language
