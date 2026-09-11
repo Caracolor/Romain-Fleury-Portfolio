@@ -27,9 +27,13 @@ const FLAVOR: TitleSpec[] = [
   { full: "Growth hacker", split: 999 },
 ];
 
+// Titre supplémentaire, propre à /MG uniquement.
+const MG_EXTRA: TitleSpec[] = [{ full: "Head of design", split: 999 }];
+
 function titlesFor(variant: HomeVariant): TitleSpec[] {
   const other = variant === "ic" ? PRIMARY.mg : PRIMARY.ic;
-  return [PRIMARY[variant], other, ...FLAVOR];
+  const extra = variant === "mg" ? MG_EXTRA : [];
+  return [PRIMARY[variant], other, ...extra, ...FLAVOR];
 }
 
 export type AnimatedTitleState = {
