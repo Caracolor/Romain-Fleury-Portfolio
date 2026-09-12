@@ -24,6 +24,7 @@ async function logToSheet(params: {
   date: string;
   caseStudy: string;
   question: string;
+  response: string;
 }): Promise<void> {
   try {
     const serviceAccountJson = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
@@ -103,7 +104,7 @@ async function logToSheet(params: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        values: [[params.date, params.caseStudy, params.question]],
+        values: [[params.date, params.caseStudy, params.question, params.response]],
       }),
     });
     if (!sheetRes.ok) {
@@ -231,6 +232,7 @@ export default async function handler(req: any, res: any) {
     date: new Date().toISOString(),
     caseStudy,
     question: question.trim(),
+    response,
   });
 
   return res.status(200).json({ response });
