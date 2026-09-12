@@ -1,4 +1,4 @@
-// Minimal markdown renderer shared by CaseStudyChat and GlobalChatWidget:
+// Minimal markdown renderer used by GlobalChatWidget:
 // handles **bold** inline, and turns a block of consecutive "- "/"* " lines
 // into a real <ul>. Deliberately not a full markdown parser — just enough
 // for how Claude tends to format these answers.

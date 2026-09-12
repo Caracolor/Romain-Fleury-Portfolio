@@ -9,7 +9,7 @@ import { ContentCard } from "../components/ContentCard";
 import { HeroStatsCard } from "../components/HeroStatsCard";
 import { SectionHeader } from "../components/SectionHeader";
 import { LearningsSection } from "../components/LearningsSection";
-import { CaseStudyChat } from "../components/CaseStudyChat";
+import { ProjectChatCta } from "../components/ProjectChatCta";
 import { ResponsiveSection } from "../components/ResponsiveSection";
 import { HeroPhoneCarousel } from "../components/HeroPhoneCarousel";
 import { AnimatedMouseCursor } from "../components/AnimatedMouseCursor";
@@ -298,7 +298,7 @@ export default function ProjectMonetization() {
       {/* ── Assistant Q&A ─────────────────────────────── */}
       <LazySection>
         <div style={{ marginTop: SECTION_GAP }}>
-          <CaseStudyChat caseStudy="monetisation" />
+          <ProjectChatCta caseStudy="monetisation" />
         </div>
       </LazySection>
 

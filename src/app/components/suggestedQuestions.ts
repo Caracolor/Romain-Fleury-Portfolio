@@ -1,6 +1,7 @@
-// Shared between CaseStudyChat.tsx (the embedded per-project chat) and
-// GlobalChatWidget.tsx (the floating one), so a project's suggested
-// questions are defined once.
+// Shared between ProjectChatCta.tsx (the "ask about this project" block at
+// the bottom of each case study) and GlobalChatWidget.tsx (the floating
+// panel both of them ultimately open), so a project's suggested questions
+// are defined once.
 import chronicData from "../../data/qa-chronic-programs.json";
 import llmData from "../../data/qa-llm-medical.json";
 import monetisationData from "../../data/qa-monetisation.json";

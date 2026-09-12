@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useLocation } from "react-router";
 import { motion } from "motion/react";
 import { MessageCircle, X, Send } from "lucide-react";
@@ -7,27 +7,20 @@ import { track } from "../../lib/posthog";
 import { MarkdownText } from "./ChatMarkdown";
 import { QUESTIONS_BY_CASE_STUDY, caseStudyForPath } from "./suggestedQuestions";
 import { CHAT_TRANSITION_MS, CHAT_EASE_MOTION, CHAT_MARGIN, CHAT_RADIUS } from "./chatLayout";
-
-// The scope value api/chat.ts treats specially: loads every doc (the
-// general bio + all four case studies) instead of a single project's file.
-const GENERAL_SCOPE = "general";
+import type { ChatMessage, AskSource } from "./useGlobalChat";
 
 // Shown on "/", "/IC" and "/MG" — a curated mix of general-career questions
 // plus one per project, since there's no single case study to anchor on.
 // On a "/project/*" page, caseStudyForPath() below picks that project's own
-// suggested questions instead (the same ones the embedded chat shows), so
-// the prompts are relevant to whatever the visitor is already reading.
+// suggested questions instead (the same ones ProjectChatCta.tsx shows at
+// the bottom of that page), so the prompts are relevant to whatever the
+// visitor is already reading.
 const GENERAL_SUGGESTED_QUESTIONS = [
   "Quel est le parcours de Romain ?",
   "Que cherche-t-il comme prochain poste ?",
   "Qu'est-ce qui explique les 230% vs objectif sur Programmes chroniques ?",
   "Comment a-t-il géré les 5 pivots de monétisation ?",
 ];
-
-interface ChatMessage {
-  role: "user" | "assistant";
-  content: string;
-}
 
 /** "/", "/IC", "/MG", and any "/project/*" page — where there's portfolio content to ask about. */
 export function isChatEligiblePath(pathname: string): boolean {
@@ -37,33 +30,47 @@ export function isChatEligiblePath(pathname: string): boolean {
 
 interface GlobalChatWidgetProps {
   isOpen: boolean;
-  setIsOpen: (value: boolean | ((prev: boolean) => boolean)) => void;
+  setIsOpen: (value: boolean) => void;
+  toggleOpen: () => void;
   /** Desktop panel width in px, computed once in Layout.tsx (chatLayout.ts)
    *  so it's the exact same number Layout used to push the Header/content
    *  — the panel's own width can't drift out of sync with the push. */
   widthPx: number;
+  input: string;
+  setInput: (value: string) => void;
+  messages: ChatMessage[];
+  loading: boolean;
+  error: string | null;
+  ask: (question: string, source?: AskSource) => void;
 }
 
 /**
  * Floating "ask the assistant" button + a panel that slides in from the
  * right edge, mounted once in Layout.tsx (outside any ScaledSection, so
  * position:fixed anchors to the viewport, not a transformed ancestor) so it
- * appears consistently across pages and its conversation survives
- * navigating between them.
+ * appears consistently across pages.
  *
- * `isOpen` is owned by Layout.tsx, not this component — opening the panel
- * also pushes the Header and page content over, and Layout is the common
- * ancestor of both this widget and the Header, so the state has to live
- * there. See chatLayout.ts for the width/timing both sides share.
+ * Purely presentational — all the actual conversation state (isOpen,
+ * messages, ask()...) lives in useGlobalChat.ts, instantiated once in
+ * Layout.tsx and passed down as props here. That's what lets
+ * ProjectChatCta.tsx (the "ask about this project" block at the bottom of
+ * each case study) open and post into this exact same conversation via
+ * ChatContext.tsx, rather than running a second, separate one.
  */
-export function GlobalChatWidget({ isOpen, setIsOpen, widthPx }: GlobalChatWidgetProps) {
+export function GlobalChatWidget({
+  isOpen,
+  setIsOpen,
+  toggleOpen,
+  widthPx,
+  input,
+  setInput,
+  messages,
+  loading,
+  error,
+  ask,
+}: GlobalChatWidgetProps) {
   const location = useLocation();
   const isMobile = useIsMobile();
-
-  const [input, setInput] = useState("");
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -91,67 +98,14 @@ export function GlobalChatWidget({ isOpen, setIsOpen, widthPx }: GlobalChatWidge
     ? QUESTIONS_BY_CASE_STUDY[pageCaseStudy] ?? GENERAL_SUGGESTED_QUESTIONS
     : GENERAL_SUGGESTED_QUESTIONS;
 
-  const ask = async (q: string, source: "suggested" | "free_input" = "free_input") => {
-    if (!q.trim() || loading) return;
-
-    track("chat_question_sent", {
-      question: q.trim(),
-      caseStudy: GENERAL_SCOPE,
-      source,
-      page: location.pathname,
-    });
-
-    const userMessage: ChatMessage = { role: "user", content: q.trim() };
-    const nextMessages = [...messages, userMessage];
-    setMessages(nextMessages);
-    setInput("");
-    setLoading(true);
-    setError(null);
-
-    try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          question: q.trim(),
-          caseStudy: GENERAL_SCOPE,
-          history: messages,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        setError(data.error ?? "Une erreur s'est produite.");
-      } else {
-        track("chat_answer_received", {
-          caseStudy: GENERAL_SCOPE,
-          answered: data.answered,
-          responseLength: (data.response as string)?.length ?? 0,
-        });
-        setMessages([...nextMessages, { role: "assistant", content: data.response }]);
-      }
-    } catch {
-      setError("Impossible de joindre le serveur.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleSuggestion = (q: string) => {
-    track("chat_question_suggested_clicked", { question: q, caseStudy: GENERAL_SCOPE });
+    track("chat_question_suggested_clicked", { question: q, caseStudy: "general" });
     ask(q, "suggested");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     ask(input, "free_input");
-  };
-
-  const toggleOpen = () => {
-    setIsOpen((prev) => {
-      const next = !prev;
-      track(next ? "global_chat_opened" : "global_chat_closed", { page: location.pathname });
-      return next;
-    });
   };
 
   const fSize = isMobile ? 15 : 16;

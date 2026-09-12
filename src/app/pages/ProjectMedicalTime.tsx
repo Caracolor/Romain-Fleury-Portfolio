@@ -18,7 +18,7 @@ import {
 import { ProjectNavigation } from "../components/ProjectNavigation";
 import { ContextSection } from "../components/ContextSection";
 import { ChallengesNextSteps } from "../components/ChallengesNextSteps";
-import { CaseStudyChat } from "../components/CaseStudyChat";
+import { ProjectChatCta } from "../components/ProjectChatCta";
 import { useTranslation } from "../components/LanguageContext";
 import { LazySection } from "../components/LazySection";
 
@@ -144,7 +144,7 @@ export default function ProjectMedicalTime() {
       {/* Assistant Q&A */}
       <LazySection>
         <div style={{ marginTop: SECTION_GAP }}>
-          <CaseStudyChat caseStudy="llm-medical" />
+          <ProjectChatCta caseStudy="llm-medical" />
         </div>
       </LazySection>
 
