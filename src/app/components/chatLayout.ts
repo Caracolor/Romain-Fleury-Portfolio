@@ -25,19 +25,42 @@ export const CHAT_MARGIN = 24;
 export const CHAT_RADIUS = 20;
 
 /**
- * Whether the chat is open, pushing content over — read by ScaledSection.tsx
- * so its own side padding (a generous fixed 200px, tuned for the full-width
- * default column) can shrink instead of eating a huge share of the already
- * narrower space. Default false: any consumer rendered outside Layout.tsx's
- * provider (there shouldn't be one) just gets the normal, unreduced padding.
+ * Whether the chat is open, pushing content over — read by both
+ * ScaledSection.tsx (its side padding) and Header.tsx (its own, separate
+ * side padding — a different fixed value, 150px vs ScaledSection's 200px,
+ * since the nav bar and the content column were never pixel-aligned to
+ * begin with) so both shrink by the same logic instead of only one of
+ * them reacting to the push. Default false: any consumer rendered outside
+ * Layout.tsx's provider (there shouldn't be one) just gets the normal,
+ * unreduced padding.
  *
- * ~30% chat / ~60% content / ~10% margin of the viewport was the target
- * (CHAT_WIDTH_RATIO already is 30%); 7% padding on each side of the
- * ScaledSection container works out to roughly that 10% once the container
- * itself is ~70% of the viewport, across the range window widths this site
- * actually gets used at.
+ * Target: ~30% chat / ~55% content / ~15% margin of the viewport
+ * (CHAT_WIDTH_RATIO already is 30%). 11% padding on each side of the
+ * pushed container works out to roughly that 15% once the container
+ * itself is ~70% of the viewport — verified in the browser across the
+ * range of window widths this site is actually used at. The 160px ceiling
+ * keeps it from ballooning further on ultra-wide monitors.
  */
 export const ChatOpenContext = createContext(false);
+
+const CHAT_OPEN_PADDING_MIN_PX = 24;
+const CHAT_OPEN_PADDING_RATIO = 0.11;
+export const CHAT_OPEN_SIDE_PADDING_MAX_PX = 160;
+// CSS clamp() string for ScaledSection.tsx: it's in normal flow, so a
+// percentage padding correctly resolves against its real DOM parent
+// (Layout.tsx's pushed content wrapper) — no JS needed.
+export const CHAT_OPEN_SIDE_PADDING = `clamp(${CHAT_OPEN_PADDING_MIN_PX}px, ${CHAT_OPEN_PADDING_RATIO * 100}%, ${CHAT_OPEN_SIDE_PADDING_MAX_PX}px)`;
+/**
+ * Same clamp, computed in JS from an explicit container width — for
+ * Header.tsx, which can't use the CSS string above: its wrapper is
+ * position:fixed, and a percentage padding on a fixed element resolves
+ * against the *viewport*, not its own (pushed, narrower) rendered width —
+ * so the same "11%" would come out to a different, larger number there
+ * than it does for ScaledSection's normal-flow container.
+ */
+export function computeChatOpenPadding(containerWidthPx: number): number {
+  return Math.round(Math.min(CHAT_OPEN_SIDE_PADDING_MAX_PX, Math.max(CHAT_OPEN_PADDING_MIN_PX, containerWidthPx * CHAT_OPEN_PADDING_RATIO)));
+}
 
 export const CHAT_TRANSITION_MS = 400;
 // Same curve motion/react's cubic-bezier easing arrays use, spelled out as a

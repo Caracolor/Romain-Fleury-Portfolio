@@ -1,10 +1,10 @@
 import { useLanguage } from "./LanguageContext";
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect, useCallback, useContext } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { useIsMobile } from "./useIsMobile";
 import { useTranslation } from "./LanguageContext";
 import { getHomePath, isHomePath } from "./HomeVariant";
-import { CHAT_TRANSITION_MS, CHAT_EASE_CSS } from "./chatLayout";
+import { CHAT_TRANSITION_MS, CHAT_EASE_CSS, ChatOpenContext, computeChatOpenPadding } from "./chatLayout";
 import Lottie from "lottie-react";
 import logoAnimation from "../../../public/logo-animation.json";
 
@@ -80,8 +80,21 @@ interface HeaderProps {
 }
 
 export function Header({ pushRight = 0 }: HeaderProps) {
+  // Mirrors ScaledSection.tsx's own reaction to the same context — its side
+  // padding is a separate fixed value (150px vs ScaledSection's 200px, the
+  // nav bar and content column were never pixel-aligned to begin with) but
+  // it shrinks by the same CHAT_OPEN_SIDE_PADDING logic so both breathe
+  // proportionally once the chat has actually eaten into the width.
+  const isChatOpen = useContext(ChatOpenContext);
   const outerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
+  // The outer wrapper's own rendered (border-box) width — i.e. before its
+  // own padding is subtracted. Needed to compute that padding itself in
+  // JS (see computeChatOpenPadding): it's position:fixed, so a CSS
+  // percentage padding would resolve against the viewport, not this. No
+  // circularity — the padding value doesn't affect this width, since the
+  // wrapper is sized by its left/right positioning, not its padding.
+  const [containerWidth, setContainerWidth] = useState(HEADER_MAX_WIDTH + 300);
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuClosing, setMenuClosing] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(true);
@@ -179,8 +192,10 @@ export function Header({ pushRight = 0 }: HeaderProps) {
       const cs = getComputedStyle(el);
       const pl = parseFloat(cs.paddingLeft) || 0;
       const pr = parseFloat(cs.paddingRight) || 0;
-      const available = el.getBoundingClientRect().width - pl - pr;
+      const outerWidth = el.getBoundingClientRect().width;
+      const available = outerWidth - pl - pr;
       setScale(Math.min(1, available / HEADER_MAX_WIDTH));
+      setContainerWidth(outerWidth);
     };
     const ro = new ResizeObserver(update);
     ro.observe(el);
@@ -413,10 +428,10 @@ export function Header({ pushRight = 0 }: HeaderProps) {
       style={{
         right: pushRight,
         pointerEvents: "none",
-        paddingLeft: "150px",
-        paddingRight: "150px",
+        paddingLeft: isChatOpen ? computeChatOpenPadding(containerWidth) : 150,
+        paddingRight: isChatOpen ? computeChatOpenPadding(containerWidth) : 150,
         transform: headerVisible ? "translateY(0)" : "translateY(calc(-100% - 20px))",
-        transition: `transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), right ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
+        transition: `transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), right ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}, padding ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
       }}
     >
       <div

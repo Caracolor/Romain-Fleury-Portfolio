@@ -45,7 +45,12 @@ export default function Layout() {
   }, [pathname]);
 
   return (
-    <>
+    // ScaledSection.tsx AND Header.tsx both read this directly (no prop
+    // threading through the many pages/components that render one) to
+    // shrink their own side padding once the chat has actually eaten into
+    // the available width — see chatLayout.ts. Has to wrap Header too, not
+    // just the content below, or its padding never reacts to the push.
+    <ChatOpenContext.Provider value={reservedPx > 0}>
       <Header pushRight={reservedPx} />
       <div
         style={{
@@ -55,18 +60,12 @@ export default function Layout() {
       >
         <Suspense fallback={<PageLoader visible />}>
           <ChatProvider value={{ openAndAsk: chat.openAndAsk, openChat: chat.openChat }}>
-            {/* ScaledSection.tsx reads this directly (no prop threading
-                through the many pages/components that render one) to shrink
-                its own side padding once the chat has actually eaten into
-                the available width — see chatLayout.ts. */}
-            <ChatOpenContext.Provider value={reservedPx > 0}>
-              {/* Pages that call useDesignScale() directly (not just through
-                  ScaledSection, which already reacts on its own — see its
-                  ResizeObserver) read this back via useOutletContext() so
-                  their own gap/padding math shrinks in step with the pushed
-                  content. */}
-              <Outlet context={{ chatReservedWidth: reservedPx }} />
-            </ChatOpenContext.Provider>
+            {/* Pages that call useDesignScale() directly (not just through
+                ScaledSection, which already reacts on its own — see its
+                ResizeObserver) read this back via useOutletContext() so
+                their own gap/padding math shrinks in step with the pushed
+                content. */}
+            <Outlet context={{ chatReservedWidth: reservedPx }} />
           </ChatProvider>
         </Suspense>
       </div>
@@ -82,6 +81,6 @@ export default function Layout() {
         error={chat.error}
         ask={chat.ask}
       />
-    </>
+    </ChatOpenContext.Provider>
   );
 }

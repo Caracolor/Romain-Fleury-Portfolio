@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useContext, ReactNode, CSSProperties } from "react";
-import { ChatOpenContext } from "./chatLayout";
+import { ChatOpenContext, CHAT_OPEN_SIDE_PADDING, CHAT_OPEN_SIDE_PADDING_MAX_PX } from "./chatLayout";
 
 interface ScaledSectionProps {
   maxWidth: number;
@@ -56,20 +56,21 @@ export function ScaledSection({
   // Use less side padding on mobile for a better scale factor. Also less
   // once the chat has pushed content over: the fixed 200px desktop gutter
   // was tuned for the full-width column, and eats a much bigger share of
-  // an already-narrowed ~70%-of-viewport space — 7% keeps the roughly
-  // 30% chat / 60% content / 10% margin split intended for that state
-  // (see chatLayout.ts's ChatOpenContext) instead of squeezing the actual
-  // content down far more than the push alone already does.
+  // an already-narrowed ~70%-of-viewport space — CHAT_OPEN_SIDE_PADDING
+  // keeps the intended 30% chat / 55% content / 15% margin split for that
+  // state (see chatLayout.ts) instead of squeezing the actual content down
+  // far more than the push alone already does. Header.tsx mirrors this
+  // same constant for its own (separately fixed, 150px) side padding.
   const isMobileView = typeof window !== "undefined" && window.innerWidth < 768;
   const sidePadding = isMobileView
     ? "clamp(16px, 4vw, 32px)"
     : isChatOpen
-      ? "clamp(24px, 7%, 100px)"
+      ? CHAT_OPEN_SIDE_PADDING
       : "200px";
   const maxWidthWithPadding = isMobileView
     ? maxWidth + 64   // 32*2 max mobile padding
     : isChatOpen
-      ? maxWidth + 200 // 100*2 — matches the clamp's ceiling above
+      ? maxWidth + CHAT_OPEN_SIDE_PADDING_MAX_PX * 2
       : maxWidth + 400; // 200*2 desktop padding
 
   return (
