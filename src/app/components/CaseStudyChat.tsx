@@ -4,19 +4,7 @@ import { ScaledSection } from "./ScaledSection";
 import { useIsMobile } from "./useIsMobile";
 import { track } from "../../lib/posthog";
 import { MarkdownText } from "./ChatMarkdown";
-
-// ── JSON data (suggested questions per case study) ───────────────────────────
-import chronicData from "../../data/qa-chronic-programs.json";
-import llmData from "../../data/qa-llm-medical.json";
-import monetisationData from "../../data/qa-monetisation.json";
-import brandedCallData from "../../data/qa-branded-call.json";
-
-const QUESTIONS_MAP: Record<string, string[]> = {
-  "chronic-programs": chronicData.suggestedQuestions.map((q) => q.question),
-  "llm-medical": llmData.suggestedQuestions.map((q) => q.question),
-  monetisation: monetisationData.suggestedQuestions.map((q) => q.question),
-  "branded-call": brandedCallData.suggestedQuestions.map((q) => q.question),
-};
+import { QUESTIONS_BY_CASE_STUDY } from "./suggestedQuestions";
 
 // ── Types ────────────────────────────────────────────────────────────────────
 interface ChatMessage {
@@ -31,7 +19,7 @@ interface CaseStudyChatProps {
 // ── Component ─────────────────────────────────────────────────────────────────
 export function CaseStudyChat({ caseStudy }: CaseStudyChatProps) {
   const isMobile = useIsMobile();
-  const suggestedQuestions = QUESTIONS_MAP[caseStudy] ?? [];
+  const suggestedQuestions = QUESTIONS_BY_CASE_STUDY[caseStudy] ?? [];
 
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);

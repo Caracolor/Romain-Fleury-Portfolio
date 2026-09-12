@@ -4,15 +4,18 @@ import { MessageCircle, X, Send } from "lucide-react";
 import { useIsMobile } from "./useIsMobile";
 import { track } from "../../lib/posthog";
 import { MarkdownText } from "./ChatMarkdown";
+import { QUESTIONS_BY_CASE_STUDY, caseStudyForPath } from "./suggestedQuestions";
 
 // The scope value api/chat.ts treats specially: loads every doc (the
 // general bio + all four case studies) instead of a single project's file.
 const GENERAL_SCOPE = "general";
 
-// A curated mix — general-career questions plus one per project — rather
-// than reusing any single case study's suggested-questions list, since this
-// widget isn't scoped to one project.
-const SUGGESTED_QUESTIONS = [
+// Shown on "/", "/IC" and "/MG" — a curated mix of general-career questions
+// plus one per project, since there's no single case study to anchor on.
+// On a "/project/*" page, caseStudyForPath() below picks that project's own
+// suggested questions instead (the same ones the embedded chat shows), so
+// the prompts are relevant to whatever the visitor is already reading.
+const GENERAL_SUGGESTED_QUESTIONS = [
   "Quel est le parcours de Romain ?",
   "Que cherche-t-il comme prochain poste ?",
   "Qu'est-ce qui explique les 230% vs objectif sur Programmes chroniques ?",
@@ -66,6 +69,14 @@ export function GlobalChatWidget() {
   }, [eligible]);
 
   if (!eligible) return null;
+
+  // On a project page, lead with that project's own suggested questions
+  // (recomputed on every render, so navigating prev/next between projects
+  // while the drawer is open updates them) — otherwise the general mix.
+  const pageCaseStudy = caseStudyForPath(location.pathname);
+  const suggestedQuestions = pageCaseStudy
+    ? QUESTIONS_BY_CASE_STUDY[pageCaseStudy] ?? GENERAL_SUGGESTED_QUESTIONS
+    : GENERAL_SUGGESTED_QUESTIONS;
 
   const ask = async (q: string, source: "suggested" | "free_input" = "free_input") => {
     if (!q.trim() || loading) return;
@@ -219,7 +230,7 @@ export function GlobalChatWidget() {
           >
             {messages.length === 0 && (
               <div className="flex flex-wrap" style={{ gap: 8 }}>
-                {SUGGESTED_QUESTIONS.map((q, i) => (
+                {suggestedQuestions.slice(0, 4).map((q, i) => (
                   <button
                     key={i}
                     onClick={() => handleSuggestion(q)}
@@ -300,7 +311,16 @@ export function GlobalChatWidget() {
           </div>
 
           {/* Input */}
-          <form onSubmit={handleSubmit} className="shrink-0" style={{ padding: isMobile ? 20 : 24, paddingTop: 0 }}>
+          <form
+            onSubmit={handleSubmit}
+            className="shrink-0"
+            style={{
+              paddingLeft: isMobile ? 20 : 24,
+              paddingRight: isMobile ? 20 : 24,
+              paddingBottom: isMobile ? 20 : 24,
+              paddingTop: 0,
+            }}
+          >
             <div
               className="flex items-center"
               style={{
