@@ -1,10 +1,9 @@
 import { createContext, useContext, type ReactNode } from "react";
+import type { AskSource } from "./useGlobalChat";
 
 interface ChatContextValue {
   /** Opens the global chat panel and immediately sends `question`. */
-  openAndAsk: (question: string) => void;
-  /** Opens the panel without sending anything. */
-  openChat: () => void;
+  openAndAsk: (question: string, source?: AskSource) => void;
 }
 
 const ChatContext = createContext<ChatContextValue | null>(null);

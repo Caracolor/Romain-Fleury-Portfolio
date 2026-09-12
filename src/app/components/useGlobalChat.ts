@@ -75,19 +75,14 @@ export function useGlobalChat(pathname: string) {
     });
   };
 
-  const openChat = () => {
-    if (isOpen) return;
-    setIsOpen(true);
-    track("global_chat_opened", { page: pathname });
-  };
-
   /** Opens the panel (if not already) and immediately sends `question` —
-   *  what a suggested-question chip in ProjectChatCta.tsx calls. */
-  const openAndAsk = (question: string) => {
+   *  what ProjectChatCta.tsx calls, both for its suggested-question chips
+   *  and for the question typed into its own input. */
+  const openAndAsk = (question: string, source: AskSource = "cta") => {
     setIsOpen(true);
     track("global_chat_opened", { page: pathname });
-    ask(question, "cta");
+    ask(question, source);
   };
 
-  return { isOpen, setIsOpen, toggleOpen, openChat, openAndAsk, input, setInput, messages, loading, error, ask };
+  return { isOpen, setIsOpen, toggleOpen, openAndAsk, input, setInput, messages, loading, error, ask };
 }

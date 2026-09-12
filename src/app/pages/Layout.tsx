@@ -64,7 +64,7 @@ export default function Layout() {
         }}
       >
         <Suspense fallback={<PageLoader visible />}>
-          <ChatProvider value={{ openAndAsk: chat.openAndAsk, openChat: chat.openChat }}>
+          <ChatProvider value={{ openAndAsk: chat.openAndAsk }}>
             {/* Pages that call useDesignScale() directly (not just through
                 ScaledSection, which already reacts on its own — see its
                 ResizeObserver) read this back via useOutletContext() so

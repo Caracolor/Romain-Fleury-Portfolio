@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Send } from "lucide-react";
 import { ScaledSection } from "./ScaledSection";
 import { useIsMobile } from "./useIsMobile";
 import { useChat } from "./ChatContext";
@@ -11,21 +13,26 @@ interface ProjectChatCtaProps {
 /**
  * "Ask about this project" block at the bottom of each case study —
  * replaces what used to be a second, self-contained chat UI (its own
- * input, its own separate conversation) with a row of suggested-question
+ * input, its own separate conversation) with an input + suggested-question
  * chips that open/post into the ONE global chat conversation instead (see
  * ChatContext.tsx / useGlobalChat.ts). Two independent chats on the same
  * page — each with a different answer if asked the same thing — was worse
  * than one, reached from two places.
  *
- * The panel is position:fixed, so it's already in view the instant it
- * opens regardless of how far down the page this block sits — no need to
- * scroll the page itself. The clicked question becomes the first message
- * in the panel that slides in, so the click-to-panel jump still reads as
- * one continuous action rather than a non-sequitur.
+ * The input here is a local, unsent draft — typing doesn't touch the real
+ * chat state, and there's no message list under it, so it can't pretend to
+ * be a real conversation. Submitting hands the text to openAndAsk(), which
+ * opens the panel AND fires the question in one call, matching how the
+ * suggested chips already behave — the panel is position:fixed, so it's
+ * already in view the instant it slides in regardless of how far down the
+ * page this block sits, and the just-typed question becomes its first
+ * message, so the handoff reads as one continuous action, not a jump to a
+ * blank chat.
  */
 export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
   const isMobile = useIsMobile();
-  const { openAndAsk, openChat } = useChat();
+  const { openAndAsk } = useChat();
+  const [draft, setDraft] = useState("");
   const suggestedQuestions = QUESTIONS_BY_CASE_STUDY[caseStudy] ?? [];
 
   const handleSuggestion = (q: string) => {
@@ -33,9 +40,13 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
     openAndAsk(q);
   };
 
-  const handleOpen = () => {
-    track("chat_cta_open_clicked", { caseStudy });
-    openChat();
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const q = draft.trim();
+    if (!q) return;
+    track("chat_question_freeform_submitted", { question: q, caseStudy, source: "project_cta" });
+    openAndAsk(q, "free_input");
+    setDraft("");
   };
 
   const inner = (
@@ -64,7 +75,46 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
         </p>
       </div>
 
-      {/* Suggested questions + a catch-all "open the chat" action */}
+      {/* Freeform input — submitting opens the global panel with this as
+          the first message (see handleSubmit above) */}
+      <form onSubmit={handleSubmit}>
+        <div
+          className="flex items-center"
+          style={{
+            gap: 12,
+            backgroundColor: "var(--color-qare-050)",
+            borderRadius: 16,
+            padding: "12px 12px 12px 20px",
+          }}
+        >
+          <input
+            type="text"
+            value={draft}
+            onChange={(e) => setDraft(e.target.value)}
+            placeholder="Posez votre question..."
+            maxLength={500}
+            className="flex-1 bg-transparent outline-none font-['Aeonik:Regular',sans-serif]"
+            style={{ fontSize: isMobile ? 15 : 16, color: "var(--color-qare-text)" }}
+          />
+          <button
+            type="submit"
+            disabled={!draft.trim()}
+            className="shrink-0 flex items-center justify-center rounded-full transition-opacity"
+            style={{
+              width: 36,
+              height: 36,
+              backgroundColor: "var(--color-qare-brand)",
+              opacity: draft.trim() ? 1 : 0.35,
+              cursor: draft.trim() ? "pointer" : "not-allowed",
+              border: "none",
+            }}
+          >
+            <Send size={15} color="white" />
+          </button>
+        </div>
+      </form>
+
+      {/* Suggested questions, for anyone who'd rather pick than type */}
       <div className="flex flex-wrap items-center" style={{ gap: 8 }}>
         {suggestedQuestions.slice(0, 3).map((q, i) => (
           <button
@@ -97,25 +147,6 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
             {q}
           </button>
         ))}
-
-        <button
-          onClick={handleOpen}
-          className="font-['Aeonik:Regular',sans-serif] transition-opacity hover:opacity-85"
-          style={{
-            fontSize: isMobile ? 13 : 14,
-            paddingLeft: 18,
-            paddingRight: 18,
-            paddingTop: 8,
-            paddingBottom: 8,
-            borderRadius: 999,
-            border: "none",
-            color: "white",
-            backgroundColor: "var(--color-qare-brand)",
-            cursor: "pointer",
-          }}
-        >
-          Poser une question →
-        </button>
       </div>
 
       {/* Contact mention */}
