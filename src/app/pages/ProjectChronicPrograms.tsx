@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useOutletContext } from "react-router";
 import { track } from "../../lib/posthog";
 import HeroFrame from "../../imports/Frame2087325116-53-169";
 import Frame2 from "../../imports/Frame121711-178-173";
@@ -30,7 +31,8 @@ import image_showcase from "@/assets/d6e137ac84f850b9345374da1bfb5243f027efc5.we
 const CONTENT_WIDTH = 950;
 
 export default function ProjectChronicPrograms() {
-  const s = useDesignScale();
+  const { chatReservedWidth = 0 } = useOutletContext<{ chatReservedWidth?: number }>() ?? {};
+  const s = useDesignScale(1200, chatReservedWidth);
   const isMobile = useIsMobile();
 
   useEffect(() => {

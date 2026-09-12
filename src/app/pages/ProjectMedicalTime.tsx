@@ -1,5 +1,6 @@
 import { useIsMobile } from "../components/useIsMobile";
 import { useEffect } from "react";
+import { useOutletContext } from "react-router";
 import { track } from "../../lib/posthog";
 import { useDesignScale } from "../components/useDesignScale";
 import { ProjectPageWrapper } from "../components/ProjectPageWrapper";
@@ -24,7 +25,8 @@ import { LazySection } from "../components/LazySection";
 const CONTENT_WIDTH = 950;
 
 export default function ProjectMedicalTime() {
-  const s = useDesignScale();
+  const { chatReservedWidth = 0 } = useOutletContext<{ chatReservedWidth?: number }>() ?? {};
+  const s = useDesignScale(1200, chatReservedWidth);
   const isMobile = useIsMobile();
 
   useEffect(() => {

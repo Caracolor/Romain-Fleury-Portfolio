@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router";
 import { useIsMobile } from "./useIsMobile";
 import { useTranslation } from "./LanguageContext";
 import { getHomePath, isHomePath } from "./HomeVariant";
+import { CHAT_TRANSITION_MS, CHAT_EASE_CSS } from "./chatLayout";
 import Lottie from "lottie-react";
 import logoAnimation from "../../../public/logo-animation.json";
 
@@ -70,7 +71,15 @@ const HEADER_MAX_WIDTH = 1100;
 const SCROLL_THRESHOLD_DESKTOP = 500;
 const SCROLL_THRESHOLD_MOBILE = 300;
 
-export function Header() {
+interface HeaderProps {
+  /** Reserved chat-drawer width (px) to shrink the desktop header's right
+   *  edge by, so it stays flush with the pushed content beneath it rather
+   *  than running full-bleed under the chat panel. 0 on mobile — there the
+   *  chat covers the header instead. See chatLayout.ts. */
+  pushRight?: number;
+}
+
+export function Header({ pushRight = 0 }: HeaderProps) {
   const outerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -400,13 +409,14 @@ export function Header() {
   return (
     <div
       ref={outerRef}
-      className="fixed top-0 left-0 right-0 z-50"
+      className="fixed top-0 left-0 z-50"
       style={{
+        right: pushRight,
         pointerEvents: "none",
         paddingLeft: "150px",
         paddingRight: "150px",
         transform: headerVisible ? "translateY(0)" : "translateY(calc(-100% - 20px))",
-        transition: "transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
+        transition: `transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), right ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
       }}
     >
       <div

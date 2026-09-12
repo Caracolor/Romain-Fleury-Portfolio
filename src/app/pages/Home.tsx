@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { track } from "../../lib/posthog";
-import { useNavigate } from "react-router";
+import { useNavigate, useOutletContext } from "react-router";
 import { useIsMobile } from "../components/useIsMobile";
 import { useDesignScale } from "../components/useDesignScale";
 import { ResponsiveSection } from "../components/ResponsiveSection";
@@ -18,7 +18,8 @@ import { useHomeVariant, rememberHomeVariant } from "../components/HomeVariant";
 const CONTENT_WIDTH = 950;
 
 export default function Home() {
-  const s = useDesignScale();
+  const { chatReservedWidth = 0 } = useOutletContext<{ chatReservedWidth?: number }>() ?? {};
+  const s = useDesignScale(1200, chatReservedWidth);
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
