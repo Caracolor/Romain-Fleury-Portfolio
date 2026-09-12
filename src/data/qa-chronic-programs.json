@@ -130,11 +130,11 @@
   ],
   "suggestedQuestions": [
     {
-      "question": "Quel était ton rôle exact sur ce projet ?",
+      "question": "Quel était son rôle exact sur ce projet ?",
       "answer": "Au début surtout IC - il fallait redonner de l'ambition à une équipe habituée depuis 2 ans à des quickwins et des micro-améliorations. J'ai posé les bases des programmes et la logique d'implémentation dans l'app, puis j'ai progressivement laissé la main. C'est un projet où j'ai d'abord dû recréer les conditions pour qu'un travail ambitieux soit possible."
     },
     {
-      "question": "Comment avez-vous mesuré le succès ?",
+      "question": "Comment a-t-il mesuré le succès ?",
       "answer": "Au lancement, le KPI principal était le nombre de souscriptions. Maintenant l'enjeu se déplace vers la rétention des patients, le taux de satisfaction, et les outcomes médicaux - est-ce que les patients se sentent mieux. La partie acquisition est désormais surtout entre les mains du marketing."
     },
     {
@@ -146,15 +146,15 @@
       "answer": "Le manque de moyens et des délais très serrés. On a donc fait un MVP très minimaliste - l'objectif était de sortir quelque chose à la date butoire, pas de livrer un produit parfait. Certains process étaient encore en cours de construction au lancement, c'était assumé."
     },
     {
-      "question": "Comment as-tu arbitré entre besoins utilisateurs et contraintes médicales ?",
+      "question": "Comment a-t-il arbitré entre besoins utilisateurs et contraintes médicales ?",
       "answer": "On prend les inputs de l'équipe médicale mais pas comme argent comptant. Les médecins ne sont pas toujours d'accord entre eux, et le travail du design c'est aussi de créer cet alignement. Le médical chez Qare est dans un rôle de conseil produit, pas de validateur. Si on laisse le médical valider, on se bloque systématiquement pour des raisons éthiques."
     },
     {
-      "question": "Pourquoi avoir choisi de convertir les patients existants plutôt que d'en acquérir de nouveaux ?",
+      "question": "Pourquoi a-t-il choisi de convertir les patients existants plutôt que d'en acquérir de nouveaux ?",
       "answer": "C'est le chemin le plus rapide, le moins cher, et avec le plus d'impact. Le coût d'acquisition est quasi nul, la confiance est déjà établie, et le time-to-value est immédiat."
     },
     {
-      "question": "Qu'est-ce que tu ferais différemment si tu recommençais ?",
+      "question": "Qu'est-ce qu'il ferait différemment s'il recommençait ?",
       "answer": "Je me dégagerais plus de temps au début pour être IC plus longtemps, et j'aurais suivi la production de plus près. J'aurais aussi mieux cadré la création de contenu médical dès le départ. Et j'aurais évité les deux offres sur Shape : trop de choix crée de l'hésitation, et l'hésitation c'est du drop."
     },
     {

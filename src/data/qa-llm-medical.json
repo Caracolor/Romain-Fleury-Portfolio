@@ -119,11 +119,11 @@
   ],
   "suggestedQuestions": [
     {
-      "question": "Quel était ton rôle sur ce projet ?",
+      "question": "Quel était son rôle sur ce projet ?",
       "answer": "Un rôle de management et d'alignement stratégique exclusivement. Léa Rabi et Titouan assuraient la conception et les tests utilisateurs. J'intervenais sur la vision - co-construction avec le CPO d'une Product Vision 2028 en format narratif pour embarquer les équipes - sur les COPIL avec le CEO, CFO, direction médicale, ops et marketing, et sur le coaching des équipes design via les concept et conception reviews."
     },
     {
-      "question": "Comment avez-vous géré les contraintes réglementaires ?",
+      "question": "Comment a-t-il géré les contraintes réglementaires ?",
       "answer": "Le cadre réglementaire est strict : EU MDR, ANSM, et LAP pour les suggestions de prescription. La réponse design a été de ne jamais présenter un output du LLM comme une vérité - tout est une suggestion modifiable, validée explicitement par le médecin avant envoi. L'audio est supprimé automatiquement à la fin de chaque TC. Les psychologues et psychiatres ont été exclus du déploiement initial."
     },
     {
@@ -131,7 +131,7 @@
       "answer": "Il y a une minorité réfractaire, c'est normal. La stratégie d'adoption : volontariat pour les praticiens existants - entre 2 et 3 demandes d'accès par jour sur 2500 praticiens actifs. Et pour les nouveaux praticiens, la feature est activée par défaut. C'est ma décision : le volontariat crée un biais de sélection, le default-on normalise l'usage."
     },
     {
-      "question": "Quels risques avez-vous identifiés sur les outputs du LLM ?",
+      "question": "Quels risques a-t-il identifiés sur les outputs du LLM ?",
       "answer": "Plusieurs types documentés : hallucinations, erreurs de terminologie médicale, comptes-rendus trop verbeux, diagnostics trop prudents. Sur 8900 CR analysés, 85% des erreurs sont des hallucinations - le LLM produit trop, pas trop peu. Des patients ont remonté des recommandations hors-sol ou des allergies non détectées. Mais le vrai problème aujourd'hui c'est la qualité audio - un mauvais input donne un mauvais output, peu importe la qualité du modèle."
     },
     {

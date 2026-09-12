@@ -63,11 +63,11 @@
   ],
   "suggestedQuestions": [
     {
-      "question": "Quel était ton rôle sur ce projet ?",
+      "question": "Quel était son rôle sur ce projet ?",
       "answer": "Conception et cadrage du projet, coordination avec les équipes tech et le partenaire externe Vonage. Rôle IC sur la conception des deux lots et la définition des contraintes techniques par plateforme - notamment la différence fondamentale entre iOS (CallKit, très limité) et Android (ConnectionService, full custom)."
     },
     {
-      "question": "Comment avez-vous mesuré l'impact sur les no-shows ?",
+      "question": "Comment a-t-il mesuré l'impact sur les no-shows ?",
       "answer": "Le KPI principal est le taux de no-show - comparaison avant/après déploiement du Branded Call. La baseline est de 146 000 no-shows par an, soit une perte estimée à 8,4M€. Le projet est encore en cours de développement, les données d'impact réel ne sont pas encore disponibles."
     },
     {
@@ -75,7 +75,7 @@
       "answer": "Une contrainte technique sur la logique de proactivité, pas un choix de priorisation business. Le Lot 1 (réactif) était techniquement faisable rapidement - afficher l'identité Qare sur les appels entrants existants. Le Lot 2 (proactif) implique une logique d'orchestration plus complexe - initier des appels depuis la plateforme. Séparer les deux lots permettait de livrer de la valeur rapidement sans bloquer sur la complexité du Lot 2."
     },
     {
-      "question": "Comment avez-vous géré la différence iOS / Android ?",
+      "question": "Comment a-t-il géré la différence iOS / Android ?",
       "answer": "iOS via CallKit est très contraignant : petit avatar circulaire et deux lignes de texte maximum, pas de couleur custom ni de full-screen branding. Android via ConnectionService est à l'opposé : interface entièrement personnalisable, full custom branding possible. La stratégie design a donc été de concevoir d'abord pour les contraintes iOS - le plus restrictif - puis d'enrichir l'expérience Android avec les possibilités supplémentaires."
     },
     {

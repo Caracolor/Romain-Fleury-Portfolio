@@ -69,7 +69,7 @@
       "answer": "On a systématiquement apporté notre expertise sur les choix de services payants via des tests d'acceptabilité - 'êtes-vous prêt à payer X€ pour tel service ou avantage ?'. C'est vraiment le produit qui a tiré le sujet, et plus précisément le duo Head of Product et moi, en charge de ces études de recherche utilisateur."
     },
     {
-      "question": "Quels KPIs suiviez-vous pour valider un modèle ?",
+      "question": "Quels KPIs suivait-il pour valider un modèle ?",
       "answer": "Deux indicateurs principaux : le taux d'application des frais (taux d'acceptation ou de conversion sur les services payants) et le taux de conversion global - les patients qui réalisent effectivement une consultation. Les deux ensemble donnent une lecture complète entre acceptation du pricing et impact sur l'usage réel."
     },
     {
@@ -77,7 +77,7 @@
       "answer": "La sortie des frais de service classiques, poussée par les régulateurs, qui nous a obligés à augmenter les prix. Les analyses Van Westendorp ont rassuré les stakeholders pour oser monter les prix - on a fait des A/B tests progressifs et on est passé de 4€ à 9€ de frais de service. +125% sur le pricing, validé par la recherche utilisateur avant d'être soumis aux décideurs."
     },
     {
-      "question": "Comment avez-vous convaincu les stakeholders de monter les prix ?",
+      "question": "Comment a-t-il convaincu les stakeholders de monter les prix ?",
       "answer": "Avec des études Van Westendorp qui objectivent le prix acceptable perçu par les patients, complétées par des A/B tests progressifs. On a montré que la demande tenait à 5€, puis 7€, puis 9€. Les données ont donné la confiance aux stakeholders pour aller au-delà de ce qu'ils auraient osé sans recherche. C'est un cas concret où le design a directement influencé une décision business majeure."
     }
   ]
