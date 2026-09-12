@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { useLocation } from "react-router";
 import { motion } from "motion/react";
-import { MessageCircle, X, Send } from "lucide-react";
+import { X, Send } from "lucide-react";
 import { useIsMobile } from "./useIsMobile";
 import { track } from "../../lib/posthog";
 import { MarkdownText } from "./ChatMarkdown";
@@ -121,20 +121,24 @@ export function GlobalChatWidget({
         <button
           onClick={toggleOpen}
           aria-label="Poser une question à l'assistant"
-          className="fixed flex items-center justify-center rounded-full transition-transform hover:scale-105"
+          className="fixed flex items-center justify-center transition-transform hover:scale-105"
           style={{
             bottom: isMobile ? 20 : 32,
             right: isMobile ? 20 : 32,
-            width: 56,
-            height: 56,
-            backgroundColor: "var(--color-qare-brand)",
+            width: isMobile ? 56 : 64,
+            height: isMobile ? 56 : 64,
+            padding: 0,
+            backgroundColor: "transparent",
             border: "none",
-            boxShadow: "0 8px 24px rgba(122, 99, 202, 0.4)",
             zIndex: 60,
             cursor: "pointer",
           }}
         >
-          <MessageCircle size={24} color="white" />
+          <img
+            src="/chat-icon.svg"
+            alt=""
+            style={{ width: "100%", height: "100%", filter: "drop-shadow(0 8px 20px rgba(39, 20, 66, 0.35))" }}
+          />
         </button>
       )}
 
