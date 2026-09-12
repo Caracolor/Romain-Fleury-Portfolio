@@ -62,6 +62,17 @@ export function computeChatOpenPadding(containerWidthPx: number): number {
   return Math.round(Math.min(CHAT_OPEN_SIDE_PADDING_MAX_PX, Math.max(CHAT_OPEN_PADDING_MIN_PX, containerWidthPx * CHAT_OPEN_PADDING_RATIO)));
 }
 
+// Closed state: Header's 150px side padding vs ScaledSection's 200px means
+// the header runs 50px wider on each side. That's a ratio of 150/200 = 0.75
+// — Header always sits at 75% of ScaledSection's padding. Applying the same
+// ratio to computeChatOpenPadding() keeps the header proportionally wider
+// once the chat is open too, instead of both converging to the same width.
+export const HEADER_PADDING_RATIO = 150 / 200;
+
+export function computeHeaderChatOpenPadding(containerWidthPx: number): number {
+  return Math.round(computeChatOpenPadding(containerWidthPx) * HEADER_PADDING_RATIO);
+}
+
 export const CHAT_TRANSITION_MS = 400;
 // Same curve motion/react's cubic-bezier easing arrays use, spelled out as a
 // CSS transition-timing-function string for the plain-CSS side (Header,

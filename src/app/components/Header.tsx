@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router";
 import { useIsMobile } from "./useIsMobile";
 import { useTranslation } from "./LanguageContext";
 import { getHomePath, isHomePath } from "./HomeVariant";
-import { CHAT_TRANSITION_MS, CHAT_EASE_CSS, ChatOpenContext, computeChatOpenPadding } from "./chatLayout";
+import { CHAT_TRANSITION_MS, CHAT_EASE_CSS, ChatOpenContext, computeHeaderChatOpenPadding } from "./chatLayout";
 import Lottie from "lottie-react";
 import logoAnimation from "../../../public/logo-animation.json";
 
@@ -80,11 +80,12 @@ interface HeaderProps {
 }
 
 export function Header({ pushRight = 0 }: HeaderProps) {
-  // Mirrors ScaledSection.tsx's own reaction to the same context — its side
-  // padding is a separate fixed value (150px vs ScaledSection's 200px, the
-  // nav bar and content column were never pixel-aligned to begin with) but
-  // it shrinks by the same CHAT_OPEN_SIDE_PADDING logic so both breathe
-  // proportionally once the chat has actually eaten into the width.
+  // Mirrors ScaledSection.tsx's own reaction to the same context, but stays
+  // proportionally wider: closed, Header's 150px vs ScaledSection's 200px
+  // padding already makes Header run wider on each side (the nav bar and
+  // content column were never pixel-aligned) — computeHeaderChatOpenPadding
+  // keeps that same 150/200 ratio once the chat has eaten into the width,
+  // instead of both converging onto the same padding.
   const isChatOpen = useContext(ChatOpenContext);
   const outerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
@@ -428,8 +429,8 @@ export function Header({ pushRight = 0 }: HeaderProps) {
       style={{
         right: pushRight,
         pointerEvents: "none",
-        paddingLeft: isChatOpen ? computeChatOpenPadding(containerWidth) : 150,
-        paddingRight: isChatOpen ? computeChatOpenPadding(containerWidth) : 150,
+        paddingLeft: isChatOpen ? computeHeaderChatOpenPadding(containerWidth) : 150,
+        paddingRight: isChatOpen ? computeHeaderChatOpenPadding(containerWidth) : 150,
         transform: headerVisible ? "translateY(0)" : "translateY(calc(-100% - 20px))",
         transition: `transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), right ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}, padding ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
       }}
