@@ -38,10 +38,15 @@ export default function Layout() {
   // has to cover that gap too, not just the panel's own width.
   const reservedPx = chat.isOpen && !isMobile ? chatWidthPx + CHAT_MARGIN : 0;
 
-  // Scroll to top + track pageview on route change
+  // Scroll to top + track pageview on route change. Also close the chat: it
+  // stays anchored to whichever page it was opened from (suggested
+  // questions, reserved push width) so leaving that page should collapse it
+  // rather than carry it, still open, into a page it wasn't opened for.
   useEffect(() => {
     window.scrollTo(0, 0);
     trackPageview();
+    chat.setIsOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (
