@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router";
+import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { useIsMobile } from "./useIsMobile";
 import { track } from "../../lib/posthog";
@@ -33,6 +34,10 @@ function isChatEligiblePath(pathname: string): boolean {
   return p === "/" || p === "/ic" || p === "/mg" || p.startsWith("/project/");
 }
 
+// Closed size — reused by both the closed circle and the shell's animation
+// target, so they always match exactly.
+const CLOSED_SIZE = 56;
+
 /**
  * Floating "ask the assistant" button + drawer, mounted once in Layout.tsx
  * (outside any ScaledSection, so position:fixed anchors to the viewport,
@@ -41,6 +46,11 @@ function isChatEligiblePath(pathname: string): boolean {
  * path rather than by mounting/unmounting the component, precisely so that
  * state persists even if the visitor detours through a page where the
  * button is hidden (e.g. reaches a 404, then goes back).
+ *
+ * The button and the open panel are ONE animated shell (not two separate
+ * elements) that resizes/repositions in place between the two, so it
+ * visibly grows from the button's own corner — a "zoom" morph — rather
+ * than a drawer sliding in from off-screen.
  */
 export function GlobalChatWidget() {
   const location = useLocation();
@@ -52,6 +62,19 @@ export function GlobalChatWidget() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  // Tracked in px (not CSS calc()/vh) because the shell's size is driven by
+  // Framer Motion's `animate`, which tweens plain numbers smoothly but can't
+  // interpolate a calc()/min() expression.
+  const [viewport, setViewport] = useState(() => ({
+    w: typeof window === "undefined" ? 1280 : window.innerWidth,
+    h: typeof window === "undefined" ? 800 : window.innerHeight,
+  }));
+  useEffect(() => {
+    const onResize = () => setViewport({ w: window.innerWidth, h: window.innerHeight });
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   useEffect(() => {
     if (messages.length > 0) {
@@ -142,53 +165,67 @@ export function GlobalChatWidget() {
   const fSize = isMobile ? 15 : 16;
   const lHeight = isMobile ? "22px" : "24px";
 
-  return (
-    <>
-      {/* Floating toggle button */}
-      {/* On mobile the drawer is full-screen with its own close button in the
-          header, so the round toggle would otherwise float on top of the
-          input area — hidden here instead of duplicating a close control. */}
-      {!(isOpen && isMobile) && (
-        <button
-          onClick={toggleOpen}
-          aria-label={isOpen ? "Fermer l'assistant" : "Poser une question à l'assistant"}
-          className="fixed flex items-center justify-center rounded-full transition-transform hover:scale-105"
-          style={{
-            bottom: isMobile ? 20 : 32,
-            right: isMobile ? 20 : 32,
-            width: 56,
-            height: 56,
-            backgroundColor: "var(--color-qare-brand)",
-            border: "none",
-            boxShadow: "0 8px 24px rgba(122, 99, 202, 0.4)",
-            zIndex: 60,
-            cursor: "pointer",
-          }}
-        >
-          {isOpen ? <X size={24} color="white" /> : <MessageCircle size={24} color="white" />}
-        </button>
-      )}
+  // Closed: a 56px circle anchored bottom-right. Open: the drawer, sized in
+  // real px (from `viewport`, not vh/calc — see its declaration above) so
+  // Framer Motion can tween every dimension smoothly. The button and the
+  // drawer are ONE shell that resizes/repositions in place — not two
+  // separate elements — so it visibly grows from the button's own corner
+  // instead of a panel sliding in from off-screen.
+  const desktopPanelHeight = Math.min(640, viewport.h - 140);
+  const shellTarget = isOpen
+    ? isMobile
+      ? { width: viewport.w, height: viewport.h, right: 0, bottom: 0, borderRadius: 0 }
+      : { width: 400, height: desktopPanelHeight, right: 32, bottom: 100, borderRadius: 20 }
+    : { width: CLOSED_SIZE, height: CLOSED_SIZE, right: isMobile ? 20 : 32, bottom: isMobile ? 20 : 32, borderRadius: 9999 };
 
-      {/* Drawer */}
-      {isOpen && (
-        <div
-          className="fixed flex flex-col"
-          style={{
-            zIndex: 59,
-            backgroundColor: "var(--color-qare-white)",
-            boxShadow: "0 12px 40px rgba(64, 41, 91, 0.25)",
-            ...(isMobile
-              ? { inset: 0, borderRadius: 0 }
-              : {
-                  bottom: 100,
-                  right: 32,
-                  width: 400,
-                  maxHeight: "min(640px, calc(100vh - 140px))",
-                  borderRadius: 20,
-                  border: "1px solid var(--color-qare-150)",
-                }),
-          }}
-        >
+  return (
+    <motion.div
+      className="fixed flex flex-col overflow-hidden"
+      style={{
+        zIndex: 60,
+        backgroundColor: "var(--color-qare-white)",
+        boxShadow: isOpen ? "0 12px 40px rgba(64, 41, 91, 0.25)" : "0 8px 24px rgba(122, 99, 202, 0.4)",
+        border: isOpen && !isMobile ? "1px solid var(--color-qare-150)" : "none",
+      }}
+      initial={false}
+      animate={shellTarget}
+      transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+    >
+      <AnimatePresence initial={false}>
+        {!isOpen ? (
+          <motion.button
+            key="icon"
+            onClick={toggleOpen}
+            aria-label="Poser une question à l'assistant"
+            className="flex items-center justify-center rounded-full shrink-0"
+            style={{
+              width: CLOSED_SIZE,
+              height: CLOSED_SIZE,
+              backgroundColor: "var(--color-qare-brand)",
+              border: "none",
+              cursor: "pointer",
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
+          >
+            <MessageCircle size={24} color="white" />
+          </motion.button>
+        ) : (
+          <motion.div
+            key="panel"
+            className="flex flex-col"
+            style={{ width: 400, maxWidth: "100%", height: "100%" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            // Content only fades in once the shell is mostly done growing,
+            // so it never looks stretched mid-resize; on close it fades out
+            // immediately (no delay) rather than getting visibly squeezed
+            // as the shell shrinks back to a circle.
+            transition={{ duration: 0.15, delay: isOpen ? 0.2 : 0 }}
+          >
           {/* Header */}
           <div
             className="flex items-center justify-between shrink-0"
@@ -211,16 +248,17 @@ export function GlobalChatWidget() {
                 Pose une question sur son parcours ou ses projets
               </p>
             </div>
-            {isMobile && (
-              <button
-                onClick={toggleOpen}
-                aria-label="Fermer"
-                className="shrink-0 flex items-center justify-center rounded-full"
-                style={{ width: 32, height: 32, border: "none", backgroundColor: "var(--color-qare-050)", cursor: "pointer" }}
-              >
-                <X size={16} color="var(--color-qare-text)" />
-              </button>
-            )}
+            {/* The shell's own toggle button only exists in the closed
+                state (it morphs into this panel), so the close action now
+                always lives here — on desktop too, not just mobile. */}
+            <button
+              onClick={toggleOpen}
+              aria-label="Fermer"
+              className="shrink-0 flex items-center justify-center rounded-full"
+              style={{ width: 32, height: 32, border: "none", backgroundColor: "var(--color-qare-050)", cursor: "pointer" }}
+            >
+              <X size={16} color="var(--color-qare-text)" />
+            </button>
           </div>
 
           {/* Conversation */}
@@ -370,8 +408,9 @@ export function GlobalChatWidget() {
               </button>
             </div>
           </form>
-        </div>
-      )}
-    </>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
