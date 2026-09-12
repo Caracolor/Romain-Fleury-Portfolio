@@ -207,7 +207,13 @@ export function GlobalChatWidget({ isOpen, setIsOpen, widthPx }: GlobalChatWidge
           pointerEvents: isOpen ? "auto" : "none",
         }}
         initial={false}
-        animate={{ x: isOpen ? 0 : "100%" }}
+        // "100%" (of the panel's own width) is only fully off-screen when
+        // the panel sits flush against the edge (mobile, no margin). On
+        // desktop it now floats CHAT_MARGIN in from the right, so a plain
+        // 100% translate undershoots by exactly that margin, leaving a
+        // CHAT_MARGIN-wide sliver of the panel visible even closed — use
+        // an explicit px offset (width + margin) there instead.
+        animate={{ x: isOpen ? 0 : isMobile ? "100%" : widthPx + CHAT_MARGIN }}
         transition={{ duration: CHAT_TRANSITION_MS / 1000, ease: CHAT_EASE_MOTION }}
       >
         {/* Header */}
