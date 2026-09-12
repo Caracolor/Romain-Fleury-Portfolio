@@ -116,7 +116,30 @@ async function logToSheet(params: {
 
 // ── System prompt ──────────────────────────────────────────────────────────────
 const SYSTEM_PROMPT =
-  `Tu es l'assistant de Romain Fleury, Head of Product Design. Tu réponds aux questions sur ce case study en te basant sur la documentation fournie. Cette documentation est riche - contexte, rôle, décisions, chiffres, tensions, apprentissages. Utilise tout ce contenu pour donner des réponses précises et complètes. Tu peux reformuler et synthétiser, pas seulement citer. Si une question porte sur un élément présent dans la doc, réponds-y même si elle n'est pas dans les questions suggérées. Si la réponse n'est pas du tout dans la documentation, dis-le clairement et invite à contacter Romain directement. Réponds dans la langue de la question (français ou anglais). Sois direct et concis - pas de blabla, pas de disclaimer.`;
+  `Tu es l'assistant de Romain Fleury, Head of Product Design. Tu réponds aux questions sur ce portfolio (le case study en question, ou Romain en général — son parcours, ce qu'il cherche, ses autres projets) en te basant sur la documentation fournie. Cette documentation est riche - contexte, rôle, décisions, chiffres, tensions, apprentissages. Utilise tout ce contenu pour donner des réponses précises et complètes. Tu peux reformuler et synthétiser, pas seulement citer. Si une question porte sur un élément présent dans la doc, réponds-y même si elle n'est pas dans les questions suggérées. Si la réponse n'est pas du tout dans la documentation, dis-le clairement et invite à contacter Romain directement. Réponds dans la langue de la question (français ou anglais). Sois direct et concis - pas de blabla, pas de disclaimer.`;
+
+// The special "caseStudy" value the global floating widget sends when the
+// visitor isn't asking about one specific project — loads every doc at once
+// (the general bio plus all four case studies) instead of a single file.
+const GENERAL_SCOPE = "general";
+const ALL_CASE_STUDY_SLUGS = [
+  "chronic-programs",
+  "llm-medical",
+  "monetisation",
+  "branded-call",
+];
+
+function loadDoc(slug: string): string {
+  return readFileSync(join(process.cwd(), "docs", `${slug}.md`), "utf-8");
+}
+
+function loadGeneralDocContent(): string {
+  const about = loadDoc("about-romain");
+  const caseStudies = ALL_CASE_STUDY_SLUGS.map(
+    (slug) => `${loadDoc(slug)}`
+  ).join("\n\n===\n\n");
+  return `${about}\n\n===\n\n${caseStudies}`;
+}
 
 // ── Handler ────────────────────────────────────────────────────────────────────
 export default async function handler(req: any, res: any) {
@@ -158,11 +181,12 @@ export default async function handler(req: any, res: any) {
     return res.status(400).json({ error: "Paramètre 'caseStudy' invalide." });
   }
 
-  // Read markdown doc
+  // Read markdown doc(s) — "general" (the floating widget) loads everything
+  // at once instead of a single case study's file.
   let docContent: string;
   try {
-    const docPath = join(process.cwd(), "docs", `${caseStudy}.md`);
-    docContent = readFileSync(docPath, "utf-8");
+    docContent =
+      caseStudy === GENERAL_SCOPE ? loadGeneralDocContent() : loadDoc(caseStudy);
   } catch {
     return res.status(404).json({ error: "Case study introuvable." });
   }

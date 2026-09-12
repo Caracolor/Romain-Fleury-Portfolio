@@ -1,0 +1,357 @@
+import { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router";
+import { MessageCircle, X, Send } from "lucide-react";
+import { useIsMobile } from "./useIsMobile";
+import { track } from "../../lib/posthog";
+import { MarkdownText } from "./ChatMarkdown";
+
+// The scope value api/chat.ts treats specially: loads every doc (the
+// general bio + all four case studies) instead of a single project's file.
+const GENERAL_SCOPE = "general";
+
+// A curated mix — general-career questions plus one per project — rather
+// than reusing any single case study's suggested-questions list, since this
+// widget isn't scoped to one project.
+const SUGGESTED_QUESTIONS = [
+  "Quel est le parcours de Romain ?",
+  "Que cherche-t-il comme prochain poste ?",
+  "Qu'est-ce qui explique les 230% vs objectif sur Programmes chroniques ?",
+  "Comment a-t-il géré les 5 pivots de monétisation ?",
+];
+
+interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
+}
+
+/** "/", "/IC", "/MG", and any "/project/*" page — where there's portfolio content to ask about. */
+function isChatEligiblePath(pathname: string): boolean {
+  const p = pathname.toLowerCase();
+  return p === "/" || p === "/ic" || p === "/mg" || p.startsWith("/project/");
+}
+
+/**
+ * Floating "ask the assistant" button + drawer, mounted once in Layout.tsx
+ * (outside any ScaledSection, so position:fixed anchors to the viewport,
+ * not a transformed ancestor) so it appears consistently across pages and
+ * its conversation survives navigating between them. Rendering is gated by
+ * path rather than by mounting/unmounting the component, precisely so that
+ * state persists even if the visitor detours through a page where the
+ * button is hidden (e.g. reaches a 404, then goes back).
+ */
+export function GlobalChatWidget() {
+  const location = useLocation();
+  const isMobile = useIsMobile();
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [input, setInput] = useState("");
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (messages.length > 0) {
+      bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
+
+  const eligible = isChatEligiblePath(location.pathname);
+
+  // Close the drawer (but keep the conversation) if navigation lands on a
+  // page where the button itself is hidden — reopening it later picks the
+  // conversation back up rather than losing it.
+  useEffect(() => {
+    if (!eligible) setIsOpen(false);
+  }, [eligible]);
+
+  if (!eligible) return null;
+
+  const ask = async (q: string, source: "suggested" | "free_input" = "free_input") => {
+    if (!q.trim() || loading) return;
+
+    track("chat_question_sent", {
+      question: q.trim(),
+      caseStudy: GENERAL_SCOPE,
+      source,
+      page: location.pathname,
+    });
+
+    const userMessage: ChatMessage = { role: "user", content: q.trim() };
+    const nextMessages = [...messages, userMessage];
+    setMessages(nextMessages);
+    setInput("");
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question: q.trim(),
+          caseStudy: GENERAL_SCOPE,
+          history: messages,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "Une erreur s'est produite.");
+      } else {
+        track("chat_answer_received", {
+          caseStudy: GENERAL_SCOPE,
+          answered: data.answered,
+          responseLength: (data.response as string)?.length ?? 0,
+        });
+        setMessages([...nextMessages, { role: "assistant", content: data.response }]);
+      }
+    } catch {
+      setError("Impossible de joindre le serveur.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSuggestion = (q: string) => {
+    track("chat_question_suggested_clicked", { question: q, caseStudy: GENERAL_SCOPE });
+    ask(q, "suggested");
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    ask(input, "free_input");
+  };
+
+  const toggleOpen = () => {
+    const next = !isOpen;
+    setIsOpen(next);
+    track(next ? "global_chat_opened" : "global_chat_closed", { page: location.pathname });
+  };
+
+  const fSize = isMobile ? 15 : 16;
+  const lHeight = isMobile ? "22px" : "24px";
+
+  return (
+    <>
+      {/* Floating toggle button */}
+      {/* On mobile the drawer is full-screen with its own close button in the
+          header, so the round toggle would otherwise float on top of the
+          input area — hidden here instead of duplicating a close control. */}
+      {!(isOpen && isMobile) && (
+        <button
+          onClick={toggleOpen}
+          aria-label={isOpen ? "Fermer l'assistant" : "Poser une question à l'assistant"}
+          className="fixed flex items-center justify-center rounded-full transition-transform hover:scale-105"
+          style={{
+            bottom: isMobile ? 20 : 32,
+            right: isMobile ? 20 : 32,
+            width: 56,
+            height: 56,
+            backgroundColor: "var(--color-qare-brand)",
+            border: "none",
+            boxShadow: "0 8px 24px rgba(122, 99, 202, 0.4)",
+            zIndex: 60,
+            cursor: "pointer",
+          }}
+        >
+          {isOpen ? <X size={24} color="white" /> : <MessageCircle size={24} color="white" />}
+        </button>
+      )}
+
+      {/* Drawer */}
+      {isOpen && (
+        <div
+          className="fixed flex flex-col"
+          style={{
+            zIndex: 59,
+            backgroundColor: "var(--color-qare-white)",
+            boxShadow: "0 12px 40px rgba(64, 41, 91, 0.25)",
+            ...(isMobile
+              ? { inset: 0, borderRadius: 0 }
+              : {
+                  bottom: 100,
+                  right: 32,
+                  width: 400,
+                  maxHeight: "min(640px, calc(100vh - 140px))",
+                  borderRadius: 20,
+                  border: "1px solid var(--color-qare-150)",
+                }),
+          }}
+        >
+          {/* Header */}
+          <div
+            className="flex items-center justify-between shrink-0"
+            style={{
+              padding: isMobile ? "20px 20px" : "20px 24px",
+              borderBottom: "1px solid var(--color-qare-150)",
+            }}
+          >
+            <div className="flex flex-col" style={{ gap: 2 }}>
+              <p
+                className="font-['Aeonik:Bold',sans-serif]"
+                style={{ fontSize: 16, color: "var(--color-qare-text)", margin: 0 }}
+              >
+                L'assistant de Romain
+              </p>
+              <p
+                className="font-['Aeonik:Regular',sans-serif]"
+                style={{ fontSize: 13, color: "var(--color-qare-muted)", margin: 0 }}
+              >
+                Pose une question sur son parcours ou ses projets
+              </p>
+            </div>
+            {isMobile && (
+              <button
+                onClick={toggleOpen}
+                aria-label="Fermer"
+                className="shrink-0 flex items-center justify-center rounded-full"
+                style={{ width: 32, height: 32, border: "none", backgroundColor: "var(--color-qare-050)", cursor: "pointer" }}
+              >
+                <X size={16} color="var(--color-qare-text)" />
+              </button>
+            )}
+          </div>
+
+          {/* Conversation */}
+          <div
+            className="flex-1 flex flex-col overflow-y-auto"
+            style={{ gap: 16, padding: isMobile ? 20 : 24 }}
+          >
+            {messages.length === 0 && (
+              <div className="flex flex-wrap" style={{ gap: 8 }}>
+                {SUGGESTED_QUESTIONS.map((q, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleSuggestion(q)}
+                    disabled={loading}
+                    className="font-['Aeonik:Regular',sans-serif] text-left transition-colors"
+                    style={{
+                      fontSize: 13,
+                      lineHeight: "normal",
+                      padding: "8px 14px",
+                      borderRadius: 999,
+                      border: "1px solid var(--color-qare-800)",
+                      color: "var(--color-qare-text)",
+                      backgroundColor: "transparent",
+                      cursor: loading ? "not-allowed" : "pointer",
+                      opacity: loading ? 0.35 : 0.7,
+                    }}
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {messages.map((msg, i) => (
+              <div
+                key={i}
+                style={{
+                  borderRadius: 16,
+                  padding: "14px 20px",
+                  backgroundColor: msg.role === "user" ? "transparent" : "var(--color-qare-050)",
+                  border: msg.role === "user" ? "1px solid var(--color-qare-800)" : "none",
+                  alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
+                  maxWidth: "92%",
+                }}
+              >
+                {msg.role === "user" ? (
+                  <p
+                    className="font-['Aeonik:Regular',sans-serif]"
+                    style={{ fontSize: fSize, lineHeight: lHeight, color: "var(--color-qare-text)", margin: 0 }}
+                  >
+                    {msg.content}
+                  </p>
+                ) : (
+                  <div className="font-['Aeonik:Regular',sans-serif]">
+                    <MarkdownText text={msg.content} fontSize={fSize} lineHeight={lHeight} color="var(--color-qare-text)" />
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {loading && (
+              <div style={{ borderRadius: 16, padding: "14px 20px", backgroundColor: "var(--color-qare-050)", alignSelf: "flex-start" }}>
+                <div style={{ display: "flex", gap: 5, alignItems: "center" }}>
+                  {[0, 1, 2].map((d) => (
+                    <div
+                      key={d}
+                      style={{
+                        width: 7,
+                        height: 7,
+                        borderRadius: "50%",
+                        backgroundColor: "var(--color-qare-brand)",
+                        animation: `bounce 1s ease-in-out ${d * 0.15}s infinite`,
+                        opacity: 0.6,
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {error && (
+              <p className="font-['Aeonik:Regular',sans-serif]" style={{ fontSize: 13, color: "var(--color-qare-800)", margin: 0 }}>
+                {error}
+              </p>
+            )}
+
+            <div ref={bottomRef} />
+          </div>
+
+          {/* Input */}
+          <form onSubmit={handleSubmit} className="shrink-0" style={{ padding: isMobile ? 20 : 24, paddingTop: 0 }}>
+            <div
+              className="flex items-center"
+              style={{
+                gap: 12,
+                backgroundColor: "var(--color-qare-050)",
+                borderRadius: 16,
+                padding: "12px 12px 12px 20px",
+              }}
+            >
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder={messages.length > 0 ? "Question de suivi..." : "Posez votre question..."}
+                disabled={loading}
+                maxLength={500}
+                className="flex-1 bg-transparent outline-none font-['Aeonik:Regular',sans-serif]"
+                style={{ fontSize: fSize, color: "var(--color-qare-text)" }}
+              />
+              <button
+                type="submit"
+                disabled={loading || !input.trim()}
+                className="shrink-0 flex items-center justify-center rounded-full transition-opacity"
+                style={{
+                  width: 36,
+                  height: 36,
+                  backgroundColor: "var(--color-qare-brand)",
+                  opacity: loading || !input.trim() ? 0.35 : 1,
+                  cursor: loading || !input.trim() ? "not-allowed" : "pointer",
+                  border: "none",
+                }}
+              >
+                {loading ? (
+                  <div
+                    style={{
+                      width: 15,
+                      height: 15,
+                      border: "2px solid rgba(255,255,255,0.4)",
+                      borderTopColor: "white",
+                      borderRadius: "50%",
+                      animation: "spin 0.7s linear infinite",
+                    }}
+                  />
+                ) : (
+                  <Send size={15} color="white" />
+                )}
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
+    </>
+  );
+}

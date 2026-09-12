@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router";
 import { Header } from "../components/Header";
 import { Suspense, useEffect } from "react";
 import { PageLoader } from "../components/PageLoader";
+import { GlobalChatWidget } from "../components/GlobalChatWidget";
 import { initPostHog, trackPageview } from "../../lib/posthog";
 
 // Init PostHog once
@@ -22,6 +23,7 @@ export default function Layout() {
       <Suspense fallback={<PageLoader visible />}>
         <Outlet />
       </Suspense>
+      <GlobalChatWidget />
     </>
   );
 }
