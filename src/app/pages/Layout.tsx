@@ -4,7 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import { PageLoader } from "../components/PageLoader";
 import { GlobalChatWidget } from "../components/GlobalChatWidget";
 import { useIsMobile } from "../components/useIsMobile";
-import { computeChatWidth, CHAT_TRANSITION_MS, CHAT_EASE_CSS } from "../components/chatLayout";
+import { computeChatWidth, CHAT_MARGIN, CHAT_TRANSITION_MS, CHAT_EASE_CSS } from "../components/chatLayout";
 import { initPostHog, trackPageview } from "../../lib/posthog";
 
 // Init PostHog once
@@ -28,7 +28,10 @@ export default function Layout() {
   }, []);
   const chatWidthPx = computeChatWidth(viewportWidth);
   // Mobile chat is a full-screen overlay, not a push — nothing to reserve.
-  const reservedPx = isChatOpen && !isMobile ? chatWidthPx : 0;
+  // +CHAT_MARGIN: the panel itself now floats CHAT_MARGIN in from the
+  // viewport's right edge (see GlobalChatWidget.tsx), so the reserved push
+  // has to cover that gap too, not just the panel's own width.
+  const reservedPx = isChatOpen && !isMobile ? chatWidthPx + CHAT_MARGIN : 0;
 
   // Scroll to top + track pageview on route change
   useEffect(() => {

@@ -14,6 +14,14 @@ export function computeChatWidth(viewportWidth: number): number {
   return Math.min(CHAT_MAX_WIDTH, Math.max(CHAT_MIN_WIDTH, Math.round(viewportWidth * CHAT_WIDTH_RATIO)));
 }
 
+// Desktop only (mobile stays edge-to-edge full screen). Matches the
+// Header's own floating-pill treatment: 24px top gap (its paddingTop) and
+// 20px corner radius (its rounded-[20px]) — see Header.tsx. Layout.tsx
+// folds this into the reserved push width too, since the panel's right
+// edge sits CHAT_MARGIN in from the viewport, not flush against it.
+export const CHAT_MARGIN = 24;
+export const CHAT_RADIUS = 20;
+
 export const CHAT_TRANSITION_MS = 400;
 // Same curve motion/react's cubic-bezier easing arrays use, spelled out as a
 // CSS transition-timing-function string for the plain-CSS side (Header,

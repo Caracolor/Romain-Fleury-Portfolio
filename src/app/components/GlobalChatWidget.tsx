@@ -6,7 +6,7 @@ import { useIsMobile } from "./useIsMobile";
 import { track } from "../../lib/posthog";
 import { MarkdownText } from "./ChatMarkdown";
 import { QUESTIONS_BY_CASE_STUDY, caseStudyForPath } from "./suggestedQuestions";
-import { CHAT_TRANSITION_MS, CHAT_EASE_MOTION } from "./chatLayout";
+import { CHAT_TRANSITION_MS, CHAT_EASE_MOTION, CHAT_MARGIN, CHAT_RADIUS } from "./chatLayout";
 
 // The scope value api/chat.ts treats specially: loads every doc (the
 // general bio + all four case studies) instead of a single project's file.
@@ -187,16 +187,23 @@ export function GlobalChatWidget({ isOpen, setIsOpen, widthPx }: GlobalChatWidge
       {/* Panel — always mounted (not conditionally rendered) so closing
           animates a slide back out to the right rather than an instant
           unmount; translateX(100%) puts it fully off-screen either way,
-          so it never intercepts clicks while closed. */}
+          so it never intercepts clicks while closed.
+          Desktop: floats CHAT_MARGIN in from the top/right/bottom edges
+          with CHAT_RADIUS corners, matching the Header's own floating-pill
+          treatment (its 24px top gap, 20px radius — see Header.tsx).
+          Mobile stays edge-to-edge full screen, no margin or rounding. */}
       <motion.div
-        className="fixed top-0 right-0 flex flex-col overflow-hidden"
+        className="fixed flex flex-col overflow-hidden"
         style={{
+          top: isMobile ? 0 : CHAT_MARGIN,
+          right: isMobile ? 0 : CHAT_MARGIN,
+          bottom: isMobile ? 0 : CHAT_MARGIN,
           width: panelWidth,
-          height: "100dvh",
+          borderRadius: isMobile ? 0 : CHAT_RADIUS,
           zIndex: 59,
           backgroundColor: "var(--color-qare-white)",
           boxShadow: "0 12px 40px rgba(64, 41, 91, 0.25)",
-          borderLeft: isMobile ? "none" : "1px solid var(--color-qare-150)",
+          border: isMobile ? "none" : "1px solid var(--color-qare-150)",
           pointerEvents: isOpen ? "auto" : "none",
         }}
         initial={false}
