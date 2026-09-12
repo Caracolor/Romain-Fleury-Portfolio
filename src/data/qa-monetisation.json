@@ -5,7 +5,11 @@
     "role": "Head of Product Design - IC + Leadership",
     "company": "Qare (groupe HealthHero)",
     "format": "Article narratif - pas une liste de features. Suit la thèse : le design comme levier business, ancré dans la data comportementale et la recherche utilisateur.",
-    "team": ["Romain Fleury (Head of Product Design)", "Arnaud Parise (Head of Product)", "Pierre-Olivier Calande (CPO)"]
+    "team": [
+      "Romain Fleury (Head of Product Design)",
+      "Arnaud Parise (Head of Product)",
+      "Pierre-Olivier Calande (CPO)"
+    ]
   },
   "context": {
     "summary": "Qare a traversé plusieurs modèles économiques en 3 ans, sous l'impulsion de contraintes réglementaires multiples et parfois contradictoires (ANS, Ordre des médecins, CNIL), de la dynamique du marché de la télémédecine, et de la pression de l'acquisition par HealthHero. Ce case study documente les pivots successifs et le rôle du design dans chacun.",
@@ -61,24 +65,19 @@
   ],
   "suggestedQuestions": [
     {
-      "question": "Qu'est-ce qui a déclenché chaque pivot ?",
-      "answer": "Principalement des contraintes réglementaires - l'ANS, l'Ordre des médecins, la CNIL. Les régulateurs sont multiples et se contredisent parfois. Naviguer dans la santé c'est complexe, et Qare n'a pas encore la masse critique pour influencer les régulateurs plutôt que de les subir. On mène quelques victoires via le lobbying notamment grâce au LET, mais on ne mène pas encore suffisamment la danse."
+      "question": "Qu'est-ce qui a déclenché chaque pivot ?"
     },
     {
-      "question": "Comment le design a-t-il influencé les décisions business ?",
-      "answer": "On a systématiquement apporté notre expertise sur les choix de services payants via des tests d'acceptabilité - 'êtes-vous prêt à payer X€ pour tel service ou avantage ?'. C'est vraiment le produit qui a tiré le sujet, et plus précisément le duo Head of Product et moi, en charge de ces études de recherche utilisateur."
+      "question": "Comment le design a-t-il influencé les décisions business ?"
     },
     {
-      "question": "Quels KPIs suivait-il pour valider un modèle ?",
-      "answer": "Deux indicateurs principaux : le taux d'application des frais (taux d'acceptation ou de conversion sur les services payants) et le taux de conversion global - les patients qui réalisent effectivement une consultation. Les deux ensemble donnent une lecture complète entre acceptation du pricing et impact sur l'usage réel."
+      "question": "Quels KPIs suivait-il pour valider un modèle ?"
     },
     {
-      "question": "Quel pivot a eu le plus d'impact ?",
-      "answer": "La sortie des frais de service classiques, poussée par les régulateurs, qui nous a obligés à augmenter les prix. Les analyses Van Westendorp ont rassuré les stakeholders pour oser monter les prix - on a fait des A/B tests progressifs et on est passé de 4€ à 9€ de frais de service. +125% sur le pricing, validé par la recherche utilisateur avant d'être soumis aux décideurs."
+      "question": "Quel pivot a eu le plus d'impact ?"
     },
     {
-      "question": "Comment a-t-il convaincu les stakeholders de monter les prix ?",
-      "answer": "Avec des études Van Westendorp qui objectivent le prix acceptable perçu par les patients, complétées par des A/B tests progressifs. On a montré que la demande tenait à 5€, puis 7€, puis 9€. Les données ont donné la confiance aux stakeholders pour aller au-delà de ce qu'ils auraient osé sans recherche. C'est un cas concret où le design a directement influencé une décision business majeure."
+      "question": "Comment a-t-il convaincu les stakeholders de monter les prix ?"
     }
   ]
 }

@@ -5,7 +5,13 @@
     "launch": "Juin 2025",
     "role": "Head of Product Design - IC + Leadership",
     "company": "Qare (groupe HealthHero)",
-    "team": ["Romain Fleury (Head of Product Design)", "Léa Rabi (Product Designer)", "Eva Zuliani (Lead Product Designer)", "Arnaud Parise (Head of Product)", "Pierre-Olivier Calande (CPO)"]
+    "team": [
+      "Romain Fleury (Head of Product Design)",
+      "Léa Rabi (Product Designer)",
+      "Eva Zuliani (Lead Product Designer)",
+      "Arnaud Parise (Head of Product)",
+      "Pierre-Olivier Calande (CPO)"
+    ]
   },
   "context": {
     "summary": "Qare est une plateforme de télémédecine française leader sur le marché. Face à une dépendance au modèle consultatif ponctuel (à l'acte), l'enjeu stratégique était de construire un modèle de revenus récurrents via des programmes de suivi chronique dans la durée. C'est une transition fondamentale du modèle économique : passer de soins épisodiques à des soins chroniques avec accompagnement continu.",
@@ -35,15 +41,30 @@
       "shape": {
         "target": "Patients en situation d'obésité de stade 1 ou 2, IMC > 28",
         "offers": [
-          { "name": "Offre Coaching", "price": "55€/mois", "duration": "6 mois", "description": "Accompagnement le plus complet avec suivi personnalisé par chat avec équipe paramédicale" },
-          { "name": "Offre Autonomie", "price": "45€/mois", "duration": "6 mois", "description": "Pour ceux qui préfèrent avancer seuls, accès aux téléconsultations et outils digitaux" }
+          {
+            "name": "Offre Coaching",
+            "price": "55€/mois",
+            "duration": "6 mois",
+            "description": "Accompagnement le plus complet avec suivi personnalisé par chat avec équipe paramédicale"
+          },
+          {
+            "name": "Offre Autonomie",
+            "price": "45€/mois",
+            "duration": "6 mois",
+            "description": "Pour ceux qui préfèrent avancer seuls, accès aux téléconsultations et outils digitaux"
+          }
         ],
         "supply": "1 MG nutritionniste + 5 MG au lancement"
       },
       "mind": {
         "target": "Patients présentant des troubles modérés d'anxiété ou de dépression, adultes uniquement",
         "offers": [
-          { "name": "Offre unique", "price": "20€/mois", "duration": "6 mois", "description": "Suivi psychiatrique structuré avec accompagnement digital" }
+          {
+            "name": "Offre unique",
+            "price": "20€/mois",
+            "duration": "6 mois",
+            "description": "Suivi psychiatrique structuré avec accompagnement digital"
+          }
         ],
         "supply": "6 psychiatres + 4 MG au lancement"
       }
@@ -105,10 +126,27 @@
     "inPractice": "Confronter plusieurs avis médicaux, identifier les consensus, les soumettre au design qui arbitre en fonction des besoins utilisateurs réels."
   },
   "personas": [
-    { "name": "Mère en ville moyenne", "age": "40-50 ans", "share": "28% de la base", "profile": "A eu une ou plusieurs grossesses, vit dans une petite/moyenne ville, cherche à retrouver un équilibre physique et mental" },
-    { "name": "Cadre urbaine", "age": "35-40 ans", "profile": "Profil urbain, niveau de revenu moyen, déjà utilisatrice Qare occasionnelle" },
-    { "name": "Jeune urbain", "age": "~26 ans", "profile": "Actif professionnellement, premier contact via Mind, gestion du stress" },
-    { "name": "Femme diplômée ville intermédiaire", "age": "30 ans", "profile": "Souvent sans CSS, déjà consultée pour anxiété ou fatigue" }
+    {
+      "name": "Mère en ville moyenne",
+      "age": "40-50 ans",
+      "share": "28% de la base",
+      "profile": "A eu une ou plusieurs grossesses, vit dans une petite/moyenne ville, cherche à retrouver un équilibre physique et mental"
+    },
+    {
+      "name": "Cadre urbaine",
+      "age": "35-40 ans",
+      "profile": "Profil urbain, niveau de revenu moyen, déjà utilisatrice Qare occasionnelle"
+    },
+    {
+      "name": "Jeune urbain",
+      "age": "~26 ans",
+      "profile": "Actif professionnellement, premier contact via Mind, gestion du stress"
+    },
+    {
+      "name": "Femme diplômée ville intermédiaire",
+      "age": "30 ans",
+      "profile": "Souvent sans CSS, déjà consultée pour anxiété ou fatigue"
+    }
   ],
   "impact": {
     "patients_actifs": 2179,
@@ -130,36 +168,28 @@
   ],
   "suggestedQuestions": [
     {
-      "question": "Quel était son rôle exact sur ce projet ?",
-      "answer": "Au début surtout IC - il fallait redonner de l'ambition à une équipe habituée depuis 2 ans à des quickwins et des micro-améliorations. J'ai posé les bases des programmes et la logique d'implémentation dans l'app, puis j'ai progressivement laissé la main. C'est un projet où j'ai d'abord dû recréer les conditions pour qu'un travail ambitieux soit possible."
+      "question": "Quel était son rôle exact sur ce projet ?"
     },
     {
-      "question": "Comment a-t-il mesuré le succès ?",
-      "answer": "Au lancement, le KPI principal était le nombre de souscriptions. Maintenant l'enjeu se déplace vers la rétention des patients, le taux de satisfaction, et les outcomes médicaux - est-ce que les patients se sentent mieux. La partie acquisition est désormais surtout entre les mains du marketing."
+      "question": "Comment a-t-il mesuré le succès ?"
     },
     {
-      "question": "Qu'est-ce qui explique les 230% vs objectif ?",
-      "answer": "Un product-market fit beaucoup plus fort que prévu. On s'est appuyé sur notre base de patients existants - des utilisateurs épisodiques qu'on a amenés vers le chronic plutôt que d'aller chercher de nouveaux patients via des campagnes marketing. Ces patients nous faisaient déjà confiance. Quand le besoin est là et que la confiance est établie, la conversion est naturelle et rapide."
+      "question": "Qu'est-ce qui explique les 230% vs objectif ?"
     },
     {
-      "question": "Quels ont été les principaux blocages ?",
-      "answer": "Le manque de moyens et des délais très serrés. On a donc fait un MVP très minimaliste - l'objectif était de sortir quelque chose à la date butoire, pas de livrer un produit parfait. Certains process étaient encore en cours de construction au lancement, c'était assumé."
+      "question": "Quels ont été les principaux blocages ?"
     },
     {
-      "question": "Comment a-t-il arbitré entre besoins utilisateurs et contraintes médicales ?",
-      "answer": "On prend les inputs de l'équipe médicale mais pas comme argent comptant. Les médecins ne sont pas toujours d'accord entre eux, et le travail du design c'est aussi de créer cet alignement. Le médical chez Qare est dans un rôle de conseil produit, pas de validateur. Si on laisse le médical valider, on se bloque systématiquement pour des raisons éthiques."
+      "question": "Comment a-t-il arbitré entre besoins utilisateurs et contraintes médicales ?"
     },
     {
-      "question": "Pourquoi a-t-il choisi de convertir les patients existants plutôt que d'en acquérir de nouveaux ?",
-      "answer": "C'est le chemin le plus rapide, le moins cher, et avec le plus d'impact. Le coût d'acquisition est quasi nul, la confiance est déjà établie, et le time-to-value est immédiat."
+      "question": "Pourquoi a-t-il choisi de convertir les patients existants plutôt que d'en acquérir de nouveaux ?"
     },
     {
-      "question": "Qu'est-ce qu'il ferait différemment s'il recommençait ?",
-      "answer": "Je me dégagerais plus de temps au début pour être IC plus longtemps, et j'aurais suivi la production de plus près. J'aurais aussi mieux cadré la création de contenu médical dès le départ. Et j'aurais évité les deux offres sur Shape : trop de choix crée de l'hésitation, et l'hésitation c'est du drop."
+      "question": "Qu'est-ce qu'il ferait différemment s'il recommençait ?"
     },
     {
-      "question": "Comment le design a-t-il influencé le modèle économique du programme ?",
-      "answer": "On a conduit une étude Van Westendorp pour calibrer le prix acceptable, complétée par des études sur les personas et leurs habitudes - connaissance des GLP-1, rapport au suivi médical, etc. Ce travail a directement alimenté les décisions de pricing et la structuration des offres."
+      "question": "Comment le design a-t-il influencé le modèle économique du programme ?"
     }
   ]
 }
