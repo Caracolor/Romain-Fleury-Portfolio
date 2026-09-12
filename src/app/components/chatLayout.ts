@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 /**
  * Shared between Layout.tsx (pushes the Header + page content) and
  * GlobalChatWidget.tsx (renders the panel itself), so both sides of the
@@ -21,6 +23,21 @@ export function computeChatWidth(viewportWidth: number): number {
 // edge sits CHAT_MARGIN in from the viewport, not flush against it.
 export const CHAT_MARGIN = 24;
 export const CHAT_RADIUS = 20;
+
+/**
+ * Whether the chat is open, pushing content over — read by ScaledSection.tsx
+ * so its own side padding (a generous fixed 200px, tuned for the full-width
+ * default column) can shrink instead of eating a huge share of the already
+ * narrower space. Default false: any consumer rendered outside Layout.tsx's
+ * provider (there shouldn't be one) just gets the normal, unreduced padding.
+ *
+ * ~30% chat / ~60% content / ~10% margin of the viewport was the target
+ * (CHAT_WIDTH_RATIO already is 30%); 7% padding on each side of the
+ * ScaledSection container works out to roughly that 10% once the container
+ * itself is ~70% of the viewport, across the range window widths this site
+ * actually gets used at.
+ */
+export const ChatOpenContext = createContext(false);
 
 export const CHAT_TRANSITION_MS = 400;
 // Same curve motion/react's cubic-bezier easing arrays use, spelled out as a

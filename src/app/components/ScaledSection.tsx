@@ -1,4 +1,5 @@
-import { useRef, useState, useEffect, ReactNode, CSSProperties } from "react";
+import { useRef, useState, useEffect, useContext, ReactNode, CSSProperties } from "react";
+import { ChatOpenContext } from "./chatLayout";
 
 interface ScaledSectionProps {
   maxWidth: number;
@@ -25,6 +26,7 @@ export function ScaledSection({
   const innerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [outerHeight, setOuterHeight] = useState<number | undefined>();
+  const isChatOpen = useContext(ChatOpenContext);
 
   useEffect(() => {
     const outer = outerRef.current;
@@ -51,14 +53,24 @@ export function ScaledSection({
     return () => ro.disconnect();
   }, [maxWidth]);
 
-  // Use less side padding on mobile for a better scale factor
+  // Use less side padding on mobile for a better scale factor. Also less
+  // once the chat has pushed content over: the fixed 200px desktop gutter
+  // was tuned for the full-width column, and eats a much bigger share of
+  // an already-narrowed ~70%-of-viewport space — 7% keeps the roughly
+  // 30% chat / 60% content / 10% margin split intended for that state
+  // (see chatLayout.ts's ChatOpenContext) instead of squeezing the actual
+  // content down far more than the push alone already does.
   const isMobileView = typeof window !== "undefined" && window.innerWidth < 768;
   const sidePadding = isMobileView
     ? "clamp(16px, 4vw, 32px)"
-    : "200px";
+    : isChatOpen
+      ? "clamp(24px, 7%, 100px)"
+      : "200px";
   const maxWidthWithPadding = isMobileView
     ? maxWidth + 64   // 32*2 max mobile padding
-    : maxWidth + 400; // 200*2 desktop padding
+    : isChatOpen
+      ? maxWidth + 200 // 100*2 — matches the clamp's ceiling above
+      : maxWidth + 400; // 200*2 desktop padding
 
   return (
     <div

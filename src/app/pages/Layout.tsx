@@ -6,7 +6,7 @@ import { GlobalChatWidget } from "../components/GlobalChatWidget";
 import { useGlobalChat } from "../components/useGlobalChat";
 import { ChatProvider } from "../components/ChatContext";
 import { useIsMobile } from "../components/useIsMobile";
-import { computeChatWidth, CHAT_MARGIN, CHAT_TRANSITION_MS, CHAT_EASE_CSS } from "../components/chatLayout";
+import { computeChatWidth, CHAT_MARGIN, CHAT_TRANSITION_MS, CHAT_EASE_CSS, ChatOpenContext } from "../components/chatLayout";
 import { initPostHog, trackPageview } from "../../lib/posthog";
 
 // Init PostHog once
@@ -55,12 +55,18 @@ export default function Layout() {
       >
         <Suspense fallback={<PageLoader visible />}>
           <ChatProvider value={{ openAndAsk: chat.openAndAsk, openChat: chat.openChat }}>
-            {/* Pages that call useDesignScale() directly (not just through
-                ScaledSection, which already reacts on its own — see its
-                ResizeObserver) read this back via useOutletContext() so
-                their own gap/padding math shrinks in step with the pushed
-                content. */}
-            <Outlet context={{ chatReservedWidth: reservedPx }} />
+            {/* ScaledSection.tsx reads this directly (no prop threading
+                through the many pages/components that render one) to shrink
+                its own side padding once the chat has actually eaten into
+                the available width — see chatLayout.ts. */}
+            <ChatOpenContext.Provider value={reservedPx > 0}>
+              {/* Pages that call useDesignScale() directly (not just through
+                  ScaledSection, which already reacts on its own — see its
+                  ResizeObserver) read this back via useOutletContext() so
+                  their own gap/padding math shrinks in step with the pushed
+                  content. */}
+              <Outlet context={{ chatReservedWidth: reservedPx }} />
+            </ChatOpenContext.Provider>
           </ChatProvider>
         </Suspense>
       </div>
