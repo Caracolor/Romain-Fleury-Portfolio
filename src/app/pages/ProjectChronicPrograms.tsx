@@ -104,9 +104,20 @@ export default function ProjectChronicPrograms() {
         </div>
       ) : (
         <div
-          className="bg-[var(--color-qare-050)] w-full relative overflow-visible"
+          className="w-full relative overflow-visible"
           style={{ marginTop: SECTION_GAP, paddingTop: APPROACH_PY, paddingBottom: APPROACH_PY }}
         >
+          {/* Background painted on its own layer, wider than the section
+              itself (by the chat's reserved width) and positioned behind
+              everything (z-index -1) — so it bleeds seamlessly under the
+              chat panel instead of stopping at the section's own (shrunk-
+              when-chat-is-open) box edge. Absolute positioning takes it out
+              of flow, so it doesn't affect how ScaledSection below measures
+              its own container and scales/centers the actual content. */}
+          <div
+            className="absolute inset-0 bg-[var(--color-qare-050)]"
+            style={{ width: `calc(100% + ${chatReservedWidth}px)`, zIndex: -1 }}
+          />
           <ScaledSection maxWidth={CONTENT_WIDTH}>
             <div
               className="absolute pointer-events-none z-10"
