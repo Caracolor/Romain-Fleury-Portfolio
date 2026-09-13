@@ -152,19 +152,21 @@ export function GlobalChatWidget({
           from the viewport's right edge), then shifting right by 50% of the
           bubble's OWN width re-centers that same point regardless of how
           wide the bubble ends up being (its width isn't known up front —
-          the text can wrap). */}
+          the text can wrap). That shift has to go through Framer's own `x`
+          motion value, not a plain style.transform string — Framer fully
+          owns and rewrites the element's `transform` property to animate
+          y/scale, so a manually-set transform gets silently overwritten. */}
       <AnimatePresence>
         {!isOpen && showHint && (
           <motion.div
-            initial={{ opacity: 0, y: 8, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.95 }}
+            initial={{ opacity: 0, y: 8, x: "50%", scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, x: "50%", scale: 1 }}
+            exit={{ opacity: 0, y: 8, x: "50%", scale: 0.95 }}
             transition={{ duration: 0.25, ease: CHAT_EASE_MOTION }}
             className="fixed"
             style={{
               bottom: buttonBottom + buttonSize + 14,
               right: buttonRight + buttonSize / 2,
-              transform: "translateX(50%)",
               maxWidth: isMobile ? 200 : 220,
               zIndex: 59,
             }}
