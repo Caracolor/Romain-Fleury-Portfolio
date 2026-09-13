@@ -330,19 +330,26 @@ export function GlobalChatWidget({
             borderBottom: "1px solid var(--color-qare-150)",
           }}
         >
-          <div className="flex flex-col" style={{ gap: 2 }}>
-            <p
-              className="font-['Aeonik:Bold',sans-serif]"
-              style={{ fontSize: 16, color: "var(--color-qare-text)", margin: 0 }}
-            >
-              L'assistant de Romain
-            </p>
-            <p
-              className="font-['Aeonik:Regular',sans-serif]"
-              style={{ fontSize: 13, color: "var(--color-qare-muted)", margin: 0 }}
-            >
-              Pose une question sur son parcours ou ses projets
-            </p>
+          <div className="flex items-center" style={{ gap: 12 }}>
+            <img
+              src="/bot/normal.svg"
+              alt=""
+              style={{ width: 40, height: 40, borderRadius: 15, flexShrink: 0 }}
+            />
+            <div className="flex flex-col" style={{ gap: 2 }}>
+              <p
+                className="font-['Aeonik:Bold',sans-serif]"
+                style={{ fontSize: 16, color: "var(--color-qare-text)", margin: 0 }}
+              >
+                L'assistant de Romain
+              </p>
+              <p
+                className="font-['Aeonik:Regular',sans-serif]"
+                style={{ fontSize: 13, color: "var(--color-qare-muted)", margin: 0 }}
+              >
+                Pose une question sur son parcours ou ses projets
+              </p>
+            </div>
           </div>
           <button
             onClick={toggleOpen}
