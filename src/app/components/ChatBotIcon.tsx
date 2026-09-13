@@ -65,36 +65,55 @@ const POSE_SRC: Record<Pose, string> = {
   funny4: "/bot/funny-4.svg",
 };
 
-const DEFAULT_FRAME_MS = 800;
-const FUNNY_FRAME_MS = 400;
+interface Frame {
+  pose: Pose;
+  ms: number;
+}
+
+const WINK_MS = 800;
+const GLANCE_RAMP_MS = 200; // left/right/top/bottom: time between intermediate frames
+const GLANCE_HOLD_MS = 800; // ...and the pause at the extreme + at "normal" in between
+const REACTION_MS = 400; // suspicious/hangry ping-pong
+const FUNNY_MS = 100; // giggle bounce
+
+function uniform(poses: Pose[], ms: number): Frame[] {
+  return poses.map((pose) => ({ pose, ms }));
+}
 
 // left1-4 / top1-5 are the eye's *intermediate* positions between "normal"
 // and its most extreme glance — ramping through them one at a time (rather
 // than jumping straight to the extreme) is what makes the glance read as a
-// smooth motion instead of a snap-cut. Each cluster ramps up, holds
-// momentarily on the most extreme frame, then ramps back down through the
-// same intermediates — mirroring on the way out and the way back in.
-function rampUpAndDown(frames: Pose[]): Pose[] {
-  return [...frames, ...frames.slice(0, -1).reverse()];
+// smooth motion instead of a snap-cut. Each cluster ramps up at
+// GLANCE_RAMP_MS/frame, holds on the most extreme frame for
+// GLANCE_HOLD_MS, then ramps back down through the same intermediates.
+function rampCluster(frames: Pose[]): Frame[] {
+  const up = frames.map((pose, i) => ({ pose, ms: i === frames.length - 1 ? GLANCE_HOLD_MS : GLANCE_RAMP_MS }));
+  const down = frames
+    .slice(0, -1)
+    .reverse()
+    .map((pose) => ({ pose, ms: GLANCE_RAMP_MS }));
+  return [...up, ...down];
 }
 
-const LEFT_RIGHT_SEQUENCE: Pose[] = [
-  ...rampUpAndDown(["left1", "left2", "left3", "left4"]),
-  "normal",
-  ...rampUpAndDown(["right1", "right2", "right3", "right4"]),
+const LEFT_RIGHT_SEQUENCE: Frame[] = [
+  ...rampCluster(["left1", "left2", "left3", "left4"]),
+  { pose: "normal", ms: GLANCE_HOLD_MS },
+  ...rampCluster(["right1", "right2", "right3", "right4"]),
 ];
 
-const TOP_BOTTOM_SEQUENCE: Pose[] = [
-  ...rampUpAndDown(["top1", "top2", "top3", "top4", "top5"]),
-  "normal",
-  ...rampUpAndDown(["bottom1", "bottom2", "bottom3", "bottom4", "bottom5"]),
+const TOP_BOTTOM_SEQUENCE: Frame[] = [
+  ...rampCluster(["top1", "top2", "top3", "top4", "top5"]),
+  { pose: "normal", ms: GLANCE_HOLD_MS },
+  ...rampCluster(["bottom1", "bottom2", "bottom3", "bottom4", "bottom5"]),
 ];
 
 // A gentle ping-pong across the 3 frames (not a single static pose) so the
 // head reads as subtly alive while held, rather than frozen mid-expression.
-// 6 changes at 800ms/frame lands right around the requested 5s budget.
-const SUSPICIOUS_SEQUENCE: Pose[] = ["suspicious1", "suspicious2", "suspicious3", "suspicious2", "suspicious1", "suspicious2"];
-const HANGRY_SEQUENCE: Pose[] = ["hangry1", "hangry2", "hangry3", "hangry2", "hangry1", "hangry2"];
+const SUSPICIOUS_SEQUENCE: Frame[] = uniform(
+  ["suspicious1", "suspicious2", "suspicious3", "suspicious2", "suspicious1", "suspicious2"],
+  REACTION_MS
+);
+const HANGRY_SEQUENCE: Frame[] = uniform(["hangry1", "hangry2", "hangry3", "hangry2", "hangry1", "hangry2"], REACTION_MS);
 
 // One "va-et-vient" = one full bounce through all 4 frames and back
 // (1->2->3->4->3->2->1), like a head bobbing with laughter. Repeating
@@ -102,23 +121,23 @@ const HANGRY_SEQUENCE: Pose[] = ["hangry1", "hangry2", "hangry3", "hangry2", "ha
 // frame 2, since the previous one already ended on frame 1) so the loop
 // doesn't visibly pause on a duplicated frame at each seam.
 const FUNNY_UNIT: Pose[] = ["funny1", "funny2", "funny3", "funny4", "funny3", "funny2", "funny1"];
-function buildFunnySequence(bounces: number): Pose[] {
+function buildFunnySequence(bounces: number): Frame[] {
   const seq = [...FUNNY_UNIT];
   for (let i = 1; i < bounces; i++) seq.push(...FUNNY_UNIT.slice(1));
-  return seq;
+  return uniform(seq, FUNNY_MS);
 }
 const FUNNY_SEQUENCE = buildFunnySequence(6);
 
 // Every sequence starts and ends on "normal" (the trailing one added at
 // play time, not listed here) so the loop always rests on the same
 // neutral frame between idle animations, whatever it just played.
-const SEQUENCES: { poses: Pose[]; frameMs: number }[] = [
-  { poses: SUSPICIOUS_SEQUENCE, frameMs: DEFAULT_FRAME_MS },
-  { poses: LEFT_RIGHT_SEQUENCE, frameMs: DEFAULT_FRAME_MS },
-  { poses: TOP_BOTTOM_SEQUENCE, frameMs: DEFAULT_FRAME_MS },
-  { poses: ["wink"], frameMs: DEFAULT_FRAME_MS },
-  { poses: HANGRY_SEQUENCE, frameMs: DEFAULT_FRAME_MS },
-  { poses: FUNNY_SEQUENCE, frameMs: FUNNY_FRAME_MS },
+const SEQUENCES: Frame[][] = [
+  SUSPICIOUS_SEQUENCE,
+  LEFT_RIGHT_SEQUENCE,
+  TOP_BOTTOM_SEQUENCE,
+  uniform(["wink"], WINK_MS),
+  HANGRY_SEQUENCE,
+  FUNNY_SEQUENCE,
 ];
 
 const IDLE_MIN_MS = 2000;
@@ -152,14 +171,14 @@ export function ChatBotIcon({ alt }: { alt: string }) {
       playFrame(seq, 0);
     };
 
-    const playFrame = (seq: (typeof SEQUENCES)[number], i: number) => {
-      if (i >= seq.poses.length) {
+    const playFrame = (seq: Frame[], i: number) => {
+      if (i >= seq.length) {
         setPose("normal");
         scheduleNextIdle();
         return;
       }
-      setPose(seq.poses[i]);
-      schedule(() => playFrame(seq, i + 1), seq.frameMs);
+      setPose(seq[i].pose);
+      schedule(() => playFrame(seq, i + 1), seq[i].ms);
     };
 
     scheduleNextIdle();
