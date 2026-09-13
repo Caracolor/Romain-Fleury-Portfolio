@@ -51,35 +51,24 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
 
   const inner = (
     <div className="flex flex-col" style={{ gap: isMobile ? 24 : 32 }}>
-      {/* Avatar + label + headline */}
-      <div className="flex items-start" style={{ gap: isMobile ? 16 : 20 }}>
+      {/* Avatar + label */}
+      <div className="flex items-center" style={{ gap: isMobile ? 16 : 20 }}>
         <img
           src="/bot/normal.svg"
           alt=""
           style={{ width: isMobile ? 40 : 56, height: isMobile ? 40 : 56, borderRadius: isMobile ? 15 : 21, flexShrink: 0 }}
         />
-        <div className="flex flex-col" style={{ gap: 8 }}>
-          <p
-            className="font-['Aeonik:Regular',sans-serif] uppercase"
-            style={{
-              color: "var(--color-qare-brand)",
-              fontSize: isMobile ? 16 : 24,
-              letterSpacing: isMobile ? "3px" : "4.8px",
-            }}
-          >
-            Vous avez une question ?
-          </p>
-          <p
-            className="font-['Aeonik:Bold',sans-serif]"
-            style={{
-              color: "var(--color-qare-text)",
-              fontSize: isMobile ? 22 : 36,
-              lineHeight: isMobile ? "28px" : "45px",
-            }}
-          >
-            Posez votre question à l'assistant IA de ce portfolio
-          </p>
-        </div>
+        <p
+          className="font-['Aeonik:Regular',sans-serif] uppercase"
+          style={{
+            color: "var(--color-qare-brand)",
+            fontSize: isMobile ? 16 : 24,
+            letterSpacing: isMobile ? "3px" : "4.8px",
+            margin: 0,
+          }}
+        >
+          Vous avez une question ?
+        </p>
       </div>
 
       {/* Freeform input — submitting opens the global panel with this as
