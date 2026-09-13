@@ -293,16 +293,17 @@ export function GlobalChatWidget({
       {/* "Online" badge for the floating button — rendered as its own
           fixed sibling rather than inside the button: the button's
           overflow:hidden (needed for its own boxShadow radius) would clip
-          a badge straddling its corner. Anchored at (right: buttonRight,
-          bottom: buttonBottom + buttonSize) — the icon's top-right corner
-          in the same bottom/right coordinate space the button itself
-          uses — then the component's own translate(50%,-50%) centers the
-          dot exactly on that point. `top: "auto"` clears the component's
-          default top:0 anchor, which would otherwise conflict with bottom
-          here (both stretching the element instead of just positioning it). */}
+          a badge sitting right at its corner. Anchored at (right:
+          buttonRight, bottom: buttonBottom + buttonSize) — the icon's
+          top-right corner in the same bottom/right coordinate space the
+          button itself uses — then the component's own
+          translate(0%, 90%) nudges it down just inside that corner.
+          `top: "auto"` clears the component's default top:0 anchor, which
+          would otherwise conflict with bottom here (both stretching the
+          element instead of just positioning it). */}
       {!isOpen && (
         <AvatarStatusDot
-          size={4}
+          size={10}
           style={{ position: "fixed", top: "auto", bottom: buttonBottom + buttonSize, right: buttonRight, zIndex: 61 }}
         />
       )}
@@ -354,7 +355,7 @@ export function GlobalChatWidget({
                 alt=""
                 style={{ width: 40, height: 40, borderRadius: 15, display: "block" }}
               />
-              <AvatarStatusDot size={4} />
+              <AvatarStatusDot size={10} />
             </div>
             <div className="flex flex-col" style={{ gap: 2 }}>
               <p
