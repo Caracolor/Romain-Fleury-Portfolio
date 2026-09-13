@@ -10,10 +10,12 @@ interface AvatarStatusDotProps {
 /**
  * The small green "online" badge on the mascot's avatar — signals the
  * assistant is live and ready to answer, not just decorative branding.
- * Positioned at the avatar's bottom-right corner by default; pass `style`
- * to override when the parent isn't a plain relative-positioned wrapper
- * (e.g. the floating button, whose own overflow:hidden would clip a badge
- * placed right at its corner — see GlobalChatWidget.tsx).
+ * Straddles the avatar's top-right corner by default (translate(50%,-50%)
+ * centers the dot exactly on that corner point, half in/half out) — pass
+ * `style` to override the anchor when the parent isn't a plain
+ * relative-positioned wrapper (e.g. the floating button, whose own
+ * overflow:hidden would clip a badge placed right at its corner — see
+ * GlobalChatWidget.tsx, which anchors it as a fixed sibling instead).
  */
 export function AvatarStatusDot({ size, borderWidth = 2, style }: AvatarStatusDotProps) {
   return (
@@ -21,8 +23,9 @@ export function AvatarStatusDot({ size, borderWidth = 2, style }: AvatarStatusDo
       aria-hidden
       style={{
         position: "absolute",
-        bottom: 0,
+        top: 0,
         right: 0,
+        transform: "translate(50%, -50%)",
         width: size,
         height: size,
         borderRadius: "50%",

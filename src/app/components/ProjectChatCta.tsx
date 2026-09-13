@@ -88,7 +88,7 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
             alt=""
             style={{ width: INPUT_HEIGHT, height: INPUT_HEIGHT, borderRadius: INPUT_HEIGHT * 0.375, display: "block" }}
           />
-          <AvatarStatusDot size={16} borderWidth={3} />
+          <AvatarStatusDot size={16} />
         </div>
         <form onSubmit={handleSubmit} className="flex-1">
           <div
