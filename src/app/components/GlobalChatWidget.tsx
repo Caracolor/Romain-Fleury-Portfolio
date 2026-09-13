@@ -326,7 +326,6 @@ export function GlobalChatWidget({
           borderRadius: isMobile ? 0 : CHAT_RADIUS,
           zIndex: 59,
           backgroundColor: "var(--color-qare-white)",
-          boxShadow: "0 12px 40px rgba(64, 41, 91, 0.25)",
           border: isMobile ? "none" : "1px solid var(--color-qare-150)",
           pointerEvents: isOpen ? "auto" : "none",
         }}
