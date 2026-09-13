@@ -14,21 +14,23 @@ const POSE_SRC: Record<Pose, string> = {
   funny: "/bot/funny.svg",
 };
 
+const DEFAULT_FRAME_MS = 800;
+
 // Every sequence starts and ends on "normal" (added at play time, not
 // listed here) so the loop always rests on the same neutral frame between
-// idle animations, whatever it just played.
-const SEQUENCES: Pose[][] = [
-  ["suspicious"], // side-eye, back to normal
-  ["left", "right"], // glances one way, then the other
-  ["top", "bottom"], // glances up, then down
-  ["wink"],
-  ["hangry"],
-  ["funny"],
+// idle animations, whatever it just played. frameMs is per-sequence — a
+// side-eye or an angry look needs longer to read than a quick glance.
+const SEQUENCES: { poses: Pose[]; frameMs: number }[] = [
+  { poses: ["suspicious"], frameMs: 2400 }, // side-eye, back to normal
+  { poses: ["left", "right"], frameMs: DEFAULT_FRAME_MS }, // glances one way, then the other
+  { poses: ["top", "bottom"], frameMs: DEFAULT_FRAME_MS }, // glances up, then down
+  { poses: ["wink"], frameMs: DEFAULT_FRAME_MS },
+  { poses: ["hangry"], frameMs: 2400 },
+  { poses: ["funny"], frameMs: 1600 },
 ];
 
-const FRAME_MS = 800;
-const IDLE_MIN_MS = 3500;
-const IDLE_MAX_MS = 7000;
+const IDLE_MIN_MS = 2000;
+const IDLE_MAX_MS = 6000;
 
 /**
  * The floating chat button's mascot, idling on "normal" and occasionally
@@ -58,14 +60,14 @@ export function ChatBotIcon({ alt }: { alt: string }) {
       playFrame(seq, 0);
     };
 
-    const playFrame = (seq: Pose[], i: number) => {
-      if (i >= seq.length) {
+    const playFrame = (seq: (typeof SEQUENCES)[number], i: number) => {
+      if (i >= seq.poses.length) {
         setPose("normal");
         scheduleNextIdle();
         return;
       }
-      setPose(seq[i]);
-      schedule(() => playFrame(seq, i + 1), FRAME_MS);
+      setPose(seq.poses[i]);
+      schedule(() => playFrame(seq, i + 1), seq.frameMs);
     };
 
     scheduleNextIdle();
