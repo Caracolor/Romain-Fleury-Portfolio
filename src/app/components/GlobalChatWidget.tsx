@@ -147,21 +147,26 @@ export function GlobalChatWidget({
     <>
       {/* One-time hint bubble, nudging attention to the button above it —
           see the showHint effects above for its timing/dismissal rules.
-          Horizontally centered on the button via the translateX(50%) trick:
-          `right` is set to the button's own horizontal center (as a distance
-          from the viewport's right edge), then shifting right by 50% of the
-          bubble's OWN width re-centers that same point regardless of how
-          wide the bubble ends up being (its width isn't known up front —
-          the text can wrap). That shift has to go through Framer's own `x`
-          motion value, not a plain style.transform string — Framer fully
-          owns and rewrites the element's `transform` property to animate
-          y/scale, so a manually-set transform gets silently overwritten. */}
+          The tail sits at 80% of the bubble's own width (not centered —
+          centering it made the bubble spill past the viewport's right edge,
+          since half its width extended further right than the button
+          itself) and the bubble is positioned so that same 80%-point lines
+          up with the button's horizontal center: `right` is the button's
+          own center (as a distance from the viewport's right edge), and
+          shifting the bubble right by 20% of its OWN width — the
+          complement of 80% — re-lands that 80%-point exactly on the
+          button's center regardless of how wide the bubble ends up being
+          (its width isn't known up front, the text can wrap). That shift
+          has to go through Framer's own `x` motion value, not a plain
+          style.transform string — Framer fully owns and rewrites the
+          element's `transform` property to animate y/scale, so a
+          manually-set transform gets silently overwritten. */}
       <AnimatePresence>
         {!isOpen && showHint && (
           <motion.div
-            initial={{ opacity: 0, y: 8, x: "50%", scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, x: "50%", scale: 1 }}
-            exit={{ opacity: 0, y: 8, x: "50%", scale: 0.95 }}
+            initial={{ opacity: 0, y: 8, x: "20%", scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, x: "20%", scale: 1 }}
+            exit={{ opacity: 0, y: 8, x: "20%", scale: 0.95 }}
             transition={{ duration: 0.25, ease: CHAT_EASE_MOTION }}
             className="fixed"
             style={{
@@ -200,12 +205,13 @@ export function GlobalChatWidget({
                 <X size={12} color="var(--color-qare-text)" />
               </button>
             </div>
-            {/* Downward-pointing tail, centered under the bubble */}
+            {/* Downward-pointing tail, at 80% of the bubble's width — see
+                the comment above the bubble itself for why 80/20. */}
             <div
               style={{
                 position: "absolute",
                 bottom: -6,
-                left: "50%",
+                left: "80%",
                 transform: "translateX(-50%) rotate(45deg)",
                 width: 12,
                 height: 12,
