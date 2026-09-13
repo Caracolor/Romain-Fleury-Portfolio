@@ -302,7 +302,7 @@ export function GlobalChatWidget({
           here (both stretching the element instead of just positioning it). */}
       {!isOpen && (
         <AvatarStatusDot
-          size={Math.round(buttonSize * 0.28)}
+          size={4}
           style={{ position: "fixed", top: "auto", bottom: buttonBottom + buttonSize, right: buttonRight, zIndex: 61 }}
         />
       )}
@@ -354,7 +354,7 @@ export function GlobalChatWidget({
                 alt=""
                 style={{ width: 40, height: 40, borderRadius: 15, display: "block" }}
               />
-              <AvatarStatusDot size={11} />
+              <AvatarStatusDot size={4} />
             </div>
             <div className="flex flex-col" style={{ gap: 2 }}>
               <p

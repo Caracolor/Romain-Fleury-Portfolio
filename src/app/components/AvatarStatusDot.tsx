@@ -17,7 +17,7 @@ interface AvatarStatusDotProps {
  * overflow:hidden would clip a badge placed right at its corner — see
  * GlobalChatWidget.tsx, which anchors it as a fixed sibling instead).
  */
-export function AvatarStatusDot({ size, borderWidth = 2, style }: AvatarStatusDotProps) {
+export function AvatarStatusDot({ size, borderWidth = 1, style }: AvatarStatusDotProps) {
   return (
     <span
       aria-hidden
