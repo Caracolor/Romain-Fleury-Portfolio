@@ -73,50 +73,53 @@ interface Frame {
 const WINK_MS = 800;
 const GLANCE_RAMP_MS = 50; // left/right/top/bottom: time between intermediate frames
 const GLANCE_HOLD_MS = 800; // ...and the pause at the extreme + at "normal" in between
-const REACTION_MS = 100; // suspicious/hangry ping-pong
+const REACTION_MS = 100; // suspicious ramp / hangry ping-pong
+const SUSPICIOUS_HOLD_MS = 2400; // pause at the peak of the suspicious look
 const FUNNY_MS = 50; // giggle bounce
 
 function uniform(poses: Pose[], ms: number): Frame[] {
   return poses.map((pose) => ({ pose, ms }));
 }
 
-// left1-4 / top1-5 are the eye's *intermediate* positions between "normal"
-// and its most extreme glance — ramping through them one at a time (rather
-// than jumping straight to the extreme) is what makes the glance read as a
-// smooth motion instead of a snap-cut. Each cluster ramps up at
-// GLANCE_RAMP_MS/frame, holds on the most extreme frame for
-// GLANCE_HOLD_MS, then ramps back down through the same intermediates.
-function rampCluster(frames: Pose[]): Frame[] {
-  const up = frames.map((pose, i) => ({ pose, ms: i === frames.length - 1 ? GLANCE_HOLD_MS : GLANCE_RAMP_MS }));
+// left1-4 / top1-5 (glances) and suspicious1-3 are all *intermediate*
+// positions between "normal" and their most extreme frame — ramping
+// through them one at a time (rather than jumping straight there) is what
+// makes the motion read as smooth instead of a snap-cut. Each cluster
+// ramps up at rampMs/frame, holds on the most extreme frame for holdMs,
+// then ramps back down through the same intermediates.
+function rampCluster(frames: Pose[], rampMs: number, holdMs: number): Frame[] {
+  const up = frames.map((pose, i) => ({ pose, ms: i === frames.length - 1 ? holdMs : rampMs }));
   const down = frames
     .slice(0, -1)
     .reverse()
-    .map((pose) => ({ pose, ms: GLANCE_RAMP_MS }));
+    .map((pose) => ({ pose, ms: rampMs }));
   return [...up, ...down];
 }
 
 const LEFT_RIGHT_SEQUENCE: Frame[] = [
-  ...rampCluster(["left1", "left2", "left3", "left4"]),
+  ...rampCluster(["left1", "left2", "left3", "left4"], GLANCE_RAMP_MS, GLANCE_HOLD_MS),
   { pose: "normal", ms: GLANCE_HOLD_MS },
-  ...rampCluster(["right1", "right2", "right3", "right4"]),
+  ...rampCluster(["right1", "right2", "right3", "right4"], GLANCE_RAMP_MS, GLANCE_HOLD_MS),
 ];
 
 const TOP_BOTTOM_SEQUENCE: Frame[] = [
-  ...rampCluster(["top1", "top2", "top3", "top4", "top5"]),
+  ...rampCluster(["top1", "top2", "top3", "top4", "top5"], GLANCE_RAMP_MS, GLANCE_HOLD_MS),
   { pose: "normal", ms: GLANCE_HOLD_MS },
-  ...rampCluster(["bottom1", "bottom2", "bottom3", "bottom4", "bottom5"]),
+  ...rampCluster(["bottom1", "bottom2", "bottom3", "bottom4", "bottom5"], GLANCE_RAMP_MS, GLANCE_HOLD_MS),
 ];
+
+// normal -> 1 -> 2 -> 3, hold on the peak (the actual "suspicious" look)
+// for SUSPICIOUS_HOLD_MS, then back down 2 -> 1 -> normal.
+const SUSPICIOUS_SEQUENCE: Frame[] = rampCluster(["suspicious1", "suspicious2", "suspicious3"], REACTION_MS, SUSPICIOUS_HOLD_MS);
 
 // A gentle ping-pong across the 3 frames (not a single static pose) so the
 // head reads as subtly alive while held, rather than frozen mid-expression.
-// Repeated 3x (the unit's own start/end frames differ — "1" vs "2" — so
+// Repeated 6x (the unit's own start/end frames differ — "1" vs "2" — so
 // concatenating copies back-to-back doesn't stall on a duplicated frame at
 // the seam, unlike the funny bounce below).
-const SUSPICIOUS_UNIT: Pose[] = ["suspicious1", "suspicious2", "suspicious3", "suspicious2", "suspicious1", "suspicious2"];
 const HANGRY_UNIT: Pose[] = ["hangry1", "hangry2", "hangry3", "hangry2", "hangry1", "hangry2"];
-const REACTION_LOOPS = 3;
-const SUSPICIOUS_SEQUENCE: Frame[] = uniform(Array(REACTION_LOOPS).fill(SUSPICIOUS_UNIT).flat(), REACTION_MS);
-const HANGRY_SEQUENCE: Frame[] = uniform(Array(REACTION_LOOPS).fill(HANGRY_UNIT).flat(), REACTION_MS);
+const HANGRY_LOOPS = 6;
+const HANGRY_SEQUENCE: Frame[] = uniform(Array(HANGRY_LOOPS).fill(HANGRY_UNIT).flat(), REACTION_MS);
 
 // One "va-et-vient" = one full bounce through all 4 frames and back
 // (1->2->3->4->3->2->1), like a head bobbing with laughter. Repeating
