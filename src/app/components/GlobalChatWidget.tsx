@@ -1,6 +1,6 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { X, Send } from "lucide-react";
 import { useIsMobile } from "./useIsMobile";
 import { ChatBotIcon } from "./ChatBotIcon";
@@ -89,6 +89,30 @@ export function GlobalChatWidget({
     if (!eligible) setIsOpen(false);
   }, [eligible, setIsOpen]);
 
+  // A one-time speech-bubble hint above the button, nudging first-time
+  // visitors to notice it — shown once per browser session (not on every
+  // page nav, which would get naggy given the button remounts per page)
+  // via sessionStorage, a few seconds after it first appears, then
+  // auto-dismissed a few seconds later.
+  const [showHint, setShowHint] = useState(false);
+  useEffect(() => {
+    if (!eligible || typeof window === "undefined") return;
+    if (sessionStorage.getItem("cara_chat_hint_seen")) return;
+    const showTimer = setTimeout(() => {
+      setShowHint(true);
+      sessionStorage.setItem("cara_chat_hint_seen", "1");
+    }, 2500);
+    return () => clearTimeout(showTimer);
+  }, [eligible]);
+  useEffect(() => {
+    if (!showHint) return;
+    const hideTimer = setTimeout(() => setShowHint(false), 6000);
+    return () => clearTimeout(hideTimer);
+  }, [showHint]);
+  useEffect(() => {
+    if (isOpen) setShowHint(false);
+  }, [isOpen]);
+
   if (!eligible) return null;
 
   // On a project page, lead with that project's own suggested questions
@@ -113,8 +137,85 @@ export function GlobalChatWidget({
   const lHeight = isMobile ? "22px" : "24px";
   const panelWidth = isMobile ? "100%" : widthPx;
 
+  // Shared with the hint bubble below, so it stays anchored to the button
+  // regardless of viewport size.
+  const buttonBottom = isMobile ? 20 : 32;
+  const buttonRight = isMobile ? 20 : 32;
+  const buttonSize = isMobile ? 56 : 64;
+
   return (
     <>
+      {/* One-time hint bubble, nudging attention to the button above it —
+          see the showHint effects above for its timing/dismissal rules.
+          Horizontally centered on the button via the translateX(50%) trick:
+          `right` is set to the button's own horizontal center (as a distance
+          from the viewport's right edge), then shifting right by 50% of the
+          bubble's OWN width re-centers that same point regardless of how
+          wide the bubble ends up being (its width isn't known up front —
+          the text can wrap). */}
+      <AnimatePresence>
+        {!isOpen && showHint && (
+          <motion.div
+            initial={{ opacity: 0, y: 8, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 8, scale: 0.95 }}
+            transition={{ duration: 0.25, ease: CHAT_EASE_MOTION }}
+            className="fixed"
+            style={{
+              bottom: buttonBottom + buttonSize + 14,
+              right: buttonRight + buttonSize / 2,
+              transform: "translateX(50%)",
+              maxWidth: isMobile ? 200 : 220,
+              zIndex: 59,
+            }}
+          >
+            <div
+              onClick={toggleOpen}
+              className="flex items-center gap-2 cursor-pointer"
+              style={{
+                backgroundColor: "var(--color-qare-white)",
+                border: "1px solid var(--color-qare-150)",
+                borderRadius: 16,
+                padding: "10px 14px",
+                boxShadow: "0 8px 20px rgba(39, 20, 66, 0.18)",
+              }}
+            >
+              <p
+                className="font-['Aeonik:Regular',sans-serif]"
+                style={{ fontSize: 14, lineHeight: "18px", color: "var(--color-qare-text)", margin: 0 }}
+              >
+                Une question ? 👋
+              </p>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowHint(false);
+                }}
+                aria-label="Fermer"
+                className="shrink-0 flex items-center justify-center"
+                style={{ width: 16, height: 16, background: "none", border: "none", cursor: "pointer", opacity: 0.5 }}
+              >
+                <X size={12} color="var(--color-qare-text)" />
+              </button>
+            </div>
+            {/* Downward-pointing tail, centered under the bubble */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: -6,
+                left: "50%",
+                transform: "translateX(-50%) rotate(45deg)",
+                width: 12,
+                height: 12,
+                backgroundColor: "var(--color-qare-white)",
+                borderRight: "1px solid var(--color-qare-150)",
+                borderBottom: "1px solid var(--color-qare-150)",
+              }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Floating toggle button — only exists while closed; the panel takes
           over once open, sliding in from the right rather than the button
           growing into it. */}
@@ -124,15 +225,15 @@ export function GlobalChatWidget({
           aria-label="Poser une question à l'assistant"
           className="fixed flex items-center justify-center transition-transform hover:scale-105"
           style={{
-            bottom: isMobile ? 20 : 32,
-            right: isMobile ? 20 : 32,
-            width: isMobile ? 56 : 64,
-            height: isMobile ? 56 : 64,
+            bottom: buttonBottom,
+            right: buttonRight,
+            width: buttonSize,
+            height: buttonSize,
             // The icon's own rounded-square card (rx 45 of a 120 viewBox,
             // i.e. 3/8) sits on a transparent background, but boxShadow
             // still needs a matching radius on this wrapper itself to hug
             // the visible card's shape instead of casting a square shadow.
-            borderRadius: `${(isMobile ? 56 : 64) * 0.375}px`,
+            borderRadius: `${buttonSize * 0.375}px`,
             boxShadow: "0 8px 20px rgba(39, 20, 66, 0.35)",
             padding: 0,
             overflow: "hidden",
