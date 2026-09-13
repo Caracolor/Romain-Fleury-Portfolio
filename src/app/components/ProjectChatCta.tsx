@@ -92,7 +92,7 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
             style={{
               gap: 12,
               backgroundColor: "var(--color-qare-050)",
-              borderRadius: 16,
+              borderRadius: 35,
               padding: "12px 12px 12px 20px",
             }}
           >
