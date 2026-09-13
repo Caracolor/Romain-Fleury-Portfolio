@@ -1,32 +1,124 @@
 import { useEffect, useRef, useState } from "react";
 
-type Pose = "normal" | "suspicious" | "left" | "right" | "top" | "bottom" | "wink" | "hangry" | "funny";
+type Pose =
+  | "normal"
+  | "wink"
+  | "left1"
+  | "left2"
+  | "left3"
+  | "left4"
+  | "right1"
+  | "right2"
+  | "right3"
+  | "right4"
+  | "top1"
+  | "top2"
+  | "top3"
+  | "top4"
+  | "top5"
+  | "bottom1"
+  | "bottom2"
+  | "bottom3"
+  | "bottom4"
+  | "bottom5"
+  | "hangry1"
+  | "hangry2"
+  | "hangry3"
+  | "suspicious1"
+  | "suspicious2"
+  | "suspicious3"
+  | "funny1"
+  | "funny2"
+  | "funny3"
+  | "funny4";
 
 const POSE_SRC: Record<Pose, string> = {
   normal: "/bot/normal.svg",
-  suspicious: "/bot/suspicious.svg",
-  left: "/bot/left.svg",
-  right: "/bot/right.svg",
-  top: "/bot/top.svg",
-  bottom: "/bot/bottom.svg",
   wink: "/bot/wink.svg",
-  hangry: "/bot/hangry.svg",
-  funny: "/bot/funny.svg",
+  left1: "/bot/left-1.svg",
+  left2: "/bot/left-2.svg",
+  left3: "/bot/left-3.svg",
+  left4: "/bot/left-4.svg",
+  right1: "/bot/right-1.svg",
+  right2: "/bot/right-2.svg",
+  right3: "/bot/right-3.svg",
+  right4: "/bot/right-4.svg",
+  top1: "/bot/top-1.svg",
+  top2: "/bot/top-2.svg",
+  top3: "/bot/top-3.svg",
+  top4: "/bot/top-4.svg",
+  top5: "/bot/top-5.svg",
+  bottom1: "/bot/bottom-1.svg",
+  bottom2: "/bot/bottom-2.svg",
+  bottom3: "/bot/bottom-3.svg",
+  bottom4: "/bot/bottom-4.svg",
+  bottom5: "/bot/bottom-5.svg",
+  hangry1: "/bot/hangry-1.svg",
+  hangry2: "/bot/hangry-2.svg",
+  hangry3: "/bot/hangry-3.svg",
+  suspicious1: "/bot/suspicious-1.svg",
+  suspicious2: "/bot/suspicious-2.svg",
+  suspicious3: "/bot/suspicious-3.svg",
+  funny1: "/bot/funny-1.svg",
+  funny2: "/bot/funny-2.svg",
+  funny3: "/bot/funny-3.svg",
+  funny4: "/bot/funny-4.svg",
 };
 
 const DEFAULT_FRAME_MS = 800;
+const FUNNY_FRAME_MS = 400;
 
-// Every sequence starts and ends on "normal" (added at play time, not
-// listed here) so the loop always rests on the same neutral frame between
-// idle animations, whatever it just played. frameMs is per-sequence — a
-// side-eye or an angry look needs longer to read than a quick glance.
+// left1-4 / top1-5 are the eye's *intermediate* positions between "normal"
+// and its most extreme glance — ramping through them one at a time (rather
+// than jumping straight to the extreme) is what makes the glance read as a
+// smooth motion instead of a snap-cut. Each cluster ramps up, holds
+// momentarily on the most extreme frame, then ramps back down through the
+// same intermediates — mirroring on the way out and the way back in.
+function rampUpAndDown(frames: Pose[]): Pose[] {
+  return [...frames, ...frames.slice(0, -1).reverse()];
+}
+
+const LEFT_RIGHT_SEQUENCE: Pose[] = [
+  ...rampUpAndDown(["left1", "left2", "left3", "left4"]),
+  "normal",
+  ...rampUpAndDown(["right1", "right2", "right3", "right4"]),
+];
+
+const TOP_BOTTOM_SEQUENCE: Pose[] = [
+  ...rampUpAndDown(["top1", "top2", "top3", "top4", "top5"]),
+  "normal",
+  ...rampUpAndDown(["bottom1", "bottom2", "bottom3", "bottom4", "bottom5"]),
+];
+
+// A gentle ping-pong across the 3 frames (not a single static pose) so the
+// head reads as subtly alive while held, rather than frozen mid-expression.
+// 6 changes at 800ms/frame lands right around the requested 5s budget.
+const SUSPICIOUS_SEQUENCE: Pose[] = ["suspicious1", "suspicious2", "suspicious3", "suspicious2", "suspicious1", "suspicious2"];
+const HANGRY_SEQUENCE: Pose[] = ["hangry1", "hangry2", "hangry3", "hangry2", "hangry1", "hangry2"];
+
+// One "va-et-vient" = one full bounce through all 4 frames and back
+// (1->2->3->4->3->2->1), like a head bobbing with laughter. Repeating
+// units share their boundary frame (each repeat after the first starts at
+// frame 2, since the previous one already ended on frame 1) so the loop
+// doesn't visibly pause on a duplicated frame at each seam.
+const FUNNY_UNIT: Pose[] = ["funny1", "funny2", "funny3", "funny4", "funny3", "funny2", "funny1"];
+function buildFunnySequence(bounces: number): Pose[] {
+  const seq = [...FUNNY_UNIT];
+  for (let i = 1; i < bounces; i++) seq.push(...FUNNY_UNIT.slice(1));
+  return seq;
+}
+const FUNNY_SEQUENCE = buildFunnySequence(6);
+
+// Every sequence starts and ends on "normal" (the trailing one added at
+// play time, not listed here) so the loop always rests on the same
+// neutral frame between idle animations, whatever it just played.
 const SEQUENCES: { poses: Pose[]; frameMs: number }[] = [
-  { poses: ["suspicious"], frameMs: 2400 }, // side-eye, back to normal
-  { poses: ["left", "right"], frameMs: DEFAULT_FRAME_MS }, // glances one way, then the other
-  { poses: ["top", "bottom"], frameMs: DEFAULT_FRAME_MS }, // glances up, then down
+  { poses: SUSPICIOUS_SEQUENCE, frameMs: DEFAULT_FRAME_MS },
+  { poses: LEFT_RIGHT_SEQUENCE, frameMs: DEFAULT_FRAME_MS },
+  { poses: TOP_BOTTOM_SEQUENCE, frameMs: DEFAULT_FRAME_MS },
   { poses: ["wink"], frameMs: DEFAULT_FRAME_MS },
-  { poses: ["hangry"], frameMs: 2400 },
-  { poses: ["funny"], frameMs: 1600 },
+  { poses: HANGRY_SEQUENCE, frameMs: DEFAULT_FRAME_MS },
+  { poses: FUNNY_SEQUENCE, frameMs: FUNNY_FRAME_MS },
 ];
 
 const IDLE_MIN_MS = 2000;
