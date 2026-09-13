@@ -71,10 +71,10 @@ interface Frame {
 }
 
 const WINK_MS = 800;
-const GLANCE_RAMP_MS = 200; // left/right/top/bottom: time between intermediate frames
+const GLANCE_RAMP_MS = 50; // left/right/top/bottom: time between intermediate frames
 const GLANCE_HOLD_MS = 800; // ...and the pause at the extreme + at "normal" in between
-const REACTION_MS = 400; // suspicious/hangry ping-pong
-const FUNNY_MS = 100; // giggle bounce
+const REACTION_MS = 100; // suspicious/hangry ping-pong
+const FUNNY_MS = 50; // giggle bounce
 
 function uniform(poses: Pose[], ms: number): Frame[] {
   return poses.map((pose) => ({ pose, ms }));
