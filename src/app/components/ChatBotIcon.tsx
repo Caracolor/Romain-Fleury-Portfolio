@@ -109,11 +109,14 @@ const TOP_BOTTOM_SEQUENCE: Frame[] = [
 
 // A gentle ping-pong across the 3 frames (not a single static pose) so the
 // head reads as subtly alive while held, rather than frozen mid-expression.
-const SUSPICIOUS_SEQUENCE: Frame[] = uniform(
-  ["suspicious1", "suspicious2", "suspicious3", "suspicious2", "suspicious1", "suspicious2"],
-  REACTION_MS
-);
-const HANGRY_SEQUENCE: Frame[] = uniform(["hangry1", "hangry2", "hangry3", "hangry2", "hangry1", "hangry2"], REACTION_MS);
+// Repeated 3x (the unit's own start/end frames differ — "1" vs "2" — so
+// concatenating copies back-to-back doesn't stall on a duplicated frame at
+// the seam, unlike the funny bounce below).
+const SUSPICIOUS_UNIT: Pose[] = ["suspicious1", "suspicious2", "suspicious3", "suspicious2", "suspicious1", "suspicious2"];
+const HANGRY_UNIT: Pose[] = ["hangry1", "hangry2", "hangry3", "hangry2", "hangry1", "hangry2"];
+const REACTION_LOOPS = 3;
+const SUSPICIOUS_SEQUENCE: Frame[] = uniform(Array(REACTION_LOOPS).fill(SUSPICIOUS_UNIT).flat(), REACTION_MS);
+const HANGRY_SEQUENCE: Frame[] = uniform(Array(REACTION_LOOPS).fill(HANGRY_UNIT).flat(), REACTION_MS);
 
 // One "va-et-vient" = one full bounce through all 4 frames and back
 // (1->2->3->4->3->2->1), like a head bobbing with laughter. Repeating
