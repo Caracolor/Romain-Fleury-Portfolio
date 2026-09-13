@@ -16,6 +16,11 @@ import type { ChatMessage, AskSource } from "./useGlobalChat";
 // suggested questions instead (the same ones ProjectChatCta.tsx shows at
 // the bottom of that page), so the prompts are relevant to whatever the
 // visitor is already reading.
+// The recurring hint bubble above the button: shows after this much page
+// inactivity, stays up for this long, then waits for the next idle stretch.
+const HINT_IDLE_MS = 6000;
+const HINT_VISIBLE_MS = 20000;
+
 const GENERAL_SUGGESTED_QUESTIONS = [
   "Quel est le parcours de Romain ?",
   "Que cherche-t-il comme prochain poste ?",
@@ -89,29 +94,62 @@ export function GlobalChatWidget({
     if (!eligible) setIsOpen(false);
   }, [eligible, setIsOpen]);
 
-  // A one-time speech-bubble hint above the button, nudging first-time
-  // visitors to notice it — shown once per browser session (not on every
-  // page nav, which would get naggy given the button remounts per page)
-  // via sessionStorage, a few seconds after it first appears, then
-  // auto-dismissed a few seconds later.
+  // A speech-bubble hint above the button, nudging visitors to notice it —
+  // recurring, not one-time: it shows after HINT_IDLE_MS of no page
+  // activity (mouse/scroll/keyboard/touch), stays up for HINT_VISIBLE_MS,
+  // then hides and starts watching for the next idle stretch. Runs off
+  // refs rather than state so a stream of mousemove events doesn't cause a
+  // re-render each time — only actually showing/hiding the hint does.
   const [showHint, setShowHint] = useState(false);
+  const isOpenRef = useRef(isOpen);
   useEffect(() => {
-    if (!eligible || typeof window === "undefined") return;
-    if (sessionStorage.getItem("cara_chat_hint_seen")) return;
-    const showTimer = setTimeout(() => {
-      setShowHint(true);
-      sessionStorage.setItem("cara_chat_hint_seen", "1");
-    }, 2500);
-    return () => clearTimeout(showTimer);
-  }, [eligible]);
-  useEffect(() => {
-    if (!showHint) return;
-    const hideTimer = setTimeout(() => setShowHint(false), 6000);
-    return () => clearTimeout(hideTimer);
-  }, [showHint]);
-  useEffect(() => {
+    isOpenRef.current = isOpen;
     if (isOpen) setShowHint(false);
   }, [isOpen]);
+
+  useEffect(() => {
+    if (!eligible) return;
+
+    let idleTimer: ReturnType<typeof setTimeout> | null = null;
+    let visibleTimer: ReturnType<typeof setTimeout> | null = null;
+    let hintVisible = false;
+
+    const scheduleIdle = () => {
+      if (idleTimer) clearTimeout(idleTimer);
+      idleTimer = setTimeout(fireIdle, HINT_IDLE_MS);
+    };
+
+    const fireIdle = () => {
+      // The chat is open (button/hint both hidden elsewhere) — keep
+      // watching instead of showing something nobody would see.
+      if (isOpenRef.current) {
+        scheduleIdle();
+        return;
+      }
+      hintVisible = true;
+      setShowHint(true);
+      visibleTimer = setTimeout(() => {
+        hintVisible = false;
+        setShowHint(false);
+        scheduleIdle();
+      }, HINT_VISIBLE_MS);
+    };
+
+    const onActivity = () => {
+      if (hintVisible) return; // already showing — let its own timer run out
+      scheduleIdle();
+    };
+
+    const events = ["mousemove", "mousedown", "keydown", "scroll", "touchstart"] as const;
+    events.forEach((e) => window.addEventListener(e, onActivity, { passive: true }));
+    scheduleIdle();
+
+    return () => {
+      events.forEach((e) => window.removeEventListener(e, onActivity));
+      if (idleTimer) clearTimeout(idleTimer);
+      if (visibleTimer) clearTimeout(visibleTimer);
+    };
+  }, [eligible]);
 
   if (!eligible) return null;
 
