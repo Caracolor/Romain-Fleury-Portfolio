@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 import { motion } from "motion/react";
 import { X, Send } from "lucide-react";
 import { useIsMobile } from "./useIsMobile";
+import { ChatBotIcon } from "./ChatBotIcon";
 import { track } from "../../lib/posthog";
 import { MarkdownText } from "./ChatMarkdown";
 import { QUESTIONS_BY_CASE_STUDY, caseStudyForPath } from "./suggestedQuestions";
@@ -127,13 +128,11 @@ export function GlobalChatWidget({
             right: isMobile ? 20 : 32,
             width: isMobile ? 56 : 64,
             height: isMobile ? 56 : 64,
-            // The icon's own rounded-square card (rx 30 of a 120 viewBox,
-            // i.e. 1/4) sits on a full-bleed opaque background, so a
-            // filter:drop-shadow (which follows alpha, opaque everywhere
-            // here) would cast a hard rectangular shadow instead of hugging
-            // the rounded card — a plain boxShadow on a same-radius wrapper
-            // reads correctly instead.
-            borderRadius: `${(isMobile ? 56 : 64) / 4}px`,
+            // The icon's own rounded-square card (rx 45 of a 120 viewBox,
+            // i.e. 3/8) sits on a transparent background, but boxShadow
+            // still needs a matching radius on this wrapper itself to hug
+            // the visible card's shape instead of casting a square shadow.
+            borderRadius: `${(isMobile ? 56 : 64) * 0.375}px`,
             boxShadow: "0 8px 20px rgba(39, 20, 66, 0.35)",
             padding: 0,
             overflow: "hidden",
@@ -143,7 +142,7 @@ export function GlobalChatWidget({
             cursor: "pointer",
           }}
         >
-          <img src="/chat-icon.svg" alt="" style={{ width: "100%", height: "100%" }} />
+          <ChatBotIcon alt="" />
         </button>
       )}
 
