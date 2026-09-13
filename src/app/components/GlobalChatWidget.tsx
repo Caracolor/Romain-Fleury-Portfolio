@@ -180,8 +180,7 @@ export function GlobalChatWidget({
               onClick={toggleOpen}
               className="flex items-center gap-2 cursor-pointer"
               style={{
-                backgroundColor: "var(--color-qare-white)",
-                border: "1px solid var(--color-qare-150)",
+                backgroundColor: "var(--color-qare-text)",
                 borderRadius: 16,
                 padding: "10px 14px",
                 boxShadow: "0 8px 20px rgba(39, 20, 66, 0.18)",
@@ -189,9 +188,9 @@ export function GlobalChatWidget({
             >
               <p
                 className="font-['Aeonik:Regular',sans-serif]"
-                style={{ fontSize: 14, lineHeight: "18px", color: "var(--color-qare-text)", margin: 0 }}
+                style={{ fontSize: 14, lineHeight: "18px", color: "white", margin: 0 }}
               >
-                Une question ? 👋
+                👋 Une question ?
               </p>
               <button
                 onClick={(e) => {
@@ -200,9 +199,9 @@ export function GlobalChatWidget({
                 }}
                 aria-label="Fermer"
                 className="shrink-0 flex items-center justify-center"
-                style={{ width: 16, height: 16, background: "none", border: "none", cursor: "pointer", opacity: 0.5 }}
+                style={{ width: 16, height: 16, background: "none", border: "none", cursor: "pointer", opacity: 0.6 }}
               >
-                <X size={12} color="var(--color-qare-text)" />
+                <X size={12} color="white" />
               </button>
             </div>
             {/* Downward-pointing tail, at 80% of the bubble's width — see
@@ -215,9 +214,7 @@ export function GlobalChatWidget({
                 transform: "translateX(-50%) rotate(45deg)",
                 width: 12,
                 height: 12,
-                backgroundColor: "var(--color-qare-white)",
-                borderRight: "1px solid var(--color-qare-150)",
-                borderBottom: "1px solid var(--color-qare-150)",
+                backgroundColor: "var(--color-qare-text)",
               }}
             />
           </motion.div>
