@@ -51,64 +51,66 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
 
   const inner = (
     <div className="flex flex-col" style={{ gap: isMobile ? 24 : 32 }}>
-      {/* Avatar + label */}
-      <div className="flex items-center" style={{ gap: isMobile ? 16 : 20 }}>
+      {/* Label */}
+      <p
+        className="font-['Aeonik:Regular',sans-serif] uppercase"
+        style={{
+          color: "var(--color-qare-brand)",
+          fontSize: isMobile ? 16 : 24,
+          letterSpacing: isMobile ? "3px" : "4.8px",
+          margin: 0,
+        }}
+      >
+        Vous avez une question ?
+      </p>
+
+      {/* Avatar + freeform input — submitting opens the global panel with
+          this as the first message (see handleSubmit above). The avatar
+          sits right at the point of interaction (the input) rather than
+          up by the label, closer to a chat app's own compose-bar avatar. */}
+      <div className="flex items-center" style={{ gap: isMobile ? 10 : 14 }}>
         <img
           src="/bot/normal.svg"
           alt=""
-          style={{ width: isMobile ? 40 : 56, height: isMobile ? 40 : 56, borderRadius: isMobile ? 15 : 21, flexShrink: 0 }}
+          style={{ width: isMobile ? 36 : 44, height: isMobile ? 36 : 44, borderRadius: isMobile ? 14 : 17, flexShrink: 0 }}
         />
-        <p
-          className="font-['Aeonik:Regular',sans-serif] uppercase"
-          style={{
-            color: "var(--color-qare-brand)",
-            fontSize: isMobile ? 16 : 24,
-            letterSpacing: isMobile ? "3px" : "4.8px",
-            margin: 0,
-          }}
-        >
-          Vous avez une question ?
-        </p>
-      </div>
-
-      {/* Freeform input — submitting opens the global panel with this as
-          the first message (see handleSubmit above) */}
-      <form onSubmit={handleSubmit}>
-        <div
-          className="flex items-center"
-          style={{
-            gap: 12,
-            backgroundColor: "var(--color-qare-050)",
-            borderRadius: 16,
-            padding: "12px 12px 12px 20px",
-          }}
-        >
-          <input
-            type="text"
-            value={draft}
-            onChange={(e) => setDraft(e.target.value)}
-            placeholder="Posez votre question..."
-            maxLength={500}
-            className="flex-1 bg-transparent outline-none font-['Aeonik:Regular',sans-serif]"
-            style={{ fontSize: isMobile ? 15 : 16, color: "var(--color-qare-text)" }}
-          />
-          <button
-            type="submit"
-            disabled={!draft.trim()}
-            className="shrink-0 flex items-center justify-center rounded-full transition-opacity"
+        <form onSubmit={handleSubmit} className="flex-1">
+          <div
+            className="flex items-center"
             style={{
-              width: 36,
-              height: 36,
-              backgroundColor: "var(--color-qare-brand)",
-              opacity: draft.trim() ? 1 : 0.35,
-              cursor: draft.trim() ? "pointer" : "not-allowed",
-              border: "none",
+              gap: 12,
+              backgroundColor: "var(--color-qare-050)",
+              borderRadius: 16,
+              padding: "12px 12px 12px 20px",
             }}
           >
-            <Send size={15} color="white" />
-          </button>
-        </div>
-      </form>
+            <input
+              type="text"
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+              placeholder="Posez votre question..."
+              maxLength={500}
+              className="flex-1 bg-transparent outline-none font-['Aeonik:Regular',sans-serif]"
+              style={{ fontSize: isMobile ? 15 : 16, color: "var(--color-qare-text)" }}
+            />
+            <button
+              type="submit"
+              disabled={!draft.trim()}
+              className="shrink-0 flex items-center justify-center rounded-full transition-opacity"
+              style={{
+                width: 36,
+                height: 36,
+                backgroundColor: "var(--color-qare-brand)",
+                opacity: draft.trim() ? 1 : 0.35,
+                cursor: draft.trim() ? "pointer" : "not-allowed",
+                border: "none",
+              }}
+            >
+              <Send size={15} color="white" />
+            </button>
+          </div>
+        </form>
+      </div>
 
       {/* Suggested questions, for anyone who'd rather pick than type */}
       <div className="flex flex-wrap items-center" style={{ gap: 8 }}>
