@@ -26,7 +26,7 @@ const SEQUENCES: Pose[][] = [
   ["funny"],
 ];
 
-const FRAME_MS = 280;
+const FRAME_MS = 800;
 const IDLE_MIN_MS = 3500;
 const IDLE_MAX_MS = 7000;
 
