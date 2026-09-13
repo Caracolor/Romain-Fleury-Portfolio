@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { X, Send } from "lucide-react";
 import { useIsMobile } from "./useIsMobile";
 import { ChatBotIcon } from "./ChatBotIcon";
+import { AvatarStatusDot } from "./AvatarStatusDot";
 import { track } from "../../lib/posthog";
 import { MarkdownText } from "./ChatMarkdown";
 import { QUESTIONS_BY_CASE_STUDY, caseStudyForPath } from "./suggestedQuestions";
@@ -289,6 +290,17 @@ export function GlobalChatWidget({
           <ChatBotIcon alt="" />
         </button>
       )}
+      {/* "Online" badge for the floating button — rendered as its own
+          fixed sibling rather than inside the button: the button's
+          overflow:hidden (needed for its own boxShadow radius) would clip
+          a badge sitting right at its corner. */}
+      {!isOpen && (
+        <AvatarStatusDot
+          size={Math.round(buttonSize * 0.28)}
+          borderWidth={3}
+          style={{ position: "fixed", bottom: buttonBottom + 2, right: buttonRight + 2, zIndex: 61 }}
+        />
+      )}
 
       {/* Panel — always mounted (not conditionally rendered) so closing
           animates a slide back out to the right rather than an instant
@@ -331,11 +343,14 @@ export function GlobalChatWidget({
           }}
         >
           <div className="flex items-center" style={{ gap: 12 }}>
-            <img
-              src="/bot/normal.svg"
-              alt=""
-              style={{ width: 40, height: 40, borderRadius: 15, flexShrink: 0 }}
-            />
+            <div style={{ position: "relative", flexShrink: 0 }}>
+              <img
+                src="/bot/normal.svg"
+                alt=""
+                style={{ width: 40, height: 40, borderRadius: 15, display: "block" }}
+              />
+              <AvatarStatusDot size={11} borderWidth={2} />
+            </div>
             <div className="flex flex-col" style={{ gap: 2 }}>
               <p
                 className="font-['Aeonik:Bold',sans-serif]"

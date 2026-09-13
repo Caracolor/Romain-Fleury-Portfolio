@@ -3,6 +3,7 @@ import { Send } from "lucide-react";
 import { ScaledSection } from "./ScaledSection";
 import { useIsMobile } from "./useIsMobile";
 import { useChat } from "./ChatContext";
+import { AvatarStatusDot } from "./AvatarStatusDot";
 import { QUESTIONS_BY_CASE_STUDY } from "./suggestedQuestions";
 import { track } from "../../lib/posthog";
 
@@ -81,11 +82,14 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
           them equal after scaling, not matching a measured on-screen px
           value (which changes with viewport width). */}
       <div className="flex items-center" style={{ gap: isMobile ? 10 : 14 }}>
-        <img
-          src="/bot/normal.svg"
-          alt=""
-          style={{ width: INPUT_HEIGHT, height: INPUT_HEIGHT, borderRadius: INPUT_HEIGHT * 0.375, flexShrink: 0 }}
-        />
+        <div style={{ position: "relative", flexShrink: 0 }}>
+          <img
+            src="/bot/normal.svg"
+            alt=""
+            style={{ width: INPUT_HEIGHT, height: INPUT_HEIGHT, borderRadius: INPUT_HEIGHT * 0.375, display: "block" }}
+          />
+          <AvatarStatusDot size={16} borderWidth={3} />
+        </div>
         <form onSubmit={handleSubmit} className="flex-1">
           <div
             className="flex items-center"
