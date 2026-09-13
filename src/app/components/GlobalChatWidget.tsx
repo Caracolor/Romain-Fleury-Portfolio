@@ -127,18 +127,23 @@ export function GlobalChatWidget({
             right: isMobile ? 20 : 32,
             width: isMobile ? 56 : 64,
             height: isMobile ? 56 : 64,
+            // The icon's own rounded-square card (rx 20 of a 120 viewBox,
+            // i.e. 1/6th) sits on a full-bleed opaque background, so a
+            // filter:drop-shadow (which follows alpha, opaque everywhere
+            // here) would cast a hard rectangular shadow instead of hugging
+            // the rounded card — a plain boxShadow on a same-radius wrapper
+            // reads correctly instead.
+            borderRadius: `${(isMobile ? 56 : 64) / 6}px`,
+            boxShadow: "0 8px 20px rgba(39, 20, 66, 0.35)",
             padding: 0,
+            overflow: "hidden",
             backgroundColor: "transparent",
             border: "none",
             zIndex: 60,
             cursor: "pointer",
           }}
         >
-          <img
-            src="/chat-icon.svg"
-            alt=""
-            style={{ width: "100%", height: "100%", filter: "drop-shadow(0 8px 20px rgba(39, 20, 66, 0.35))" }}
-          />
+          <img src="/chat-icon.svg" alt="" style={{ width: "100%", height: "100%" }} />
         </button>
       )}
 
