@@ -355,7 +355,7 @@ export function GlobalChatWidget({
                 alt=""
                 style={{ width: 40, height: 40, borderRadius: 15, display: "block" }}
               />
-              <AvatarStatusDot size={10} />
+              <AvatarStatusDot size={10} style={{ transform: "translate(10%, -10%)" }} />
             </div>
             <div className="flex flex-col" style={{ gap: 2 }}>
               <p
