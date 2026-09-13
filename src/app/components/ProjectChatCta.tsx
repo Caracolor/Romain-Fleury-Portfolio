@@ -10,6 +10,11 @@ interface ProjectChatCtaProps {
   caseStudy: string;
 }
 
+// The input pill's own rendered height: 12px vertical padding on each side
+// plus the 36px send button inside it — same on both breakpoints, since
+// neither the padding nor the button size varies with isMobile.
+const INPUT_HEIGHT = 12 + 36 + 12;
+
 /**
  * "Ask about this project" block at the bottom of each case study —
  * replaces what used to be a second, self-contained chat UI (its own
@@ -67,12 +72,19 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
       {/* Avatar + freeform input — submitting opens the global panel with
           this as the first message (see handleSubmit above). The avatar
           sits right at the point of interaction (the input) rather than
-          up by the label, closer to a chat app's own compose-bar avatar. */}
+          up by the label, closer to a chat app's own compose-bar avatar.
+          INPUT_HEIGHT matches the pill's own rendered height (12px vertical
+          padding x2 + the 36px send button) so the avatar reads as the
+          same height as the field beside it, on both breakpoints — on
+          desktop this whole block sits inside ScaledSection's transform:
+          scale(), so matching the *unscaled* CSS height here is what keeps
+          them equal after scaling, not matching a measured on-screen px
+          value (which changes with viewport width). */}
       <div className="flex items-center" style={{ gap: isMobile ? 10 : 14 }}>
         <img
           src="/bot/normal.svg"
           alt=""
-          style={{ width: isMobile ? 36 : 44, height: isMobile ? 36 : 44, borderRadius: isMobile ? 14 : 17, flexShrink: 0 }}
+          style={{ width: INPUT_HEIGHT, height: INPUT_HEIGHT, borderRadius: INPUT_HEIGHT * 0.375, flexShrink: 0 }}
         />
         <form onSubmit={handleSubmit} className="flex-1">
           <div
