@@ -130,6 +130,16 @@ const ALL_CASE_STUDY_SLUGS = [
   "branded-call",
 ];
 
+// Human-readable labels for the "currentProject" hint below — keeps the
+// hint sentence unambiguous on its own, without relying on the model to
+// have already parsed which doc section corresponds to which slug.
+const CASE_STUDY_LABELS: Record<string, string> = {
+  "chronic-programs": "Programmes chroniques (Qare Shape & Mind)",
+  "llm-medical": "Optimiser le temps médical (LLM & Hybrid TC)",
+  monetisation: "Monétisation dans la santé",
+  "branded-call": "Branded Call",
+};
+
 function loadDoc(slug: string): string {
   return readFileSync(join(process.cwd(), "docs", `${slug}.md`), "utf-8");
 }
@@ -161,7 +171,7 @@ export default async function handler(req: any, res: any) {
   }
 
   // Parse body (Vercel auto-parses JSON bodies)
-  const { question, caseStudy, history } = req.body ?? {};
+  const { question, caseStudy, history, currentProject } = req.body ?? {};
 
   // Validate question
   if (!question || typeof question !== "string" || question.trim().length === 0) {
@@ -192,6 +202,20 @@ export default async function handler(req: any, res: any) {
     return res.status(404).json({ error: "Case study introuvable." });
   }
 
+  // The floating widget is one conversation shared across every page, so a
+  // question like "quel était son rôle sur ce projet ?" asked from a
+  // project page arrives here as GENERAL_SCOPE (all 4 docs loaded, so
+  // follow-up general/bio questions still work) with no project named —
+  // without this hint the model has no way to resolve "ce projet" and asks
+  // the visitor to pick one instead of just answering. currentProject
+  // (the page the visitor is currently on, if any) breaks that ambiguity.
+  const currentProjectLabel =
+    caseStudy === GENERAL_SCOPE &&
+    typeof currentProject === "string" &&
+    ALL_CASE_STUDY_SLUGS.includes(currentProject)
+      ? CASE_STUDY_LABELS[currentProject]
+      : null;
+
   // Build messages array with optional history
   type ChatMessage = { role: "user" | "assistant"; content: string };
   const safeHistory: ChatMessage[] = Array.isArray(history)
@@ -217,7 +241,9 @@ export default async function handler(req: any, res: any) {
     const message = await anthropic.messages.create({
       model: "claude-sonnet-5",
       max_tokens: 1024,
-      system: `${SYSTEM_PROMPT}\n\n---\n\nDocumentation du case study :\n\n${docContent}`,
+      system: currentProjectLabel
+        ? `${SYSTEM_PROMPT}\n\nLe visiteur est actuellement sur la page du case study "${currentProjectLabel}". Si sa question ne précise pas de quel projet il parle (ex: "ce projet", "il a fait comment ici"), suppose qu'il parle de celui-ci — ne demande pas de clarification inutilement.\n\n---\n\nDocumentation du case study :\n\n${docContent}`
+        : `${SYSTEM_PROMPT}\n\n---\n\nDocumentation du case study :\n\n${docContent}`,
       messages,
     });
     const textBlock = message.content.find((block) => block.type === "text");

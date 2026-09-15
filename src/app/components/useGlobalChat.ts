@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { track } from "../../lib/posthog";
+import { caseStudyForPath } from "./suggestedQuestions";
 
 // The scope value api/chat.ts treats specially: loads every doc (the
 // general bio + all four case studies) instead of a single project's file.
@@ -46,6 +47,10 @@ export function useGlobalChat(pathname: string) {
         body: JSON.stringify({
           question: q.trim(),
           caseStudy: GENERAL_SCOPE,
+          // Which project page (if any) the visitor is currently on — lets
+          // the API resolve an unqualified "ce projet" without asking the
+          // visitor to pick one (see api/chat.ts).
+          currentProject: caseStudyForPath(pathname),
           history: messages,
         }),
       });
