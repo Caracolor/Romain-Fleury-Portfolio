@@ -304,10 +304,10 @@ export function GlobalChatWidget({
           animates a slide back out to the right rather than an instant
           unmount; translateX(100%) puts it fully off-screen either way,
           so it never intercepts clicks while closed.
-          Desktop: floats CHAT_MARGIN in from the top/right/bottom edges
-          with CHAT_RADIUS corners, matching the Header's own floating-pill
-          treatment (its 24px top gap, 20px radius — see Header.tsx).
-          Mobile stays edge-to-edge full screen, no margin or rounding. */}
+          Desktop: floats CHAT_MARGIN in from the top/right/bottom edges,
+          with its own CHAT_RADIUS corners (matches the Header's 24px top
+          gap, not its corner radius — see Header.tsx). Mobile stays
+          edge-to-edge full screen, no margin or rounding. */}
       <motion.div
         className="fixed flex flex-col overflow-hidden"
         style={{
@@ -492,7 +492,7 @@ export function GlobalChatWidget({
               gap: 12,
               backgroundColor: "var(--color-qare-white)",
               border: `1px solid ${inputFocused ? "var(--color-qare-800)" : "var(--color-qare-150)"}`,
-              borderRadius: 999,
+              borderRadius: 20,
               padding: "12px 12px 12px 20px",
               transition: "border-color 0.15s ease",
             }}
