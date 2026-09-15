@@ -412,6 +412,15 @@ export function GlobalChatWidget({
                     cursor: loading ? "not-allowed" : "pointer",
                     opacity: loading ? 0.35 : 0.7,
                   }}
+                  onMouseEnter={(e) => {
+                    if (loading) return;
+                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = "var(--color-qare-050)";
+                    (e.currentTarget as HTMLButtonElement).style.opacity = "1";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = "transparent";
+                    (e.currentTarget as HTMLButtonElement).style.opacity = loading ? "0.35" : "0.7";
+                  }}
                 >
                   {q}
                 </button>
