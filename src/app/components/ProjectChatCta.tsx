@@ -39,6 +39,7 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
   const isMobile = useIsMobile();
   const { openAndAsk } = useChat();
   const [draft, setDraft] = useState("");
+  const [inputFocused, setInputFocused] = useState(false);
   const suggestedQuestions = QUESTIONS_BY_CASE_STUDY[caseStudy] ?? [];
 
   const handleSuggestion = (q: string) => {
@@ -95,15 +96,19 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
             className="flex items-center"
             style={{
               gap: 12,
-              backgroundColor: "var(--color-qare-050)",
-              borderRadius: 24,
+              backgroundColor: "var(--color-qare-white)",
+              border: `1px solid ${inputFocused ? "var(--color-qare-800)" : "var(--color-qare-150)"}`,
+              borderRadius: 999,
               padding: "12px 12px 12px 20px",
+              transition: "border-color 0.15s ease",
             }}
           >
             <input
               type="text"
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
+              onFocus={() => setInputFocused(true)}
+              onBlur={() => setInputFocused(false)}
               placeholder="Posez votre question..."
               maxLength={500}
               className="flex-1 bg-transparent outline-none font-['Aeonik:Regular',sans-serif]"
