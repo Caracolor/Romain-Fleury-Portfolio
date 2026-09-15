@@ -7,12 +7,19 @@ import llmData from "../../data/qa-llm-medical.json";
 import monetisationData from "../../data/qa-monetisation.json";
 import brandedCallData from "../../data/qa-branded-call.json";
 
-export const QUESTIONS_BY_CASE_STUDY: Record<string, string[]> = {
+export type Lang = "fr" | "en";
+
+const RAW_QUESTIONS_BY_CASE_STUDY: Record<string, { fr: string; en: string }[]> = {
   "chronic-programs": chronicData.suggestedQuestions.map((q) => q.question),
   "llm-medical": llmData.suggestedQuestions.map((q) => q.question),
   monetisation: monetisationData.suggestedQuestions.map((q) => q.question),
   "branded-call": brandedCallData.suggestedQuestions.map((q) => q.question),
 };
+
+/** A project's suggested questions in the given language. */
+export function suggestedQuestionsFor(caseStudy: string, lang: Lang): string[] {
+  return (RAW_QUESTIONS_BY_CASE_STUDY[caseStudy] ?? []).map((q) => q[lang]);
+}
 
 // Maps the "/project/<slug>" URL segment to the qa-*.json / docs/*.md slug
 // above — they differ for two of the four projects (medical-time vs

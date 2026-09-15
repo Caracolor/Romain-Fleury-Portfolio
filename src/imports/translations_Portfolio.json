@@ -53,36 +53,102 @@
   },
   "stats": {
     "fr": [
-      { "value": "12+", "label": "Années d'expérience" },
-      { "value": "72+", "label": "Features livrées" },
-      { "value": "~70", "label": "Composants design system" },
-      { "value": "B2B", "label": "Expertise" },
-      { "value": "B2C", "label": "Expertise" }
+      {
+        "value": "12+",
+        "label": "Années d'expérience"
+      },
+      {
+        "value": "72+",
+        "label": "Features livrées"
+      },
+      {
+        "value": "~70",
+        "label": "Composants design system"
+      },
+      {
+        "value": "B2B",
+        "label": "Expertise"
+      },
+      {
+        "value": "B2C",
+        "label": "Expertise"
+      }
     ],
     "en": [
-      { "value": "12+", "label": "Years of experience" },
-      { "value": "72+", "label": "Features shipped" },
-      { "value": "~70", "label": "Design system components" },
-      { "value": "B2B", "label": "Expertise" },
-      { "value": "B2C", "label": "Expertise" }
+      {
+        "value": "12+",
+        "label": "Years of experience"
+      },
+      {
+        "value": "72+",
+        "label": "Features shipped"
+      },
+      {
+        "value": "~70",
+        "label": "Design system components"
+      },
+      {
+        "value": "B2B",
+        "label": "Expertise"
+      },
+      {
+        "value": "B2C",
+        "label": "Expertise"
+      }
     ]
   },
   "stats_mg": {
     "fr": [
-      { "value": "6+", "label": "Années de leadership" },
-      { "value": "7", "label": "Membres d'équipe" },
-      { "value": "12+", "label": "Années d'expérience" },
-      { "value": "72+", "label": "Features livrées" },
-      { "value": "B2B", "label": "Expertise" },
-      { "value": "B2C", "label": "Expertise" }
+      {
+        "value": "6+",
+        "label": "Années de leadership"
+      },
+      {
+        "value": "7",
+        "label": "Membres d'équipe"
+      },
+      {
+        "value": "12+",
+        "label": "Années d'expérience"
+      },
+      {
+        "value": "72+",
+        "label": "Features livrées"
+      },
+      {
+        "value": "B2B",
+        "label": "Expertise"
+      },
+      {
+        "value": "B2C",
+        "label": "Expertise"
+      }
     ],
     "en": [
-      { "value": "6+", "label": "Years leading" },
-      { "value": "7", "label": "Team members" },
-      { "value": "12+", "label": "Years of experience" },
-      { "value": "72+", "label": "Features shipped" },
-      { "value": "B2B", "label": "Expertise" },
-      { "value": "B2C", "label": "Expertise" }
+      {
+        "value": "6+",
+        "label": "Years leading"
+      },
+      {
+        "value": "7",
+        "label": "Team members"
+      },
+      {
+        "value": "12+",
+        "label": "Years of experience"
+      },
+      {
+        "value": "72+",
+        "label": "Features shipped"
+      },
+      {
+        "value": "B2B",
+        "label": "Expertise"
+      },
+      {
+        "value": "B2C",
+        "label": "Expertise"
+      }
     ]
   },
   "intro": {
@@ -325,19 +391,30 @@
     "fr": {
       "section_title": "Langues",
       "items": [
-        { "language": "Français", "level": "Natif" },
-        { "language": "Anglais", "level": "Courant" }
+        {
+          "language": "Français",
+          "level": "Natif"
+        },
+        {
+          "language": "Anglais",
+          "level": "Courant"
+        }
       ]
     },
     "en": {
       "section_title": "Languages",
       "items": [
-        { "language": "French", "level": "Native" },
-        { "language": "English", "level": "Fluent" }
+        {
+          "language": "French",
+          "level": "Native"
+        },
+        {
+          "language": "English",
+          "level": "Fluent"
+        }
       ]
     }
   },
-
   "case_study_chronic_programs": {
     "fr": {
       "meta": {
@@ -350,13 +427,33 @@
         "subtitle": "Transformer un modèle épisodique\nen revenus récurrents"
       },
       "hero_stats": [
-        { "value": "€18k", "label": "Revenus mensuels", "tooltip": "Revenus mensuels récurrents générés par les abonnements Shape et Mind, 6 mois après le lancement." },
-        { "value": "+56%", "label": "Croissance mensuelle", "tooltip": "Croissance mensuelle moyenne du nombre de patients inscrits aux programmes." },
-        { "value": "2 179", "label": "Patients actifs", "tooltip": "Patients actifs sur les programmes Shape et Mind combinés, soit 230% de l'objectif initial." }
+        {
+          "value": "€18k",
+          "label": "Revenus mensuels",
+          "tooltip": "Revenus mensuels récurrents générés par les abonnements Shape et Mind, 6 mois après le lancement."
+        },
+        {
+          "value": "+56%",
+          "label": "Croissance mensuelle",
+          "tooltip": "Croissance mensuelle moyenne du nombre de patients inscrits aux programmes."
+        },
+        {
+          "value": "2 179",
+          "label": "Patients actifs",
+          "tooltip": "Patients actifs sur les programmes Shape et Mind combinés, soit 230% de l'objectif initial."
+        }
       ],
       "programs": [
-        { "emoji": "🔥", "name": "Shape", "detail": "491 utilisateurs" },
-        { "emoji": "🔥🔥", "name": "Mind", "detail": "1 702 utilisateurs" }
+        {
+          "emoji": "🔥",
+          "name": "Shape",
+          "detail": "491 utilisateurs"
+        },
+        {
+          "emoji": "🔥🔥",
+          "name": "Mind",
+          "detail": "1 702 utilisateurs"
+        }
       ],
       "challenge": {
         "section_title": "Le challenge",
@@ -413,9 +510,18 @@
         "headline": "L'interface n'est qu'un facilitateur",
         "description": "Le cœur de notre service repose sur une prise en charge médicale de qualité, accessible rapidement et dans la durée.",
         "pillars": [
-          { "emoji": "📱", "text": "Navigation de l'app Qare repensée pour faire de la place aux programmes" },
-          { "emoji": "🧩", "text": "Système de contenu modulaire sans automatisation ni personnalisation (MVP)" },
-          { "emoji": "🍾", "text": "Utiliser en priorité le produit comme principale source d'acquisition" }
+          {
+            "emoji": "📱",
+            "text": "Navigation de l'app Qare repensée pour faire de la place aux programmes"
+          },
+          {
+            "emoji": "🧩",
+            "text": "Système de contenu modulaire sans automatisation ni personnalisation (MVP)"
+          },
+          {
+            "emoji": "🍾",
+            "text": "Utiliser en priorité le produit comme principale source d'acquisition"
+          }
         ],
         "navigation_title": "Navigation",
         "navigation_text": "Simplification puis réorganisation de l'application puis ajout des éléments des programmes (en violet)",
@@ -426,11 +532,26 @@
         "section_title": "Résultats & Learnings",
         "headline": "Des métriques qui confirment le modèle",
         "stats": [
-          { "value": "+56%", "label": "Croissance moyenne" },
-          { "value": "€18k", "label": "Revenus mensuels" },
-          { "value": "2 179", "label": "Patients actifs" },
-          { "value": "75-85%", "label": "de rétention estimée" },
-          { "value": "80%", "label": "d'activation" }
+          {
+            "value": "+56%",
+            "label": "Croissance moyenne"
+          },
+          {
+            "value": "€18k",
+            "label": "Revenus mensuels"
+          },
+          {
+            "value": "2 179",
+            "label": "Patients actifs"
+          },
+          {
+            "value": "75-85%",
+            "label": "de rétention estimée"
+          },
+          {
+            "value": "80%",
+            "label": "d'activation"
+          }
         ],
         "worked_title": "Ce qui a fonctionné",
         "worked": [
@@ -509,13 +630,33 @@
         "subtitle": "Turning an episodic model\ninto recurring revenue"
       },
       "hero_stats": [
-        { "value": "€18k", "label": "Monthly revenue", "tooltip": "Monthly recurring revenue generated by Shape and Mind subscriptions, 6 months after launch." },
-        { "value": "+56%", "label": "Monthly growth", "tooltip": "Average monthly growth rate of patients enrolled in programs." },
-        { "value": "2,179", "label": "Active patients", "tooltip": "Active patients across Shape and Mind combined, reaching 230% of the initial target." }
+        {
+          "value": "€18k",
+          "label": "Monthly revenue",
+          "tooltip": "Monthly recurring revenue generated by Shape and Mind subscriptions, 6 months after launch."
+        },
+        {
+          "value": "+56%",
+          "label": "Monthly growth",
+          "tooltip": "Average monthly growth rate of patients enrolled in programs."
+        },
+        {
+          "value": "2,179",
+          "label": "Active patients",
+          "tooltip": "Active patients across Shape and Mind combined, reaching 230% of the initial target."
+        }
       ],
       "programs": [
-        { "emoji": "🔥", "name": "Shape", "detail": "491 users" },
-        { "emoji": "🔥🔥", "name": "Mind", "detail": "1,702 users" }
+        {
+          "emoji": "🔥",
+          "name": "Shape",
+          "detail": "491 users"
+        },
+        {
+          "emoji": "🔥🔥",
+          "name": "Mind",
+          "detail": "1,702 users"
+        }
       ],
       "challenge": {
         "section_title": "The challenge",
@@ -572,9 +713,18 @@
         "headline": "The interface is just a facilitator",
         "description": "The core of our service relies on quality medical care, accessible quickly and over the long term.",
         "pillars": [
-          { "emoji": "📱", "text": "Qare app navigation redesigned to make room for programs" },
-          { "emoji": "🧩", "text": "Modular content system without automation or personalization (MVP)" },
-          { "emoji": "🍾", "text": "Use the product itself as the primary acquisition channel" }
+          {
+            "emoji": "📱",
+            "text": "Qare app navigation redesigned to make room for programs"
+          },
+          {
+            "emoji": "🧩",
+            "text": "Modular content system without automation or personalization (MVP)"
+          },
+          {
+            "emoji": "🍾",
+            "text": "Use the product itself as the primary acquisition channel"
+          }
         ],
         "navigation_title": "Navigation",
         "navigation_text": "Simplification then reorganization of the app, then addition of program elements (in purple)",
@@ -585,11 +735,26 @@
         "section_title": "Results & Learnings",
         "headline": "Metrics that validate the model",
         "stats": [
-          { "value": "+56%", "label": "Average growth" },
-          { "value": "€18k", "label": "Monthly revenue" },
-          { "value": "2,179", "label": "Active patients" },
-          { "value": "75-85%", "label": "Estimated retention" },
-          { "value": "80%", "label": "Activation rate" }
+          {
+            "value": "+56%",
+            "label": "Average growth"
+          },
+          {
+            "value": "€18k",
+            "label": "Monthly revenue"
+          },
+          {
+            "value": "2,179",
+            "label": "Active patients"
+          },
+          {
+            "value": "75-85%",
+            "label": "Estimated retention"
+          },
+          {
+            "value": "80%",
+            "label": "Activation rate"
+          }
         ],
         "worked_title": "What worked",
         "worked": [
@@ -658,7 +823,6 @@
       }
     }
   },
-
   "case_study_medical_time": {
     "fr": {
       "meta": {
@@ -671,9 +835,21 @@
         "subtitle": "Passer d'une interface exhaustive à une interface contextuelle pour libérer 40% de temps administratif"
       },
       "hero_stats": [
-        { "value": "-30s", "label": "par consultation", "tooltip": "Réduction moyenne du temps administratif par consultation grâce à l'interface contextuelle." },
-        { "value": "+13%", "label": "de temps libéré", "tooltip": "Temps médical restitué au praticien, réinvesti dans l'échange avec le patient." },
-        { "value": "43%", "label": "d'adoption", "tooltip": "Part des praticiens utilisant activement la nouvelle interface sur le cas de la gêne urinaire." }
+        {
+          "value": "-30s",
+          "label": "par consultation",
+          "tooltip": "Réduction moyenne du temps administratif par consultation grâce à l'interface contextuelle."
+        },
+        {
+          "value": "+13%",
+          "label": "de temps libéré",
+          "tooltip": "Temps médical restitué au praticien, réinvesti dans l'échange avec le patient."
+        },
+        {
+          "value": "43%",
+          "label": "d'adoption",
+          "tooltip": "Part des praticiens utilisant activement la nouvelle interface sur le cas de la gêne urinaire."
+        }
       ],
       "challenge": {
         "section_title": "Le challenge",
@@ -708,8 +884,14 @@
           }
         ],
         "team_members": [
-          { "name": "Léa", "role": "Product Designer assignée à l'équipe impact" },
-          { "name": "Titouan", "role": "Product Designer en charge du Design System" }
+          {
+            "name": "Léa",
+            "role": "Product Designer assignée à l'équipe impact"
+          },
+          {
+            "name": "Titouan",
+            "role": "Product Designer en charge du Design System"
+          }
         ]
       },
       "insight": {
@@ -828,9 +1010,21 @@
         "subtitle": "Shifting from an exhaustive interface to a contextual one to free up 40% of administrative time"
       },
       "hero_stats": [
-        { "value": "-30s", "label": "per consultation", "tooltip": "Average reduction in administrative time per consultation thanks to the contextual interface." },
-        { "value": "+13%", "label": "time saved", "tooltip": "Medical time given back to the practitioner, reinvested in patient interaction." },
-        { "value": "43%", "label": "adoption rate", "tooltip": "Share of practitioners actively using the new interface on the urinary discomfort case." }
+        {
+          "value": "-30s",
+          "label": "per consultation",
+          "tooltip": "Average reduction in administrative time per consultation thanks to the contextual interface."
+        },
+        {
+          "value": "+13%",
+          "label": "time saved",
+          "tooltip": "Medical time given back to the practitioner, reinvested in patient interaction."
+        },
+        {
+          "value": "43%",
+          "label": "adoption rate",
+          "tooltip": "Share of practitioners actively using the new interface on the urinary discomfort case."
+        }
       ],
       "challenge": {
         "section_title": "The challenge",
@@ -865,8 +1059,14 @@
           }
         ],
         "team_members": [
-          { "name": "Léa", "role": "Product Designer assigned to the impact team" },
-          { "name": "Titouan", "role": "Product Designer in charge of the Design System" }
+          {
+            "name": "Léa",
+            "role": "Product Designer assigned to the impact team"
+          },
+          {
+            "name": "Titouan",
+            "role": "Product Designer in charge of the Design System"
+          }
         ]
       },
       "insight": {
@@ -975,7 +1175,6 @@
       }
     }
   },
-
   "case_study_monetisation": {
     "fr": {
       "meta": {
@@ -989,9 +1188,21 @@
         "image_placeholder": "Illustration monétisation"
       },
       "hero_stats": [
-        { "value": "1/3", "label": "du revenu Qare issu des frais de service", "tooltip": "Part des revenus de Qare provenant des frais de service, un levier de monétisation construit sur 3 ans." },
-        { "value": "87%", "label": "d'acceptation des frais de service", "tooltip": "Taux d'acceptation des frais de service par les patients, validant l'approche de monétisation progressive." },
-        { "value": "5", "label": "pivots autour de la monétisation", "tooltip": "Nombre d'itérations stratégiques majeures sur le modèle de monétisation entre 2023 et 2026." }
+        {
+          "value": "1/3",
+          "label": "du revenu Qare issu des frais de service",
+          "tooltip": "Part des revenus de Qare provenant des frais de service, un levier de monétisation construit sur 3 ans."
+        },
+        {
+          "value": "87%",
+          "label": "d'acceptation des frais de service",
+          "tooltip": "Taux d'acceptation des frais de service par les patients, validant l'approche de monétisation progressive."
+        },
+        {
+          "value": "5",
+          "label": "pivots autour de la monétisation",
+          "tooltip": "Nombre d'itérations stratégiques majeures sur le modèle de monétisation entre 2023 et 2026."
+        }
       ],
       "contexte": {
         "section_title": "Context",
@@ -1135,9 +1346,21 @@
         "image_placeholder": "Illustration monetization"
       },
       "hero_stats": [
-        { "value": "1/3", "label": "of Qare revenue from service fees", "tooltip": "Share of Qare's revenue coming from service fees, a monetization lever built over 3 years." },
-        { "value": "87%", "label": "Acceptance rate for service fees", "tooltip": "Patient acceptance rate for service fees, validating the progressive monetization approach." },
-        { "value": "5", "label": "pivots around monetization", "tooltip": "Number of major strategic iterations on the monetization model between 2023 and 2026." }
+        {
+          "value": "1/3",
+          "label": "of Qare revenue from service fees",
+          "tooltip": "Share of Qare's revenue coming from service fees, a monetization lever built over 3 years."
+        },
+        {
+          "value": "87%",
+          "label": "Acceptance rate for service fees",
+          "tooltip": "Patient acceptance rate for service fees, validating the progressive monetization approach."
+        },
+        {
+          "value": "5",
+          "label": "pivots around monetization",
+          "tooltip": "Number of major strategic iterations on the monetization model between 2023 and 2026."
+        }
       ],
       "contexte": {
         "section_title": "Context",
@@ -1270,23 +1493,139 @@
       }
     }
   },
-
   "case_study_branded_call": {
     "fr": {
-      "meta": { "tag1": "IC Design Lead", "tag2": "1 PM, 1 Lead Dev", "period": "2025-2026" },
-      "hero": { "title": "BRANDED CALL", "subtitle": "Réduire les no-shows en appelant les patients comme un appel classique" },
+      "meta": {
+        "tag1": "IC Design Lead",
+        "tag2": "1 PM, 1 Lead Dev",
+        "period": "2025-2026"
+      },
+      "hero": {
+        "title": "BRANDED CALL",
+        "subtitle": "Réduire les no-shows en appelant les patients comme un appel classique"
+      },
       "hero_stats": [
-        { "value": "8,4M€", "label": "de revenus récupérés par an", "tooltip": "Estimation du manque à gagner annuel lié aux no-shows, récupérable grâce au branded call." },
-        { "value": "-146K", "label": "de no-shows patients par an", "tooltip": "Volume annuel de consultations perdues faute d'alerte efficace pour les patients en attente." },
-        { "value": "2 167h", "label": "de temps médical restitué par an", "tooltip": "Heures de temps praticien perdues chaque année en attente de patients qui ne se présentent pas." }
+        {
+          "value": "8,4M€",
+          "label": "de revenus récupérés par an",
+          "tooltip": "Estimation du manque à gagner annuel lié aux no-shows, récupérable grâce au branded call."
+        },
+        {
+          "value": "-146K",
+          "label": "de no-shows patients par an",
+          "tooltip": "Volume annuel de consultations perdues faute d'alerte efficace pour les patients en attente."
+        },
+        {
+          "value": "2 167h",
+          "label": "de temps médical restitué par an",
+          "tooltip": "Heures de temps praticien perdues chaque année en attente de patients qui ne se présentent pas."
+        }
       ],
-      "contexte": { "section_title": "CONTEXTE", "headline": "À propos de Qare ?", "col1": "Qare est une plateforme française de téléconsultation médicale qui permet aux patients de consulter des médecins généralistes et spécialistes 24h/24 et 7j/7, depuis chez eux.", "col2": "Avec plus de 2 500 médecins et 15 000 consultations quotidiennes, Qare est un acteur clé de la santé numérique en France." },
-      "challenge": { "section_title": "LE CHALLENGE", "headline": "Des patients disponibles mais pas alertés", "cards": [ { "title": "Le problème", "text": "Les patients en attente d'une téléconsultation ne sont pas alertés quand leur consultation démarre. Ils naviguent sur une autre app, s'éloignent de leur téléphone, ou laissent l'écran se mettre en veille. Résultat : 146K no-shows par an, 8,4M€ de manque à gagner, et une insatisfaction majeure chez les praticiens." }, { "title": "Les opportunités", "text": "Le branded call (appel de marque) est un pattern courant hors santé (livraison, transport, services). Seul Livi parmi nos concurrents le propose. L'appel téléphonique est la seule alerte impossible à ignorer pour un patient qui n'est plus sur l'app." }, { "title": "La contrainte", "text": "Les alternatives moins coûteuses (push notifications, SMS) ont déjà été explorées sans résultat suffisant. Le branded call nécessite un développement natif sur iOS et Android (pas de SDK Vonage React Native), avec des contraintes d'affichage différentes selon l'OS." } ] },
-      "role": { "section_title": "MON RÔLE", "headline": "De la discovery technique à la design review", "description": "J'ai mené la recherche, structuré la conception et facilité les arbitrages pour livrer une solution en deux lots progressifs, en collaboration avec Tristan (PM) et Nicolas (Lead Dev).", "blocks": [ { "title": "Discovery et cadrage", "text": "Catégorisation continue des feedbacks utilisateurs (stores, Trustpilot) avec Eva pour alimenter le codir. Ce projet est issu de cette discovery au long cours. Investigation technique Vonage, benchmark Livi, Slack, WhatsApp, Signal." }, { "title": "Conception multi-plateforme", "text": "Cartographie des comportements iOS (CallKit) et Android (ConnectionService) selon 5 états du téléphone. Design des flows patient et praticien pour les deux lots, en tenant compte des contraintes d'interface système." }, { "title": "Arbitrages et alignement", "text": "Structuration de la conception review, lotissement Lot 1 / Lot 2, facilitation des trade-offs techniques (archi modulaire vs ship fast, feature flag, réutilisabilité cross-marché HealthHero)." } ] },
-      "insight": { "section_title": "L'INSIGHT DÉCISIF", "headline": "Seule une alerte impossible à ignorer fonctionne", "text": "Qare avait déjà exploré les alternatives moins coûteuses : push notifications, SMS, écrans d'attente améliorés. Aucune n'a suffisamment réduit les no-shows. L'insight clé : quand un patient n'est plus sur l'app, seul un appel téléphonique le ramène. C'est le geste le plus familier et le plus intrusif, donc le plus efficace.", "verbatims": [ { "quote": "\"Lors de la prise de contacte il n y a pas de sonnerie il faut resté les yeux rivé sur son téléphone\"", "source": "Avis store - 12/2/2026" }, { "quote": "\"Impossibilité de la quitter sous peine de perdre la consultation\"", "source": "Avis store - 30/12/2026" } ], "image_caption": "Écran de la salle d'attente (où le patient doit rester les yeux rivés sur son téléphone)" },
-      "design_approach": { "section_title": "L'APPROCHE DESIGN", "headline": "Être appelé par son praticien comme un appel classique", "cards": [ { "title": "Pré-conditions intelligentes", "text": "Le branded call ne se déclenche que lorsque toutes les conditions pré-consultation sont remplies et que le patient n'est pas en salle d'attente. Pour limiter les coûts et éviter une expérience incohérente." }, { "title": "Lot 1 : déclenchement réactif", "text": "L'appel est passé quand le praticien rejoint la consultation. Deux tentatives à 20 secondes d'intervalle. Clôture automatique du no-show, le praticien n'a plus à déclarer les absences manuellement." }, { "title": "Lot 2 : déclenchement proactif", "text": "L'appel est déclenché en amont sur un signal prédictif data-driven (clôture consultation précédente, génération du CR). Le praticien en modèle horaire ne voit plus de no-show. Qare devient sans non-présent." } ], "image_captions": { "no_show_logic": "Logique autour de la déclaration des no-show", "trigger_logic": "Logique de déclenchement (version simplifiée)" } },
-      "technical": { "section_title": "ÉLÉMENTS TECHNIQUES", "headline": "L'affichage n'est pas identique sur iOS et Android", "text": "Dev natif obligatoire, 3 bases de code à maintenir. Sur iOS, CallKit impose l'interface système avec un branding limité au nom du praticien. Sur Android, le design est entièrement libre : logo Qare, nom du praticien, contexte de consultation.", "placeholder": "Comparatif iOS vs Android - 5 états du téléphone" },
-      "learnings": { "section_title": "LEARNINGS", "headline": "Les leçons clés de ce projet", "worked_title": "Ce qui a fonctionné", "worked": [ "La solution la plus bold est parfois la bonne : les approches incrémentales avaient échoué", "Le lotissement Lot 1 / Lot 2 permet de shipper vite et d'itérer avec la data", "Automatiser la déclaration de no-show supprime une friction majeure côté praticien", "La discovery continue (feedbacks stores + Trustpilot) nourrit les bons projets" ], "failed_title": "Ce qui reste à valider", "failed": [ "L'impact réel post-lancement (Lot 1 en développement)", "Le signal prédictif du Lot 2 nécessite un travail data approfondi", "L'architecture modulaire pour les autres marchés HealthHero", "L'affichage du nom du praticien vs \"Consultation Qare\" sur l'appel (à tester post Lot 1)" ] },
+      "contexte": {
+        "section_title": "CONTEXTE",
+        "headline": "À propos de Qare ?",
+        "col1": "Qare est une plateforme française de téléconsultation médicale qui permet aux patients de consulter des médecins généralistes et spécialistes 24h/24 et 7j/7, depuis chez eux.",
+        "col2": "Avec plus de 2 500 médecins et 15 000 consultations quotidiennes, Qare est un acteur clé de la santé numérique en France."
+      },
+      "challenge": {
+        "section_title": "LE CHALLENGE",
+        "headline": "Des patients disponibles mais pas alertés",
+        "cards": [
+          {
+            "title": "Le problème",
+            "text": "Les patients en attente d'une téléconsultation ne sont pas alertés quand leur consultation démarre. Ils naviguent sur une autre app, s'éloignent de leur téléphone, ou laissent l'écran se mettre en veille. Résultat : 146K no-shows par an, 8,4M€ de manque à gagner, et une insatisfaction majeure chez les praticiens."
+          },
+          {
+            "title": "Les opportunités",
+            "text": "Le branded call (appel de marque) est un pattern courant hors santé (livraison, transport, services). Seul Livi parmi nos concurrents le propose. L'appel téléphonique est la seule alerte impossible à ignorer pour un patient qui n'est plus sur l'app."
+          },
+          {
+            "title": "La contrainte",
+            "text": "Les alternatives moins coûteuses (push notifications, SMS) ont déjà été explorées sans résultat suffisant. Le branded call nécessite un développement natif sur iOS et Android (pas de SDK Vonage React Native), avec des contraintes d'affichage différentes selon l'OS."
+          }
+        ]
+      },
+      "role": {
+        "section_title": "MON RÔLE",
+        "headline": "De la discovery technique à la design review",
+        "description": "J'ai mené la recherche, structuré la conception et facilité les arbitrages pour livrer une solution en deux lots progressifs, en collaboration avec Tristan (PM) et Nicolas (Lead Dev).",
+        "blocks": [
+          {
+            "title": "Discovery et cadrage",
+            "text": "Catégorisation continue des feedbacks utilisateurs (stores, Trustpilot) avec Eva pour alimenter le codir. Ce projet est issu de cette discovery au long cours. Investigation technique Vonage, benchmark Livi, Slack, WhatsApp, Signal."
+          },
+          {
+            "title": "Conception multi-plateforme",
+            "text": "Cartographie des comportements iOS (CallKit) et Android (ConnectionService) selon 5 états du téléphone. Design des flows patient et praticien pour les deux lots, en tenant compte des contraintes d'interface système."
+          },
+          {
+            "title": "Arbitrages et alignement",
+            "text": "Structuration de la conception review, lotissement Lot 1 / Lot 2, facilitation des trade-offs techniques (archi modulaire vs ship fast, feature flag, réutilisabilité cross-marché HealthHero)."
+          }
+        ]
+      },
+      "insight": {
+        "section_title": "L'INSIGHT DÉCISIF",
+        "headline": "Seule une alerte impossible à ignorer fonctionne",
+        "text": "Qare avait déjà exploré les alternatives moins coûteuses : push notifications, SMS, écrans d'attente améliorés. Aucune n'a suffisamment réduit les no-shows. L'insight clé : quand un patient n'est plus sur l'app, seul un appel téléphonique le ramène. C'est le geste le plus familier et le plus intrusif, donc le plus efficace.",
+        "verbatims": [
+          {
+            "quote": "\"Lors de la prise de contacte il n y a pas de sonnerie il faut resté les yeux rivé sur son téléphone\"",
+            "source": "Avis store - 12/2/2026"
+          },
+          {
+            "quote": "\"Impossibilité de la quitter sous peine de perdre la consultation\"",
+            "source": "Avis store - 30/12/2026"
+          }
+        ],
+        "image_caption": "Écran de la salle d'attente (où le patient doit rester les yeux rivés sur son téléphone)"
+      },
+      "design_approach": {
+        "section_title": "L'APPROCHE DESIGN",
+        "headline": "Être appelé par son praticien comme un appel classique",
+        "cards": [
+          {
+            "title": "Pré-conditions intelligentes",
+            "text": "Le branded call ne se déclenche que lorsque toutes les conditions pré-consultation sont remplies et que le patient n'est pas en salle d'attente. Pour limiter les coûts et éviter une expérience incohérente."
+          },
+          {
+            "title": "Lot 1 : déclenchement réactif",
+            "text": "L'appel est passé quand le praticien rejoint la consultation. Deux tentatives à 20 secondes d'intervalle. Clôture automatique du no-show, le praticien n'a plus à déclarer les absences manuellement."
+          },
+          {
+            "title": "Lot 2 : déclenchement proactif",
+            "text": "L'appel est déclenché en amont sur un signal prédictif data-driven (clôture consultation précédente, génération du CR). Le praticien en modèle horaire ne voit plus de no-show. Qare devient sans non-présent."
+          }
+        ],
+        "image_captions": {
+          "no_show_logic": "Logique autour de la déclaration des no-show",
+          "trigger_logic": "Logique de déclenchement (version simplifiée)"
+        }
+      },
+      "technical": {
+        "section_title": "ÉLÉMENTS TECHNIQUES",
+        "headline": "L'affichage n'est pas identique sur iOS et Android",
+        "text": "Dev natif obligatoire, 3 bases de code à maintenir. Sur iOS, CallKit impose l'interface système avec un branding limité au nom du praticien. Sur Android, le design est entièrement libre : logo Qare, nom du praticien, contexte de consultation.",
+        "placeholder": "Comparatif iOS vs Android - 5 états du téléphone"
+      },
+      "learnings": {
+        "section_title": "LEARNINGS",
+        "headline": "Les leçons clés de ce projet",
+        "worked_title": "Ce qui a fonctionné",
+        "worked": [
+          "La solution la plus bold est parfois la bonne : les approches incrémentales avaient échoué",
+          "Le lotissement Lot 1 / Lot 2 permet de shipper vite et d'itérer avec la data",
+          "Automatiser la déclaration de no-show supprime une friction majeure côté praticien",
+          "La discovery continue (feedbacks stores + Trustpilot) nourrit les bons projets"
+        ],
+        "failed_title": "Ce qui reste à valider",
+        "failed": [
+          "L'impact réel post-lancement (Lot 1 en développement)",
+          "Le signal prédictif du Lot 2 nécessite un travail data approfondi",
+          "L'architecture modulaire pour les autres marchés HealthHero",
+          "L'affichage du nom du praticien vs \"Consultation Qare\" sur l'appel (à tester post Lot 1)"
+        ]
+      },
       "challenges": {
         "section_title": "Ce qui a résisté",
         "blocks": [
@@ -1309,23 +1648,143 @@
           }
         ]
       },
-      "project_nav": { "previous_label": "Projet précédent", "next_label": "Projet suivant" }
+      "project_nav": {
+        "previous_label": "Projet précédent",
+        "next_label": "Projet suivant"
+      }
     },
     "en": {
-      "meta": { "tag1": "IC Design Lead", "tag2": "1 PM, 1 Lead Dev", "period": "2025-2026" },
-      "hero": { "title": "BRANDED CALL", "subtitle": "Reducing no-shows by calling patients like a regular phone call" },
+      "meta": {
+        "tag1": "IC Design Lead",
+        "tag2": "1 PM, 1 Lead Dev",
+        "period": "2025-2026"
+      },
+      "hero": {
+        "title": "BRANDED CALL",
+        "subtitle": "Reducing no-shows by calling patients like a regular phone call"
+      },
       "hero_stats": [
-        { "value": "€8.4M", "label": "in recovered revenue per year", "tooltip": "Estimated annual revenue loss from no-shows, recoverable through branded call." },
-        { "value": "-146K", "label": "patient no-shows per year", "tooltip": "Annual volume of lost consultations due to lack of effective patient alerts." },
-        { "value": "2,167h", "label": "of medical time restored per year", "tooltip": "Practitioner hours lost each year waiting for patients who don't show up." }
+        {
+          "value": "€8.4M",
+          "label": "in recovered revenue per year",
+          "tooltip": "Estimated annual revenue loss from no-shows, recoverable through branded call."
+        },
+        {
+          "value": "-146K",
+          "label": "patient no-shows per year",
+          "tooltip": "Annual volume of lost consultations due to lack of effective patient alerts."
+        },
+        {
+          "value": "2,167h",
+          "label": "of medical time restored per year",
+          "tooltip": "Practitioner hours lost each year waiting for patients who don't show up."
+        }
       ],
-      "contexte": { "section_title": "CONTEXT", "headline": "About Qare?", "col1": "Qare is a French telemedicine platform that allows patients to consult general practitioners and specialists 24/7, from home.", "col2": "With over 2,500 doctors and 15,000 daily consultations, Qare is a key player in digital healthcare in France." },
-      "challenge": { "section_title": "THE CHALLENGE", "headline": "Available patients, no effective alert", "cards": [ { "title": "The problem", "text": "Patients waiting for a teleconsultation are not effectively alerted when their session starts. They switch to another app, walk away from their phone, or let the screen go to sleep. Result: 146K no-shows per year, €8.4M in lost revenue, and major practitioner dissatisfaction." }, { "title": "The opportunities", "text": "Branded calling is a common pattern outside healthcare (delivery, transport, services). Only Livi among our competitors offers it. A phone call is the only alert impossible to ignore for a patient who has left the app." }, { "title": "The constraint", "text": "Cheaper alternatives (push notifications, SMS) had already been tried without sufficient results. Branded calling requires native development on iOS and Android (no Vonage React Native SDK), with different display constraints per OS." } ] },
-      "role": { "section_title": "MY ROLE", "headline": "From technical discovery to design review", "description": "I led the research, structured the design and facilitated trade-offs to deliver a solution in two progressive phases, collaborating with Tristan (PM) and Nicolas (Lead Dev).", "blocks": [ { "title": "Discovery and framing", "text": "Ongoing categorization of user feedback (app stores, Trustpilot) with Eva to feed the executive committee. This project emerged from that continuous discovery. Technical investigation of Vonage, benchmarking Livi, Slack, WhatsApp, Signal." }, { "title": "Cross-platform design", "text": "Mapping of iOS (CallKit) and Android (ConnectionService) behaviors across 5 phone states. Designing patient and practitioner flows for both phases, accounting for system interface constraints." }, { "title": "Trade-offs and alignment", "text": "Structuring the design review, phasing into Lot 1 / Lot 2, facilitating technical trade-offs (modular architecture vs ship fast, feature flags, cross-market reusability for HealthHero)." } ] },
-      "insight": { "section_title": "THE KEY INSIGHT", "headline": "Only an alert impossible to ignore works", "text": "Qare had already explored cheaper alternatives: push notifications, SMS, improved waiting screens. None reduced no-shows enough. The key insight: when a patient has left the app, only a phone call brings them back. It's the most familiar and intrusive gesture, and therefore the most effective.", "verbatims": [ { "quote": "\"Lors de la prise de contacte il n y a pas de sonnerie il faut resté les yeux rivé sur son téléphone\"", "source": "Store review - 12/2/2026" }, { "quote": "\"Impossibilité de la quitter sous peine de perdre la consultation\"", "source": "Store review - 30/12/2026" } ], "image_caption": "Waiting room screen (where the patient must keep their eyes glued to the phone)" },
-      "design_approach": { "section_title": "THE DESIGN APPROACH", "headline": "Being called by your doctor like a regular phone call", "cards": [ { "title": "Smart pre-conditions", "text": "The branded call only triggers when all pre-consultation conditions are met and the patient is not in the waiting room. To limit costs and avoid an inconsistent experience." }, { "title": "Phase 1: reactive trigger", "text": "The call is placed when the practitioner joins the consultation. Two attempts 20 seconds apart. Automatic no-show closure, the practitioner no longer has to manually declare absences." }, { "title": "Phase 2: proactive trigger", "text": "The call is triggered ahead of time based on a data-driven predictive signal (previous consultation closure, report generation). Hourly-model practitioners no longer see no-shows. Qare becomes no-show free." } ], "image_captions": { "no_show_logic": "No-show declaration logic", "trigger_logic": "Trigger logic (simplified version)" } },
-      "technical": { "section_title": "TECHNICAL ELEMENTS", "headline": "The display differs between iOS and Android", "text": "Native development required, 3 codebases to maintain. On iOS, CallKit enforces the system interface with branding limited to the practitioner's name. On Android, the design is fully customizable: Qare logo, practitioner name, consultation context.", "placeholder": "iOS vs Android comparison - 5 phone states" },
-      "learnings": { "section_title": "LEARNINGS", "headline": "Key lessons from this project", "worked_title": "What worked", "worked": [ "Sometimes the boldest solution is the right one: incremental approaches had failed", "Phasing into Lot 1 / Lot 2 allows shipping fast and iterating with data", "Automating no-show declaration removes a major friction point for practitioners", "Continuous discovery (app store + Trustpilot feedback) feeds the right projects" ], "failed_title": "What remains to validate", "failed": [ "Real impact post-launch (Phase 1 in development)", "Phase 2's predictive signal requires deeper data work", "Modular architecture for other HealthHero markets", "Displaying practitioner name vs \"Qare Consultation\" on the call (to test post Phase 1)" ] },
+      "contexte": {
+        "section_title": "CONTEXT",
+        "headline": "About Qare?",
+        "col1": "Qare is a French telemedicine platform that allows patients to consult general practitioners and specialists 24/7, from home.",
+        "col2": "With over 2,500 doctors and 15,000 daily consultations, Qare is a key player in digital healthcare in France."
+      },
+      "challenge": {
+        "section_title": "THE CHALLENGE",
+        "headline": "Available patients, no effective alert",
+        "cards": [
+          {
+            "title": "The problem",
+            "text": "Patients waiting for a teleconsultation are not effectively alerted when their session starts. They switch to another app, walk away from their phone, or let the screen go to sleep. Result: 146K no-shows per year, €8.4M in lost revenue, and major practitioner dissatisfaction."
+          },
+          {
+            "title": "The opportunities",
+            "text": "Branded calling is a common pattern outside healthcare (delivery, transport, services). Only Livi among our competitors offers it. A phone call is the only alert impossible to ignore for a patient who has left the app."
+          },
+          {
+            "title": "The constraint",
+            "text": "Cheaper alternatives (push notifications, SMS) had already been tried without sufficient results. Branded calling requires native development on iOS and Android (no Vonage React Native SDK), with different display constraints per OS."
+          }
+        ]
+      },
+      "role": {
+        "section_title": "MY ROLE",
+        "headline": "From technical discovery to design review",
+        "description": "I led the research, structured the design and facilitated trade-offs to deliver a solution in two progressive phases, collaborating with Tristan (PM) and Nicolas (Lead Dev).",
+        "blocks": [
+          {
+            "title": "Discovery and framing",
+            "text": "Ongoing categorization of user feedback (app stores, Trustpilot) with Eva to feed the executive committee. This project emerged from that continuous discovery. Technical investigation of Vonage, benchmarking Livi, Slack, WhatsApp, Signal."
+          },
+          {
+            "title": "Cross-platform design",
+            "text": "Mapping of iOS (CallKit) and Android (ConnectionService) behaviors across 5 phone states. Designing patient and practitioner flows for both phases, accounting for system interface constraints."
+          },
+          {
+            "title": "Trade-offs and alignment",
+            "text": "Structuring the design review, phasing into Lot 1 / Lot 2, facilitating technical trade-offs (modular architecture vs ship fast, feature flags, cross-market reusability for HealthHero)."
+          }
+        ]
+      },
+      "insight": {
+        "section_title": "THE KEY INSIGHT",
+        "headline": "Only an alert impossible to ignore works",
+        "text": "Qare had already explored cheaper alternatives: push notifications, SMS, improved waiting screens. None reduced no-shows enough. The key insight: when a patient has left the app, only a phone call brings them back. It's the most familiar and intrusive gesture, and therefore the most effective.",
+        "verbatims": [
+          {
+            "quote": "\"Lors de la prise de contacte il n y a pas de sonnerie il faut resté les yeux rivé sur son téléphone\"",
+            "source": "Store review - 12/2/2026"
+          },
+          {
+            "quote": "\"Impossibilité de la quitter sous peine de perdre la consultation\"",
+            "source": "Store review - 30/12/2026"
+          }
+        ],
+        "image_caption": "Waiting room screen (where the patient must keep their eyes glued to the phone)"
+      },
+      "design_approach": {
+        "section_title": "THE DESIGN APPROACH",
+        "headline": "Being called by your doctor like a regular phone call",
+        "cards": [
+          {
+            "title": "Smart pre-conditions",
+            "text": "The branded call only triggers when all pre-consultation conditions are met and the patient is not in the waiting room. To limit costs and avoid an inconsistent experience."
+          },
+          {
+            "title": "Phase 1: reactive trigger",
+            "text": "The call is placed when the practitioner joins the consultation. Two attempts 20 seconds apart. Automatic no-show closure, the practitioner no longer has to manually declare absences."
+          },
+          {
+            "title": "Phase 2: proactive trigger",
+            "text": "The call is triggered ahead of time based on a data-driven predictive signal (previous consultation closure, report generation). Hourly-model practitioners no longer see no-shows. Qare becomes no-show free."
+          }
+        ],
+        "image_captions": {
+          "no_show_logic": "No-show declaration logic",
+          "trigger_logic": "Trigger logic (simplified version)"
+        }
+      },
+      "technical": {
+        "section_title": "TECHNICAL ELEMENTS",
+        "headline": "The display differs between iOS and Android",
+        "text": "Native development required, 3 codebases to maintain. On iOS, CallKit enforces the system interface with branding limited to the practitioner's name. On Android, the design is fully customizable: Qare logo, practitioner name, consultation context.",
+        "placeholder": "iOS vs Android comparison - 5 phone states"
+      },
+      "learnings": {
+        "section_title": "LEARNINGS",
+        "headline": "Key lessons from this project",
+        "worked_title": "What worked",
+        "worked": [
+          "Sometimes the boldest solution is the right one: incremental approaches had failed",
+          "Phasing into Lot 1 / Lot 2 allows shipping fast and iterating with data",
+          "Automating no-show declaration removes a major friction point for practitioners",
+          "Continuous discovery (app store + Trustpilot feedback) feeds the right projects"
+        ],
+        "failed_title": "What remains to validate",
+        "failed": [
+          "Real impact post-launch (Phase 1 in development)",
+          "Phase 2's predictive signal requires deeper data work",
+          "Modular architecture for other HealthHero markets",
+          "Displaying practitioner name vs \"Qare Consultation\" on the call (to test post Phase 1)"
+        ]
+      },
       "challenges": {
         "section_title": "What pushed back",
         "blocks": [
@@ -1348,10 +1807,12 @@
           }
         ]
       },
-      "project_nav": { "previous_label": "Previous project", "next_label": "Next project" }
+      "project_nav": {
+        "previous_label": "Previous project",
+        "next_label": "Next project"
+      }
     }
   },
-
   "footer_looking_for": {
     "fr": {
       "title": "Ce que je cherche",
@@ -1374,6 +1835,48 @@
       "title": "What I'm looking for",
       "body": "I'm looking for a Lead or Head of Product Design role in an ambitious product company. I enjoy getting hands-on with craft just as much as driving design at a strategic level, whether those two dimensions live in the same role or not.",
       "location": "Based in Nantes (France) and available for remote or hybrid work in Paris."
+    }
+  },
+  "chat": {
+    "fr": {
+      "header_title": "L'assistant de Romain",
+      "header_subtitle": "Pose une question sur son parcours ou ses projets",
+      "close_aria": "Fermer",
+      "open_aria": "Poser une question à l'assistant",
+      "hint_text": "Une question ?",
+      "placeholder_default": "Posez votre question...",
+      "placeholder_followup": "Question de suivi...",
+      "error_server": "Impossible de joindre le serveur.",
+      "error_generic": "Une erreur s'est produite.",
+      "cta_label": "Vous avez une question ?",
+      "cta_write_me_prefix": "Vous souhaitez des informations absentes de ce case study ?",
+      "cta_write_me_link": "Écrivez-moi",
+      "general_suggested_questions": [
+        "Quel est le parcours de Romain ?",
+        "Que cherche-t-il comme prochain poste ?",
+        "Qu'est-ce qui explique les 230% vs objectif sur Programmes chroniques ?",
+        "Comment a-t-il géré les 5 pivots de monétisation ?"
+      ]
+    },
+    "en": {
+      "header_title": "Romain's assistant",
+      "header_subtitle": "Ask a question about his background or projects",
+      "close_aria": "Close",
+      "open_aria": "Ask the assistant a question",
+      "hint_text": "Got a question?",
+      "placeholder_default": "Ask your question...",
+      "placeholder_followup": "Follow-up question...",
+      "error_server": "Couldn't reach the server.",
+      "error_generic": "Something went wrong.",
+      "cta_label": "Got a question?",
+      "cta_write_me_prefix": "Looking for info that's not in this case study?",
+      "cta_write_me_link": "Write to me",
+      "general_suggested_questions": [
+        "What's Romain's background?",
+        "What's he looking for in his next role?",
+        "What explains the 230% vs. target on Chronic Programs?",
+        "How did he handle the 5 monetization pivots?"
+      ]
     }
   }
 }

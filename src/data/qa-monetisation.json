@@ -65,19 +65,34 @@
   ],
   "suggestedQuestions": [
     {
-      "question": "Qu'est-ce qui a déclenché chaque pivot ?"
+      "question": {
+        "fr": "Qu'est-ce qui a déclenché chaque pivot ?",
+        "en": "What triggered each pivot?"
+      }
     },
     {
-      "question": "Comment le design a-t-il influencé les décisions business ?"
+      "question": {
+        "fr": "Comment le design a-t-il influencé les décisions business ?",
+        "en": "How did design influence business decisions?"
+      }
     },
     {
-      "question": "Quels KPIs suivait-il pour valider un modèle ?"
+      "question": {
+        "fr": "Quels KPIs suivait-il pour valider un modèle ?",
+        "en": "What KPIs did he track to validate a model?"
+      }
     },
     {
-      "question": "Quel pivot a eu le plus d'impact ?"
+      "question": {
+        "fr": "Quel pivot a eu le plus d'impact ?",
+        "en": "Which pivot had the most impact?"
+      }
     },
     {
-      "question": "Comment a-t-il convaincu les stakeholders de monter les prix ?"
+      "question": {
+        "fr": "Comment a-t-il convaincu les stakeholders de monter les prix ?",
+        "en": "How did he convince stakeholders to raise prices?"
+      }
     }
   ]
 }

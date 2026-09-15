@@ -7,27 +7,15 @@ import { ChatBotIcon } from "./ChatBotIcon";
 import { AvatarStatusDot } from "./AvatarStatusDot";
 import { track } from "../../lib/posthog";
 import { MarkdownText } from "./ChatMarkdown";
-import { QUESTIONS_BY_CASE_STUDY, caseStudyForPath } from "./suggestedQuestions";
+import { suggestedQuestionsFor, caseStudyForPath } from "./suggestedQuestions";
 import { CHAT_TRANSITION_MS, CHAT_EASE_MOTION, CHAT_MARGIN, CHAT_RADIUS } from "./chatLayout";
+import { useLanguage, useTranslation } from "./LanguageContext";
 import type { ChatMessage, AskSource } from "./useGlobalChat";
 
-// Shown on "/", "/IC" and "/MG" — a curated mix of general-career questions
-// plus one per project, since there's no single case study to anchor on.
-// On a "/project/*" page, caseStudyForPath() below picks that project's own
-// suggested questions instead (the same ones ProjectChatCta.tsx shows at
-// the bottom of that page), so the prompts are relevant to whatever the
-// visitor is already reading.
 // The recurring hint bubble above the button: shows after this much page
 // inactivity, stays up for this long, then waits for the next idle stretch.
 const HINT_IDLE_MS = 6000;
 const HINT_VISIBLE_MS = 20000;
-
-const GENERAL_SUGGESTED_QUESTIONS = [
-  "Quel est le parcours de Romain ?",
-  "Que cherche-t-il comme prochain poste ?",
-  "Qu'est-ce qui explique les 230% vs objectif sur Programmes chroniques ?",
-  "Comment a-t-il géré les 5 pivots de monétisation ?",
-];
 
 /** "/", "/IC", "/MG", and any "/project/*" page — where there's portfolio content to ask about. */
 export function isChatEligiblePath(pathname: string): boolean {
@@ -80,6 +68,8 @@ export function GlobalChatWidget({
   const isMobile = useIsMobile();
   const bottomRef = useRef<HTMLDivElement>(null);
   const [inputFocused, setInputFocused] = useState(false);
+  const { lang } = useLanguage();
+  const t = useTranslation("chat");
 
   useEffect(() => {
     if (messages.length > 0) {
@@ -157,11 +147,12 @@ export function GlobalChatWidget({
 
   // On a project page, lead with that project's own suggested questions
   // (recomputed on every render, so navigating prev/next between projects
-  // while the panel is open updates them) — otherwise the general mix.
+  // while the panel is open updates them) — otherwise the general mix
+  // (t.general_suggested_questions), a curated set of career questions plus
+  // one per project since there's no single case study to anchor on.
   const pageCaseStudy = caseStudyForPath(location.pathname);
-  const suggestedQuestions = pageCaseStudy
-    ? QUESTIONS_BY_CASE_STUDY[pageCaseStudy] ?? GENERAL_SUGGESTED_QUESTIONS
-    : GENERAL_SUGGESTED_QUESTIONS;
+  const pageSuggested = pageCaseStudy ? suggestedQuestionsFor(pageCaseStudy, lang) : [];
+  const suggestedQuestions = pageSuggested.length > 0 ? pageSuggested : t.general_suggested_questions;
 
   const handleSuggestion = (q: string) => {
     track("chat_question_suggested_clicked", { question: q, caseStudy: "general" });
@@ -230,14 +221,14 @@ export function GlobalChatWidget({
                 className="font-['Aeonik:Regular',sans-serif]"
                 style={{ fontSize: 14, lineHeight: "18px", color: "white", margin: 0 }}
               >
-                👋 Une question ?
+                👋 {t.hint_text}
               </p>
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowHint(false);
                 }}
-                aria-label="Fermer"
+                aria-label={t.close_aria}
                 className="shrink-0 flex items-center justify-center"
                 style={{ width: 16, height: 16, background: "none", border: "none", cursor: "pointer", opacity: 0.6 }}
               >
@@ -267,7 +258,7 @@ export function GlobalChatWidget({
       {!isOpen && (
         <button
           onClick={toggleOpen}
-          aria-label="Poser une question à l'assistant"
+          aria-label={t.open_aria}
           className="fixed flex items-center justify-center transition-transform hover:scale-105"
           style={{
             bottom: buttonBottom,
@@ -362,19 +353,19 @@ export function GlobalChatWidget({
                 className="font-['Aeonik:Bold',sans-serif]"
                 style={{ fontSize: 16, color: "var(--color-qare-text)", margin: 0 }}
               >
-                L'assistant de Romain
+                {t.header_title}
               </p>
               <p
                 className="font-['Aeonik:Regular',sans-serif]"
                 style={{ fontSize: 13, color: "var(--color-qare-muted)", margin: 0 }}
               >
-                Pose une question sur son parcours ou ses projets
+                {t.header_subtitle}
               </p>
             </div>
           </div>
           <button
             onClick={toggleOpen}
-            aria-label="Fermer"
+            aria-label={t.close_aria}
             className="shrink-0 flex items-center justify-center rounded-full"
             style={{ width: 32, height: 32, border: "none", backgroundColor: "var(--color-qare-050)", cursor: "pointer" }}
           >
@@ -512,7 +503,7 @@ export function GlobalChatWidget({
               onChange={(e) => setInput(e.target.value)}
               onFocus={() => setInputFocused(true)}
               onBlur={() => setInputFocused(false)}
-              placeholder={messages.length > 0 ? "Question de suivi..." : "Posez votre question..."}
+              placeholder={messages.length > 0 ? t.placeholder_followup : t.placeholder_default}
               disabled={loading}
               maxLength={500}
               className="flex-1 bg-transparent outline-none font-['Aeonik:Regular',sans-serif]"

@@ -73,19 +73,34 @@
   ],
   "suggestedQuestions": [
     {
-      "question": "Quel était son rôle sur ce projet ?"
+      "question": {
+        "fr": "Quel était son rôle sur ce projet ?",
+        "en": "What was his role on this project?"
+      }
     },
     {
-      "question": "Comment a-t-il mesuré l'impact sur les no-shows ?"
+      "question": {
+        "fr": "Comment a-t-il mesuré l'impact sur les no-shows ?",
+        "en": "How did he measure the impact on no-shows?"
+      }
     },
     {
-      "question": "Pourquoi deux lots distincts ?"
+      "question": {
+        "fr": "Pourquoi deux lots distincts ?",
+        "en": "Why two separate rollout phases?"
+      }
     },
     {
-      "question": "Comment a-t-il géré la différence iOS / Android ?"
+      "question": {
+        "fr": "Comment a-t-il géré la différence iOS / Android ?",
+        "en": "How did he handle the iOS/Android difference?"
+      }
     },
     {
-      "question": "Où en est le projet aujourd'hui ?"
+      "question": {
+        "fr": "Où en est le projet aujourd'hui ?",
+        "en": "Where does the project stand today?"
+      }
     }
   ]
 }

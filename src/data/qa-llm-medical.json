@@ -137,19 +137,34 @@
   ],
   "suggestedQuestions": [
     {
-      "question": "Quel était son rôle sur ce projet ?"
+      "question": {
+        "fr": "Quel était son rôle sur ce projet ?",
+        "en": "What was his role on this project?"
+      }
     },
     {
-      "question": "Comment a-t-il géré les contraintes réglementaires ?"
+      "question": {
+        "fr": "Comment a-t-il géré les contraintes réglementaires ?",
+        "en": "How did he handle the regulatory constraints?"
+      }
     },
     {
-      "question": "Comment les médecins ont-ils adopté l'outil ?"
+      "question": {
+        "fr": "Comment les médecins ont-ils adopté l'outil ?",
+        "en": "How did doctors adopt the tool?"
+      }
     },
     {
-      "question": "Quels risques a-t-il identifiés sur les outputs du LLM ?"
+      "question": {
+        "fr": "Quels risques a-t-il identifiés sur les outputs du LLM ?",
+        "en": "What risks did he identify with the LLM's outputs?"
+      }
     },
     {
-      "question": "Quel impact sur le temps de consultation ?"
+      "question": {
+        "fr": "Quel impact sur le temps de consultation ?",
+        "en": "What was the impact on consultation time?"
+      }
     }
   ]
 }

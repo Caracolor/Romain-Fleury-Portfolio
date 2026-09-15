@@ -4,7 +4,8 @@ import { ScaledSection } from "./ScaledSection";
 import { useIsMobile } from "./useIsMobile";
 import { useChat } from "./ChatContext";
 import { AvatarStatusDot } from "./AvatarStatusDot";
-import { QUESTIONS_BY_CASE_STUDY } from "./suggestedQuestions";
+import { suggestedQuestionsFor } from "./suggestedQuestions";
+import { useLanguage, useTranslation } from "./LanguageContext";
 import { track } from "../../lib/posthog";
 
 interface ProjectChatCtaProps {
@@ -40,7 +41,9 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
   const { openAndAsk } = useChat();
   const [draft, setDraft] = useState("");
   const [inputFocused, setInputFocused] = useState(false);
-  const suggestedQuestions = QUESTIONS_BY_CASE_STUDY[caseStudy] ?? [];
+  const { lang } = useLanguage();
+  const t = useTranslation("chat");
+  const suggestedQuestions = suggestedQuestionsFor(caseStudy, lang);
 
   const handleSuggestion = (q: string) => {
     track("chat_question_suggested_clicked", { question: q, caseStudy, source: "project_cta" });
@@ -68,7 +71,7 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
           margin: 0,
         }}
       >
-        Vous avez une question ?
+        {t.cta_label}
       </p>
 
       {/* Avatar + freeform input — submitting opens the global panel with
@@ -109,7 +112,7 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
               onChange={(e) => setDraft(e.target.value)}
               onFocus={() => setInputFocused(true)}
               onBlur={() => setInputFocused(false)}
-              placeholder="Posez votre question..."
+              placeholder={t.placeholder_default}
               maxLength={500}
               className="flex-1 bg-transparent outline-none font-['Aeonik:Regular',sans-serif]"
               style={{ fontSize: isMobile ? 15 : 16, color: "var(--color-qare-text)" }}
@@ -173,12 +176,12 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
         className="font-['Aeonik:Regular',sans-serif]"
         style={{ fontSize: isMobile ? 15 : 16, lineHeight: isMobile ? "22px" : "26px", color: "var(--color-qare-text)", opacity: 0.45 }}
       >
-        Vous souhaitez des informations absentes de ce case study ?{" "}
+        {t.cta_write_me_prefix}{" "}
         <a
           href="mailto:romain.fleury@gmail.com"
           style={{ color: "var(--color-qare-brand)", opacity: 1, textDecoration: "underline" }}
         >
-          Écrivez-moi
+          {t.cta_write_me_link}
         </a>
       </p>
     </div>

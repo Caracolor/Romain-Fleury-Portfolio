@@ -168,28 +168,52 @@
   ],
   "suggestedQuestions": [
     {
-      "question": "Quel était son rôle exact sur ce projet ?"
+      "question": {
+        "fr": "Quel était son rôle exact sur ce projet ?",
+        "en": "What was his exact role on this project?"
+      }
     },
     {
-      "question": "Comment a-t-il mesuré le succès ?"
+      "question": {
+        "fr": "Comment a-t-il mesuré le succès ?",
+        "en": "How did he measure success?"
+      }
     },
     {
-      "question": "Qu'est-ce qui explique les 230% vs objectif ?"
+      "question": {
+        "fr": "Qu'est-ce qui explique les 230% vs objectif ?",
+        "en": "What explains the 230% vs. target?"
+      }
     },
     {
-      "question": "Quels ont été les principaux blocages ?"
+      "question": {
+        "fr": "Quels ont été les principaux blocages ?",
+        "en": "What were the main blockers?"
+      }
     },
     {
-      "question": "Comment a-t-il arbitré entre besoins utilisateurs et contraintes médicales ?"
+      "question": {
+        "fr": "Comment a-t-il arbitré entre besoins utilisateurs et contraintes médicales ?",
+        "en": "How did he balance user needs against medical constraints?"
+      }
     },
     {
-      "question": "Pourquoi a-t-il choisi de convertir les patients existants plutôt que d'en acquérir de nouveaux ?"
+      "question": {
+        "fr": "Pourquoi a-t-il choisi de convertir les patients existants plutôt que d'en acquérir de nouveaux ?",
+        "en": "Why did he choose to convert existing patients rather than acquire new ones?"
+      }
     },
     {
-      "question": "Qu'est-ce qu'il ferait différemment s'il recommençait ?"
+      "question": {
+        "fr": "Qu'est-ce qu'il ferait différemment s'il recommençait ?",
+        "en": "What would he do differently if he started over?"
+      }
     },
     {
-      "question": "Comment le design a-t-il influencé le modèle économique du programme ?"
+      "question": {
+        "fr": "Comment le design a-t-il influencé le modèle économique du programme ?",
+        "en": "How did design influence the program's business model?"
+      }
     }
   ]
 }

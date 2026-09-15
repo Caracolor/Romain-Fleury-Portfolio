@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { track } from "../../lib/posthog";
 import { caseStudyForPath } from "./suggestedQuestions";
+import { useTranslation } from "./LanguageContext";
 
 // The scope value api/chat.ts treats specially: loads every doc (the
 // general bio + all four case studies) instead of a single project's file.
@@ -22,6 +23,7 @@ export type AskSource = "suggested" | "free_input" | "cta";
  * one (see ChatContext.tsx for how it reaches this hook).
  */
 export function useGlobalChat(pathname: string) {
+  const t = useTranslation("chat");
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -56,7 +58,7 @@ export function useGlobalChat(pathname: string) {
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error ?? "Une erreur s'est produite.");
+        setError(data.error ?? t.error_generic);
       } else {
         track("chat_answer_received", {
           caseStudy: GENERAL_SCOPE,
@@ -66,7 +68,7 @@ export function useGlobalChat(pathname: string) {
         setMessages([...nextMessages, { role: "assistant", content: data.response }]);
       }
     } catch {
-      setError("Impossible de joindre le serveur.");
+      setError(t.error_server);
     } finally {
       setLoading(false);
     }
