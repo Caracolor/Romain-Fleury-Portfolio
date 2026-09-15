@@ -144,12 +144,28 @@ function loadDoc(slug: string): string {
   return readFileSync(join(process.cwd(), "docs", `${slug}.md`), "utf-8");
 }
 
-function loadGeneralDocContent(): string {
+// currentProjectSlug (validated by the caller): when set, that project's
+// doc is pulled out and placed right after the bio, clearly marked as the
+// one to default to — ahead of the other 3, which are relabeled as
+// reference-only. A single instruction sentence competing against 4 flatly
+// concatenated docs of equal visual weight wasn't enough on its own (the
+// model kept blending case studies together); reordering + explicitly
+// marking one section as primary is a stronger, structural nudge than
+// prompt wording alone.
+function loadGeneralDocContent(currentProjectSlug: string | null): string {
   const about = loadDoc("about-romain");
-  const caseStudies = ALL_CASE_STUDY_SLUGS.map(
-    (slug) => `${loadDoc(slug)}`
-  ).join("\n\n===\n\n");
-  return `${about}\n\n===\n\n${caseStudies}`;
+  const otherSlugs = ALL_CASE_STUDY_SLUGS.filter((slug) => slug !== currentProjectSlug);
+
+  const currentSection = currentProjectSlug
+    ? `=== PROJET ACTUEL DE LA PAGE VISITÉE (${CASE_STUDY_LABELS[currentProjectSlug]}) — réponds avec CE case study par défaut pour toute question qui ne nomme pas explicitement un autre projet ===\n\n${loadDoc(currentProjectSlug)}`
+    : null;
+
+  const otherSection = `=== AUTRES ÉTUDES DE CAS — ne t'y réfère que si la question nomme explicitement un de ces projets ===\n\n${otherSlugs
+    .map((slug) => loadDoc(slug))
+    .join("\n\n===\n\n")}`;
+
+  const sections = currentSection ? [about, currentSection, otherSection] : [about, otherSection];
+  return sections.join("\n\n===\n\n");
 }
 
 // ── Handler ────────────────────────────────────────────────────────────────────
@@ -192,29 +208,31 @@ export default async function handler(req: any, res: any) {
     return res.status(400).json({ error: "Paramètre 'caseStudy' invalide." });
   }
 
+  // The floating widget is one conversation shared across every page, so a
+  // question like "quel était son rôle sur ce projet ?" asked from a
+  // project page arrives here as GENERAL_SCOPE (all 4 docs loaded, so
+  // follow-up general/bio questions still work) with no project named.
+  // currentProject (the page the visitor is currently on, if any) breaks
+  // that ambiguity — loadGeneralDocContent() below puts it first and
+  // labels it as the default.
+  const currentProjectSlug: string | null =
+    caseStudy === GENERAL_SCOPE &&
+    typeof currentProject === "string" &&
+    ALL_CASE_STUDY_SLUGS.includes(currentProject)
+      ? currentProject
+      : null;
+
   // Read markdown doc(s) — "general" (the floating widget) loads everything
   // at once instead of a single case study's file.
   let docContent: string;
   try {
     docContent =
-      caseStudy === GENERAL_SCOPE ? loadGeneralDocContent() : loadDoc(caseStudy);
+      caseStudy === GENERAL_SCOPE ? loadGeneralDocContent(currentProjectSlug) : loadDoc(caseStudy);
   } catch {
     return res.status(404).json({ error: "Case study introuvable." });
   }
 
-  // The floating widget is one conversation shared across every page, so a
-  // question like "quel était son rôle sur ce projet ?" asked from a
-  // project page arrives here as GENERAL_SCOPE (all 4 docs loaded, so
-  // follow-up general/bio questions still work) with no project named —
-  // without this hint the model has no way to resolve "ce projet" and asks
-  // the visitor to pick one instead of just answering. currentProject
-  // (the page the visitor is currently on, if any) breaks that ambiguity.
-  const currentProjectLabel =
-    caseStudy === GENERAL_SCOPE &&
-    typeof currentProject === "string" &&
-    ALL_CASE_STUDY_SLUGS.includes(currentProject)
-      ? CASE_STUDY_LABELS[currentProject]
-      : null;
+  const currentProjectLabel = currentProjectSlug ? CASE_STUDY_LABELS[currentProjectSlug] : null;
 
   // Build messages array with optional history
   type ChatMessage = { role: "user" | "assistant"; content: string };
@@ -242,8 +260,8 @@ export default async function handler(req: any, res: any) {
       model: "claude-sonnet-5",
       max_tokens: 1024,
       system: currentProjectLabel
-        ? `${SYSTEM_PROMPT}\n\nLe visiteur est actuellement sur la page du case study "${currentProjectLabel}". Si sa question ne précise pas de quel projet il parle (ex: "ce projet", "il a fait comment ici"), suppose qu'il parle de celui-ci — ne demande pas de clarification inutilement.\n\n---\n\nDocumentation du case study :\n\n${docContent}`
-        : `${SYSTEM_PROMPT}\n\n---\n\nDocumentation du case study :\n\n${docContent}`,
+        ? `${SYSTEM_PROMPT}\n\nLe visiteur est actuellement sur la page du case study "${currentProjectLabel}" — la documentation ci-dessous met cette section en premier, marquée "PROJET ACTUEL DE LA PAGE VISITÉE". Si sa question ne précise pas de quel projet il parle (ex: "ce projet", "il a fait comment ici", "quel était son rôle"), réponds avec CETTE section, sans mélanger avec les autres études de cas et sans demander de clarification. N'utilise les sections "AUTRES ÉTUDES DE CAS" que si la question nomme explicitement un autre projet.\n\n---\n\nDocumentation :\n\n${docContent}`
+        : `${SYSTEM_PROMPT}\n\n---\n\nDocumentation :\n\n${docContent}`,
       messages,
     });
     const textBlock = message.content.find((block) => block.type === "text");
