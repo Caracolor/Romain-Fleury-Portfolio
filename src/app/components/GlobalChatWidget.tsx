@@ -79,6 +79,7 @@ export function GlobalChatWidget({
   const location = useLocation();
   const isMobile = useIsMobile();
   const bottomRef = useRef<HTMLDivElement>(null);
+  const [inputFocused, setInputFocused] = useState(false);
 
   useEffect(() => {
     if (messages.length > 0) {
@@ -384,7 +385,13 @@ export function GlobalChatWidget({
         {/* Conversation */}
         <div
           className="flex-1 flex flex-col overflow-y-auto"
-          style={{ gap: 16, padding: isMobile ? 20 : 24 }}
+          style={{
+            gap: 16,
+            padding: isMobile ? 20 : 24,
+            // Empty state: chips sit just above the input, not right under
+            // the header — pushes them to the bottom of this scroll area.
+            justifyContent: messages.length === 0 ? "flex-end" : "flex-start",
+          }}
         >
           {messages.length === 0 && (
             <div className="flex flex-wrap" style={{ gap: 8 }}>
@@ -484,15 +491,18 @@ export function GlobalChatWidget({
             style={{
               gap: 12,
               backgroundColor: "var(--color-qare-white)",
-              border: "1px solid var(--color-qare-800)",
+              border: `1px solid ${inputFocused ? "var(--color-qare-800)" : "var(--color-qare-150)"}`,
               borderRadius: 999,
               padding: "12px 12px 12px 20px",
+              transition: "border-color 0.15s ease",
             }}
           >
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onFocus={() => setInputFocused(true)}
+              onBlur={() => setInputFocused(false)}
               placeholder={messages.length > 0 ? "Question de suivi..." : "Posez votre question..."}
               disabled={loading}
               maxLength={500}
