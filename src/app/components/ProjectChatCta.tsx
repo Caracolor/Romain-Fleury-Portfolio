@@ -109,7 +109,7 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
               transition: "border-color 0.15s ease",
             }}
           >
-            <div className="flex items-center" style={{ gap: 12, padding: "12px 12px 12px 20px" }}>
+            <div className="flex items-center" style={{ gap: 12, padding: "12px 12px 12px 20px", marginBottom: 32 }}>
               <input
                 type="text"
                 value={draft}
