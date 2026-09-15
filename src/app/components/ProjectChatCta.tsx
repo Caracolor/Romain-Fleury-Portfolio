@@ -142,7 +142,7 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
                 type="button" is required here — inside a <form>, a plain
                 <button> defaults to type="submit" and would submit the
                 (empty) draft instead of just filling the panel. */}
-            <div className="flex flex-wrap items-center" style={{ gap: 8, padding: "0 20px 16px 20px" }}>
+            <div className="flex flex-wrap items-center justify-end" style={{ gap: 8, padding: "0 20px 16px 20px" }}>
               {suggestedQuestions.slice(0, 3).map((q, i) => (
                 <button
                   key={i}
