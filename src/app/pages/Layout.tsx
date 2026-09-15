@@ -6,7 +6,7 @@ import { GlobalChatWidget } from "../components/GlobalChatWidget";
 import { useGlobalChat } from "../components/useGlobalChat";
 import { ChatProvider } from "../components/ChatContext";
 import { useIsMobile } from "../components/useIsMobile";
-import { computeChatWidth, CHAT_MARGIN, CHAT_TRANSITION_MS, CHAT_EASE_CSS, ChatOpenContext } from "../components/chatLayout";
+import { computeChatWidth, CHAT_MARGIN, ChatOpenContext } from "../components/chatLayout";
 import { initPostHog, trackPageview } from "../../lib/posthog";
 
 // Init PostHog once
@@ -57,23 +57,17 @@ export default function Layout() {
     // just the content below, or its padding never reacts to the push.
     <ChatOpenContext.Provider value={reservedPx > 0}>
       <Header pushRight={reservedPx} />
-      <div
-        style={{
-          marginRight: reservedPx,
-          transition: `margin-right ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
-        }}
-      >
-        <Suspense fallback={<PageLoader visible />}>
-          <ChatProvider value={{ openAndAsk: chat.openAndAsk }}>
-            {/* Pages that call useDesignScale() directly (not just through
-                ScaledSection, which already reacts on its own — see its
-                ResizeObserver) read this back via useOutletContext() so
-                their own gap/padding math shrinks in step with the pushed
-                content. */}
-            <Outlet context={{ chatReservedWidth: reservedPx }} />
-          </ChatProvider>
-        </Suspense>
-      </div>
+      {/* No page-wide shrink here on purpose: ScaledSection.tsx absorbs the
+          push itself (own marginRight = reservedPx) so section backgrounds
+          and anything else outside a ScaledSection stay full-bleed behind
+          the chat panel instead of getting clipped/covered by it. */}
+      <Suspense fallback={<PageLoader visible />}>
+        <ChatProvider value={{ openAndAsk: chat.openAndAsk }}>
+          {/* Pages that call useDesignScale() directly, and ScaledSection
+              itself, read this back via useOutletContext(). */}
+          <Outlet context={{ chatReservedWidth: reservedPx }} />
+        </ChatProvider>
+      </Suspense>
       <GlobalChatWidget
         isOpen={chat.isOpen}
         setIsOpen={chat.setIsOpen}

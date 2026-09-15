@@ -1,5 +1,6 @@
-import { useRef, useState, useEffect, useContext, ReactNode, CSSProperties } from "react";
-import { ChatOpenContext, CHAT_OPEN_SIDE_PADDING, CHAT_OPEN_SIDE_PADDING_MAX_PX } from "./chatLayout";
+import { useRef, useState, useEffect, ReactNode, CSSProperties } from "react";
+import { useOutletContext } from "react-router";
+import { CHAT_OPEN_SIDE_PADDING, CHAT_OPEN_SIDE_PADDING_MAX_PX, CHAT_TRANSITION_MS, CHAT_EASE_CSS } from "./chatLayout";
 
 interface ScaledSectionProps {
   maxWidth: number;
@@ -15,6 +16,15 @@ interface ScaledSectionProps {
  * Uses generous side padding via clamp() so content never touches edges:
  *   - min 24px, ideal 4vw, max 80px per side
  * The scale calculation accounts for this padding.
+ *
+ * When the chat is open, THIS component (not an ancestor) absorbs the
+ * push: marginRight becomes the reserved chat width directly (width
+ * switches from a fixed "100%" to "auto" so the box can shrink by exactly
+ * that margin instead of overflowing). Page-level wrappers and section
+ * backgrounds are never actually narrowed, so they stay full-bleed behind
+ * the chat panel automatically — no per-section "bleed layer" workaround
+ * needed. The rendered box ends up the exact same width either way (it's
+ * the same subtraction, just moved here), so `scale` comes out identical.
  */
 export function ScaledSection({
   maxWidth,
@@ -26,7 +36,8 @@ export function ScaledSection({
   const innerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [outerHeight, setOuterHeight] = useState<number | undefined>();
-  const isChatOpen = useContext(ChatOpenContext);
+  const { chatReservedWidth = 0 } = useOutletContext<{ chatReservedWidth?: number }>() ?? {};
+  const isChatOpen = chatReservedWidth > 0;
 
   useEffect(() => {
     const outer = outerRef.current;
@@ -78,10 +89,11 @@ export function ScaledSection({
       ref={outerRef}
       className={className}
       style={{
-        width: "100%",
+        width: !isMobileView && isChatOpen ? "auto" : "100%",
         maxWidth: maxWidthWithPadding,
         marginLeft: "auto",
-        marginRight: "auto",
+        marginRight: !isMobileView && isChatOpen ? chatReservedWidth : "auto",
+        transition: `margin-right ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
         overflow: "visible",
         height: outerHeight,
         paddingLeft: sidePadding,
