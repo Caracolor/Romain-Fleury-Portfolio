@@ -418,8 +418,8 @@ export function GlobalChatWidget({
               style={{
                 borderRadius: 16,
                 padding: "14px 20px",
-                backgroundColor: msg.role === "user" ? "transparent" : "var(--color-qare-050)",
-                border: msg.role === "user" ? "1px solid var(--color-qare-800)" : "none",
+                backgroundColor: msg.role === "user" ? "#E4F6EE" : "var(--color-qare-050)",
+                border: "none",
                 alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
                 maxWidth: "92%",
               }}
@@ -483,8 +483,9 @@ export function GlobalChatWidget({
             className="flex items-center"
             style={{
               gap: 12,
-              backgroundColor: "var(--color-qare-050)",
-              borderRadius: 16,
+              backgroundColor: "var(--color-qare-white)",
+              border: "1px solid var(--color-qare-800)",
+              borderRadius: 999,
               padding: "12px 12px 12px 20px",
             }}
           >
