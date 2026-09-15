@@ -74,18 +74,23 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
         {t.cta_label}
       </p>
 
-      {/* Avatar + freeform input — submitting opens the global panel with
-          this as the first message (see handleSubmit above). The avatar
-          sits right at the point of interaction (the input) rather than
-          up by the label, closer to a chat app's own compose-bar avatar.
-          INPUT_HEIGHT matches the pill's own rendered height (12px vertical
-          padding x2 + the 36px send button) so the avatar reads as the
-          same height as the field beside it, on both breakpoints — on
-          desktop this whole block sits inside ScaledSection's transform:
-          scale(), so matching the *unscaled* CSS height here is what keeps
-          them equal after scaling, not matching a measured on-screen px
-          value (which changes with viewport width). */}
-      <div className="flex items-center" style={{ gap: isMobile ? 10 : 14 }}>
+      {/* Avatar + freeform input, suggested chips nested inside the same
+          card below the input row (per the latest Figma) rather than as a
+          separate row underneath it. Submitting opens the global panel
+          with the typed text as the first message (see handleSubmit
+          above). The avatar sits right at the point of interaction (the
+          input) rather than up by the label, closer to a chat app's own
+          compose-bar avatar — top-aligned (items-start) now that the card
+          is taller than the avatar itself, rather than centered against
+          just the input row alone. INPUT_HEIGHT matches the input row's
+          own rendered height (12px vertical padding x2 + the 36px send
+          button) so the avatar reads as the same height as that row, on
+          both breakpoints — on desktop this whole block sits inside
+          ScaledSection's transform: scale(), so matching the *unscaled*
+          CSS height here is what keeps them equal after scaling, not
+          matching a measured on-screen px value (which changes with
+          viewport width). */}
+      <div className="flex items-start" style={{ gap: isMobile ? 10 : 14 }}>
         <div style={{ position: "relative", flexShrink: 0 }}>
           <img
             src="/bot/normal.svg"
@@ -96,79 +101,83 @@ export function ProjectChatCta({ caseStudy }: ProjectChatCtaProps) {
         </div>
         <form onSubmit={handleSubmit} className="flex-1">
           <div
-            className="flex items-center"
+            className="flex flex-col"
             style={{
-              gap: 12,
               backgroundColor: "var(--color-qare-white)",
               border: `1px solid ${inputFocused ? "var(--color-qare-800)" : "var(--color-qare-150)"}`,
-              borderRadius: 999,
-              padding: "12px 12px 12px 20px",
+              borderRadius: 24,
               transition: "border-color 0.15s ease",
             }}
           >
-            <input
-              type="text"
-              value={draft}
-              onChange={(e) => setDraft(e.target.value)}
-              onFocus={() => setInputFocused(true)}
-              onBlur={() => setInputFocused(false)}
-              placeholder={t.placeholder_default}
-              maxLength={500}
-              className="flex-1 bg-transparent outline-none font-['Aeonik:Regular',sans-serif]"
-              style={{ fontSize: isMobile ? 15 : 16, color: "var(--color-qare-text)" }}
-            />
-            <button
-              type="submit"
-              disabled={!draft.trim()}
-              className="shrink-0 flex items-center justify-center rounded-full transition-opacity"
-              style={{
-                width: 36,
-                height: 36,
-                backgroundColor: "var(--color-qare-brand)",
-                opacity: draft.trim() ? 1 : 0.35,
-                cursor: draft.trim() ? "pointer" : "not-allowed",
-                border: "none",
-              }}
-            >
-              <Send size={15} color="white" />
-            </button>
+            <div className="flex items-center" style={{ gap: 12, padding: "12px 12px 12px 20px" }}>
+              <input
+                type="text"
+                value={draft}
+                onChange={(e) => setDraft(e.target.value)}
+                onFocus={() => setInputFocused(true)}
+                onBlur={() => setInputFocused(false)}
+                placeholder={t.placeholder_default}
+                maxLength={500}
+                className="flex-1 bg-transparent outline-none font-['Aeonik:Regular',sans-serif]"
+                style={{ fontSize: isMobile ? 15 : 16, color: "var(--color-qare-text)" }}
+              />
+              <button
+                type="submit"
+                disabled={!draft.trim()}
+                className="shrink-0 flex items-center justify-center rounded-full transition-opacity"
+                style={{
+                  width: 36,
+                  height: 36,
+                  backgroundColor: "var(--color-qare-brand)",
+                  opacity: draft.trim() ? 1 : 0.35,
+                  cursor: draft.trim() ? "pointer" : "not-allowed",
+                  border: "none",
+                }}
+              >
+                <Send size={15} color="white" />
+              </button>
+            </div>
+
+            {/* Suggested questions, for anyone who'd rather pick than type.
+                type="button" is required here — inside a <form>, a plain
+                <button> defaults to type="submit" and would submit the
+                (empty) draft instead of just filling the panel. */}
+            <div className="flex flex-wrap items-center" style={{ gap: 8, padding: "0 20px 16px 20px" }}>
+              {suggestedQuestions.slice(0, 3).map((q, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => handleSuggestion(q)}
+                  className="font-['Aeonik:Regular',sans-serif] text-left transition-colors"
+                  style={{
+                    fontSize: isMobile ? 13 : 14,
+                    lineHeight: "normal",
+                    paddingLeft: 14,
+                    paddingRight: 14,
+                    paddingTop: 8,
+                    paddingBottom: 8,
+                    borderRadius: 999,
+                    border: "1px solid var(--color-qare-800)",
+                    color: "var(--color-qare-text)",
+                    backgroundColor: "transparent",
+                    cursor: "pointer",
+                    opacity: 0.7,
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = "var(--color-qare-050)";
+                    (e.currentTarget as HTMLButtonElement).style.opacity = "1";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = "transparent";
+                    (e.currentTarget as HTMLButtonElement).style.opacity = "0.7";
+                  }}
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
           </div>
         </form>
-      </div>
-
-      {/* Suggested questions, for anyone who'd rather pick than type */}
-      <div className="flex flex-wrap items-center" style={{ gap: 8 }}>
-        {suggestedQuestions.slice(0, 3).map((q, i) => (
-          <button
-            key={i}
-            onClick={() => handleSuggestion(q)}
-            className="font-['Aeonik:Regular',sans-serif] text-left transition-colors"
-            style={{
-              fontSize: isMobile ? 13 : 14,
-              lineHeight: "normal",
-              paddingLeft: 14,
-              paddingRight: 14,
-              paddingTop: 8,
-              paddingBottom: 8,
-              borderRadius: 999,
-              border: "1px solid var(--color-qare-800)",
-              color: "var(--color-qare-text)",
-              backgroundColor: "transparent",
-              cursor: "pointer",
-              opacity: 0.7,
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = "var(--color-qare-050)";
-              (e.currentTarget as HTMLButtonElement).style.opacity = "1";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = "transparent";
-              (e.currentTarget as HTMLButtonElement).style.opacity = "0.7";
-            }}
-          >
-            {q}
-          </button>
-        ))}
       </div>
 
       {/* Contact mention */}
