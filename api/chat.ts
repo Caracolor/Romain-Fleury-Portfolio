@@ -19,6 +19,15 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
+// Vercel's serverless functions run in UTC, so a plain new Date().toISOString()
+// logs UTC time — 1-2h behind Romain's own Europe/Paris clock (CET/CEST),
+// which reads as wrong/confusing in the sheet. "sv-SE" is just a locale
+// that happens to format as sortable "YYYY-MM-DD HH:mm:ss" — nothing
+// Sweden-specific, picked purely for that formatting quirk.
+function parisTimestamp(): string {
+  return new Date().toLocaleString("sv-SE", { timeZone: "Europe/Paris" });
+}
+
 // ── Google Sheets logger (inlined - no cross-directory import) ──────────────
 async function logToSheet(params: {
   date: string;
@@ -273,7 +282,7 @@ export default async function handler(req: any, res: any) {
 
   // Log to Google Sheets (never throws - errors logged silently)
   await logToSheet({
-    date: new Date().toISOString(),
+    date: parisTimestamp(),
     caseStudy,
     question: question.trim(),
     response,
