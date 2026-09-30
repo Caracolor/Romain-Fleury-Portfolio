@@ -87,15 +87,25 @@ export function Header({ pushRight = 0 }: HeaderProps) {
   // keeps that same 150/200 ratio once the chat has eaten into the width,
   // instead of both converging onto the same padding.
   const isChatOpen = useContext(ChatOpenContext);
-  const outerRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
   // The outer wrapper's own rendered (border-box) width — i.e. before its
   // own padding is subtracted. Needed to compute that padding itself in
   // JS (see computeChatOpenPadding): it's position:fixed, so a CSS
-  // percentage padding would resolve against the viewport, not this. No
-  // circularity — the padding value doesn't affect this width, since the
-  // wrapper is sized by its left/right positioning, not its padding.
-  const [containerWidth, setContainerWidth] = useState(HEADER_MAX_WIDTH + 300);
+  // percentage padding would resolve against the viewport, not this.
+  //
+  // Derived analytically (window.innerWidth - pushRight) rather than
+  // measured live off the DOM via ResizeObserver — this div is
+  // position:fixed with left:0/right:pushRight, so its rendered width IS
+  // window.innerWidth - pushRight, always, by definition; no need to
+  // measure it. Measuring it live used to cause a visible bounce when the
+  // chat opened/closed: ResizeObserver fires on every frame of the
+  // `right`/`padding` CSS transition (since those properties changing IS
+  // a resize), and each fire recomputed a new padding target from the
+  // mid-transition width — repeatedly retargeting the CSS "padding"
+  // transition against a moving target instead of letting it interpolate
+  // once, smoothly, from the old value to the real final one.
+  const [containerWidth, setContainerWidth] = useState(() =>
+    typeof window === "undefined" ? HEADER_MAX_WIDTH + 300 : window.innerWidth - pushRight
+  );
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuClosing, setMenuClosing] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(true);
@@ -185,24 +195,26 @@ export function Header({ pushRight = 0 }: HeaderProps) {
     lastScrollY.current = 0;
   }, [location.pathname]);
 
+  // Keeps containerWidth in sync with organic viewport-width changes (window
+  // resize) — the animated open/close transition itself never touches this,
+  // since containerWidth is derived analytically from window.innerWidth,
+  // not measured off the (possibly mid-transition) DOM. See the comment on
+  // containerWidth's useState above.
   useEffect(() => {
     if (isMobile) return; // skip desktop scale on mobile
-    const el = outerRef.current;
-    if (!el) return;
-    const update = () => {
-      const cs = getComputedStyle(el);
-      const pl = parseFloat(cs.paddingLeft) || 0;
-      const pr = parseFloat(cs.paddingRight) || 0;
-      const outerWidth = el.getBoundingClientRect().width;
-      const available = outerWidth - pl - pr;
-      setScale(Math.min(1, available / HEADER_MAX_WIDTH));
-      setContainerWidth(outerWidth);
-    };
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
+    const update = () => setContainerWidth(window.innerWidth - pushRight);
     update();
-    return () => ro.disconnect();
-  }, [isMobile]);
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, [isMobile, pushRight]);
+
+  // Derived (not state) from the now-stable containerWidth, so it changes in
+  // a single step alongside the CSS-transitioned padding/right instead of
+  // ticking across multiple ResizeObserver-driven renders — the inner scale
+  // div's own CSS transition (see its style below) is what animates this
+  // smoothly, the same way `right`/`padding` animate via CSS on the outer div.
+  const headerSidePadding = isChatOpen ? computeHeaderChatOpenPadding(containerWidth) : 150;
+  const scale = Math.min(1, (containerWidth - headerSidePadding * 2) / HEADER_MAX_WIDTH);
 
   const scrollToSection = useCallback(
     (sectionId: string) => {
@@ -424,13 +436,12 @@ export function Header({ pushRight = 0 }: HeaderProps) {
   // ── Desktop Header ──
   return (
     <div
-      ref={outerRef}
       className="fixed top-0 left-0 z-50"
       style={{
         right: pushRight,
         pointerEvents: "none",
-        paddingLeft: isChatOpen ? computeHeaderChatOpenPadding(containerWidth) : 150,
-        paddingRight: isChatOpen ? computeHeaderChatOpenPadding(containerWidth) : 150,
+        paddingLeft: headerSidePadding,
+        paddingRight: headerSidePadding,
         transform: headerVisible ? "translateY(0)" : "translateY(calc(-100% - 20px))",
         transition: `transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), right ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}, padding ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
       }}
@@ -443,6 +454,7 @@ export function Header({ pushRight = 0 }: HeaderProps) {
           marginRight: "auto",
           height: innerHeight * scale,
           paddingTop: 24 * scale,
+          transition: `height ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}, padding-top ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
         }}
       >
         <div
@@ -450,6 +462,7 @@ export function Header({ pushRight = 0 }: HeaderProps) {
             width: HEADER_MAX_WIDTH,
             transformOrigin: "top left",
             transform: `scale(${scale})`,
+            transition: `transform ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
             pointerEvents: "auto",
           }}
         >
