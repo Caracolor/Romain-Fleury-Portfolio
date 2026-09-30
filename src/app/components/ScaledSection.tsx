@@ -93,7 +93,7 @@ export function ScaledSection({
         maxWidth: maxWidthWithPadding,
         marginLeft: "auto",
         marginRight: !isMobileView && isChatOpen ? chatReservedWidth : "auto",
-        transition: `margin-right ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
+        transition: `margin-right ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}, height ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
         overflow: "visible",
         height: outerHeight,
         paddingLeft: sidePadding,
@@ -108,6 +108,7 @@ export function ScaledSection({
           width: maxWidth,
           transformOrigin: "top left",
           transform: `scale(${scale})`,
+          transition: `transform ${CHAT_TRANSITION_MS}ms ${CHAT_EASE_CSS}`,
         }}
       >
         {children}
